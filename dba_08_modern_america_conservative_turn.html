@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBA 8: Modern America: Conservative Turn | US History</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #fafaf8; color: #2c2c2a; line-height: 1.6; padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    .page-title { font-size: 32px; font-weight: 600; margin-bottom: 0.5rem; color: #2c2c2a; }
+    .orientation {
+      background: #e8eff7; border-left: 3px solid #185fa5;
+      border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem;
+      margin-bottom: 2rem; font-size: 14px; color: #1a3a5c; line-height: 1.6;
+    }
+    .orientation strong {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #185fa5; margin-bottom: 0.3rem;
+    }
+    .topic-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin-bottom: 2rem;
+    }
+    .topic-card {
+      background: #ffffff; border: 0.5px solid #d3d1c7;
+      border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s;
+    }
+    .topic-card:hover {
+      border-color: #888780; transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .topic-card.active { border-color: #185fa5; background: #e8eff7; }
+    .topic-number {
+      font-size: 12px; color: #888780; text-transform: uppercase;
+      letter-spacing: 0.1em; font-weight: 500; margin-bottom: 0.5rem;
+    }
+    .topic-title { font-size: 16px; font-weight: 600; color: #2c2c2a; margin-bottom: 0.75rem; line-height: 1.4; }
+    .topic-description { font-size: 13px; color: #5f5e5a; margin-bottom: 1rem; line-height: 1.5; }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px; background: #f5f3f0; color: #888780;
+      padding: 4px 8px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+    }
+    .panel {
+      display: none; background: #ffffff; border: 0.5px solid #d3d1c7;
+      border-radius: 12px; padding: 2rem; margin-bottom: 2rem;
+    }
+    .panel.active { display: block; animation: slideIn 0.3s ease; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .panel-title {
+      font-size: 22px; font-weight: 600; color: #2c2c2a;
+      margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid #d3d1c7;
+    }
+    .content-anchor {
+      background: #f5f3f0; border-radius: 8px; padding: 0.9rem 1.1rem;
+      margin-bottom: 1.75rem; font-size: 13.5px; color: #4a4a47; line-height: 1.7;
+    }
+    .content-anchor strong {
+      display: block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 0.35rem;
+    }
+    .prompt { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 0.5px solid #d3d1c7; }
+    .prompt:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .bloom-badge {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+    .bloom-understand { background: #e8eff7; color: #185fa5; }
+    .bloom-analyze    { background: #fae8d6; color: #854f0b; }
+    .bloom-evaluate   { background: #fceaea; color: #a32d2d; }
+    .bloom-create     { background: #e8f5e0; color: #3b6d11; }
+    .prompt-text { font-size: 15px; color: #2c2c2a; line-height: 1.7; margin-bottom: 0.85rem; font-weight: 500; }
+    .connector {
+      background: #f5f3f0; padding: 12px 14px; border-radius: 8px;
+      font-size: 13px; border-left: 2px solid #185fa5;
+      line-height: 1.65; color: #4a4a47;
+    }
+    .connector strong { color: #185fa5; font-weight: 600; }
+    footer {
+      text-align: center; padding: 2rem 0;
+      border-top: 0.5px solid #d3d1c7; font-size: 12px; color: #888780;
+    }
+    @media (prefers-color-scheme: dark) {
+      body               { background: #1a1a18; color: #e8e6de; }
+      .page-title        { color: #e8e6de; }
+      .orientation       { background: #0c2a4a; border-left-color: #85b7eb; color: #b8d4f0; }
+      .orientation strong { color: #85b7eb; }
+      .topic-card        { background: #262622; border-color: #444441; }
+      .topic-card:hover  { border-color: #888780; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+      .topic-card.active { border-color: #85b7eb; background: #0c2a4a; }
+      .topic-title       { color: #e8e6de; }
+      .topic-description { color: #b4b2a9; }
+      .topic-number      { color: #888780; }
+      .tag               { background: #333330; color: #b4b2a9; }
+      .panel             { background: #262622; border-color: #444441; }
+      .panel-title       { color: #e8e6de; border-color: #444441; }
+      .content-anchor    { background: #2a2a27; color: #b4b2a9; }
+      .content-anchor strong { color: #666663; }
+      .prompt-text       { color: #e8e6de; }
+      .prompt            { border-color: #444441; }
+      .connector         { background: #333330; border-left-color: #85b7eb; color: #b4b2a9; }
+      .connector strong  { color: #85b7eb; }
+      footer             { border-color: #444441; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1 class="page-title">DBA 8: Modern America: Conservative Turn</h1>
+
+    <div class="orientation">
+      <strong>How to use this page</strong>
+      Your DBA is a live conversation with your teacher about this module's content. Click a topic below, read each question, then practice your answer out loud before your call.
+    </div>
+
+    <div class="topic-grid">
+      <div class="topic-card" id="card-1" onclick="selectTopic(1)">
+        <div class="topic-number">Topic 1</div>
+        <div class="topic-title">U.S. &amp; the Middle East / Reagan Era</div>
+        <div class="topic-description">How did U.S. foreign policy in the Middle East and Reagan's domestic agenda reshape America in the 1980s and 90s?</div>
+        <div class="topic-tags"><span class="tag">Foreign Policy</span><span class="tag">Economy</span><span class="tag">Politics</span></div>
+      </div>
+      <div class="topic-card" id="card-2" onclick="selectTopic(2)">
+        <div class="topic-number">Topic 2</div>
+        <div class="topic-title">Terrorism, Human Rights &amp; Nuclear Threats</div>
+        <div class="topic-description">How have post-9/11 presidents balanced security, human rights, and nuclear proliferation?</div>
+        <div class="topic-tags"><span class="tag">Security</span><span class="tag">Rights</span><span class="tag">Power</span></div>
+      </div>
+      <div class="topic-card" id="card-3" onclick="selectTopic(3)">
+        <div class="topic-number">Topic 3</div>
+        <div class="topic-title">Environmental, Social &amp; Health Issues</div>
+        <div class="topic-description">What domestic crises have defined modern America and how has government responded?</div>
+        <div class="topic-tags"><span class="tag">Society</span><span class="tag">Environment</span><span class="tag">Health</span></div>
+      </div>
+    </div>
+
+    <div id="panels">
+      <div class="panel" id="panel-1">
+        <h2 class="panel-title">U.S. &amp; the Middle East / Reagan Era</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          The 1970s oil crisis, the Iran Hostage Crisis, and the Soviet invasion of Afghanistan drew the U.S. deeper into Middle Eastern affairs. Reagan won the 1980 election on promises of tax cuts, deregulation, and Cold War resolve — policies that grew the economy and the deficit simultaneously while reshaping the Democratic-Republican divide.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-understand">understand</span>
+          <p class="prompt-text">Describe the Yom Kippur War, the Iran Hostage Crisis, and the Soviet invasion of Afghanistan. How did each one pull the U.S. deeper into Middle Eastern affairs?</p>
+          <div class="connector"><strong>How to approach this:</strong> Cover all three with one concrete consequence each — oil embargo, hostage diplomacy, covert CIA support for the mujahideen. Then explain the cumulative pattern: what kind of entanglement did these events create?</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">Reagan's economic policies (Reaganomics) promised growth through tax cuts and deregulation. Who benefited most from these policies, and who did not? What does that distribution reveal?</p>
+          <div class="connector"><strong>How to approach this:</strong> Name specific groups on both sides — upper-income earners, financial sector versus industrial workers, rural communities. Then draw the larger conclusion: what economic theory was being tested, and what did the results show?</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-evaluate">evaluate</span>
+          <p class="prompt-text">The Iran-Contra affair showed that the executive branch was conducting secret foreign policy that bypassed Congress. Does national security justify that kind of secrecy? What is the strongest argument on each side?</p>
+          <div class="connector"><strong>How to approach this:</strong> Present both arguments genuinely. The strongest pro-secrecy argument isn't just 'national security' — it's about operational necessity and adversarial intelligence. The strongest anti-secrecy argument isn't just 'laws were broken' — it's about democratic accountability and precedent.</div>
+        </div>
+      </div>
+      <div class="panel" id="panel-2">
+        <h2 class="panel-title">Terrorism, Human Rights &amp; Nuclear Threats</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          The September 11 attacks triggered the PATRIOT Act, the Department of Homeland Security, the invasion of Afghanistan, and later Iraq. These decisions launched debates about civil liberties, torture, indefinite detention, and the limits of executive power that continued across multiple presidencies.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">After 9/11, the U.S. passed the Patriot Act, created the Department of Homeland Security, and opened Guantanamo Bay. Which of these responses do you think most strained civil liberties, and why?</p>
+          <div class="connector"><strong>How to approach this:</strong> Pick one and explain the specific civil liberty it affected — Fourth Amendment searches, habeas corpus, free association. The strongest answer traces a specific legal or policy consequence, not just a general concern.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-create">create</span>
+          <p class="prompt-text">You are advising a president on nuclear proliferation. One country has secretly developed nuclear weapons. You can pursue diplomacy, economic sanctions, cyberattacks, or military action. Each has costs and risks. What do you recommend, and what principles guide your choice?</p>
+          <div class="connector"><strong>How to approach this:</strong> Name your recommendation and the principle behind it — deterrence, non-proliferation norms, proportionality. Then acknowledge the biggest risk of your chosen option and explain why it's still preferable to the alternatives.</div>
+        </div>
+      </div>
+      <div class="panel" id="panel-3">
+        <h2 class="panel-title">Environmental, Social &amp; Health Issues</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          Modern America has faced overlapping domestic crises: the HIV/AIDS epidemic, the opioid crisis, COVID-19, and climate change — each revealing gaps between public health needs and government capacity or political will. Globalization reshaped the economy, creating new wealth while displacing manufacturing workers and communities.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">The HIV/AIDS crisis, the opioid epidemic, and COVID-19 all exposed gaps between public health needs and government response. What patterns do you see across these three crises?</p>
+          <div class="connector"><strong>How to approach this:</strong> Look for structural patterns, not just surface similarities — delayed response, politics overriding science, uneven impact across race and class. The strongest answers name the pattern precisely and give evidence from at least two of the three crises.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-evaluate">evaluate</span>
+          <p class="prompt-text">Globalization, trade agreements, and immigration have all been described as both opportunities and threats to American workers. Using a specific example, argue which description is more accurate and why.</p>
+          <div class="connector"><strong>How to approach this:</strong> Pick a specific trade agreement (NAFTA) or industry (manufacturing in the Midwest) and trace its actual effects. Then take a position: on balance, did this specific example create more opportunity or more threat, and for whom?</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+  </div>
+  <script>
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panel-' + id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>

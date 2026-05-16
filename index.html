@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US History — DBA Prep</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #fafaf8;
+      color: #2c2c2a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .page-title { font-size: 32px; font-weight: 600; margin-bottom: 0.5rem; color: #2c2c2a; }
+
+    .orientation {
+      background: #e8eff7;
+      border-left: 3px solid #185fa5;
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 2rem;
+      font-size: 14px;
+      color: #1a3a5c;
+      line-height: 1.6;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #185fa5;
+      margin-bottom: 0.3rem;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .dba-card {
+      background: #ffffff;
+      border: 0.5px solid #d3d1c7;
+      border-radius: 12px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .dba-card:hover {
+      border-color: #185fa5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .card-num {
+      font-size: 12px;
+      color: #888780;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c2c2a;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .card-subtitle {
+      font-size: 13px;
+      color: #5f5e5a;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+    .topic-pill {
+      font-size: 11px;
+      background: #f5f3f0;
+      color: #888780;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 0.85rem;
+      border-top: 0.5px solid #d3d1c7;
+      font-size: 12px;
+      color: #185fa5;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 0.5px solid #d3d1c7;
+      font-size: 12px;
+      color: #888780;
+    }
+
+    /* ── PASSWORD MODAL ── */
+    .modal-overlay {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 28, 26, 0.6);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(4px);
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .modal-overlay.open { visibility: visible; opacity: 1; }
+    .modal {
+      background: #ffffff;
+      border: 0.5px solid #d3d1c7;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 380px;
+      transform: translateY(12px);
+      transition: transform 0.22s ease;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-eyebrow {
+      font-size: 11px;
+      color: #888780;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c2c2a;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .modal-sub {
+      font-size: 13px;
+      color: #888780;
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+    .modal-field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5f5e5a;
+      margin-bottom: 0.4rem;
+    }
+    .modal-field input {
+      width: 100%;
+      background: #fafaf8;
+      border: 0.5px solid #d3d1c7;
+      border-radius: 8px;
+      color: #2c2c2a;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 0.65rem 0.9rem;
+      outline: none;
+      transition: border-color 0.18s;
+    }
+    .modal-field input:focus { border-color: #185fa5; }
+    .modal-field input::placeholder { color: #b4b2a9; }
+    .modal-error {
+      font-size: 12px;
+      color: #a32d2d;
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+      display: none;
+    }
+    .modal-actions { display: flex; gap: 0.65rem; margin-top: 1.25rem; }
+    .btn-enter {
+      flex: 1;
+      background: #185fa5;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .btn-enter:hover { background: #145088; }
+    .btn-cancel {
+      background: none;
+      border: 0.5px solid #d3d1c7;
+      color: #888780;
+      font-family: inherit;
+      font-size: 13px;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .btn-cancel:hover { border-color: #888780; color: #5f5e5a; }
+    .shake { animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-6px); }
+      40%      { transform: translateX(6px); }
+      60%      { transform: translateX(-4px); }
+      80%      { transform: translateX(4px); }
+    }
+
+    /* ── DARK MODE ── */
+    @media (prefers-color-scheme: dark) {
+      body               { background: #1a1a18; color: #e8e6de; }
+      .page-title        { color: #e8e6de; }
+      .orientation       { background: #0c2a4a; border-left-color: #85b7eb; color: #b8d4f0; }
+      .orientation strong { color: #85b7eb; }
+      .dba-card          { background: #262622; border-color: #444441; }
+      .dba-card:hover    { border-color: #85b7eb; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+      .card-num          { color: #888780; }
+      .card-title        { color: #e8e6de; }
+      .card-subtitle     { color: #b4b2a9; }
+      .topic-pill        { background: #333330; color: #b4b2a9; }
+      .card-cta          { border-color: #444441; color: #85b7eb; }
+      footer             { border-color: #444441; }
+      .modal-overlay     { background: rgba(10,10,8,0.75); }
+      .modal             { background: #262622; border-color: #444441; box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+      .modal-eyebrow     { color: #888780; }
+      .modal-title       { color: #e8e6de; }
+      .modal-sub         { color: #888780; }
+      .modal-field label { color: #b4b2a9; }
+      .modal-field input { background: #1a1a18; border-color: #444441; color: #e8e6de; }
+      .modal-field input:focus { border-color: #85b7eb; }
+      .modal-field input::placeholder { color: #666663; }
+      .modal-error       { color: #ef9a9a; }
+      .btn-enter         { background: #185fa5; }
+      .btn-cancel        { border-color: #444441; color: #888780; }
+      .btn-cancel:hover  { border-color: #888780; color: #b4b2a9; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1 class="page-title">US History — DBA Prep</h1>
+
+    <div class="orientation">
+      <strong>How to use these guides</strong>
+      Your teacher will give you the password for your module. Enter it to open your guide, then work through each topic and practice your answers out loud before your call.
+    </div>
+
+    <div class="module-grid">
+
+      <div class="dba-card" data-dba="1">
+        <div class="card-num">Module 1 · DBA 1</div>
+        <div class="card-title">Reconstruction Era</div>
+        <div class="card-subtitle">The Civil War's aftermath, the constitutional amendments, and the collapse of Reconstruction</div>
+        <div class="card-topics">
+          <span class="topic-pill">Causes of the Civil War</span>
+          <span class="topic-pill">Reconstruction Plans</span>
+          <span class="topic-pill">13th–15th Amendments</span>
+          <span class="topic-pill">Black Codes</span>
+          <span class="topic-pill">Collapse</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="2">
+        <div class="card-num">Module 2 · DBA 2</div>
+        <div class="card-title">The Industrial Transformation</div>
+        <div class="card-subtitle">Industrialization, immigration, labor struggles, and the push for Progressive reform</div>
+        <div class="card-topics">
+          <span class="topic-pill">Industrial Revolution</span>
+          <span class="topic-pill">Immigration</span>
+          <span class="topic-pill">Labor Movement</span>
+          <span class="topic-pill">Political Machines</span>
+          <span class="topic-pill">Progressive Reform</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="3">
+        <div class="card-num">Module 3 · DBA 3</div>
+        <div class="card-title">American Imperialism &amp; WWI</div>
+        <div class="card-subtitle">America's rise as a global power, the Great War, and a peace that failed</div>
+        <div class="card-topics">
+          <span class="topic-pill">Isolation to Empire</span>
+          <span class="topic-pill">Spanish-American War</span>
+          <span class="topic-pill">WWI Entry</span>
+          <span class="topic-pill">Home Front</span>
+          <span class="topic-pill">Treaty &amp; League</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="4">
+        <div class="card-num">Module 4 · DBA 4</div>
+        <div class="card-title">The 1920s &amp; Great Depression</div>
+        <div class="card-subtitle">Boom, cultural conflict, economic collapse, and the New Deal response</div>
+        <div class="card-topics">
+          <span class="topic-pill">Roaring Twenties</span>
+          <span class="topic-pill">Harlem Renaissance</span>
+          <span class="topic-pill">Causes of the Crash</span>
+          <span class="topic-pill">Great Depression</span>
+          <span class="topic-pill">New Deal</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="5">
+        <div class="card-num">Module 5 · DBA 5</div>
+        <div class="card-title">World War II &amp; Atomic Age</div>
+        <div class="card-subtitle">From appeasement to Pearl Harbor, the home front, the Holocaust, and the bomb</div>
+        <div class="card-topics">
+          <span class="topic-pill">WWII Causes</span>
+          <span class="topic-pill">U.S. Neutrality</span>
+          <span class="topic-pill">The Holocaust</span>
+          <span class="topic-pill">Home Front</span>
+          <span class="topic-pill">Atomic Bomb</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="6">
+        <div class="card-num">Module 6 · DBA 6</div>
+        <div class="card-title">The Cold War</div>
+        <div class="card-subtitle">Superpower rivalry, containment, nuclear standoffs, and fear at home</div>
+        <div class="card-topics">
+          <span class="topic-pill">Truman Doctrine</span>
+          <span class="topic-pill">Korean War</span>
+          <span class="topic-pill">Cuban Missile Crisis</span>
+          <span class="topic-pill">Vietnam</span>
+          <span class="topic-pill">McCarthyism</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="7">
+        <div class="card-num">Module 7 · DBA 7</div>
+        <div class="card-title">Civil Rights Movement</div>
+        <div class="card-subtitle">The Great Society, the fight for equality, and the movements it inspired</div>
+        <div class="card-topics">
+          <span class="topic-pill">Great Society</span>
+          <span class="topic-pill">Civil Rights Figures</span>
+          <span class="topic-pill">Nonviolence &amp; Strategy</span>
+          <span class="topic-pill">Other Movements</span>
+          <span class="topic-pill">Warren Court</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+      <div class="dba-card" data-dba="8">
+        <div class="card-num">Module 8 · DBA 8</div>
+        <div class="card-title">Modern America: Conservative Turn</div>
+        <div class="card-subtitle">Reagan, the Middle East, 9/11, and the domestic crises that defined the present</div>
+        <div class="card-topics">
+          <span class="topic-pill">Reagan Era</span>
+          <span class="topic-pill">Middle East</span>
+          <span class="topic-pill">September 11</span>
+          <span class="topic-pill">Civil Liberties</span>
+          <span class="topic-pill">Health &amp; Environment</span>
+        </div>
+        <div class="card-cta">🔒 Enter password to open</div>
+      </div>
+
+    </div>
+
+    <footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+  </div>
+
+  <!-- PASSWORD MODAL -->
+  <div class="modal-overlay" id="pw-overlay">
+    <div class="modal" id="pw-modal">
+      <div class="modal-eyebrow" id="pw-eyebrow"></div>
+      <div class="modal-title" id="pw-title"></div>
+      <div class="modal-sub">Your teacher will give you the password for this module.</div>
+      <div class="modal-field">
+        <label for="pw-input">Password</label>
+        <input type="password" id="pw-input" placeholder="Type password here…" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="modal-error" id="pw-error">Incorrect password — check with your teacher.</div>
+      <div class="modal-actions">
+        <button class="btn-enter" id="pw-submit">Open Module</button>
+        <button class="btn-cancel" id="pw-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var PASSWORDS = {
+      '1': 'superman',
+      '2': 'ironman',
+      '3': 'spiderman',
+      '4': 'batman',
+      '5': 'joker',
+      '6': 'venom',
+      '7': 'goblin',
+      '8': 'penguin'
+    };
+
+    var URLS = {
+      '1': 'dba_01_reconstruction_era.html',
+      '2': 'dba_02_the_industrial_transformation.html',
+      '3': 'dba_03_american_imperialism_and_wwi.html',
+      '4': 'dba_04_the_1920s_and_great_depression.html',
+      '5': 'dba_05_world_war_ii_and_atomic_age.html',
+      '6': 'dba_06_the_cold_war.html',
+      '7': 'dba_07_civil_rights_movement.html',
+      '8': 'dba_08_modern_america_conservative_turn.html'
+    };
+
+    var TITLES = {
+      '1': 'Reconstruction Era',
+      '2': 'The Industrial Transformation',
+      '3': 'American Imperialism & WWI',
+      '4': 'The 1920s & Great Depression',
+      '5': 'World War II & Atomic Age',
+      '6': 'The Cold War',
+      '7': 'Civil Rights Movement',
+      '8': 'Modern America: Conservative Turn'
+    };
+
+    var EYEBROWS = {
+      '1': 'Module 1 · DBA 1',
+      '2': 'Module 2 · DBA 2',
+      '3': 'Module 3 · DBA 3',
+      '4': 'Module 4 · DBA 4',
+      '5': 'Module 5 · DBA 5',
+      '6': 'Module 6 · DBA 6',
+      '7': 'Module 7 · DBA 7',
+      '8': 'Module 8 · DBA 8'
+    };
+
+    var currentDba = null;
+    var overlay   = document.getElementById('pw-overlay');
+    var modal     = document.getElementById('pw-modal');
+    var eyebrow   = document.getElementById('pw-eyebrow');
+    var titleEl   = document.getElementById('pw-title');
+    var input     = document.getElementById('pw-input');
+    var errorDiv  = document.getElementById('pw-error');
+    var submitBtn = document.getElementById('pw-submit');
+    var cancelBtn = document.getElementById('pw-cancel');
+
+    function openModal(dba) {
+      currentDba = String(dba);
+      eyebrow.textContent = EYEBROWS[currentDba] || '';
+      titleEl.textContent = TITLES[currentDba]   || '';
+      input.value = '';
+      errorDiv.style.display = 'none';
+      input.style.borderColor = '';
+      overlay.classList.add('open');
+      setTimeout(function() { input.focus(); }, 100);
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      currentDba = null;
+      input.value = '';
+      errorDiv.style.display = 'none';
+      input.style.borderColor = '';
+    }
+
+    function checkPassword() {
+      if (!currentDba) return;
+      var entered  = input.value.trim().toLowerCase();
+      var expected = PASSWORDS[currentDba];
+      if (entered === expected) {
+        overlay.classList.remove('open');
+        window.location.href = URLS[currentDba];
+      } else {
+        errorDiv.style.display = 'block';
+        input.value = '';
+        input.style.borderColor = 'rgba(163,45,45,0.5)';
+        input.classList.remove('shake');
+        void input.offsetWidth;
+        input.classList.add('shake');
+        setTimeout(function() {
+          input.style.borderColor = '';
+          input.classList.remove('shake');
+        }, 500);
+        input.focus();
+      }
+    }
+
+    document.querySelectorAll('.dba-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var dba = card.getAttribute('data-dba');
+        if (dba) openModal(dba);
+      });
+    });
+
+    submitBtn.addEventListener('click', function(e) { e.stopPropagation(); checkPassword(); });
+    cancelBtn.addEventListener('click', function(e) { e.stopPropagation(); closeModal(); });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter')  { e.preventDefault(); checkPassword(); }
+      if (e.key === 'Escape') { closeModal(); }
+      if (e.key !== 'Enter' && e.key !== 'Escape') {
+        errorDiv.style.display = 'none';
+        input.style.borderColor = '';
+      }
+    });
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    modal.addEventListener('click', function(e) { e.stopPropagation(); });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+  </script>
+</body>
+</html>

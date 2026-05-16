@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBA 1: Reconstruction Era | US History</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #fafaf8; color: #2c2c2a; line-height: 1.6; padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    .page-title { font-size: 32px; font-weight: 600; margin-bottom: 0.5rem; color: #2c2c2a; }
+    .orientation {
+      background: #e8eff7; border-left: 3px solid #185fa5;
+      border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem;
+      margin-bottom: 2rem; font-size: 14px; color: #1a3a5c; line-height: 1.6;
+    }
+    .orientation strong {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #185fa5; margin-bottom: 0.3rem;
+    }
+    .topic-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin-bottom: 2rem;
+    }
+    .topic-card {
+      background: #ffffff; border: 0.5px solid #d3d1c7;
+      border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s;
+    }
+    .topic-card:hover {
+      border-color: #888780; transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .topic-card.active { border-color: #185fa5; background: #e8eff7; }
+    .topic-number {
+      font-size: 12px; color: #888780; text-transform: uppercase;
+      letter-spacing: 0.1em; font-weight: 500; margin-bottom: 0.5rem;
+    }
+    .topic-title { font-size: 16px; font-weight: 600; color: #2c2c2a; margin-bottom: 0.75rem; line-height: 1.4; }
+    .topic-description { font-size: 13px; color: #5f5e5a; margin-bottom: 1rem; line-height: 1.5; }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px; background: #f5f3f0; color: #888780;
+      padding: 4px 8px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+    }
+    .panel {
+      display: none; background: #ffffff; border: 0.5px solid #d3d1c7;
+      border-radius: 12px; padding: 2rem; margin-bottom: 2rem;
+    }
+    .panel.active { display: block; animation: slideIn 0.3s ease; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .panel-title {
+      font-size: 22px; font-weight: 600; color: #2c2c2a;
+      margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid #d3d1c7;
+    }
+    .content-anchor {
+      background: #f5f3f0; border-radius: 8px; padding: 0.9rem 1.1rem;
+      margin-bottom: 1.75rem; font-size: 13.5px; color: #4a4a47; line-height: 1.7;
+    }
+    .content-anchor strong {
+      display: block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin-bottom: 0.35rem;
+    }
+    .prompt { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 0.5px solid #d3d1c7; }
+    .prompt:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .bloom-badge {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+    .bloom-understand { background: #e8eff7; color: #185fa5; }
+    .bloom-analyze    { background: #fae8d6; color: #854f0b; }
+    .bloom-evaluate   { background: #fceaea; color: #a32d2d; }
+    .bloom-create     { background: #e8f5e0; color: #3b6d11; }
+    .prompt-text { font-size: 15px; color: #2c2c2a; line-height: 1.7; margin-bottom: 0.85rem; font-weight: 500; }
+    .connector {
+      background: #f5f3f0; padding: 12px 14px; border-radius: 8px;
+      font-size: 13px; border-left: 2px solid #185fa5;
+      line-height: 1.65; color: #4a4a47;
+    }
+    .connector strong { color: #185fa5; font-weight: 600; }
+    footer {
+      text-align: center; padding: 2rem 0;
+      border-top: 0.5px solid #d3d1c7; font-size: 12px; color: #888780;
+    }
+    @media (prefers-color-scheme: dark) {
+      body               { background: #1a1a18; color: #e8e6de; }
+      .page-title        { color: #e8e6de; }
+      .orientation       { background: #0c2a4a; border-left-color: #85b7eb; color: #b8d4f0; }
+      .orientation strong { color: #85b7eb; }
+      .topic-card        { background: #262622; border-color: #444441; }
+      .topic-card:hover  { border-color: #888780; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+      .topic-card.active { border-color: #85b7eb; background: #0c2a4a; }
+      .topic-title       { color: #e8e6de; }
+      .topic-description { color: #b4b2a9; }
+      .topic-number      { color: #888780; }
+      .tag               { background: #333330; color: #b4b2a9; }
+      .panel             { background: #262622; border-color: #444441; }
+      .panel-title       { color: #e8e6de; border-color: #444441; }
+      .content-anchor    { background: #2a2a27; color: #b4b2a9; }
+      .content-anchor strong { color: #666663; }
+      .prompt-text       { color: #e8e6de; }
+      .prompt            { border-color: #444441; }
+      .connector         { background: #333330; border-left-color: #85b7eb; color: #b4b2a9; }
+      .connector strong  { color: #85b7eb; }
+      footer             { border-color: #444441; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1 class="page-title">DBA 1: Reconstruction Era</h1>
+
+    <div class="orientation">
+      <strong>How to use this page</strong>
+      Your DBA is a live conversation with your teacher about this module's content. Click a topic below, read each question, then practice your answer out loud before your call.
+    </div>
+
+    <div class="topic-grid">
+      <div class="topic-card" id="card-1" onclick="selectTopic(1)">
+        <div class="topic-number">Topic 1</div>
+        <div class="topic-title">Causes &amp; Consequences of the Civil War</div>
+        <div class="topic-description">What political, economic, and social forces drove the war and its aftermath?</div>
+        <div class="topic-tags"><span class="tag">Politics</span><span class="tag">Economy</span><span class="tag">Society</span></div>
+      </div>
+      <div class="topic-card" id="card-2" onclick="selectTopic(2)">
+        <div class="topic-number">Topic 2</div>
+        <div class="topic-title">Reconstruction Plans &amp; Amendments</div>
+        <div class="topic-description">How did leaders disagree on rebuilding the South, and what rights did the amendments guarantee?</div>
+        <div class="topic-tags"><span class="tag">Rights</span><span class="tag">Power</span><span class="tag">Law</span></div>
+      </div>
+      <div class="topic-card" id="card-3" onclick="selectTopic(3)">
+        <div class="topic-number">Topic 3</div>
+        <div class="topic-title">Limitations &amp; Collapse of Reconstruction</div>
+        <div class="topic-description">How were Black rights restricted after the war, and why did Reconstruction end?</div>
+        <div class="topic-tags"><span class="tag">Legacy</span><span class="tag">Power</span><span class="tag">Conflict</span></div>
+      </div>
+    </div>
+
+    <div id="panels">
+      <div class="panel" id="panel-1">
+        <h2 class="panel-title">Causes &amp; Consequences of the Civil War</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          The Civil War grew out of decades of conflict over slavery, states' rights, and economic differences between the industrializing North and the agricultural South. Its consequences reshaped the country's legal foundation and left four million formerly enslaved people seeking freedom in a devastated nation.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-understand">understand</span>
+          <p class="prompt-text">Name one political, one economic, and one social cause of the Civil War. Why did these three forces combine to make war likely?</p>
+          <div class="connector"><strong>How to approach this:</strong> Start with one concrete example for each category — a specific law, an economic fact, a social tension. Then explain why all three had to exist together for war to happen, not just one alone.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">The Civil War had consequences for politics, the economy, and society. Which type of consequence do you think mattered most for what came after? Why?</p>
+          <div class="connector"><strong>How to approach this:</strong> Pick the category you think mattered most and build a case for it. Your answer is stronger if you also explain why the other two, while real, mattered less.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-evaluate">evaluate</span>
+          <p class="prompt-text">Some say the Civil War was inevitable; others say political leaders could have prevented it. What is your view, and what evidence supports it?</p>
+          <div class="connector"><strong>How to approach this:</strong> Take a clear position — inevitable or preventable — and name at least one specific decision point or event that supports it. Sitting on the fence is harder to defend in a live conversation than a committed argument.</div>
+        </div>
+      </div>
+      <div class="panel" id="panel-2">
+        <h2 class="panel-title">Reconstruction Plans &amp; Amendments</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          After the war, Lincoln, Congress, and later President Johnson clashed over how to bring Southern states back into the Union and what rights to guarantee formerly enslaved people. The 13th, 14th, and 15th Amendments were the era's most lasting legal achievements — and the most fiercely contested.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-understand">understand</span>
+          <p class="prompt-text">Compare Lincoln's plan and the Wade-Davis Bill. What was the key disagreement between Congress and the president about how lenient Reconstruction should be?</p>
+          <div class="connector"><strong>How to approach this:</strong> Know the core disagreement: Lincoln wanted a fast, lenient return to the Union; Congress wanted stricter conditions and real guarantees for Black Americans. Be ready to say which side had the stronger argument and why.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">The 13th, 14th, and 15th Amendments guaranteed freedom, citizenship, and voting rights. Which one do you think made the biggest immediate difference for formerly enslaved people? Why?</p>
+          <div class="connector"><strong>How to approach this:</strong> Don't just list what each amendment did — think about what it meant in practice. Which one put something specific in people's hands right away? Start there, then explain why the others, while important, had more delayed impact.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-create">create</span>
+          <p class="prompt-text">You are advising Congress in 1865. Should Reconstruction be lenient (fast reunion) or strict (enforce real change)? What would you recommend, and what would you be willing to sacrifice for your choice?</p>
+          <div class="connector"><strong>How to approach this:</strong> Commit to a recommendation. The most convincing answers name what you would gain, what you would lose, and why the tradeoff is worth it — not just which option sounds better in the abstract.</div>
+        </div>
+      </div>
+      <div class="panel" id="panel-3">
+        <h2 class="panel-title">Limitations &amp; Collapse of Reconstruction</h2>
+        <div class="content-anchor">
+          <strong>Quick context</strong>
+          Reconstruction ended when federal troops withdrew from the South in 1877, leaving Black Americans exposed to Black Codes, sharecropping, and violent intimidation by groups like the Ku Klux Klan. The period's collapse set the conditions for nearly a century of legal segregation.
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-analyze">analyze</span>
+          <p class="prompt-text">After Reconstruction, Black Americans faced political, economic, and social restrictions. Which category of limitation was hardest to fight back against, and why?</p>
+          <div class="connector"><strong>How to approach this:</strong> Think about which restriction was hardest to fight — political (can't vote), economic (can't build wealth), or social (constant threat of violence). The strongest answer explains why that category also blocked progress in the other two.</div>
+        </div>
+        <div class="prompt">
+          <span class="bloom-badge bloom-evaluate">evaluate</span>
+          <p class="prompt-text">Reconstruction collapsed due to Northern fatigue, Southern violence, and weak federal enforcement. Which factor was most responsible? What evidence supports your answer?</p>
+          <div class="connector"><strong>How to approach this:</strong> Pick the one cause you can defend most specifically. Saying 'all three' without ranking them is a non-answer in a live DBA — your teacher will ask you to choose, so choose now and practice defending it.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+  </div>
+  <script>
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panel-' + id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>
