@@ -1,145 +1,1089 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DBA 3 Visual Prep | US History</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{--navy:#1B2B4B;--navy-dark:#111d33;--cream:#F4EED7;--gold:#C9973F;--gold-light:#e8b85a;--teal:#4db6ac;--rose:#ef9a9a;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Crimson Text',Georgia,serif;background:var(--navy-dark);color:var(--cream);min-height:100vh}
-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
-.eyebrow{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--cream);line-height:1.1}
-header h1 span{color:var(--gold)}
-.header-sub{font-size:1.05rem;color:rgba(244,238,215,.6);font-style:italic;margin-top:.4rem}
-.badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}
-.badge{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2px;border:1px solid;border-color:var(--gold);color:var(--gold)}
-.intro{max-width:820px;margin:1.5rem auto;padding:1.1rem 1.75rem;background:rgba(244,238,215,.05);border-left:3px solid var(--gold);font-size:1rem;line-height:1.7;color:rgba(244,238,215,.78)}
-.intro strong{font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.section-label{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:1px;background:rgba(201,151,63,.25)}
+<!DOCTYPE html>
 
-/* TOPIC CARDS */
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;margin-bottom:1.5rem}
-.topic-card{background:var(--navy);border:1px solid rgba(201,151,63,.2);border-top:3px solid var(--gold);border-radius:2px;padding:1.4rem;cursor:pointer;transition:all .22s ease;position:relative;user-select:none}
-.topic-card:hover{border-color:rgba(201,151,63,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.topic-card.active{background:rgba(201,151,63,.1);border-top-color:var(--gold-light)}
-.tc-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.7rem}
-.tc-lenses{display:flex;flex-wrap:wrap;gap:.35rem}
-.lens{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;background:rgba(201,151,63,.1);color:rgba(244,238,215,.65);border:1px solid rgba(201,151,63,.2);border-radius:1px}
-.tc-arrow{position:absolute;top:1.3rem;right:1.3rem;color:var(--gold);font-size:1.1rem;transition:transform .22s ease}
-.topic-card.active .tc-arrow{transform:rotate(90deg)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DBA 1: Reconstruction Era | US History</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* PANEL */
-.topic-panel{display:none;background:#0d1627;border:1px solid rgba(201,151,63,.22);border-top:2px solid var(--gold);border-radius:2px;margin-bottom:1.25rem;animation:fadeIn .28s ease}
-.topic-panel.open{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.panel-top{padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,151,63,.13);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.pt-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem}
-.pt-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream)}
-.close-btn{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,215,.45);cursor:pointer;padding:.28rem .7rem;border:1px solid rgba(244,238,215,.15);border-radius:2px;background:none;transition:all .2s;flex-shrink:0}
-.close-btn:hover{color:var(--cream);border-color:rgba(244,238,215,.35)}
+    :root {
+      --bg:       #f7f5f0;
+      --surface:  #ffffff;
+      --border:   #e0dbd2;
+      --navy:     #1c2b3a;
+      --navy-mid: #253d56;
+      --accent:   #b8802a;
+      --text:     #1e1c18;
+      --text-2:   #5a5751;
+      --text-3:   #9b9792;
+      --green:    #4caf50;
+      --rose:     #c65d5d;
+      --purple:   #7b68aa;
+      --teal:     #4db8ac;
+    }
 
-/* HOOK */
-.hook{padding:.9rem 1.75rem;background:rgba(122,26,26,.13);border-bottom:1px solid rgba(122,26,26,.28);display:flex;align-items:flex-start;gap:.9rem}
-.hook-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.18rem .45rem;border:1px solid rgba(239,154,154,.35);border-radius:1px;white-space:nowrap;margin-top:.1rem;flex-shrink:0}
-.hook-q{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.9);line-height:1.55}
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* PANEL BODY */
-.panel-body{display:grid;grid-template-columns:300px 1fr}
-@media(max-width:760px){.panel-body{grid-template-columns:1fr}}
-.media-col{padding:1.4rem;border-right:1px solid rgba(201,151,63,.1);display:flex;flex-direction:column;gap:1rem}
-.media-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,151,63,.6);margin-bottom:.3rem}
-.cartoon-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#c97fd4;margin-bottom:.3rem}
-.img-cap{font-size:.76rem;font-style:italic;color:rgba(244,238,215,.4);margin-top:.3rem;line-height:1.4}
-.img-wrap{position:relative;cursor:zoom-in}
-.img-wrap::after{content:'expand';position:absolute;bottom:0;right:0;background:rgba(0,0,0,.65);color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .45rem;border-top-left-radius:2px;opacity:0;transition:opacity .2s}
-.img-wrap:hover::after{opacity:1}
+    /* ── Page Header ──────────────────── */
+    .page-header {
+      background: var(--navy);
+      padding: 2.75rem 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: attr(data-dba-num);
+      position: absolute;
+      right: 0.5rem;
+      top: -0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 15rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .dba-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 0;
+    }
 
-/* CONTENT COL */
-.content-col{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+    /* ── DBA Nav ──────────────────────── */
+    .dba-nav { background: var(--navy-mid); }
+    .dba-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dba-nav-inner::-webkit-scrollbar { display: none; }
+    .dba-nav-link {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .dba-nav-link:hover { color: rgba(255,255,255,0.78); }
+    .dba-nav-link.current { color: #ffffff; border-bottom-color: var(--accent); }
+    .dba-nav-link .num {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
 
-/* STORY */
-.story-block{background:rgba(244,238,215,.04);border-left:3px solid rgba(201,151,63,.4);padding:.9rem 1rem;border-radius:0 2px 2px 0}
-.story-text{font-size:.98rem;color:rgba(244,238,215,.85);line-height:1.75}
+    /* ── Container ────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
 
-/* FLOW CHAIN */
-.flow-chain{display:flex;flex-direction:column;gap:.5rem}
-.flow-chain-label{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
-.flow-steps{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.flow-step{flex:1;min-width:130px;background:rgba(27,43,75,.7);border:1px solid rgba(77,182,172,.2);padding:.75rem .85rem;position:relative}
-.flow-step:first-child{border-radius:3px 0 0 3px}
-.flow-step:last-child{border-radius:0 3px 3px 0}
-.step-num{font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;opacity:.75}
-.step-label{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;line-height:1.2}
-.step-text{font-size:.85rem;color:rgba(244,238,215,.75);line-height:1.55}
-.flow-arrow{display:flex;align-items:center;padding:0 .35rem;color:rgba(77,182,172,.5);font-size:1.1rem;flex-shrink:0;align-self:center}
-@media(max-width:580px){.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+    /* ── Orientation ──────────────────── */
+    .orientation {
+      background: #ecf1f8;
+      border: 1px solid #ccd8ea;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 13.5px;
+      color: #2a3f5e;
+      line-height: 1.65;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #3a5880;
+      margin-bottom: 0.3rem;
+    }
 
-/* CONNECTION */
-.connection-block{background:rgba(201,151,63,.07);border:1px solid rgba(201,151,63,.2);border-radius:2px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start}
-.conn-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.conn-label{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-.conn-text{font-size:.9rem;color:rgba(244,238,215,.78);line-height:1.6}
+    /* ── Topic Grid ───────────────────── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      gap: 14px;
+      margin-bottom: 2.5rem;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 3px;
+      background: transparent;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.18s;
+    }
+    .topic-card:hover {
+      border-color: #c5bfb6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+    .topic-card:hover::before { background: #c5bfb6; }
+    .topic-card.active { border-color: var(--navy); background: #eef2f7; }
+    .topic-card.active::before { background: var(--navy); }
+    .topic-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.45rem;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .topic-description {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
 
-/* STARTER */
-.starter-block{background:rgba(201,151,63,.06);border-left:2px solid var(--gold);padding:.65rem .9rem}
-.starter-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.starter-text{font-size:.9rem;font-style:italic;color:rgba(244,238,215,.7);line-height:1.5}
+    /* ── Panels ───────────────────────── */
+    .panels { display: none; }
+    .panels.open { display: block; }
+    .panel {
+      display: none;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: slideIn 0.25s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .content-anchor {
+      background: #faf9f6;
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .content-anchor strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-/* RIGOR */
-.rigor{padding:.85rem 1rem;background:rgba(27,43,75,.6);border:1px solid rgba(126,179,224,.18);border-radius:2px}
-.rigor-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#7eb3e0;margin-bottom:.3rem}
-.rigor-q{font-size:.93rem;color:rgba(244,238,215,.85);line-height:1.65;font-style:italic}
+    /* ── NEW: Primary Source Section ──── */
+    .primary-source {
+      background: #f0f8f5;
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .ps-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f8f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .ps-toggle:hover { background: rgba(76,175,80,0.08); }
+    .ps-indicator {
+      font-size: 1.2rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ps-toggle.open .ps-indicator { transform: rotate(90deg); }
+    .ps-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .ps-toggle.open + .ps-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(76,175,80,0.15);
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .ps-quote {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+      border-left: 2px solid rgba(76,175,80,0.3);
+      padding-left: 0.8rem;
+    }
+    .ps-source {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .ps-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ps-q {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .ps-q strong { color: var(--green); }
 
-/* YOUR TURN */
-.your-take{padding:1.4rem 1.75rem;background:rgba(122,26,26,.08);border-top:1px solid rgba(122,26,26,.22)}
-.yt-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.65rem}
-.yt-lbl{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);padding:.22rem .55rem;border:1px solid rgba(239,154,154,.35);border-radius:1px}
-.yt-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--cream)}
-.yt-prompt{font-size:.93rem;color:rgba(244,238,215,.75);line-height:1.65;margin-bottom:.75rem;font-style:italic}
-.yt-box{width:100%;min-height:80px;background:rgba(0,0,0,.28);border:1px solid rgba(239,154,154,.22);border-radius:2px;color:var(--cream);font-family:'Crimson Text',serif;font-size:1rem;padding:.7rem;resize:vertical}
-.yt-box:focus{outline:none;border-color:rgba(239,154,154,.45)}
-.yt-box::placeholder{color:rgba(244,238,215,.28);font-style:italic}
-.copy-row{display:flex;align-items:center;gap:.75rem;margin-top:.6rem}
-.copy-btn{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;background:rgba(201,151,63,.12);border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;flex-shrink:0}
-.copy-btn:hover{background:rgba(201,151,63,.25)}
-.copy-confirm{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#81c784;opacity:0;transition:opacity .3s}
-.copy-confirm.show{opacity:1}
+    /* ── NEW: Misconception Section ──── */
+    .misconception {
+      background: #fef5f5;
+      border: 1px solid rgba(198,93,93,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .misconcept-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #fef5f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--rose);
+    }
+    .misconcept-toggle:hover { background: rgba(198,93,93,0.05); }
+    .misconcept-toggle.open { background: rgba(198,93,93,0.08); }
+    .misconcept-indicator {
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .misconcept-toggle.open .misconcept-indicator { transform: rotate(90deg); }
+    .misconcept-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f8;
+    }
+    .misconcept-toggle.open + .misconcept-content {
+      max-height: 600px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(198,93,93,0.15);
+    }
+    .myth-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; margin-top: 0; }
+    .myth-text { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .reality-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; margin-top: 0.8rem; }
 
-/* LIGHTBOX */
-.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
-.lightbox-overlay.active{display:flex}
-.lightbox-inner{position:relative;max-width:min(900px,95vw);max-height:90vh;display:flex;flex-direction:column;gap:.75rem}
-.lightbox-inner img{width:100%;height:auto;max-height:80vh;border:1px solid rgba(201,151,63,.3);border-radius:3px}
-.lightbox-caption{font-family:'Crimson Text',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.75);text-align:center;line-height:1.5}
-.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:1px solid rgba(244,238,215,.3);color:rgba(244,238,215,.7);font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;cursor:pointer;border-radius:2px}
-.lightbox-close:hover{color:#fff;border-color:rgba(244,238,215,.6)}
-footer{text-align:center;padding:1.75rem;font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,238,215,.18);border-top:1px solid rgba(201,151,63,.1)}
-</style></head><body><header><div class="eyebrow">Florida Virtual School · US History</div><h1>DBA 3: <span>Imperialism & World War I</span></h1><p class="header-sub">Get ready for your conversation about empire, the Great War, and the peace that failed</p><div class="badges"><span class="badge">Think About It</span><span class="badge">Stuck? We've got you</span><span class="badge">Go Deeper</span><span class="badge">Finish in Your Own Words</span></div></header><div class="intro"><strong>How to use this guide</strong><br>Pick any topic that interests you. There's no set order. Each one tells you the story, shows you how it connects, and ties it to the world you live in. Then it's your turn to talk through what you think.</div><main><div class="section-label">Choose a topic to explore</div><div class="topic-grid"><div class="topic-card" onclick="toggle('imperialism')" id="card-imperialism"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.01</div><div class="tc-title">Why America Built an Empire</div><div class="tc-lenses"><span class="lens">Isolation</span><span class="lens">Intervention</span><span class="lens">Empire</span></div></div><div class="topic-card" onclick="toggle('span-am-war')" id="card-span-am-war"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.02</div><div class="tc-title">The Spanish-American War</div><div class="tc-lenses"><span class="lens">Yellow Press</span><span class="lens">The War</span><span class="lens">Consequences</span></div></div><div class="topic-card" onclick="toggle('wwi-causes')" id="card-wwi-causes"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.03</div><div class="tc-title">How One Assassination Started a World War</div><div class="tc-lenses"><span class="lens">Militarism</span><span class="lens">Alliances</span><span class="lens">The Spark</span></div></div><div class="topic-card" onclick="toggle('us-neutrality')" id="card-us-neutrality"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.03</div><div class="tc-title">How America Got Dragged Into WWI</div><div class="tc-lenses"><span class="lens">Neutrality</span><span class="lens">The Push</span><span class="lens">The Decision</span></div></div><div class="topic-card" onclick="toggle('wwi-impact')" id="card-wwi-impact"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.05</div><div class="tc-title">What WWI Actually Did to People</div><div class="tc-lenses"><span class="lens">New Weapons</span><span class="lens">Minority Groups</span><span class="lens">Home Front</span></div></div><div class="topic-card" onclick="toggle('versailles')" id="card-versailles"><span class="tc-arrow">›</span><div class="tc-std">Standard 3.07</div><div class="tc-title">The Peace That Made the Next War</div><div class="tc-lenses"><span class="lens">14 Points</span><span class="lens">Treaty</span><span class="lens">League of Nations</span></div></div></div><div class="topic-panel" id="panel-imperialism"><div class="panel-top"><div><div class="pt-std">Standard 3.01</div><div class="pt-title">Why America Built an Empire</div></div><button class="close-btn" onclick="toggle('imperialism')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">America was founded by people who left an empire. So how did it end up building one of its own just 100 years later?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/25600/25652v.jpg" alt="Political cartoon showing Uncle Sam's expanding global reach, c.1900." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/25600/25652v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Uncle Sam's expanding reach, c.1900 — American cartoonists captured the nation's transformation from republic to empire. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/33800/33896v.jpg" alt="Illustration of the USS Maine explosion in Havana Harbor, February 1898." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/33800/33896v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">The USS Maine, 1898 — the explosion that launched a war and an empire. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">For most of the 1800s, the U.S. stayed out of foreign entanglements. George Washington had warned against them. But by the 1890s, American factories were producing more than Americans could buy, and businesses needed new markets. Suddenly, the same logic that had built European empires started making sense to American leaders too.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Ideology</div><div class="step-text">Social Darwinism and the "White Man's Burden" gave imperialism a moral-sounding justification: America wasn't conquering, it was civilizing. Cartoons and politicians sold it that way.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Strategy</div><div class="step-text">Naval theorist Alfred Thayer Mahan argued the U.S. needed overseas bases and a powerful navy to be a world power. Hawaii, Guam, the Philippines, all fit the strategy.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Contradiction</div><div class="step-text">A country founded on anti-colonial revolution was now running colonies. Filipino revolutionaries who'd fought Spain had to fight America next. 200,000+ Filipino civilians died.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The argument that powerful countries should intervene in weaker ones "for their own good" didn't end in 1900. That logic justified Vietnam, Iraq, and a dozen smaller interventions. Worth asking whether it ever actually worked.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The United States moved toward imperialism because... even though..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Was American imperialism really different from European imperialism, or was it the same thing with a better marketing campaign?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain how the U.S. went from isolation to empire. What changed, and what did the U.S. gain and lose in the process?</div><textarea class="yt-box" id="ta-imperialism" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('imperialism')">Copy my response</button><span class="copy-confirm" id="cc-imperialism">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-span-am-war"><div class="panel-top"><div><div class="pt-std">Standard 3.02</div><div class="pt-title">The Spanish-American War</div></div><button class="close-btn" onclick="toggle('span-am-war')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">A newspaper publisher once reportedly told his illustrator: "You furnish the pictures, I'll furnish the war." Can media actually start a war?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/38700/38791v.jpg" alt="Europe and WWI alliance map illustration, 1914." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/38700/38791v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">American military might in action — the Spanish-American War lasted 113 days and made the U.S. a Pacific and Caribbean power almost overnight. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/19300/19305v.jpg" alt="Thomas Nast companion cartoon, 1874." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/19300/19305v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Nast, 1874 — America claimed to liberate Cuba and the Philippines while lynching Black Americans at home. The contradiction was visible even then. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Spanish-American War lasted 113 days and made the U.S. a world power. It started partly because of genuine concern for Cuban independence, partly because American businesses had $50 million invested in Cuba, and partly because newspaper moguls like Hearst and Pulitzer found that outrage sold papers. The USS Maine exploded in Havana Harbor, probably an accident, and suddenly America was at war.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Media</div><div class="step-text">Yellow journalism turned every Spanish action in Cuba into an atrocity. The Maine explosion was immediately blamed on Spain, without evidence. Public opinion shifted overnight.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The War</div><div class="step-text">It was called "a splendid little war." 113 days, two theaters (Cuba and the Philippines), American victories everywhere. Theodore Roosevelt became a national hero at San Juan Hill.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Empire</div><div class="step-text">The Treaty of Paris gave the U.S. Puerto Rico, Guam, and the Philippines. Then the U.S. fought a brutal three-year war to prevent Philippine independence. 200,000+ Filipino civilians died.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Think about how social media can accelerate public anger about something before the facts are clear. Yellow journalism in 1898 and viral misinformation today operate by the same principle: outrage spreads fast, corrections don't.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Spanish-American War showed that the United States was willing to... even when..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. fought Spain to "liberate" Cuba and the Philippines, then refused to let the Philippines be free. How do you square that?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through the Spanish-American War, what sparked it, what happened, and what the consequences were for American foreign policy.</div><textarea class="yt-box" id="ta-span-am-war" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('span-am-war')">Copy my response</button><span class="copy-confirm" id="cc-span-am-war">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-wwi-causes"><div class="panel-top"><div><div class="pt-std">Standard 3.03</div><div class="pt-title">How One Assassination Started a World War</div></div><button class="close-btn" onclick="toggle('wwi-causes')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">One man was shot in Sarajevo on June 28, 1914. By August, every major European power was at war. How is that even possible?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ggbain/26000/26082v.jpg" alt="French trench barber, World War I, c.1915–1918." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ggbain/26000/26082v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Life in a WWI trench, c.1916 — the alliance system that was supposed to prevent war instead guaranteed that any local conflict became a continental one. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/53000/53064v.jpg" alt="Portrait of a Civil War veteran seated next to a World War I soldier." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/53000/53064v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Two wars, two generations — the Civil War veteran and his WWI grandson show how quickly new forms of catastrophic warfare replaced the old ones. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">World War I didn't happen because of one assassination, that was just the match. The gunpowder had been building for decades: massive armies, a web of alliances that meant everyone had to fight if anyone fought, intense national rivalries, and an arms race nobody knew how to stop. The assassination of Archduke Franz Ferdinand just lit it all at once.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Setup</div><div class="step-text">Europe had been arming for decades. Germany was challenging British naval supremacy. Every major power was bound by secret treaties to defend the others. The system was a trap.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Spark</div><div class="step-text">Archduke Franz Ferdinand was shot by Serbian nationalist Gavrilo Princip. Austria blamed Serbia. Russia backed Serbia. Germany backed Austria. France backed Russia. Britain backed France. War.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Horror</div><div class="step-text">Machine guns, poison gas, and 400 miles of trenches made this unlike any previous war. 20 million dead. The "war to end all wars" actually planted the seeds for a worse one.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Group chats have exploded over something small because of a chain reaction, one person said something, someone else reacted, and suddenly everyone was dragged in. The WWI alliance system was the world's worst group chat.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"WWI started because a single event triggered a chain reaction that nobody could stop, specifically..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Some historians say WWI was inevitable given the alliance system. Others say it was a series of mistakes. Which argument do you find more convincing, and why?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain the MAIN causes of WWI using the acronym as a framework, but in your own words, not a list. Make it a story.</div><textarea class="yt-box" id="ta-wwi-causes" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('wwi-causes')">Copy my response</button><span class="copy-confirm" id="cc-wwi-causes">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-us-neutrality"><div class="panel-top"><div><div class="pt-std">Standard 3.03</div><div class="pt-title">How America Got Dragged Into WWI</div></div><button class="close-btn" onclick="toggle('us-neutrality')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Europe was destroying itself, and the U.S. watched for almost three years before jumping in. What finally changed?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/50700/50767v.jpg" alt="James Montgomery Flagg, "I Want YOU for U.S. Army," 1917." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/50700/50767v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"I Want YOU for U.S. Army," 1917 — once the U.S. entered, it needed to build an army from scratch, and fast. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09300/09307v.jpg" alt="Woodrow Wilson speaking on his 1919 League of Nations tour." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09300/09307v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Wilson on his 1919 tour to build support for the League — he collapsed from exhaustion before the Senate voted. The U.S. never joined. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Wilson won reelection in 1916 on the slogan "He kept us out of war." Five months later, Congress declared war. The shift came from a combination of German submarine warfare killing American civilians, a secret telegram proposing that Mexico attack the U.S., and Wilson's belief that he could shape the peace if America was at the table.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Reluctance</div><div class="step-text">Large immigrant populations opposed the war. The progressive movement was focused at home. Neutrality was also profitable, the U.S. was selling supplies to both sides.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Tipping Points</div><div class="step-text">The Lusitania sank in 1915, killing 1,198 including 128 Americans. Then Germany sent the Zimmermann Telegram proposing a military alliance with Mexico against the U.S.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Entry</div><div class="step-text">Wilson asked Congress for war on April 2, 1917. The Selective Service Act drafted 3 million men. The Espionage Act made it illegal to criticize the war. Free speech had its limits.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The Zimmermann Telegram was a decoded German message published in newspapers. Think about what it would take today for public opinion to flip completely on a foreign policy question, sometimes it's just one revelation.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The U.S. stayed neutral until... because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Wilson said the U.S. entered WWI to "make the world safe for democracy." Did it work?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain why the U.S. stayed neutral for so long and what finally pushed it into the war. What do you think was the real turning point?</div><textarea class="yt-box" id="ta-us-neutrality" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('us-neutrality')">Copy my response</button><span class="copy-confirm" id="cc-us-neutrality">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-wwi-impact"><div class="panel-top"><div><div class="pt-std">Standard 3.05</div><div class="pt-title">What WWI Actually Did to People</div></div><button class="close-btn" onclick="toggle('wwi-impact')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Machine guns, poison gas, bombers, tanks, all invented or perfected for WWI. What does it do to soldiers when killing becomes industrial?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09700/09785v.jpg" alt="American soldiers wearing gas masks in a WWI trench, 1918." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09700/09785v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">American soldiers in a WWI trench with gas masks, 1918 — chemical warfare added a new dimension of horror that scarred a generation. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3a20000/3a21000/3a21800/3a21818v.jpg" alt="Activities at Ellis Island Immigration Station, 1907-1921." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3a20000/3a21000/3a21800/3a21818v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Ellis Island, 1907–21 — WWI accelerated the Great Migration as Black Americans moved north for factory jobs vacated by soldiers. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">WWI introduced technologies that made mass death efficient for the first time. It also sent Black Americans to fight for a democracy that denied them rights at home, brought millions of women into the workforce, and used federal law to imprison people for opposing the war. The home front and the battlefield were both transformed.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Technology</div><div class="step-text">Poison gas, machine guns, and artillery barrages that lasted for days made the trench warfare of WWI uniquely horrific. Soldiers developed "shell shock", what we now call PTSD.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Contradiction</div><div class="step-text">380,000 Black Americans served in a segregated military, mostly as laborers. They returned from fighting for democracy abroad to face Jim Crow at home. The Double V campaign began here.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Home Front</div><div class="step-text">The War Industries Board controlled production. Women filled factory jobs. The Espionage Act criminalized dissent. Eugene Debs went to prison for a speech opposing the draft.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The Great Migration. Black Americans moving north for factory jobs, accelerated dramatically during WWI. Cities like Chicago and Detroit were transformed. The demographic shifts that shaped modern American culture started here.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"WWI changed daily life in America by... especially for..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Black Americans fought for a democracy that denied them rights. Does military service create an obligation for a country to extend full citizenship? What does history suggest?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Think about the WWI home front experience for different groups, women, Black Americans, immigrants, anti-war activists. Pick one group and explain what WWI meant for them.</div><textarea class="yt-box" id="ta-wwi-impact" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('wwi-impact')">Copy my response</button><span class="copy-confirm" id="cc-wwi-impact">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-versailles"><div class="panel-top"><div><div class="pt-std">Standard 3.07</div><div class="pt-title">The Peace That Made the Next War</div></div><button class="close-btn" onclick="toggle('versailles')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Wilson traveled to Paris believing he could build a just and lasting peace. He came home with a treaty that helped cause the next world war. What went wrong?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/stereo/1s50000/1s50000/1s50000/1s50014v.jpg" alt=""Over the top" — American soldiers leaving the trench, 1918." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/stereo/1s50000/1s50000/1s50000/1s50014v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"Over the top," 1918 — the generation that suffered through these trenches deserved a peace that would last. They didn't get it. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ggbain/27600/27620v.jpg" alt="Student Army Training Corps at Columbia University, October 1918." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ggbain/27600/27620v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">SATC at Columbia, 1918 — the generation that fought WWI came home to a "peace" that would force their children to fight again. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Wilson's 14 Points were idealistic and genuinely ambitious, self-determination, freedom of the seas, a League of Nations to resolve future conflicts peacefully. But France and Britain wanted revenge and reparations. The Treaty of Versailles humiliated Germany so completely that it created exactly the resentment Adolf Hitler would later exploit.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Vision</div><div class="step-text">Wilson's 14 Points called for national self-determination, no secret treaties, disarmament, and an international organization, the League of Nations, to prevent future wars.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Reality</div><div class="step-text">The actual treaty blamed Germany for everything, demanded $33 billion in reparations, stripped territory, and limited the German military to 100,000 men. It was designed to humiliate.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Consequence</div><div class="step-text">Germany's economy collapsed under reparations. The humiliation fueled resentment. By 1933, Hitler was using Versailles to justify everything. Will Dyson drew it in 1919: the "1940 Class" weeping.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Have you ever seen a conflict "resolved" in a way that just made the other side angrier and more determined? That's Versailles. Punitive peace doesn't create stability, it stores up the energy for the next explosion.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Treaty of Versailles failed as a peace settlement because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">A British political cartoonist drew the Treaty of Versailles in 1919 and labeled the crying child "1940 Class." He was right. What does it mean that ordinary people could see this coming, but the leaders couldn't, or wouldn't?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Compare Wilson's vision with what the treaty actually became. Why was there such a gap, and what were the consequences of that gap?</div><textarea class="yt-box" id="ta-versailles" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('versailles')">Copy my response</button><span class="copy-confirm" id="cc-versailles">Copied! Paste it into your FLVS submission.</span></div></div></div></main><footer>FLVS US History · DBA 3 · Module 3</footer><div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()"><div class="lightbox-inner" onclick="event.stopPropagation()"><button class="lightbox-close" onclick="closeLightbox()">✕ Close</button><div id="lightbox-content"></div><div class="lightbox-caption" id="lightbox-caption"></div></div></div><script>
-function toggle(id){
-  var p=document.getElementById('panel-'+id),c=document.getElementById('card-'+id),o=p.classList.contains('open');
-  p.classList.toggle('open',!o);c.classList.toggle('active',!o);
-  if(!o){setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
-}
-function copyResponse(id){
-  var box=document.getElementById('ta-'+id);
-  var txt=box.value.trim();
-  if(!txt){box.placeholder='Write your response above first, then copy it.';box.focus();return;}
-  navigator.clipboard.writeText(txt).then(function(){
-    var c=document.getElementById('cc-'+id);
-    c.classList.add('show');
-    setTimeout(function(){c.classList.remove('show');},2500);
-  }).catch(function(){box.select();document.execCommand('copy');});
-}
-function openLightbox(el){
-  var img=el.querySelector('img'),cap=el.querySelector('.img-cap');
-  if(!img)return;
-  document.getElementById('lightbox-content').innerHTML='<img src="'+img.src+'" alt="'+(img.alt||'')+'" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border:1px solid rgba(201,151,63,.3);border-radius:3px;display:block;">';
-  document.getElementById('lightbox-caption').textContent=cap?cap.textContent:(img.alt||'');
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.img-wrap').forEach(function(w){w.addEventListener('click',function(){openLightbox(w);});});
-});
-</script></body></html>
+    /* ── NEW: Historians Disagree ──────── */
+    .historians-block {
+      background: #f5f0f9;
+      border: 1px solid rgba(123,104,170,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .hist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f5f0f9;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+    .hist-toggle:hover { background: rgba(123,104,170,0.08); }
+    .hist-toggle.open { background: rgba(123,104,170,0.08); }
+    .hist-indicator {
+      font-size: 1.2rem;
+      color: var(--purple);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .hist-toggle.open .hist-indicator { transform: rotate(90deg); }
+    .hist-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8fc;
+    }
+    .hist-toggle.open + .hist-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(123,104,170,0.15);
+    }
+    .hist-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.9rem;
+    }
+    .hist-positions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hist-position {
+      background: #faf8fc;
+      border-left: 2px solid rgba(123,104,170,0.3);
+      padding: 0.8rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .hist-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+    .hist-text {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .hist-scholar {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Debate Section ────────── */
+    .debate-block {
+      background: #f0f6f8;
+      border: 1px solid rgba(77,184,172,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .debate-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f6f8;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .debate-toggle:hover { background: rgba(77,184,172,0.08); }
+    .debate-toggle.open { background: rgba(77,184,172,0.08); }
+    .debate-indicator {
+      font-size: 1.2rem;
+      color: var(--teal);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .debate-toggle.open .debate-indicator { transform: rotate(90deg); }
+    .debate-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .debate-toggle.open + .debate-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(77,184,172,0.15);
+    }
+    .debate-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .debate-prompt {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .debate-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .debate-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(77,184,172,0.4);
+      color: var(--teal);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .debate-btn:hover { background: rgba(77,184,172,0.08); border-color: var(--teal); }
+    .debate-btn.selected { background: var(--teal); color: #ffffff; border-color: var(--teal); }
+    .debate-note {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Choice Board ──────────── */
+    .choice-board {
+      background: #faf8f4;
+      border: 1px solid rgba(184,128,42,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    .choice-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .choice-subtitle {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .choice-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .choice-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .choice-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .choice-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── Prompts ──────────────────────── */
+    .prompt {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .bloom-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .bloom-understand { background: #c8e6c9; color: #1b5e20; }
+    .bloom-analyze { background: #bbdefb; color: #0d47a1; }
+    .bloom-evaluate { background: #ffe0b2; color: #e65100; }
+    .bloom-create { background: #f8bbd0; color: #880e4f; }
+    .prompt-text {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .connector {
+      background: #f5f5f5;
+      border-left: 2px solid var(--text-3);
+      padding: 0.75rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .connector strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+    }
+
+    /* ── Theme Toggle ─────────────────── */
+    .theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--navy); border: none; border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* ── Dark Mode ────────────────────── */
+    [data-theme="dark"] { --bg: #1a1a1a; --surface: #2d2d2d; --border: #444; --text: #e0e0e0; --text-2: #b0b0b0; --text-3: #808080; }
+    [data-theme="dark"] .page-header { background: #0d0d0d; }
+    [data-theme="dark"] .dba-nav { background: #1a1a1a; }
+    [data-theme="dark"] .orientation { background: #1e3a4f; border-color: #2a5080; color: #b0d4f1; }
+    [data-theme="dark"] .topic-card { border-color: #444; }
+    [data-theme="dark"] .misconception { background: #3a1f1f; border-color: rgba(198,93,93,0.3); }
+    [data-theme="dark"] .misconcept-toggle { background: #3a1f1f; }
+    [data-theme="dark"] .misconception-content { background: #2d1f1f; }
+    [data-theme="dark"] .primary-source { background: #1a3a2f; border-color: rgba(76,175,80,0.3); }
+    [data-theme="dark"] .ps-toggle { background: #1a3a2f; }
+    [data-theme="dark"] .ps-content { background: #15302a; }
+    [data-theme="dark"] .historians-block { background: #2a1f3a; border-color: rgba(123,104,170,0.3); }
+    [data-theme="dark"] .hist-toggle { background: #2a1f3a; }
+    [data-theme="dark"] .hist-content { background: #22192f; }
+    [data-theme="dark"] .debate-block { background: #1a2f35; border-color: rgba(77,184,172,0.3); }
+    [data-theme="dark"] .debate-toggle { background: #1a2f35; }
+    [data-theme="dark"] .debate-content { background: #15282d; }
+
+    @media (max-width: 640px) {
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .debate-buttons { flex-direction: column; }
+      .debate-btn { width: 100%; }
+    }
+</style>
+</head><body>
+
+<div class="page-header" data-dba-num="3">
+  <div class="header-inner">
+    <div class="dba-label">Module 3</div>
+    <h1 class="page-title">DBA 3: American Imperialism &amp; WWI</h1>
+  </div>
+</div>
+
+<div class="dba-nav">
+  <div class="dba-nav-inner">
+    <a class="dba-nav-link" href="#"><span class="num">3</span> American Imperialism &amp; WWI</a>
+    <a class="dba-nav-link" href="dba_02_industrial_enhanced.html"><span class="num">2</span> Industrial</a>
+    <a class="dba-nav-link" href="dba_03_imperialism_enhanced.html"><span class="num">3</span> Imperialism</a>
+    <a class="dba-nav-link" href="dba_04_depression_enhanced.html"><span class="num">4</span> Depression</a>
+    <a class="dba-nav-link" href="dba_05_wwii_enhanced.html"><span class="num">5</span> WWII</a>
+    <a class="dba-nav-link" href="dba_06_coldwar_enhanced.html"><span class="num">6</span> Cold War</a>
+    <a class="dba-nav-link" href="dba_07_civilrights_enhanced.html"><span class="num">7</span> Civil Rights</a>
+    <a class="dba-nav-link" href="dba_08_modern_enhanced.html"><span class="num">8</span> Modern</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="orientation">
+    <strong>How to use this guide</strong>
+    Before your DBA conversation, pick the topics that interest you most. Each one includes primary sources, common misconceptions, historian perspectives, and chances to take a side and defend your thinking. There's no "right" way through—only the way that helps you think best.
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card" onclick="selectTopic('1')" id="card-1">
+      <div class="topic-number">Topic 1</div>
+      <div class="topic-title">Isolation, Intervention &amp; Empire</div>
+      <div class="topic-description">After decades of relative isolation, the U.S. began building an overseas empire in the 1890s through...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('2')" id="card-2">
+      <div class="topic-number">Topic 2</div>
+      <div class="topic-title">U.S. Entry into WWI</div>
+      <div class="topic-description">The U.S. declared neutrality in 1914 but sold supplies to the Allies and protested German submarine ...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('3')" id="card-3">
+      <div class="topic-number">Topic 3</div>
+      <div class="topic-title">Aftermath: Treaty &amp; League</div>
+      <div class="topic-description">Wilson's 14 Points promised a just peace based on self-determination and a League of Nations, but th...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels" id="panels-outer">
+
+    <div class="panel" id="panel-1">
+      <h2 class="panel-title">Isolation, Intervention &amp; Empire</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        After decades of relative isolation, the U.S. began building an overseas empire in the 1890s through the Spanish-American War, acquiring the Philippines, Puerto Rico, and Guam. American leaders justified expansion through ideas about civilization, markets, and national destiny — while those under U.S. control often saw it differently.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The American people are not opposed to the expansion of our borders. Every dollar of trade with Cuba, Hawaii, and the Philippines is a dollar earned. Empire is commerce, and commerce is prosperity.</div>
+          <div class="ps-source">American imperialist argument, 1890s</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> How does this writer connect empire to commerce? What is left out of this argument?</div>
+            <div class="ps-q"><strong>Question 2:</strong> What about the people already living in Cuba, Hawaii, and the Philippines? Whose interests are represented?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">American imperialism was about spreading democracy and civilization to backward peoples.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">American expansion was driven by economic interest: markets, resources, and strategic military bases. The "civilizing mission" was ideology used to justify what was fundamentally extractive. The Philippines, Hawaii, and Puerto Rico became colonies that enriched American corporations while their populations had limited say in their own governance.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">American expansion into the Caribbean and Pacific was a natural extension of continental expansion. It reflected the era's competitive imperialism among world powers. The US was not uniquely brutal—it was participating in a system all major powers were engaged in.</div>
+              <div class="hist-scholar">Some historians contextualize American imperialism within the broader age of imperialism.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">American imperialism was extractive colonialism. The US military overthrew democratic governments (Hawaii), fought brutal wars to suppress independence movements (Philippines), and established economies dependent on American corporations. The "civilizing mission" masked economic domination.</div>
+              <div class="hist-scholar">Anti-imperialist historians emphasize the perspectives of colonized peoples and the disruption imperialism caused.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-1"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Explain the difference between isolation, intervention, and imperialism. Give one example of each from U.S. history before WWI.</p>
+<div class="connector"><strong>How to approach this:</strong> Define each term in one sentence, then give a concrete example. Be specific — 'the U.S. stayed out of European wars' is weaker than naming the Monroe Doctrine or a specific non-intervention.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">American leaders said imperialism spread civilization and opened markets. People in Cuba, the Philippines, and Panama had their own views. Whose perspective does the evidence support more strongly?</p>
+<div class="connector"><strong>How to approach this:</strong> Don't split the difference — take a side and support it with specific evidence. What actually happened in the Philippines or Cuba after U.S. control? That's your evidence.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">Does a powerful nation have the right to control weaker ones if it claims to be helping them? What is the strongest argument for each side?</p>
+<div class="connector"><strong>How to approach this:</strong> Present both arguments fairly, then say which one you find more persuasive and why. Your teacher will follow up — so know which side you'd defend.</div>
+    </div>
+
+    <div class="panel" id="panel-2">
+      <h2 class="panel-title">U.S. Entry into WWI</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The U.S. declared neutrality in 1914 but sold supplies to the Allies and protested German submarine warfare. The sinking of the Lusitania, the Zimmermann Telegram, and unrestricted submarine warfare gradually made neutrality untenable, and the U.S. entered the war in April 1917.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The sinking of the Lusitania was an act of terrorism against American citizens. We cannot remain neutral in the face of such German aggression. American honor demands a response.</div>
+          <div class="ps-source">American newspaper editorial, 1915</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What does the writer mean by "American honor"? How does honor justify military action?</div>
+            <div class="ps-q"><strong>Question 2:</strong> Britain had also killed American sailors. Why was German action called terrorism but British action was acceptable?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">America entered World War I because the US was attacked by Germany and had to defend itself.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">America was never attacked by Germany. German submarines sank ships carrying American cargo and passengers, but this was not an attack on American territory or a declaration of war against the US. America entered the war for strategic reasons: to preserve a profitable trading relationship with Britain and France, to prevent German hegemony in Europe, and to maintain American power in a post-war world.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">American entry into WWI was necessary to prevent German domination of Europe and preserve the international balance of power. Remaining neutral would have allowed German militarism to triumph, leading to an even worse outcome.</div>
+              <div class="hist-scholar">Many historians argue American intervention prevented catastrophic German victory.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">America entered a war that did not require American participation. The war could have ended through negotiation. American intervention killed millions, destabilized Europe, and created the conditions for an even more brutal conflict 20 years later.</div>
+              <div class="hist-scholar">Historians skeptical of the war argue it was economically motivated, not strategically necessary.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-2"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name two events or factors that moved the U.S. from neutrality toward entering WWI.</p>
+<div class="connector"><strong>How to approach this:</strong> Pick two from different categories if you can — one diplomatic (Zimmermann Telegram) and one naval (Lusitania, unrestricted submarine warfare). Showing two types of pressure is stronger than listing two of the same kind.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The U.S. claimed neutrality but sold supplies to the Allies and objected to German submarine warfare. Germany sank ships to cut off those supplies. Who was actually neutral, and who had the stronger argument?</p>
+<div class="connector"><strong>How to approach this:</strong> Look at what the U.S. was doing economically, not just what it was saying politically. The strongest answer shows that actions and stated policy pointed in different directions.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-create">create</span>
+<p class="prompt-text">You are a senator in 1916. The U.S. can stay neutral, quietly support the Allies, or enter the war openly. Each choice has real costs in lives, money, and alliances. Which do you choose and why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick a position and name what you're risking. The best answers don't pretend there's a cost-free option — every choice in this scenario has real downsides.</div>
+    </div>
+
+    <div class="panel" id="panel-3">
+      <h2 class="panel-title">Aftermath: Treaty &amp; League</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        Wilson's 14 Points promised a just peace based on self-determination and a League of Nations, but the Treaty of Versailles punished Germany harshly with reparations and territorial losses. The U.S. Senate refused to ratify the treaty, leaving Wilson's League without its most powerful potential member.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The Great War took my leg and my brother's life. We were told it would make the world safe for democracy. But I came home to a country that treated us as disposable. The factories that made the weapons that won the war now laid us off. There is no gratitude in victory.</div>
+          <div class="ps-source">World War I veteran testimony, 1920s</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What contrast is the veteran describing? What did he expect vs. what he received?</div>
+            <div class="ps-q"><strong>Question 2:</strong> This veteran was told the war would "make the world safe for democracy." What happened to that promise?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">World War I soldiers were treated as heroes and rewarded for their sacrifice.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Returning soldiers faced unemployment, inadequate medical care for wounds and shell shock, and cultural indifference. The postwar economy had no jobs for millions of veterans. Government support was minimal. The 1932 Bonus Army march, where veterans demanded promised benefits, was met with violence from federal troops.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">World War I transformed America from a regional power into a global superpower. The war created an industrial capacity that dominated the world economy, established American military superiority, and positioned the US to shape the post-war order. These were significant strategic achievements.</div>
+              <div class="hist-scholar">Many diplomatic and military historians emphasize American ascendancy after the war.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">World War I killed 120,000 American soldiers, created generational trauma, and achieved little. The League of Nations failed. Europe descended into the Great Depression. The promised "peace" collapsed into the conditions that would create World War II. The sacrifice produced nothing but debt and disillusionment.</div>
+              <div class="hist-scholar">Historians emphasizing human cost argue the war was a strategic failure despite industrial gains.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-3"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name two specific ways the Treaty of Versailles differed from Wilson's 14 Points.</p>
+<div class="connector"><strong>How to approach this:</strong> Focus on concrete differences — the war guilt clause, the size of reparations, the rejection of self-determination for certain peoples. Each difference you name should be something you can explain, not just list.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">Wilson's 14 Points called for self-determination and a League of Nations. The Treaty of Versailles punished Germany harshly and ignored many of Wilson's principles. What happened between the vision and the result?</p>
+<div class="connector"><strong>How to approach this:</strong> Track the gap: what did Wilson want, what did Britain and France want, and how did the negotiating dynamics produce a result neither fully intended? That gap is where the historical explanation lives.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">The Senate refused to join the League of Nations. Was that refusal wise, short-sighted, or somewhere in between? What does America's absence mean for how the League functioned?</p>
+<div class="connector"><strong>How to approach this:</strong> Take a position and follow its consequences. If you say the refusal was wise, explain what the U.S. avoided. If you say it was short-sighted, explain what the League lost without U.S. membership.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+
+<footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+<script>
+    function togglePrimarySource(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleMisconception(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleHistorians(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleDebate(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panels-outer').classList.add('open');
+      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+    }
+
+    function selectDebate(btn, choice) {
+      var siblings = btn.parentElement.querySelectorAll('.debate-btn');
+      siblings.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      var panelId = btn.closest('.panel').id;
+      var noteDiv = document.getElementById('debate-note-' + panelId.replace('panel-', ''));
+      if (noteDiv) {
+        noteDiv.textContent = 'You Selected: "' + btn.textContent.trim() + '" Now tell why you think this is true.';
+      }
+    }
+</script>
+
+<script id="theme-script">
+  (function(){
+    var LS = 'dba-theme';
+    function effective(s) {
+      if (s === 'dark' || s === 'light') return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function apply(stored) {
+      var eff = effective(stored);
+      var html = document.documentElement;
+      if (stored === 'dark' || stored === 'light') {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.textContent = eff === 'dark' ? '\u2600' : '\u263D';
+        btn.title = eff === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+    apply(localStorage.getItem(LS));
+    document.addEventListener('DOMContentLoaded', function() {
+      apply(localStorage.getItem(LS));
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var eff = effective(localStorage.getItem(LS));
+        var next = eff === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(LS, next);
+        apply(next);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

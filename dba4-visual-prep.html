@@ -1,145 +1,1089 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DBA 4 Visual Prep | US History</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{--navy:#1B2B4B;--navy-dark:#111d33;--cream:#F4EED7;--gold:#C9973F;--gold-light:#e8b85a;--teal:#4db6ac;--rose:#ef9a9a;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Crimson Text',Georgia,serif;background:var(--navy-dark);color:var(--cream);min-height:100vh}
-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
-.eyebrow{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--cream);line-height:1.1}
-header h1 span{color:var(--gold)}
-.header-sub{font-size:1.05rem;color:rgba(244,238,215,.6);font-style:italic;margin-top:.4rem}
-.badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}
-.badge{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2px;border:1px solid;border-color:var(--gold);color:var(--gold)}
-.intro{max-width:820px;margin:1.5rem auto;padding:1.1rem 1.75rem;background:rgba(244,238,215,.05);border-left:3px solid var(--gold);font-size:1rem;line-height:1.7;color:rgba(244,238,215,.78)}
-.intro strong{font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.section-label{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:1px;background:rgba(201,151,63,.25)}
+<!DOCTYPE html>
 
-/* TOPIC CARDS */
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;margin-bottom:1.5rem}
-.topic-card{background:var(--navy);border:1px solid rgba(201,151,63,.2);border-top:3px solid var(--gold);border-radius:2px;padding:1.4rem;cursor:pointer;transition:all .22s ease;position:relative;user-select:none}
-.topic-card:hover{border-color:rgba(201,151,63,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.topic-card.active{background:rgba(201,151,63,.1);border-top-color:var(--gold-light)}
-.tc-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.7rem}
-.tc-lenses{display:flex;flex-wrap:wrap;gap:.35rem}
-.lens{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;background:rgba(201,151,63,.1);color:rgba(244,238,215,.65);border:1px solid rgba(201,151,63,.2);border-radius:1px}
-.tc-arrow{position:absolute;top:1.3rem;right:1.3rem;color:var(--gold);font-size:1.1rem;transition:transform .22s ease}
-.topic-card.active .tc-arrow{transform:rotate(90deg)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DBA 1: Reconstruction Era | US History</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* PANEL */
-.topic-panel{display:none;background:#0d1627;border:1px solid rgba(201,151,63,.22);border-top:2px solid var(--gold);border-radius:2px;margin-bottom:1.25rem;animation:fadeIn .28s ease}
-.topic-panel.open{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.panel-top{padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,151,63,.13);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.pt-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem}
-.pt-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream)}
-.close-btn{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,215,.45);cursor:pointer;padding:.28rem .7rem;border:1px solid rgba(244,238,215,.15);border-radius:2px;background:none;transition:all .2s;flex-shrink:0}
-.close-btn:hover{color:var(--cream);border-color:rgba(244,238,215,.35)}
+    :root {
+      --bg:       #f7f5f0;
+      --surface:  #ffffff;
+      --border:   #e0dbd2;
+      --navy:     #1c2b3a;
+      --navy-mid: #253d56;
+      --accent:   #b8802a;
+      --text:     #1e1c18;
+      --text-2:   #5a5751;
+      --text-3:   #9b9792;
+      --green:    #4caf50;
+      --rose:     #c65d5d;
+      --purple:   #7b68aa;
+      --teal:     #4db8ac;
+    }
 
-/* HOOK */
-.hook{padding:.9rem 1.75rem;background:rgba(122,26,26,.13);border-bottom:1px solid rgba(122,26,26,.28);display:flex;align-items:flex-start;gap:.9rem}
-.hook-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.18rem .45rem;border:1px solid rgba(239,154,154,.35);border-radius:1px;white-space:nowrap;margin-top:.1rem;flex-shrink:0}
-.hook-q{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.9);line-height:1.55}
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* PANEL BODY */
-.panel-body{display:grid;grid-template-columns:300px 1fr}
-@media(max-width:760px){.panel-body{grid-template-columns:1fr}}
-.media-col{padding:1.4rem;border-right:1px solid rgba(201,151,63,.1);display:flex;flex-direction:column;gap:1rem}
-.media-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,151,63,.6);margin-bottom:.3rem}
-.cartoon-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#c97fd4;margin-bottom:.3rem}
-.img-cap{font-size:.76rem;font-style:italic;color:rgba(244,238,215,.4);margin-top:.3rem;line-height:1.4}
-.img-wrap{position:relative;cursor:zoom-in}
-.img-wrap::after{content:'expand';position:absolute;bottom:0;right:0;background:rgba(0,0,0,.65);color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .45rem;border-top-left-radius:2px;opacity:0;transition:opacity .2s}
-.img-wrap:hover::after{opacity:1}
+    /* ── Page Header ──────────────────── */
+    .page-header {
+      background: var(--navy);
+      padding: 2.75rem 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: attr(data-dba-num);
+      position: absolute;
+      right: 0.5rem;
+      top: -0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 15rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .dba-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 0;
+    }
 
-/* CONTENT COL */
-.content-col{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+    /* ── DBA Nav ──────────────────────── */
+    .dba-nav { background: var(--navy-mid); }
+    .dba-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dba-nav-inner::-webkit-scrollbar { display: none; }
+    .dba-nav-link {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .dba-nav-link:hover { color: rgba(255,255,255,0.78); }
+    .dba-nav-link.current { color: #ffffff; border-bottom-color: var(--accent); }
+    .dba-nav-link .num {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
 
-/* STORY */
-.story-block{background:rgba(244,238,215,.04);border-left:3px solid rgba(201,151,63,.4);padding:.9rem 1rem;border-radius:0 2px 2px 0}
-.story-text{font-size:.98rem;color:rgba(244,238,215,.85);line-height:1.75}
+    /* ── Container ────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
 
-/* FLOW CHAIN */
-.flow-chain{display:flex;flex-direction:column;gap:.5rem}
-.flow-chain-label{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
-.flow-steps{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.flow-step{flex:1;min-width:130px;background:rgba(27,43,75,.7);border:1px solid rgba(77,182,172,.2);padding:.75rem .85rem;position:relative}
-.flow-step:first-child{border-radius:3px 0 0 3px}
-.flow-step:last-child{border-radius:0 3px 3px 0}
-.step-num{font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;opacity:.75}
-.step-label{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;line-height:1.2}
-.step-text{font-size:.85rem;color:rgba(244,238,215,.75);line-height:1.55}
-.flow-arrow{display:flex;align-items:center;padding:0 .35rem;color:rgba(77,182,172,.5);font-size:1.1rem;flex-shrink:0;align-self:center}
-@media(max-width:580px){.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+    /* ── Orientation ──────────────────── */
+    .orientation {
+      background: #ecf1f8;
+      border: 1px solid #ccd8ea;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 13.5px;
+      color: #2a3f5e;
+      line-height: 1.65;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #3a5880;
+      margin-bottom: 0.3rem;
+    }
 
-/* CONNECTION */
-.connection-block{background:rgba(201,151,63,.07);border:1px solid rgba(201,151,63,.2);border-radius:2px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start}
-.conn-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.conn-label{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-.conn-text{font-size:.9rem;color:rgba(244,238,215,.78);line-height:1.6}
+    /* ── Topic Grid ───────────────────── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      gap: 14px;
+      margin-bottom: 2.5rem;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 3px;
+      background: transparent;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.18s;
+    }
+    .topic-card:hover {
+      border-color: #c5bfb6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+    .topic-card:hover::before { background: #c5bfb6; }
+    .topic-card.active { border-color: var(--navy); background: #eef2f7; }
+    .topic-card.active::before { background: var(--navy); }
+    .topic-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.45rem;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .topic-description {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
 
-/* STARTER */
-.starter-block{background:rgba(201,151,63,.06);border-left:2px solid var(--gold);padding:.65rem .9rem}
-.starter-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.starter-text{font-size:.9rem;font-style:italic;color:rgba(244,238,215,.7);line-height:1.5}
+    /* ── Panels ───────────────────────── */
+    .panels { display: none; }
+    .panels.open { display: block; }
+    .panel {
+      display: none;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: slideIn 0.25s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .content-anchor {
+      background: #faf9f6;
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .content-anchor strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-/* RIGOR */
-.rigor{padding:.85rem 1rem;background:rgba(27,43,75,.6);border:1px solid rgba(126,179,224,.18);border-radius:2px}
-.rigor-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#7eb3e0;margin-bottom:.3rem}
-.rigor-q{font-size:.93rem;color:rgba(244,238,215,.85);line-height:1.65;font-style:italic}
+    /* ── NEW: Primary Source Section ──── */
+    .primary-source {
+      background: #f0f8f5;
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .ps-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f8f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .ps-toggle:hover { background: rgba(76,175,80,0.08); }
+    .ps-indicator {
+      font-size: 1.2rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ps-toggle.open .ps-indicator { transform: rotate(90deg); }
+    .ps-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .ps-toggle.open + .ps-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(76,175,80,0.15);
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .ps-quote {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+      border-left: 2px solid rgba(76,175,80,0.3);
+      padding-left: 0.8rem;
+    }
+    .ps-source {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .ps-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ps-q {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .ps-q strong { color: var(--green); }
 
-/* YOUR TURN */
-.your-take{padding:1.4rem 1.75rem;background:rgba(122,26,26,.08);border-top:1px solid rgba(122,26,26,.22)}
-.yt-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.65rem}
-.yt-lbl{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);padding:.22rem .55rem;border:1px solid rgba(239,154,154,.35);border-radius:1px}
-.yt-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--cream)}
-.yt-prompt{font-size:.93rem;color:rgba(244,238,215,.75);line-height:1.65;margin-bottom:.75rem;font-style:italic}
-.yt-box{width:100%;min-height:80px;background:rgba(0,0,0,.28);border:1px solid rgba(239,154,154,.22);border-radius:2px;color:var(--cream);font-family:'Crimson Text',serif;font-size:1rem;padding:.7rem;resize:vertical}
-.yt-box:focus{outline:none;border-color:rgba(239,154,154,.45)}
-.yt-box::placeholder{color:rgba(244,238,215,.28);font-style:italic}
-.copy-row{display:flex;align-items:center;gap:.75rem;margin-top:.6rem}
-.copy-btn{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;background:rgba(201,151,63,.12);border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;flex-shrink:0}
-.copy-btn:hover{background:rgba(201,151,63,.25)}
-.copy-confirm{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#81c784;opacity:0;transition:opacity .3s}
-.copy-confirm.show{opacity:1}
+    /* ── NEW: Misconception Section ──── */
+    .misconception {
+      background: #fef5f5;
+      border: 1px solid rgba(198,93,93,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .misconcept-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #fef5f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--rose);
+    }
+    .misconcept-toggle:hover { background: rgba(198,93,93,0.05); }
+    .misconcept-toggle.open { background: rgba(198,93,93,0.08); }
+    .misconcept-indicator {
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .misconcept-toggle.open .misconcept-indicator { transform: rotate(90deg); }
+    .misconcept-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f8;
+    }
+    .misconcept-toggle.open + .misconcept-content {
+      max-height: 600px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(198,93,93,0.15);
+    }
+    .myth-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; margin-top: 0; }
+    .myth-text { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .reality-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; margin-top: 0.8rem; }
 
-/* LIGHTBOX */
-.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
-.lightbox-overlay.active{display:flex}
-.lightbox-inner{position:relative;max-width:min(900px,95vw);max-height:90vh;display:flex;flex-direction:column;gap:.75rem}
-.lightbox-inner img{width:100%;height:auto;max-height:80vh;border:1px solid rgba(201,151,63,.3);border-radius:3px}
-.lightbox-caption{font-family:'Crimson Text',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.75);text-align:center;line-height:1.5}
-.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:1px solid rgba(244,238,215,.3);color:rgba(244,238,215,.7);font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;cursor:pointer;border-radius:2px}
-.lightbox-close:hover{color:#fff;border-color:rgba(244,238,215,.6)}
-footer{text-align:center;padding:1.75rem;font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,238,215,.18);border-top:1px solid rgba(201,151,63,.1)}
-</style></head><body><header><div class="eyebrow">Florida Virtual School · US History</div><h1>DBA 4: <span>The 1920s & Great Depression</span></h1><p class="header-sub">Get ready for your conversation about boom, bust, and the New Deal</p><div class="badges"><span class="badge">Think About It</span><span class="badge">Stuck? We've got you</span><span class="badge">Go Deeper</span><span class="badge">Finish in Your Own Words</span></div></header><div class="intro"><strong>How to use this guide</strong><br>Pick any topic that interests you. There's no set order. Each one tells you the story, shows you how it connects, and ties it to the world you live in. Then it's your turn to talk through what you think.</div><main><div class="section-label">Choose a topic to explore</div><div class="topic-grid"><div class="topic-card" onclick="toggle('red-scare')" id="card-red-scare"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.01</div><div class="tc-title">Fear, Power, and the First Red Scare</div><div class="tc-lenses"><span class="lens">Communist Fear</span><span class="lens">Government Response</span><span class="lens">Peace Efforts</span></div></div><div class="topic-card" onclick="toggle('twenties-econ')" id="card-twenties-econ"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.02</div><div class="tc-title">The Roaring Twenties: Real Prosperity, Hidden Cracks</div><div class="tc-lenses"><span class="lens">Consumer Boom</span><span class="lens">Mass Production</span><span class="lens">Who Was Left Out</span></div></div><div class="topic-card" onclick="toggle('cultural-20s')" id="card-cultural-20s"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.03</div><div class="tc-title">The Culture Wars of the 1920s</div><div class="tc-lenses"><span class="lens">Women & Jazz</span><span class="lens">Harlem Renaissance</span><span class="lens">Fundamentalist Pushback</span></div></div><div class="topic-card" onclick="toggle('nativism')" id="card-nativism"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.04</div><div class="tc-title">Nativism: The Fear of the "Other"</div><div class="tc-lenses"><span class="lens">Immigration Restriction</span><span class="lens">KKK Revival</span><span class="lens">Fighting Back</span></div></div><div class="topic-card" onclick="toggle('great-dep')" id="card-great-dep"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.05</div><div class="tc-title">The Great Depression: When Everything Collapsed</div><div class="tc-lenses"><span class="lens">The Causes</span><span class="lens">Human Impact</span><span class="lens">Government Failure</span></div></div><div class="topic-card" onclick="toggle('new-deal')" id="card-new-deal"><span class="tc-arrow">›</span><div class="tc-std">Standard 4.06</div><div class="tc-title">FDR's New Deal: Did It Work?</div><div class="tc-lenses"><span class="lens">The Programs</span><span class="lens">Opposition</span><span class="lens">Long-Term Legacy</span></div></div></div><div class="topic-panel" id="panel-red-scare"><div class="panel-top"><div><div class="pt-std">Standard 4.01</div><div class="pt-title">Fear, Power, and the First Red Scare</div></div><button class="close-btn" onclick="toggle('red-scare')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">After winning a world war for democracy, America immediately started arresting people for their political opinions. Why does winning sometimes make countries more afraid, not less?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/05900/05911v.jpg" alt="Political cartoon depicting the Bolshevism threat, c.1919." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/05900/05911v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">A 1919 cartoon depicting Bolshevism as a spreading threat — the visual language of fear, used to justify suspending civil liberties. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/57300/57355v.jpg" alt="Portrait of a Civil War veteran seated next to a World War I soldier, grandfather and grandson." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/57300/57355v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Two American soldiers across two wars — WWI veterans came home to a government that immediately turned its security apparatus against labor organizers and immigrants. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Russian Revolution of 1917 rattled the Western world. When four million American workers went on strike in 1919, politicians and newspapers immediately blamed Bolshevik agitators. Attorney General Palmer launched mass arrests without evidence. It was the first big test of whether America would sacrifice civil liberties in the name of security.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Fear</div><div class="step-text">Communist revolution in Russia, labor strikes at home, and mail bombs sent to politicians created a climate of panic. Any left-wing politics became "un-American."</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Crackdown</div><div class="step-text">The Palmer Raids arrested 10,000 people without warrants. Many were deported. The Sacco and Vanzetti case executed two Italian anarchists, most historians now believe for their politics, not their crime.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Lesson</div><div class="step-text">Fear is a political tool. The Red Scare destroyed labor organizing, silenced dissent, and targeted immigrants, exactly the groups powerful people wanted to control.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The pattern of "foreign influence" being used to discredit domestic movements appears throughout American history. Red Scare in 1919, McCarthyism in the 1950s, and echoes today. Ask yourself who benefits when a movement gets labeled as foreign-controlled.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Red Scare was really about... not just about..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Palmer said he was protecting democracy from communism. But his methods, mass arrests without warrants, deportations without trials, seem pretty undemocratic. How do you evaluate that?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain the Red Scare and what it reveals about how fear gets weaponized in politics.</div><textarea class="yt-box" id="ta-red-scare" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('red-scare')">Copy my response</button><span class="copy-confirm" id="cc-red-scare">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-twenties-econ"><div class="panel-top"><div><div class="pt-std">Standard 4.02</div><div class="pt-title">The Roaring Twenties: Real Prosperity, Hidden Cracks</div></div><button class="close-btn" onclick="toggle('twenties-econ')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The 1920s were the best of times and the worst of times, depending on who you were. What made the prosperity feel so real and why was it so fragile?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/npcc/17200/17283v.jpg" alt="Ford Model T assembly line, c.1913." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/npcc/17200/17283v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Ford's assembly line — mass production transformed American consumer culture. The Model T dropped from $850 in 1909 to $300 in 1925. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/fsa/8e08000/8e08000/8e08017v.jpg" alt="Breadline at McCauley Water Street Mission under the Brooklyn Bridge, New York." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/fsa/8e08000/8e08000/8e08017v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Breadline under the Brooklyn Bridge — within a decade of the 1920s boom, this is what the same streets looked like. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">For many Americans, the 1920s genuinely were prosperous. Cars, radios, movies, and consumer credit transformed daily life. Mass production made things cheap. But the boom was built on borrowed money, stock speculation, and the complete exclusion of farmers and Black Americans, and that foundation was rotting the whole time.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Boom</div><div class="step-text">GNP grew 40%. Ford's assembly line made cars affordable. "Buy now, pay later" credit opened up consumption. By 1929, one in five Americans owned a car.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Cracks</div><div class="step-text">Farmers never shared in the prosperity, crop prices had been collapsing since WWI ended. Stock speculation was rampant. Banks were lending money that didn't really exist.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Setup for Disaster</div><div class="step-text">When stock prices dropped in October 1929, the whole credit-fueled system unraveled at once. Banks failed, businesses closed, 15 million lost their jobs in three years.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Sound familiar? The 2008 financial crisis followed almost the same pattern, a credit bubble, speculative investment, growing inequality, and then a crash that hit ordinary people hardest while the people who caused it mostly survived. History doesn't exactly repeat, but it rhymes.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The 1920s economy looked strong but was actually fragile because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">In 1929, most economists didn't see the crash coming. What warning signs existed, and why did smart people miss them?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Describe the 1920s economy: what was real, what was a mirage, and who was left out of the prosperity entirely.</div><textarea class="yt-box" id="ta-twenties-econ" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('twenties-econ')">Copy my response</button><span class="copy-confirm" id="cc-twenties-econ">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-cultural-20s"><div class="panel-top"><div><div class="pt-std">Standard 4.03</div><div class="pt-title">The Culture Wars of the 1920s</div></div><button class="close-btn" onclick="toggle('cultural-20s')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The 1920s produced flappers, jazz, and the Harlem Renaissance, and also the KKK's largest membership ever. How does liberation and backlash happen in the same decade?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c30000/3c32000/3c32200/3c32282v.jpg" alt="James Van Der Zee portrait, Harlem, 1920s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c30000/3c32000/3c32200/3c32282v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">James Van Der Zee portrait, Harlem, 1920s — Van Der Zee documented the Renaissance's vitality and pride deliberately and beautifully. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/npcc/33700/33791v.jpg" alt="KKK march down Pennsylvania Avenue, Washington D.C., 1926." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/npcc/33700/33791v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">KKK march, Pennsylvania Avenue, 1926 — at its peak, 4 million members. The same decade that produced the Harlem Renaissance produced this. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The 1920s were a decade of genuine cultural revolution and vicious reaction against it. Women got the vote, jazz spread from Black communities into mainstream culture, and the Harlem Renaissance created an explosion of Black art, literature, and pride. At the same time, the KKK had 4 million members, Prohibition was a national joke, and fundamentalist Christianity declared war on modern science.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Revolution</div><div class="step-text">Flappers rejected Victorian gender norms. Jazz, a Black art form, crossed racial lines and scandalized conservatives. Langston Hughes, Zora Neale Hurston, and Duke Ellington created a new American culture.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Backlash</div><div class="step-text">Four million KKK members in 1924. The Scopes Trial put evolution on trial. The KKK in the 1920s wasn't just Southern, it was strong in Indiana, Oregon, and Colorado.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Contradiction</div><div class="step-text">The same decade that celebrated liberation and creativity also produced some of the most organized racial and religious bigotry in American history. Both were real. Both were American.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Look at how cultural change and cultural backlash interact today. When one group gains visibility and power, there's almost always a reaction from people who feel threatened by that change. The 1920s shows this has been a repeating pattern for a long time.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The 1920s were contradictory because at the same time as... there was also..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The Harlem Renaissance created some of the greatest art and literature in American history, while the KKK was at its peak. How do you make sense of that about American culture?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Pick two forces from the 1920s that seem contradictory, liberation and backlash, prosperity and exclusion, and explain what they together reveal about American society.</div><textarea class="yt-box" id="ta-cultural-20s" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('cultural-20s')">Copy my response</button><span class="copy-confirm" id="cc-cultural-20s">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-nativism"><div class="panel-top"><div><div class="pt-std">Standard 4.04</div><div class="pt-title">Nativism: The Fear of the "Other"</div></div><button class="close-btn" onclick="toggle('nativism')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">What happens when "American" gets defined as white, Protestant, and native-born, and everyone else gets told to leave or conform?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c00000/3c07000/3c07100/3c07166v.jpg" alt="Detained immigrants at Ellis Island, early 1900s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c00000/3c07000/3c07100/3c07166v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Detained immigrants at Ellis Island — the Immigration Act of 1924 was designed to stop exactly these people from ever arriving. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/25600/25652v.jpg" alt="Uncle Sam expanding globally, political cartoon c.1900." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/25600/25652v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Uncle Sam expanding globally — the same decade America was restricting immigration at home, it was building empire abroad. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The 1920s saw a wave of nativist sentiment that produced some of the most restrictive immigration laws in U.S. history and revived the KKK as a mainstream political organization. The fear wasn't just of communism or crime, it was of demographic and cultural change. And people fought back, from the NAACP to Marcus Garvey's Black nationalist movement.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Laws</div><div class="step-text">The Immigration Act of 1924 set quotas that essentially banned Southern and Eastern European immigrants and completely blocked most Asian immigration. It was openly based on racial hierarchy.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Violence</div><div class="step-text">The 1920s KKK had 4 million members at its peak and wasn't just about race, it targeted Catholics, Jews, and immigrants too. It operated openly, marching down Pennsylvania Avenue.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Resistance</div><div class="step-text">The NAACP published data on lynching. Marcus Garvey built the largest Black mass movement in American history. Jewish and Catholic communities organized politically. Resistance was real.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The arguments used to restrict immigration in 1924, they're changing our culture, they don't assimilate, they're taking our jobs, are nearly word-for-word the arguments used in immigration debates today. What does that tell you?</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Nativism in the 1920s was driven by... and it resulted in..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The KKK of the 1920s was at its strongest in the Midwest and the Pacific Northwest, not the South. What does that tell you about the geography of racism in America?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain what nativism meant in the 1920s, who it targeted, and how different groups pushed back against it.</div><textarea class="yt-box" id="ta-nativism" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('nativism')">Copy my response</button><span class="copy-confirm" id="cc-nativism">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-great-dep"><div class="panel-top"><div><div class="pt-std">Standard 4.05</div><div class="pt-title">The Great Depression: When Everything Collapsed</div></div><button class="close-btn" onclick="toggle('great-dep')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">In 1929, the economy was booming. By 1933, 1 in 4 Americans was unemployed. How does an entire economic system collapse in four years?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/fsa/8b30000/8b38000/8b38474v.jpg" alt="Dorothea Lange, Farm Security Administration photograph, 1930s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/fsa/8b30000/8b38000/8b38474v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Dorothea Lange, FSA photograph, 1930s — Lange's images gave the Depression a human face and built political support for relief. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/fsa/8a18000/8a18400/8a18471v.jpg" alt="Hooverville, Circleville, Ohio, 1936." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/fsa/8a18000/8a18400/8a18471v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Hooverville, Ohio, 1936 — cardboard shack towns appeared in every American city as millions lost their homes. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Great Depression was the worst economic catastrophe in American history. It started with the stock market crash of 1929, but the deeper causes were structural: overproduction, credit speculation, bank failures, and a global trade collapse. President Hoover believed government shouldn't intervene directly, by the time he changed his mind, millions were homeless and starving.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Collapse</div><div class="step-text">Black Tuesday (October 29, 1929) wiped out $14 billion in one day. Banks called in loans. Businesses closed. 9,000 banks failed in three years, taking people's savings with them.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Human Cost</div><div class="step-text">Hoovervilles, cardboard shack towns, appeared in every city. The Dust Bowl forced 3.5 million people off Great Plains farms. Black and immigrant communities hit hardest, unemployment near 50%.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Wrong Response</div><div class="step-text">Hoover raised tariffs, cutting off global trade. He gave loans to banks but not to people. He sent the Army to evict WWI veterans demanding their bonus in Washington. It made everything worse.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">During COVID-19, the government sent stimulus checks directly to Americans within weeks. During the Depression, Hoover refused to do anything like that for three years. The difference isn't just about technology, it's about what government thinks it's responsible for.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Great Depression was caused by... and it showed that..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Hoover wasn't heartless, he genuinely believed government aid would destroy American character and initiative. Why did that philosophy fail so completely during the Depression?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through the causes of the Great Depression and what it felt like to live through it. Then explain why Hoover's approach made it worse.</div><textarea class="yt-box" id="ta-great-dep" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('great-dep')">Copy my response</button><span class="copy-confirm" id="cc-great-dep">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-new-deal"><div class="panel-top"><div><div class="pt-std">Standard 4.06</div><div class="pt-title">FDR's New Deal: Did It Work?</div></div><button class="close-btn" onclick="toggle('new-deal')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">FDR promised "a new deal for the American people." What does it actually mean for the government to reshape the economy, and was it worth the cost?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/fsa/8d30000/8d38000/8d38474v.jpg" alt="TVA dam construction workers, 1930s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/fsa/8d30000/8d38000/8d38474v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">TVA dam construction, 1930s — the New Deal put millions to work and brought electricity to Appalachia for the first time. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/highsm/15000/15096v.jpg" alt="FDR Memorial breadline sculpture, Washington D.C." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/highsm/15000/15096v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">FDR Memorial breadline sculpture — a permanent reminder of what the New Deal was created to address. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">FDR's New Deal transformed the relationship between the federal government and American citizens. Programs like Social Security, the FDIC, and the Wagner Act created a safety net that still exists today. Critics called it socialism. Supporters called it saving capitalism from itself. The truth is somewhere in between, and the Depression didn't actually end until WWII.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Programs</div><div class="step-text">CCC put young men to work in forests. FDIC insured bank deposits. TVA brought electricity to rural Appalachia. WPA employed 8 million people in public works. Social Security created a retirement safety net.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Opposition</div><div class="step-text">The Supreme Court struck down key New Deal laws. Business leaders hated union protections. FDR's court-packing plan (adding 6 justices) was rejected even by his own party as a power grab.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Legacy</div><div class="step-text">The New Deal didn't end the Depression. WWII did. But it permanently changed what Americans expect from government: a floor below which citizens shouldn't fall. Social Security alone still reaches 70 million people.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">When you hear debates about minimum wage, Medicare, or unemployment benefits, you're hearing echoes of the New Deal debate. The fundamental question, how much should government protect people from economic forces?, has never been resolved.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The New Deal changed America by... but it also had limits because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">FDR's New Deal created the modern welfare state. Critics said it destroyed American self-reliance. Supporters said it saved capitalism. Who's right, or is it more complicated than either position?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through the major New Deal programs and explain their lasting impact. Then address: did the New Deal actually fix the Depression?</div><textarea class="yt-box" id="ta-new-deal" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('new-deal')">Copy my response</button><span class="copy-confirm" id="cc-new-deal">Copied! Paste it into your FLVS submission.</span></div></div></div></main><footer>FLVS US History · DBA 4 · Module 4</footer><div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()"><div class="lightbox-inner" onclick="event.stopPropagation()"><button class="lightbox-close" onclick="closeLightbox()">✕ Close</button><div id="lightbox-content"></div><div class="lightbox-caption" id="lightbox-caption"></div></div></div><script>
-function toggle(id){
-  var p=document.getElementById('panel-'+id),c=document.getElementById('card-'+id),o=p.classList.contains('open');
-  p.classList.toggle('open',!o);c.classList.toggle('active',!o);
-  if(!o){setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
-}
-function copyResponse(id){
-  var box=document.getElementById('ta-'+id);
-  var txt=box.value.trim();
-  if(!txt){box.placeholder='Write your response above first, then copy it.';box.focus();return;}
-  navigator.clipboard.writeText(txt).then(function(){
-    var c=document.getElementById('cc-'+id);
-    c.classList.add('show');
-    setTimeout(function(){c.classList.remove('show');},2500);
-  }).catch(function(){box.select();document.execCommand('copy');});
-}
-function openLightbox(el){
-  var img=el.querySelector('img'),cap=el.querySelector('.img-cap');
-  if(!img)return;
-  document.getElementById('lightbox-content').innerHTML='<img src="'+img.src+'" alt="'+(img.alt||'')+'" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border:1px solid rgba(201,151,63,.3);border-radius:3px;display:block;">';
-  document.getElementById('lightbox-caption').textContent=cap?cap.textContent:(img.alt||'');
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.img-wrap').forEach(function(w){w.addEventListener('click',function(){openLightbox(w);});});
-});
-</script></body></html>
+    /* ── NEW: Historians Disagree ──────── */
+    .historians-block {
+      background: #f5f0f9;
+      border: 1px solid rgba(123,104,170,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .hist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f5f0f9;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+    .hist-toggle:hover { background: rgba(123,104,170,0.08); }
+    .hist-toggle.open { background: rgba(123,104,170,0.08); }
+    .hist-indicator {
+      font-size: 1.2rem;
+      color: var(--purple);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .hist-toggle.open .hist-indicator { transform: rotate(90deg); }
+    .hist-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8fc;
+    }
+    .hist-toggle.open + .hist-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(123,104,170,0.15);
+    }
+    .hist-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.9rem;
+    }
+    .hist-positions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hist-position {
+      background: #faf8fc;
+      border-left: 2px solid rgba(123,104,170,0.3);
+      padding: 0.8rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .hist-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+    .hist-text {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .hist-scholar {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Debate Section ────────── */
+    .debate-block {
+      background: #f0f6f8;
+      border: 1px solid rgba(77,184,172,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .debate-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f6f8;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .debate-toggle:hover { background: rgba(77,184,172,0.08); }
+    .debate-toggle.open { background: rgba(77,184,172,0.08); }
+    .debate-indicator {
+      font-size: 1.2rem;
+      color: var(--teal);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .debate-toggle.open .debate-indicator { transform: rotate(90deg); }
+    .debate-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .debate-toggle.open + .debate-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(77,184,172,0.15);
+    }
+    .debate-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .debate-prompt {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .debate-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .debate-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(77,184,172,0.4);
+      color: var(--teal);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .debate-btn:hover { background: rgba(77,184,172,0.08); border-color: var(--teal); }
+    .debate-btn.selected { background: var(--teal); color: #ffffff; border-color: var(--teal); }
+    .debate-note {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Choice Board ──────────── */
+    .choice-board {
+      background: #faf8f4;
+      border: 1px solid rgba(184,128,42,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    .choice-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .choice-subtitle {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .choice-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .choice-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .choice-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .choice-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── Prompts ──────────────────────── */
+    .prompt {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .bloom-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .bloom-understand { background: #c8e6c9; color: #1b5e20; }
+    .bloom-analyze { background: #bbdefb; color: #0d47a1; }
+    .bloom-evaluate { background: #ffe0b2; color: #e65100; }
+    .bloom-create { background: #f8bbd0; color: #880e4f; }
+    .prompt-text {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .connector {
+      background: #f5f5f5;
+      border-left: 2px solid var(--text-3);
+      padding: 0.75rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .connector strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+    }
+
+    /* ── Theme Toggle ─────────────────── */
+    .theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--navy); border: none; border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* ── Dark Mode ────────────────────── */
+    [data-theme="dark"] { --bg: #1a1a1a; --surface: #2d2d2d; --border: #444; --text: #e0e0e0; --text-2: #b0b0b0; --text-3: #808080; }
+    [data-theme="dark"] .page-header { background: #0d0d0d; }
+    [data-theme="dark"] .dba-nav { background: #1a1a1a; }
+    [data-theme="dark"] .orientation { background: #1e3a4f; border-color: #2a5080; color: #b0d4f1; }
+    [data-theme="dark"] .topic-card { border-color: #444; }
+    [data-theme="dark"] .misconception { background: #3a1f1f; border-color: rgba(198,93,93,0.3); }
+    [data-theme="dark"] .misconcept-toggle { background: #3a1f1f; }
+    [data-theme="dark"] .misconception-content { background: #2d1f1f; }
+    [data-theme="dark"] .primary-source { background: #1a3a2f; border-color: rgba(76,175,80,0.3); }
+    [data-theme="dark"] .ps-toggle { background: #1a3a2f; }
+    [data-theme="dark"] .ps-content { background: #15302a; }
+    [data-theme="dark"] .historians-block { background: #2a1f3a; border-color: rgba(123,104,170,0.3); }
+    [data-theme="dark"] .hist-toggle { background: #2a1f3a; }
+    [data-theme="dark"] .hist-content { background: #22192f; }
+    [data-theme="dark"] .debate-block { background: #1a2f35; border-color: rgba(77,184,172,0.3); }
+    [data-theme="dark"] .debate-toggle { background: #1a2f35; }
+    [data-theme="dark"] .debate-content { background: #15282d; }
+
+    @media (max-width: 640px) {
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .debate-buttons { flex-direction: column; }
+      .debate-btn { width: 100%; }
+    }
+</style>
+</head><body>
+
+<div class="page-header" data-dba-num="4">
+  <div class="header-inner">
+    <div class="dba-label">Module 4</div>
+    <h1 class="page-title">DBA 4: The 1920s &amp; Great Depression</h1>
+  </div>
+</div>
+
+<div class="dba-nav">
+  <div class="dba-nav-inner">
+    <a class="dba-nav-link" href="#"><span class="num">4</span> The 1920s &amp; Great Depression</a>
+    <a class="dba-nav-link" href="dba_02_industrial_enhanced.html"><span class="num">2</span> Industrial</a>
+    <a class="dba-nav-link" href="dba_03_imperialism_enhanced.html"><span class="num">3</span> Imperialism</a>
+    <a class="dba-nav-link" href="dba_04_depression_enhanced.html"><span class="num">4</span> Depression</a>
+    <a class="dba-nav-link" href="dba_05_wwii_enhanced.html"><span class="num">5</span> WWII</a>
+    <a class="dba-nav-link" href="dba_06_coldwar_enhanced.html"><span class="num">6</span> Cold War</a>
+    <a class="dba-nav-link" href="dba_07_civilrights_enhanced.html"><span class="num">7</span> Civil Rights</a>
+    <a class="dba-nav-link" href="dba_08_modern_enhanced.html"><span class="num">8</span> Modern</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="orientation">
+    <strong>How to use this guide</strong>
+    Before your DBA conversation, pick the topics that interest you most. Each one includes primary sources, common misconceptions, historian perspectives, and chances to take a side and defend your thinking. There's no "right" way through—only the way that helps you think best.
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card" onclick="selectTopic('1')" id="card-1">
+      <div class="topic-number">Topic 1</div>
+      <div class="topic-title">Culture, Prosperity &amp; Tensions</div>
+      <div class="topic-description">The 1920s brought jazz, flappers, consumer goods, and the Harlem Renaissance, but also the Red Scare...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('2')" id="card-2">
+      <div class="topic-number">Topic 2</div>
+      <div class="topic-title">Causes &amp; Crash</div>
+      <div class="topic-description">The Great Depression was not caused by the stock market crash alone — it followed years of overprodu...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('3')" id="card-3">
+      <div class="topic-number">Topic 3</div>
+      <div class="topic-title">New Deal &amp; Government Response</div>
+      <div class="topic-description">FDR's New Deal launched dozens of programs to provide relief, recovery, and reform — from the Civili...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels" id="panels-outer">
+
+    <div class="panel" id="panel-1">
+      <h2 class="panel-title">Culture, Prosperity &amp; Tensions</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The 1920s brought jazz, flappers, consumer goods, and the Harlem Renaissance, but also the Red Scare, the KKK revival, immigration restrictions, and Prohibition. Prosperity was real but uneven — farmers and industrial workers rarely shared in the boom that stock investors and urban consumers experienced.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">American prosperity is not ephemeral. The fundamental conditions underlying it are sound. Stock prices are reasonable given the earnings power of American business. The outlook is bright.</div>
+          <div class="ps-source">Irving Fisher, Yale economist, 1929</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What is Fisher saying about stock prices? What is his prediction?</div>
+            <div class="ps-q"><strong>Question 2:</strong> This was written weeks before the stock market crashed 50%. What was Fisher wrong about?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The 1920s were prosperous for all Americans. Everyone enjoyed wealth and freedom.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">The 1920s created new prosperity for the urban middle class and wealthy, but agricultural America remained poor. Workers' wages did not keep pace with productivity gains. Stock market wealth was concentrated: in 1929, the top 1% owned 44% of stocks. The prosperity was unequally distributed and built on debt, not sustainable growth.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">The 1920s represented genuine progress: technological innovation, cultural dynamism, rising living standards for millions. The decade produced the automobile, radio, cinema, and new forms of entertainment and social freedom. These were real achievements.</div>
+              <div class="hist-scholar">Cultural historians often celebrate the era's creativity and modernization.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">The 1920s were characterized by a dangerous illusion of prosperity built on easy credit, stock speculation, and unsustainable inequality. Working people were excluded from the gains. The economy was fundamentally fragile, waiting to collapse.</div>
+              <div class="hist-scholar">Economic historians point to structural weaknesses that made the collapse inevitable.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-1"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Pick one cultural change from the 1920s: changes for women, Prohibition, or the Harlem Renaissance. In two sentences, explain what changed and why it mattered.</p>
+<div class="connector"><strong>How to approach this:</strong> Two sentences means two sentences — one for what changed, one for why it mattered. Resist the urge to list everything. Depth beats breadth here.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The 1920s economy grew through mass production and consumerism, but farmers and factory workers were often left out. What does that gap tell us about who actually benefited from prosperity?</p>
+<div class="connector"><strong>How to approach this:</strong> The strongest answers name a specific group — tenant farmers in the South, textile workers in New England — and explain the structural reason they were excluded, not just that they were poor.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">Fundamentalists resisted the cultural changes of the 1920s while cities embraced them. Was that resistance reasonable, fearful, or both? What were they trying to protect?</p>
+<div class="connector"><strong>How to approach this:</strong> Avoid dismissing one side. What did traditionalists actually fear losing? What did modernists actually believe they were gaining? Then say which argument you find more persuasive and why.</div>
+    </div>
+
+    <div class="panel" id="panel-2">
+      <h2 class="panel-title">Causes &amp; Crash</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The Great Depression was not caused by the stock market crash alone — it followed years of overproduction, easy credit, speculative investment, and weak banking regulations. When the market collapsed in October 1929, it triggered bank failures, unemployment, and a contraction that spread worldwide.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">I had saved $3,000. I put it all in the market on the advice of a man who said stock prices only go up. In three months, it was worth $300. My family lost our home. I could not look my wife in the eye. I still cannot.</div>
+          <div class="ps-source">Depression-era account, collected oral history</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What was this person's investment strategy? Why did they believe it was safe?</div>
+            <div class="ps-q"><strong>Question 2:</strong> How much of the Depression's impact fell on individuals who had no say in financial policy decisions?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The Great Depression happened because people made bad personal financial decisions.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">The Depression was a systemic crisis caused by bank failures, speculative excess, the Federal Reserve's tight money policy, and the loss of purchasing power among workers. Individual people lost savings not because of personal failure but because of macro-economic forces beyond their control. Blaming individuals ignores the structural causes.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">The Federal Reserve's contraction of money supply turned a recession into the Great Depression. If the Fed had maintained money supply, the downturn would have been much milder. The crisis was a policy failure, not inevitable.</div>
+              <div class="hist-scholar">Milton Friedman and other monetarist economists emphasize central bank responsibility.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">The Depression reflected fundamental structural problems: inequality so severe that workers could not sustain consumption, bank fragility, and excessive speculation. No single policy could have prevented it. The economy needed fundamental reform.</div>
+              <div class="hist-scholar">Institutional economists emphasize the need for systemic change, not just policy tweaks.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-2"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name two warning signs that the 1920s economy was unstable before the 1929 crash.</p>
+<div class="connector"><strong>How to approach this:</strong> Think beyond the stock market — overproduction, buying on margin, weak farm prices, unregulated banking. Picking two from different sectors shows you understand the problem was structural, not just speculative.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The stock market crash didn't happen randomly. It followed years of speculation, easy credit, and overproduction. Which cause do you think was most responsible for making the crash inevitable? Why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one cause and trace it forward: how did it create the conditions for the others to become catastrophic? The strongest answer shows a causal chain, not just a list.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-create">create</span>
+<p class="prompt-text">You inherit $5,000 in 1928. You can invest in stocks, put the money in a bank, or spend it on education or land. What do you do? Looking back from 1932, how do you feel about your choice?</p>
+<div class="connector"><strong>How to approach this:</strong> Make the 1928 choice first — with what people knew then, not what we know now. Then explain the 1932 view. The point is showing why smart people made decisions that look reckless in hindsight.</div>
+    </div>
+
+    <div class="panel" id="panel-3">
+      <h2 class="panel-title">New Deal &amp; Government Response</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        FDR's New Deal launched dozens of programs to provide relief, recovery, and reform — from the Civilian Conservation Corps to Social Security. Critics on the right called it socialist overreach; critics on the left said it didn't go far enough. The Depression didn't fully end until wartime spending in the 1940s.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The test of our progress is not whether we add more to the abundance of those who have much. It is whether we provide enough for those who have too little. I see one-third of a nation ill-housed, ill-clad, ill-nourished. It is my task to cure this.</div>
+          <div class="ps-source">Franklin D. Roosevelt, Second Inaugural Address, 1937</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What problem is FDR identifying? Whose interests is he claiming to represent?</div>
+            <div class="ps-q"><strong>Question 2:</strong> Did the New Deal actually solve this problem? What happened after 1937?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The New Deal ended the Great Depression and put America back to work.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">The New Deal provided relief and some employment, but unemployment remained above 10% until World War II. The programs were significant but not sufficient to end the Depression. What actually ended it was massive military spending and war production after 1941.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">The New Deal saved the country from collapse. It prevented starvation and homelessness, kept the banking system functioning, and created jobs that rebuilt American infrastructure. Without it, the social and political consequences would have been catastrophic.</div>
+              <div class="hist-scholar">Most mainstream historians credit the New Deal with preventing worse outcomes and preserving democratic institutions.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">The New Deal was too timid. FDR refused to challenge capitalism's fundamental structure. He rejected proposals for wealth redistribution, universal healthcare, or full employment guarantee. He stabilized the system but did not transform it. The Depression could have been the moment for real change.</div>
+              <div class="hist-scholar">Left-wing and radical historians argue FDR missed the opportunity for fundamental economic reform.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-3"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name two specific New Deal programs and the problem each one was designed to address.</p>
+<div class="connector"><strong>How to approach this:</strong> Pick programs you can explain in a sentence each — CCC (unemployment among young men), FDIC (bank failures and lost savings), Social Security (elderly poverty). The program name alone is not enough; the problem it solved is what matters.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">Some opposed the New Deal because they believed it gave too much power to the federal government. Others said it didn't go far enough. What is the strongest version of each criticism?</p>
+<div class="connector"><strong>How to approach this:</strong> Don't pick the weak version of either argument. What is the most compelling conservative case? The most compelling progressive case? Name a specific program as your example for each.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">The New Deal had long-term effects on workers' rights, government size, and presidential power. Which effect do you think shaped American life most durably, and why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one and build a case that it outlasted the others. The strongest answers point to something still visible in American life today — a program, an expectation, a legal structure.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+
+<footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+<script>
+    function togglePrimarySource(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleMisconception(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleHistorians(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleDebate(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panels-outer').classList.add('open');
+      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+    }
+
+    function selectDebate(btn, choice) {
+      var siblings = btn.parentElement.querySelectorAll('.debate-btn');
+      siblings.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      var panelId = btn.closest('.panel').id;
+      var noteDiv = document.getElementById('debate-note-' + panelId.replace('panel-', ''));
+      if (noteDiv) {
+        noteDiv.textContent = 'You Selected: "' + btn.textContent.trim() + '" Now tell why you think this is true.';
+      }
+    }
+</script>
+
+<script id="theme-script">
+  (function(){
+    var LS = 'dba-theme';
+    function effective(s) {
+      if (s === 'dark' || s === 'light') return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function apply(stored) {
+      var eff = effective(stored);
+      var html = document.documentElement;
+      if (stored === 'dark' || stored === 'light') {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.textContent = eff === 'dark' ? '\u2600' : '\u263D';
+        btn.title = eff === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+    apply(localStorage.getItem(LS));
+    document.addEventListener('DOMContentLoaded', function() {
+      apply(localStorage.getItem(LS));
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var eff = effective(localStorage.getItem(LS));
+        var next = eff === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(LS, next);
+        apply(next);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,145 +1,1103 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DBA 1 Visual Prep | US History</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{--navy:#1B2B4B;--navy-dark:#111d33;--cream:#F4EED7;--gold:#C9973F;--gold-light:#e8b85a;--teal:#4db6ac;--rose:#ef9a9a;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Crimson Text',Georgia,serif;background:var(--navy-dark);color:var(--cream);min-height:100vh}
-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
-.eyebrow{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--cream);line-height:1.1}
-header h1 span{color:var(--gold)}
-.header-sub{font-size:1.05rem;color:rgba(244,238,215,.6);font-style:italic;margin-top:.4rem}
-.badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}
-.badge{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2px;border:1px solid;border-color:var(--gold);color:var(--gold)}
-.intro{max-width:820px;margin:1.5rem auto;padding:1.1rem 1.75rem;background:rgba(244,238,215,.05);border-left:3px solid var(--gold);font-size:1rem;line-height:1.7;color:rgba(244,238,215,.78)}
-.intro strong{font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.section-label{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:1px;background:rgba(201,151,63,.25)}
+<!DOCTYPE html>
 
-/* TOPIC CARDS */
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;margin-bottom:1.5rem}
-.topic-card{background:var(--navy);border:1px solid rgba(201,151,63,.2);border-top:3px solid var(--gold);border-radius:2px;padding:1.4rem;cursor:pointer;transition:all .22s ease;position:relative;user-select:none}
-.topic-card:hover{border-color:rgba(201,151,63,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.topic-card.active{background:rgba(201,151,63,.1);border-top-color:var(--gold-light)}
-.tc-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.7rem}
-.tc-lenses{display:flex;flex-wrap:wrap;gap:.35rem}
-.lens{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;background:rgba(201,151,63,.1);color:rgba(244,238,215,.65);border:1px solid rgba(201,151,63,.2);border-radius:1px}
-.tc-arrow{position:absolute;top:1.3rem;right:1.3rem;color:var(--gold);font-size:1.1rem;transition:transform .22s ease}
-.topic-card.active .tc-arrow{transform:rotate(90deg)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DBA 1: Reconstruction Era | US History</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* PANEL */
-.topic-panel{display:none;background:#0d1627;border:1px solid rgba(201,151,63,.22);border-top:2px solid var(--gold);border-radius:2px;margin-bottom:1.25rem;animation:fadeIn .28s ease}
-.topic-panel.open{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.panel-top{padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,151,63,.13);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.pt-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem}
-.pt-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream)}
-.close-btn{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,215,.45);cursor:pointer;padding:.28rem .7rem;border:1px solid rgba(244,238,215,.15);border-radius:2px;background:none;transition:all .2s;flex-shrink:0}
-.close-btn:hover{color:var(--cream);border-color:rgba(244,238,215,.35)}
+    :root {
+      --bg:       #f7f5f0;
+      --surface:  #ffffff;
+      --border:   #e0dbd2;
+      --navy:     #1c2b3a;
+      --navy-mid: #253d56;
+      --accent:   #b8802a;
+      --text:     #1e1c18;
+      --text-2:   #5a5751;
+      --text-3:   #9b9792;
+      --green:    #4caf50;
+      --rose:     #c65d5d;
+      --purple:   #7b68aa;
+      --teal:     #4db8ac;
+    }
 
-/* HOOK */
-.hook{padding:.9rem 1.75rem;background:rgba(122,26,26,.13);border-bottom:1px solid rgba(122,26,26,.28);display:flex;align-items:flex-start;gap:.9rem}
-.hook-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.18rem .45rem;border:1px solid rgba(239,154,154,.35);border-radius:1px;white-space:nowrap;margin-top:.1rem;flex-shrink:0}
-.hook-q{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.9);line-height:1.55}
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* PANEL BODY */
-.panel-body{display:grid;grid-template-columns:300px 1fr}
-@media(max-width:760px){.panel-body{grid-template-columns:1fr}}
-.media-col{padding:1.4rem;border-right:1px solid rgba(201,151,63,.1);display:flex;flex-direction:column;gap:1rem}
-.media-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,151,63,.6);margin-bottom:.3rem}
-.cartoon-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#c97fd4;margin-bottom:.3rem}
-.img-cap{font-size:.76rem;font-style:italic;color:rgba(244,238,215,.4);margin-top:.3rem;line-height:1.4}
-.img-wrap{position:relative;cursor:zoom-in}
-.img-wrap::after{content:'expand';position:absolute;bottom:0;right:0;background:rgba(0,0,0,.65);color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .45rem;border-top-left-radius:2px;opacity:0;transition:opacity .2s}
-.img-wrap:hover::after{opacity:1}
+    /* ── Page Header ──────────────────── */
+    .page-header {
+      background: var(--navy);
+      padding: 2.75rem 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: attr(data-dba-num);
+      position: absolute;
+      right: 0.5rem;
+      top: -0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 15rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .dba-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 0;
+    }
 
-/* CONTENT COL */
-.content-col{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+    /* ── DBA Nav ──────────────────────── */
+    .dba-nav { background: var(--navy-mid); }
+    .dba-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dba-nav-inner::-webkit-scrollbar { display: none; }
+    .dba-nav-link {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .dba-nav-link:hover { color: rgba(255,255,255,0.78); }
+    .dba-nav-link.current { color: #ffffff; border-bottom-color: var(--accent); }
+    .dba-nav-link .num {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
 
-/* STORY */
-.story-block{background:rgba(244,238,215,.04);border-left:3px solid rgba(201,151,63,.4);padding:.9rem 1rem;border-radius:0 2px 2px 0}
-.story-text{font-size:.98rem;color:rgba(244,238,215,.85);line-height:1.75}
+    /* ── Container ────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
 
-/* FLOW CHAIN */
-.flow-chain{display:flex;flex-direction:column;gap:.5rem}
-.flow-chain-label{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
-.flow-steps{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.flow-step{flex:1;min-width:130px;background:rgba(27,43,75,.7);border:1px solid rgba(77,182,172,.2);padding:.75rem .85rem;position:relative}
-.flow-step:first-child{border-radius:3px 0 0 3px}
-.flow-step:last-child{border-radius:0 3px 3px 0}
-.step-num{font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;opacity:.75}
-.step-label{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;line-height:1.2}
-.step-text{font-size:.85rem;color:rgba(244,238,215,.75);line-height:1.55}
-.flow-arrow{display:flex;align-items:center;padding:0 .35rem;color:rgba(77,182,172,.5);font-size:1.1rem;flex-shrink:0;align-self:center}
-@media(max-width:580px){.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+    /* ── Orientation ──────────────────── */
+    .orientation {
+      background: #ecf1f8;
+      border: 1px solid #ccd8ea;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 13.5px;
+      color: #2a3f5e;
+      line-height: 1.65;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #3a5880;
+      margin-bottom: 0.3rem;
+    }
 
-/* CONNECTION */
-.connection-block{background:rgba(201,151,63,.07);border:1px solid rgba(201,151,63,.2);border-radius:2px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start}
-.conn-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.conn-label{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-.conn-text{font-size:.9rem;color:rgba(244,238,215,.78);line-height:1.6}
+    /* ── Topic Grid ───────────────────── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      gap: 14px;
+      margin-bottom: 2.5rem;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 3px;
+      background: transparent;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.18s;
+    }
+    .topic-card:hover {
+      border-color: #c5bfb6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+    .topic-card:hover::before { background: #c5bfb6; }
+    .topic-card.active { border-color: var(--navy); background: #eef2f7; }
+    .topic-card.active::before { background: var(--navy); }
+    .topic-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.45rem;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .topic-description {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
 
-/* STARTER */
-.starter-block{background:rgba(201,151,63,.06);border-left:2px solid var(--gold);padding:.65rem .9rem}
-.starter-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.starter-text{font-size:.9rem;font-style:italic;color:rgba(244,238,215,.7);line-height:1.5}
+    /* ── Panels ───────────────────────── */
+    .panels { display: none; }
+    .panels.open { display: block; }
+    .panel {
+      display: none;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: slideIn 0.25s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .content-anchor {
+      background: #faf9f6;
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .content-anchor strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-/* RIGOR */
-.rigor{padding:.85rem 1rem;background:rgba(27,43,75,.6);border:1px solid rgba(126,179,224,.18);border-radius:2px}
-.rigor-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#7eb3e0;margin-bottom:.3rem}
-.rigor-q{font-size:.93rem;color:rgba(244,238,215,.85);line-height:1.65;font-style:italic}
+    /* ── NEW: Primary Source Section ──── */
+    .primary-source {
+      background: #f0f8f5;
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .ps-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f8f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .ps-toggle:hover { background: rgba(76,175,80,0.08); }
+    .ps-indicator {
+      font-size: 1.2rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ps-toggle.open .ps-indicator { transform: rotate(90deg); }
+    .ps-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .ps-toggle.open + .ps-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(76,175,80,0.15);
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .ps-quote {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+      border-left: 2px solid rgba(76,175,80,0.3);
+      padding-left: 0.8rem;
+    }
+    .ps-source {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .ps-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ps-q {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .ps-q strong { color: var(--green); }
 
-/* YOUR TURN */
-.your-take{padding:1.4rem 1.75rem;background:rgba(122,26,26,.08);border-top:1px solid rgba(122,26,26,.22)}
-.yt-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.65rem}
-.yt-lbl{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);padding:.22rem .55rem;border:1px solid rgba(239,154,154,.35);border-radius:1px}
-.yt-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--cream)}
-.yt-prompt{font-size:.93rem;color:rgba(244,238,215,.75);line-height:1.65;margin-bottom:.75rem;font-style:italic}
-.yt-box{width:100%;min-height:80px;background:rgba(0,0,0,.28);border:1px solid rgba(239,154,154,.22);border-radius:2px;color:var(--cream);font-family:'Crimson Text',serif;font-size:1rem;padding:.7rem;resize:vertical}
-.yt-box:focus{outline:none;border-color:rgba(239,154,154,.45)}
-.yt-box::placeholder{color:rgba(244,238,215,.28);font-style:italic}
-.copy-row{display:flex;align-items:center;gap:.75rem;margin-top:.6rem}
-.copy-btn{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;background:rgba(201,151,63,.12);border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;flex-shrink:0}
-.copy-btn:hover{background:rgba(201,151,63,.25)}
-.copy-confirm{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#81c784;opacity:0;transition:opacity .3s}
-.copy-confirm.show{opacity:1}
+    /* ── NEW: Misconception Section ──── */
+    .misconception {
+      background: #fef5f5;
+      border: 1px solid rgba(198,93,93,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .misconcept-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #fef5f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--rose);
+    }
+    .misconcept-toggle:hover { background: rgba(198,93,93,0.05); }
+    .misconcept-toggle.open { background: rgba(198,93,93,0.08); }
+    .misconcept-indicator {
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .misconcept-toggle.open .misconcept-indicator { transform: rotate(90deg); }
+    .misconcept-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f8;
+    }
+    .misconcept-toggle.open + .misconcept-content {
+      max-height: 600px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(198,93,93,0.15);
+    }
+    .myth-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; margin-top: 0; }
+    .myth-text { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .reality-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; margin-top: 0.8rem; }
 
-/* LIGHTBOX */
-.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
-.lightbox-overlay.active{display:flex}
-.lightbox-inner{position:relative;max-width:min(900px,95vw);max-height:90vh;display:flex;flex-direction:column;gap:.75rem}
-.lightbox-inner img{width:100%;height:auto;max-height:80vh;border:1px solid rgba(201,151,63,.3);border-radius:3px}
-.lightbox-caption{font-family:'Crimson Text',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.75);text-align:center;line-height:1.5}
-.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:1px solid rgba(244,238,215,.3);color:rgba(244,238,215,.7);font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;cursor:pointer;border-radius:2px}
-.lightbox-close:hover{color:#fff;border-color:rgba(244,238,215,.6)}
-footer{text-align:center;padding:1.75rem;font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,238,215,.18);border-top:1px solid rgba(201,151,63,.1)}
-</style></head><body><header><div class="eyebrow">Florida Virtual School · US History</div><h1>DBA 1: <span>Post-Civil War America</span></h1><p class="header-sub">Get ready for your conversation about Reconstruction, Jim Crow, and what freedom really meant</p><div class="badges"><span class="badge">Think About It</span><span class="badge">Stuck? We've got you</span><span class="badge">Go Deeper</span><span class="badge">Finish in Your Own Words</span></div></header><div class="intro"><strong>How to use this guide</strong><br>Pick any topic that interests you. There's no set order. Each one tells you the story, shows you how it connects, and ties it to the world you live in. Then it's your turn to talk through what you think.</div><main><div class="section-label">Choose a topic to explore</div><div class="topic-grid"><div class="topic-card" onclick="toggle('causes-cw')" id="card-causes-cw"><span class="tc-arrow">›</span><div class="tc-std">Standard 1.01</div><div class="tc-title">What Made the Civil War Inevitable</div><div class="tc-lenses"><span class="lens">Economy</span><span class="lens">Power</span><span class="lens">Slavery</span></div></div><div class="topic-card" onclick="toggle('consequences-cw')" id="card-consequences-cw"><span class="tc-arrow">›</span><div class="tc-std">Standard 1.02</div><div class="tc-title">What the Civil War Actually Changed</div><div class="tc-lenses"><span class="lens">Human Cost</span><span class="lens">Economy</span><span class="lens">Politics</span></div></div><div class="topic-card" onclick="toggle('reconstruction')" id="card-reconstruction"><span class="tc-arrow">›</span><div class="tc-std">Standard 1.03</div><div class="tc-title">Reconstruction: The Attempt to Rebuild</div><div class="tc-lenses"><span class="lens">Federal Power</span><span class="lens">Black Politics</span><span class="lens">Resistance</span></div></div><div class="topic-card" onclick="toggle('amendments')" id="card-amendments"><span class="tc-arrow">›</span><div class="tc-std">Standard 1.03</div><div class="tc-title">The Three Amendments That Changed the Constitution</div><div class="tc-lenses"><span class="lens">13th</span><span class="lens">14th</span><span class="lens">15th</span></div></div><div class="topic-card" onclick="toggle('jim-crow')" id="card-jim-crow"><span class="tc-arrow">›</span><div class="tc-std">Standards 1.04 & 1.05</div><div class="tc-title">Jim Crow and the New System of Control</div><div class="tc-lenses"><span class="lens">Segregation</span><span class="lens">Violence</span><span class="lens">Resistance</span></div></div><div class="topic-card" onclick="toggle('native-american')" id="card-native-american"><span class="tc-arrow">›</span><div class="tc-std">Standard 1.06</div><div class="tc-title">What Happened to Native Americans</div><div class="tc-lenses"><span class="lens">Land</span><span class="lens">Assimilation</span><span class="lens">Resistance</span></div></div></div><div class="topic-panel" id="panel-causes-cw"><div class="panel-top"><div><div class="pt-std">Standard 1.01</div><div class="pt-title">What Made the Civil War Inevitable</div></div><button class="close-btn" onclick="toggle('causes-cw')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Two sides of the same country were willing to kill each other. What could possibly be worth that?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/19500/19520v.jpg" alt="Bombardment of Fort Sumter, April 12, 1861." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/19500/19520v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Bombardment of Fort Sumter, April 12, 1861 — the Confederate attack that started the Civil War. Currier & Ives / Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/pga/04000/04037v.jpg" alt="Battle of Shiloh chromolithograph, L. Prang & Co., c.1888." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/pga/04000/04037v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Battle of Shiloh, 1862 — the deadliest battle of the war's first year showed both sides the real cost of what they had started. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Civil War didn't just happen overnight. Decades of tension had been building like a pressure cooker. The South's entire economy ran on enslaved labor. The North was industrializing fast. Two very different ways of life were sharing one country, and the question of whether slavery would expand into new western territories was tearing everything apart.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Setup</div><div class="step-text">The South's wealth and power depended entirely on enslaved labor. Any threat to slavery felt like a threat to their whole world.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Breaking Point</div><div class="step-text">Lincoln was elected in 1860 without winning a single Southern state. Before he even took office, seven Southern states voted to leave the Union.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Consequence</div><div class="step-text">620,000 Americans died. The country answered the slavery question with war, but the deeper question of what freedom really meant would take another century.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Think about how a single election can feel like a turning point, like the country is heading somewhere you don't recognize. That feeling of "we can't coexist anymore" is exactly what split the nation in 1860.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Civil War was really about... because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Some people still argue the Civil War was about "states' rights," not slavery. What does the actual historical evidence show about what those rights were?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">In your own words, explain what was really at the core of the Civil War, and why compromise kept failing.</div><textarea class="yt-box" id="ta-causes-cw" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('causes-cw')">Copy my response</button><span class="copy-confirm" id="cc-causes-cw">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-consequences-cw"><div class="panel-top"><div><div class="pt-std">Standard 1.02</div><div class="pt-title">What the Civil War Actually Changed</div></div><button class="close-btn" onclick="toggle('consequences-cw')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The war ended slavery. So why did it take another 100 years to win equal rights?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/34800/34842v.jpg" alt="Richmond, Virginia in ruins, April 1865." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/34800/34842v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Richmond, Virginia in ruins, April 1865 — the Confederate capital burned during the retreat. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/20500/20507v.jpg" alt="Civil War soldiers firing from a barrier, sketch by Edwin Forbes." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/20500/20507v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Civil War soldiers in the field — a Morgan Collection sketch. The war left a devastated South and 4 million freed people with no land, no money, and no plan. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Civil War settled one thing: the Union survived and slavery was abolished. But it left behind a devastated South, 4 million formerly enslaved people with no land or money, and a country that hadn't agreed on what "freedom" actually meant in practice. The peace was harder than the war.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Destruction</div><div class="step-text">The South's economy was in ruins. Plantations burned, infrastructure gone, Confederate money worthless. A whole way of life had collapsed overnight.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Promise</div><div class="step-text">The 13th Amendment abolished slavery. For the first time, 4 million people were legally free, but freedom without land, money, or legal protection was fragile.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Unfinished Business</div><div class="step-text">The federal government controlled the South briefly, but when troops left, the power vacuum was filled by the same people who'd fought to keep slavery. The struggle continued.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Have you ever seen a situation where someone "won" but the victory didn't really fix the underlying problem? That's Reconstruction. The law changed. The power didn't.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Civil War changed things on paper, but in reality..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The North "won" the Civil War but within 12 years had essentially abandoned Black Southerners to the same people who'd enslaved them. How do you explain that?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">What do you think the most significant consequence of the Civil War was, and why wasn't it enough?</div><textarea class="yt-box" id="ta-consequences-cw" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('consequences-cw')">Copy my response</button><span class="copy-confirm" id="cc-consequences-cw">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-reconstruction"><div class="panel-top"><div><div class="pt-std">Standard 1.03</div><div class="pt-title">Reconstruction: The Attempt to Rebuild</div></div><button class="close-btn" onclick="toggle('reconstruction')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Imagine trying to rebuild a country with the same people who just tried to destroy it, and making them guarantee rights for the people they'd enslaved.</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/12800/12860v.jpg" alt="Members of the Mississippi State Legislature, 1874-75, including many African American representatives." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/12800/12860v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Mississippi State Legislature, 1874–75 — Black men held office across the South during Reconstruction. Within a decade, most were driven out. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/pga/02800/02837v.jpg" alt="Reconstruction of the South lithograph by A. Tholey, 1867." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/pga/02800/02837v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"Reconstruction of the South," A. Tholey, 1867 — celebrating the new political order that backlash would soon destroy. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Reconstruction was the federal government's attempt to reshape the South after the Civil War, force new state governments, guarantee Black civil rights, and readmit Southern states on new terms. For a brief period it actually worked: Black men voted, held office, built schools. Then the backlash crushed it.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Plan</div><div class="step-text">Congress took control away from President Johnson and divided the South into military districts. New constitutions were required, and Black men got the right to vote.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Progress</div><div class="step-text">During Reconstruction, 16 Black men served in Congress and hundreds held state and local office. Black communities built schools and churches at real speed.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Reversal</div><div class="step-text">White supremacist violence, the KKK, the White League, terrorized Black voters. When federal troops withdrew in 1877, every gain was systematically dismantled.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Think about what happens when a law changes but the people enforcing it don't change their beliefs. Reconstruction showed that passing laws isn't the same as changing a culture.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Reconstruction succeeded in some ways but failed because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Reconstruction is sometimes called a "Second American Revolution." Do you agree, and if so, why did the revolution fail?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through what Reconstruction actually accomplished and why it ended. Who was responsible for its failure?</div><textarea class="yt-box" id="ta-reconstruction" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('reconstruction')">Copy my response</button><span class="copy-confirm" id="cc-reconstruction">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-amendments"><div class="panel-top"><div><div class="pt-std">Standard 1.03</div><div class="pt-title">The Three Amendments That Changed the Constitution</div></div><button class="close-btn" onclick="toggle('amendments')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Three amendments passed in five years tried to rewrite what America meant. Why did it take nearly a hundred more years to enforce them?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/pga/03200/03231v.jpg" alt="Harper's Weekly, The First Vote, 1867." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/pga/03200/03231v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"The First Vote," Harper's Weekly, 1867 — Black men voting for the first time. This right would be stripped away within a generation. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c30000/3c31000/3c31500/3c31562v.jpg" alt="Thomas Nast, "We Accept the Situation," Harper's Weekly, 1867." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c30000/3c31000/3c31500/3c31562v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Nast, "We Accept the Situation," 1867 — a Black Union veteran holds his ballot while a former Confederate stands empty-handed. The 15th Amendment in one image. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The 13th, 14th, and 15th Amendments are arguably the most transformative changes ever made to the U.S. Constitution. They abolished slavery, defined citizenship for the first time, and guaranteed Black men the right to vote. They were revolutionary on paper. In practice, they were ignored, undermined, and gutted by the courts for nearly a century.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The 13th (1865)</div><div class="step-text">Abolished slavery permanently. But there was a catch: the exception clause, 'except as punishment for crime,' created a loophole that led directly to convict leasing and mass criminalization.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The 14th (1868)</div><div class="step-text">Equal protection under the law for all citizens. Overturned the Dred Scott decision. Became the foundation for nearly every civil rights case of the 20th century, but only after decades of ignoring it.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The 15th (1870)</div><div class="step-text">The right to vote cannot be denied based on race. Southern states immediately found ways around it: literacy tests, poll taxes, grandfather clauses, and outright violence. Effectively suspended until 1965.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Laws are only as strong as the will to enforce them. The amendments existed for 95 years before the Voting Rights Act actually made the 15th Amendment work. That gap is a lesson in itself.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Reconstruction Amendments promised... but in reality..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">If the 14th Amendment promised equal protection in 1868, why did the Supreme Court uphold segregation in 1896? What does that tell you about how rights actually expand?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain what each amendment was supposed to do, and then explain the gap between the promise and the reality.</div><textarea class="yt-box" id="ta-amendments" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('amendments')">Copy my response</button><span class="copy-confirm" id="cc-amendments">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-jim-crow"><div class="panel-top"><div><div class="pt-std">Standards 1.04 & 1.05</div><div class="pt-title">Jim Crow and the New System of Control</div></div><button class="close-btn" onclick="toggle('jim-crow')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Slavery ended. Then a new system built to do almost the same thing emerged. How does that happen?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c20000/3c28000/3c28600/3c28619v.jpg" alt="Thomas Nast, "The Union as It Was," 1874." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c20000/3c28000/3c28600/3c28619v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Nast, "The Union as It Was," 1874 — the KKK and White League crushing Reconstruction's promise through organized terror. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ds/00800/00886v.jpg" alt="Jim Crow era illustration, popular graphic arts collection." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ds/00800/00886v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Jim Crow imagery from the popular press — segregation was enforced not just by law but by a whole culture of dehumanization. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">When Reconstruction ended, the South didn't go back to slavery, it built something new that achieved similar results: legal segregation, economic trapping, and organized terror. Jim Crow laws touched every part of life. Plessy v. Ferguson gave it the Supreme Court's blessing in 1896, and it lasted until the Civil Rights Movement forced change in the 1960s.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Laws</div><div class="step-text">Jim Crow made segregation official in schools, restaurants, trains, hospitals, everywhere. The Supreme Court said "separate but equal" was constitutional. It was never equal.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Terror</div><div class="step-text">Lynching wasn't random, it was organized, often attended by crowds, and designed to keep Black communities in fear. An estimated 4,000 lynchings happened between 1877 and 1950.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Economy</div><div class="step-text">Sharecropping kept formerly enslaved people trapped in debt. Convict leasing sent Black men to work for free in mines and farms. Poverty was enforced by law.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Systems of oppression don't disappear, they transform. The wealth gap between Black and white Americans today is directly traceable to these decades of legal discrimination. This isn't just history. It's why income gaps, housing gaps, and wealth gaps still show up along racial lines today.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Jim Crow was different from slavery, but it was similar because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Some historians argue Jim Crow was "slavery by another name." What evidence supports that argument, and where does it break down?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain how Jim Crow worked as a system. What were its tools, and what was it designed to do?</div><textarea class="yt-box" id="ta-jim-crow" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('jim-crow')">Copy my response</button><span class="copy-confirm" id="cc-jim-crow">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-native-american"><div class="panel-top"><div><div class="pt-std">Standard 1.06</div><div class="pt-title">What Happened to Native Americans</div></div><button class="close-btn" onclick="toggle('native-american')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The U.S. government fought a war to free enslaved people, and simultaneously waged a war to destroy Native American nations. How do you hold both of those truths at once?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3a30000/3a38000/3a38400/3a38464r.jpg" alt="Sioux boys on arrival at Carlisle Indian School, 1879." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3a30000/3a38000/3a38400/3a38464r.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Sioux boys on arrival at Carlisle Indian School, 1879 — photographed before forced assimilation. "Kill the Indian, save the man." Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/46500/46579v.jpg" alt="Portrait of Thaddeus Stevens, Radical Republican leader." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/46500/46579v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Thaddeus Stevens — the congressman who argued that Black Americans and Native people both deserved genuine land rights, not removal or abandonment. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">After the Civil War, the U.S. Army turned west. The goal was to confine Native nations to reservations, break up tribal land, and erase Native culture through forced assimilation, especially through boarding schools where children were taken from their families and forbidden to speak their languages or practice their traditions.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Land Take</div><div class="step-text">The Dawes Act of 1887 broke up tribal lands into individual allotments and sold the "surplus" to white settlers. Native Americans lost 90 million acres in 47 years.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Boarding Schools</div><div class="step-text">"Kill the Indian, save the man." Over 350 boarding schools took Native children from families, banned their languages, and tried to erase their identities.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Resistance</div><div class="step-text">Despite everything, Native nations survived, adapted, and continued to fight, through legal challenges, cultural preservation, and eventually the American Indian Movement in the 1960s.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The Indian boarding school system has been compared to cultural genocide by historians and the U.S. government itself, the federal government formally apologized in 2022. Understanding this history matters for understanding Native American communities today.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The U.S. government's goal with Native Americans was... and the method was..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. fought to free enslaved people while simultaneously destroying Native American nations. Is that a contradiction, or does it reveal something consistent about how the U.S. government thought about race and power?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through the three main tools the U.S. government used against Native Americans after the Civil War. Which do you think caused the most lasting damage?</div><textarea class="yt-box" id="ta-native-american" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('native-american')">Copy my response</button><span class="copy-confirm" id="cc-native-american">Copied! Paste it into your FLVS submission.</span></div></div></div></main><footer>FLVS US History · DBA 1 · Module 1</footer><div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()"><div class="lightbox-inner" onclick="event.stopPropagation()"><button class="lightbox-close" onclick="closeLightbox()">✕ Close</button><div id="lightbox-content"></div><div class="lightbox-caption" id="lightbox-caption"></div></div></div><script>
-function toggle(id){
-  var p=document.getElementById('panel-'+id),c=document.getElementById('card-'+id),o=p.classList.contains('open');
-  p.classList.toggle('open',!o);c.classList.toggle('active',!o);
-  if(!o){setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
-}
-function copyResponse(id){
-  var box=document.getElementById('ta-'+id);
-  var txt=box.value.trim();
-  if(!txt){box.placeholder='Write your response above first, then copy it.';box.focus();return;}
-  navigator.clipboard.writeText(txt).then(function(){
-    var c=document.getElementById('cc-'+id);
-    c.classList.add('show');
-    setTimeout(function(){c.classList.remove('show');},2500);
-  }).catch(function(){box.select();document.execCommand('copy');});
-}
-function openLightbox(el){
-  var img=el.querySelector('img'),cap=el.querySelector('.img-cap');
-  if(!img)return;
-  document.getElementById('lightbox-content').innerHTML='<img src="'+img.src+'" alt="'+(img.alt||'')+'" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border:1px solid rgba(201,151,63,.3);border-radius:3px;display:block;">';
-  document.getElementById('lightbox-caption').textContent=cap?cap.textContent:(img.alt||'');
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.img-wrap').forEach(function(w){w.addEventListener('click',function(){openLightbox(w);});});
-});
-</script></body></html>
+    /* ── NEW: Historians Disagree ──────── */
+    .historians-block {
+      background: #f5f0f9;
+      border: 1px solid rgba(123,104,170,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .hist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f5f0f9;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+    .hist-toggle:hover { background: rgba(123,104,170,0.08); }
+    .hist-toggle.open { background: rgba(123,104,170,0.08); }
+    .hist-indicator {
+      font-size: 1.2rem;
+      color: var(--purple);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .hist-toggle.open .hist-indicator { transform: rotate(90deg); }
+    .hist-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8fc;
+    }
+    .hist-toggle.open + .hist-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(123,104,170,0.15);
+    }
+    .hist-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.9rem;
+    }
+    .hist-positions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hist-position {
+      background: #faf8fc;
+      border-left: 2px solid rgba(123,104,170,0.3);
+      padding: 0.8rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .hist-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+    .hist-text {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .hist-scholar {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Debate Section ────────── */
+    .debate-block {
+      background: #f0f6f8;
+      border: 1px solid rgba(77,184,172,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .debate-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f6f8;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .debate-toggle:hover { background: rgba(77,184,172,0.08); }
+    .debate-toggle.open { background: rgba(77,184,172,0.08); }
+    .debate-indicator {
+      font-size: 1.2rem;
+      color: var(--teal);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .debate-toggle.open .debate-indicator { transform: rotate(90deg); }
+    .debate-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .debate-toggle.open + .debate-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(77,184,172,0.15);
+    }
+    .debate-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .debate-prompt {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .debate-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .debate-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(77,184,172,0.4);
+      color: var(--teal);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .debate-btn:hover { background: rgba(77,184,172,0.08); border-color: var(--teal); }
+    .debate-btn.selected { background: var(--teal); color: #ffffff; border-color: var(--teal); }
+    .debate-note {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Choice Board ──────────── */
+    .choice-board {
+      background: #faf8f4;
+      border: 1px solid rgba(184,128,42,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    .choice-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .choice-subtitle {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .choice-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .choice-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .choice-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .choice-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── Prompts ──────────────────────── */
+    .prompt {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .bloom-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .bloom-understand { background: #c8e6c9; color: #1b5e20; }
+    .bloom-analyze { background: #bbdefb; color: #0d47a1; }
+    .bloom-evaluate { background: #ffe0b2; color: #e65100; }
+    .bloom-create { background: #f8bbd0; color: #880e4f; }
+    .prompt-text {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .connector {
+      background: #f5f5f5;
+      border-left: 2px solid var(--text-3);
+      padding: 0.75rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .connector strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+    }
+
+    /* ── Theme Toggle ─────────────────── */
+    .theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--navy); border: none; border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* ── Dark Mode ────────────────────── */
+    [data-theme="dark"] { --bg: #1a1a1a; --surface: #2d2d2d; --border: #444; --text: #e0e0e0; --text-2: #b0b0b0; --text-3: #808080; }
+    [data-theme="dark"] .page-header { background: #0d0d0d; }
+    [data-theme="dark"] .dba-nav { background: #1a1a1a; }
+    [data-theme="dark"] .orientation { background: #1e3a4f; border-color: #2a5080; color: #b0d4f1; }
+    [data-theme="dark"] .topic-card { border-color: #444; }
+    [data-theme="dark"] .misconception { background: #3a1f1f; border-color: rgba(198,93,93,0.3); }
+    [data-theme="dark"] .misconcept-toggle { background: #3a1f1f; }
+    [data-theme="dark"] .misconception-content { background: #2d1f1f; }
+    [data-theme="dark"] .primary-source { background: #1a3a2f; border-color: rgba(76,175,80,0.3); }
+    [data-theme="dark"] .ps-toggle { background: #1a3a2f; }
+    [data-theme="dark"] .ps-content { background: #15302a; }
+    [data-theme="dark"] .historians-block { background: #2a1f3a; border-color: rgba(123,104,170,0.3); }
+    [data-theme="dark"] .hist-toggle { background: #2a1f3a; }
+    [data-theme="dark"] .hist-content { background: #22192f; }
+    [data-theme="dark"] .debate-block { background: #1a2f35; border-color: rgba(77,184,172,0.3); }
+    [data-theme="dark"] .debate-toggle { background: #1a2f35; }
+    [data-theme="dark"] .debate-content { background: #15282d; }
+
+    @media (max-width: 640px) {
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .debate-buttons { flex-direction: column; }
+      .debate-btn { width: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="page-header" data-dba-num="1">
+  <div class="header-inner">
+    <div class="dba-label">Module 1</div>
+    <h1 class="page-title">Reconstruction Era</h1>
+  </div>
+</div>
+
+<div class="dba-nav">
+  <div class="dba-nav-inner">
+    <a class="dba-nav-link current" href="#"><span class="num">1</span> Reconstruction</a>
+    <a class="dba-nav-link" href="dba_02_industrialization.html"><span class="num">2</span> Industrial</a>
+    <a class="dba-nav-link" href="dba_03_imperialism.html"><span class="num">3</span> Imperialism</a>
+    <a class="dba-nav-link" href="dba_04_progressive.html"><span class="num">4</span> Progressive</a>
+    <a class="dba-nav-link" href="dba_05_wwii.html"><span class="num">5</span> WWII</a>
+    <a class="dba-nav-link" href="dba_06_coldwar.html"><span class="num">6</span> Cold War</a>
+    <a class="dba-nav-link" href="dba_07_civilrights.html"><span class="num">7</span> Civil Rights</a>
+    <a class="dba-nav-link" href="dba_08_modern.html"><span class="num">8</span> Modern</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="orientation">
+    <strong>How to use this guide</strong>
+    Before your DBA conversation, pick the topics that interest you most. Each one includes story, primary sources, and different ways to think about the era. You'll find misconceptions addressed head-on, historians who disagree on what it all means, and chances to debate and choose how you want to respond. There's no "right" way through—only the way that helps you think best.
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card" onclick="selectTopic('1')" id="card-1">
+      <div class="topic-number">Topic 1</div>
+      <div class="topic-title">Lincoln's Plans vs. Congress</div>
+      <div class="topic-description">The clash between executive forgiveness and legislative justice shaped the era's direction.</div>
+      <div class="topic-tags">
+        <span class="tag">Lincoln</span>
+        <span class="tag">Congress</span>
+        <span class="tag">Power</span>
+      </div>
+    </div>
+
+    <div class="topic-card" onclick="selectTopic('2')" id="card-2">
+      <div class="topic-number">Topic 2</div>
+      <div class="topic-title">Reconstruction Plans & Amendments</div>
+      <div class="topic-description">The 13th, 14th, and 15th Amendments promised transformation. Why did they take a century to enforce?</div>
+      <div class="topic-tags">
+        <span class="tag">Amendments</span>
+        <span class="tag">Rights</span>
+        <span class="tag">Enforcement</span>
+      </div>
+    </div>
+
+    <div class="topic-card" onclick="selectTopic('3')" id="card-3">
+      <div class="topic-number">Topic 3</div>
+      <div class="topic-title">Collapse of Reconstruction</div>
+      <div class="topic-description">Redemption, violence, withdrawal—the system that promised freedom unraveled fast.</div>
+      <div class="topic-tags">
+        <span class="tag">Violence</span>
+        <span class="tag">Failure</span>
+        <span class="tag">Legacy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels" id="panels-outer">
+
+    <!-- TOPIC 1 -->
+    <div class="panel" id="panel-1">
+      <h2 class="panel-title">Lincoln's Plans vs. Congress</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        Lincoln wanted fast reunification with minimal punishment. Congress wanted to reshape the South and guarantee real freedom for formerly enslaved people. This clash set the stage for the entire Reconstruction era.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source: Lincoln's 10% Plan (1863)</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">A state could rejoin the Union when 10% of its 1860 voters took an oath of loyalty to the Union. High-ranking Confederate officials could not take the oath.</div>
+          <div class="ps-source">Lincoln's Proclamation of Amnesty and Reconstruction, 1863</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What does this plan promise about how fast the South could rejoin the Union?</div>
+            <div class="ps-q"><strong>Question 2:</strong> Does this plan say anything about what happens to formerly enslaved people? What does its silence tell us?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception: Lincoln was a radical abolitionist</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">Lincoln wanted to overturn the entire Southern system and give Black Americans immediate equality.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Lincoln freed enslaved people as a war measure and opposed slavery's expansion, but his Reconstruction plan was forgiving. His 10% Plan would have readmitted many Southern states with little change to their basic structure. Congress saw this and pushed back, demanding stricter conditions. The radical reconstruction came from Congress, not Lincoln.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree: Was Lincoln Too Lenient or Appropriately Pragmatic?</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">The "Lenient" View</div>
+              <div class="hist-text">Lincoln's 10% Plan would have restored Southern power with minimal accountability. Without Congressional Reconstruction's stricter terms, slavery's legacy would have endured unchallenged.</div>
+              <div class="hist-scholar">Historians like Eric Foner argue Lincoln underestimated how deeply slavery's culture shaped Southern politics.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">The "Pragmatic" View</div>
+              <div class="hist-text">Lincoln understood that reconstruction had to happen, and pushing too hard would entrench Southern resistance. A moderate approach could have preserved more of what the war achieved.</div>
+              <div class="hist-scholar">Other scholars note Lincoln was navigating a complex political landscape and may have been moving toward stricter terms as the war ended.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side: Lincoln's 10% Plan</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">Was Lincoln's 10% Plan a reasonable compromise that could have worked, or was it dangerously soft on the South?</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'reasonable')">Reasonable Compromise</button>
+            <button class="debate-btn" onclick="selectDebate(this,'too-soft')">Dangerously Soft</button>
+          </div>
+          <div class="debate-note" id="debate-note-1"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-analyze">analyze</span>
+        <p class="prompt-text">Compare Lincoln's 10% Plan with the Wade-Davis Bill. What was the key disagreement between Congress and the president about how lenient Reconstruction should be?</p>
+        <div class="connector"><strong>How to approach this:</strong> Know the core disagreement: Lincoln wanted a fast, lenient return to the Union; Congress wanted stricter conditions and real guarantees for Black Americans. Be ready to say which side had the stronger argument and why.</div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-create">create</span>
+        <p class="prompt-text">You are advising Congress in 1865. Should Reconstruction be lenient (fast reunion) or strict (enforce real change)? What would you recommend, and what would you be willing to sacrifice for your choice?</p>
+        <div class="connector"><strong>How to approach this:</strong> Commit to a recommendation. The most convincing answers name what you would gain, what you would lose, and why the tradeoff is worth it — not just which option sounds better in the abstract.</div>
+      </div>
+    </div>
+
+    <!-- TOPIC 2 -->
+    <div class="panel" id="panel-2">
+      <h2 class="panel-title">Reconstruction Plans & Amendments</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        After the war, Lincoln, Congress, and later President Johnson clashed over how to bring Southern states back into the Union and what rights to guarantee formerly enslaved people. The 13th, 14th, and 15th Amendments were the era's most lasting legal achievements — and the most fiercely contested.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source: 14th Amendment (1868)</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">All persons born or naturalized in the United States...are citizens of the United States and of the State wherein they reside. No State shall make or enforce any law which shall abridge the privileges or immunities of citizens...nor deny to any person within its jurisdiction the equal protection of the laws.</div>
+          <div class="ps-source">14th Amendment to the U.S. Constitution, 1868</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What specific rights does this promise, and to whom?</div>
+            <div class="ps-q"><strong>Question 2:</strong> If this was law in 1868, how did Jim Crow segregation happen 28 years later? What went wrong?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception: Once the amendments passed, Black Americans were equal</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The 13th, 14th, and 15th Amendments fixed everything. After 1870, Black Americans had legal equality.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">The amendments were revolutionary in what they promised, but enforcement was nearly nonexistent. Southern states ignored them. The Supreme Court undermined them. Plessy v. Ferguson (1896) made segregation legal. The 15th Amendment didn't actually protect voting rights until the Voting Rights Act of 1965, nearly 95 years later. Laws are only as strong as the will to enforce them.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree: Were the Amendments a Success or Failure?</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">The Transformative View</div>
+              <div class="hist-text">The amendments absolutely worked. They changed what America promised legally. Even though enforcement was slow, they created the legal foundation for every civil rights victory of the 20th century. Brown v. Board of Education was possible only because the 14th Amendment existed.</div>
+              <div class="hist-scholar">Constitutional historians note the amendments were genuinely revolutionary, even if the nation took decades to live up to them.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">The Failure View</div>
+              <div class="hist-text">The amendments were a cruel promise. They created a gap between law and reality that lasted nearly a century. For millions of people, they were words on paper while actual life remained unchanged. That's not transformation, it's abandonment.</div>
+              <div class="hist-scholar">Some scholars argue the gap between promise and practice was so large it reveals the amendments were more symbolic than functional.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side: Promise or Abandonment?</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">Were the amendments a genuine first step toward freedom, or a broken promise that left Black Americans worse off?</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'first-step')">Genuine First Step</button>
+            <button class="debate-btn" onclick="selectDebate(this,'broken-promise')">Broken Promise</button>
+          </div>
+          <div class="debate-note" id="debate-note-2"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-analyze">analyze</span>
+        <p class="prompt-text">The 13th, 14th, and 15th Amendments guaranteed freedom, citizenship, and voting rights. Which one do you think made the biggest immediate difference for formerly enslaved people? Why?</p>
+        <div class="connector"><strong>How to approach this:</strong> Don't just list what each amendment did — think about what it meant in practice. Which one put something specific in people's hands right away? Start there, then explain why the others, while important, had more delayed impact.</div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-create">create</span>
+        <p class="prompt-text">You are advising Congress in 1865. Should Reconstruction emphasize legal guarantees for freedom, or economic support (land, jobs) for formerly enslaved people? What are the tradeoffs?</p>
+        <div class="connector"><strong>How to approach this:</strong> Commit to a priority. The strongest answer acknowledges what you're choosing NOT to prioritize and why that choice still makes sense.</div>
+      </div>
+    </div>
+
+    <!-- TOPIC 3 -->
+    <div class="panel" id="panel-3">
+      <h2 class="panel-title">Collapse of Reconstruction</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        Reconstruction ended when federal troops withdrew from the South in 1877, leaving Black Americans exposed to Black Codes, sharecropping, and violent intimidation by groups like the Ku Klux Klan. The period's collapse set the conditions for nearly a century of legal segregation.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source: Louisiana Black Code (1865)</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">Vagrants shall be fined or imprisoned. Former slaves who refused to enter labor contracts at the start of the year shall be arrested and hired out to anyone willing to pay the fine. Violating a labor contract was a criminal offense.</div>
+          <div class="ps-source">Louisiana Black Code, 1865</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> How is this different from slavery, and how is it the same?</div>
+            <div class="ps-q"><strong>Question 2:</strong> The 13th Amendment abolished slavery. How could states legally pass this code in 1865?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception: Reconstruction failed because Black Americans weren't ready</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">Reconstruction failed because Black Americans weren't ready for freedom and responsibility.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">This was a white supremacist argument used to justify the rollback of Black rights. In reality, Black Americans immediately founded schools, churches, and communities. Black men served in Congress and state legislatures competently. The failure of Reconstruction wasn't about Black readiness—it was about white resistance, federal withdrawal, and organized violence.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree: Noble Failure or Doomed Experiment?</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">The Noble Failure View</div>
+              <div class="hist-text">Reconstruction briefly achieved something extraordinary: Black political participation, federal enforcement of rights, and real opportunity. The failure came not from the policy but from sustained, organized white violence and federal abandonment. It could have worked with stronger commitment.</div>
+              <div class="hist-scholar">Historians like Douglas Foner see Reconstruction as proof that equality was possible, but that the nation chose abandonment.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">The Doomed Experiment View</div>
+              <div class="hist-text">Reconstruction never had the resources or sustained political will to fundamentally transform the South. The North wanted reunion more than justice. Once the war ended, Reconstruction's collapse was almost inevitable.</div>
+              <div class="hist-scholar">Some scholars argue Reconstruction's failure reveals the structural limits of imposed change without deep cultural shift.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side: Why Did Reconstruction Fail?</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">Reconstruction collapsed due to Northern fatigue, Southern violence, and weak federal enforcement. Which factor was MOST responsible for its failure?</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'northern-fatigue')">Northern Fatigue</button>
+            <button class="debate-btn" onclick="selectDebate(this,'southern-violence')">Southern Violence</button>
+            <button class="debate-btn" onclick="selectDebate(this,'weak-enforcement')">Weak Enforcement</button>
+          </div>
+          <div class="debate-note" id="debate-note-3"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-understand">understand</span>
+        <p class="prompt-text">Name two specific ways Black Americans were prevented from exercising their rights after Reconstruction ended — one legal and one through intimidation or violence.</p>
+        <div class="connector"><strong>How to approach this:</strong> One legal example (Black Codes, poll taxes, literacy tests) and one example of direct violence or intimidation (Klan activity, convict leasing). Knowing both shows you understand the full system, not just its laws.</div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-analyze">analyze</span>
+        <p class="prompt-text">After Reconstruction, Black Americans faced political, economic, and social restrictions. Which category of limitation was hardest to fight back against, and why?</p>
+        <div class="connector"><strong>How to approach this:</strong> Think about which restriction was hardest to fight — political (can't vote), economic (can't build wealth), or social (constant threat of violence). The strongest answer explains why that category also blocked progress in the other two.</div>
+      </div>
+
+      <div class="prompt">
+        <span class="bloom-badge bloom-evaluate">evaluate</span>
+        <p class="prompt-text">Reconstruction collapsed due to Northern fatigue, Southern violence, and weak federal enforcement. Which factor was most responsible? What evidence supports your answer?</p>
+        <div class="connector"><strong>How to approach this:</strong> Pick the one cause you can defend most specifically. Saying 'all three' without ranking them is a non-answer in a live DBA — your teacher will ask you to choose, so choose now and practice defending it.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+
+<footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+<script>
+    function togglePrimarySource(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleHistorians(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleDebate(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panels-outer').classList.add('open');
+      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+    }
+
+    function toggleMisconception(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectDebate(btn, choice) {
+      var siblings = btn.parentElement.querySelectorAll('.debate-btn');
+      siblings.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      var panelId = btn.closest('.panel').id;
+      var noteDiv = document.getElementById('debate-note-' + panelId.replace('panel-', ''));
+      if (noteDiv) {
+        noteDiv.textContent = 'You Selected: "' + btn.textContent.trim() + '" Now tell why you think this is true.';
+      }
+    }
+
+    function selectChoice(item, choice) {
+      alert('You selected: ' + item.textContent.trim() + '.\nYou can format your response this way in your submission.');
+    }
+</script>
+
+<script id="theme-script">
+  (function(){
+    var LS = 'dba-theme';
+    function effective(s) {
+      if (s === 'dark' || s === 'light') return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function apply(stored) {
+      var eff = effective(stored);
+      var html = document.documentElement;
+      if (stored === 'dark' || stored === 'light') {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.textContent = eff === 'dark' ? '\u2600' : '\u263D';
+        btn.title = eff === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+    apply(localStorage.getItem(LS));
+    document.addEventListener('DOMContentLoaded', function() {
+      apply(localStorage.getItem(LS));
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var eff = effective(localStorage.getItem(LS));
+        var next = eff === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(LS, next);
+        apply(next);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

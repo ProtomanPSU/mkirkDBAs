@@ -1,145 +1,1089 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DBA 2 Visual Prep | US History</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{--navy:#1B2B4B;--navy-dark:#111d33;--cream:#F4EED7;--gold:#C9973F;--gold-light:#e8b85a;--teal:#4db6ac;--rose:#ef9a9a;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Crimson Text',Georgia,serif;background:var(--navy-dark);color:var(--cream);min-height:100vh}
-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
-.eyebrow{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--cream);line-height:1.1}
-header h1 span{color:var(--gold)}
-.header-sub{font-size:1.05rem;color:rgba(244,238,215,.6);font-style:italic;margin-top:.4rem}
-.badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}
-.badge{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2px;border:1px solid;border-color:var(--gold);color:var(--gold)}
-.intro{max-width:820px;margin:1.5rem auto;padding:1.1rem 1.75rem;background:rgba(244,238,215,.05);border-left:3px solid var(--gold);font-size:1rem;line-height:1.7;color:rgba(244,238,215,.78)}
-.intro strong{font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.section-label{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:1px;background:rgba(201,151,63,.25)}
+<!DOCTYPE html>
 
-/* TOPIC CARDS */
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;margin-bottom:1.5rem}
-.topic-card{background:var(--navy);border:1px solid rgba(201,151,63,.2);border-top:3px solid var(--gold);border-radius:2px;padding:1.4rem;cursor:pointer;transition:all .22s ease;position:relative;user-select:none}
-.topic-card:hover{border-color:rgba(201,151,63,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.topic-card.active{background:rgba(201,151,63,.1);border-top-color:var(--gold-light)}
-.tc-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.7rem}
-.tc-lenses{display:flex;flex-wrap:wrap;gap:.35rem}
-.lens{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;background:rgba(201,151,63,.1);color:rgba(244,238,215,.65);border:1px solid rgba(201,151,63,.2);border-radius:1px}
-.tc-arrow{position:absolute;top:1.3rem;right:1.3rem;color:var(--gold);font-size:1.1rem;transition:transform .22s ease}
-.topic-card.active .tc-arrow{transform:rotate(90deg)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DBA 1: Reconstruction Era | US History</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* PANEL */
-.topic-panel{display:none;background:#0d1627;border:1px solid rgba(201,151,63,.22);border-top:2px solid var(--gold);border-radius:2px;margin-bottom:1.25rem;animation:fadeIn .28s ease}
-.topic-panel.open{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.panel-top{padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,151,63,.13);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.pt-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem}
-.pt-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream)}
-.close-btn{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,215,.45);cursor:pointer;padding:.28rem .7rem;border:1px solid rgba(244,238,215,.15);border-radius:2px;background:none;transition:all .2s;flex-shrink:0}
-.close-btn:hover{color:var(--cream);border-color:rgba(244,238,215,.35)}
+    :root {
+      --bg:       #f7f5f0;
+      --surface:  #ffffff;
+      --border:   #e0dbd2;
+      --navy:     #1c2b3a;
+      --navy-mid: #253d56;
+      --accent:   #b8802a;
+      --text:     #1e1c18;
+      --text-2:   #5a5751;
+      --text-3:   #9b9792;
+      --green:    #4caf50;
+      --rose:     #c65d5d;
+      --purple:   #7b68aa;
+      --teal:     #4db8ac;
+    }
 
-/* HOOK */
-.hook{padding:.9rem 1.75rem;background:rgba(122,26,26,.13);border-bottom:1px solid rgba(122,26,26,.28);display:flex;align-items:flex-start;gap:.9rem}
-.hook-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.18rem .45rem;border:1px solid rgba(239,154,154,.35);border-radius:1px;white-space:nowrap;margin-top:.1rem;flex-shrink:0}
-.hook-q{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.9);line-height:1.55}
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* PANEL BODY */
-.panel-body{display:grid;grid-template-columns:300px 1fr}
-@media(max-width:760px){.panel-body{grid-template-columns:1fr}}
-.media-col{padding:1.4rem;border-right:1px solid rgba(201,151,63,.1);display:flex;flex-direction:column;gap:1rem}
-.media-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,151,63,.6);margin-bottom:.3rem}
-.cartoon-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#c97fd4;margin-bottom:.3rem}
-.img-cap{font-size:.76rem;font-style:italic;color:rgba(244,238,215,.4);margin-top:.3rem;line-height:1.4}
-.img-wrap{position:relative;cursor:zoom-in}
-.img-wrap::after{content:'expand';position:absolute;bottom:0;right:0;background:rgba(0,0,0,.65);color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .45rem;border-top-left-radius:2px;opacity:0;transition:opacity .2s}
-.img-wrap:hover::after{opacity:1}
+    /* ── Page Header ──────────────────── */
+    .page-header {
+      background: var(--navy);
+      padding: 2.75rem 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: attr(data-dba-num);
+      position: absolute;
+      right: 0.5rem;
+      top: -0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 15rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .dba-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 0;
+    }
 
-/* CONTENT COL */
-.content-col{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+    /* ── DBA Nav ──────────────────────── */
+    .dba-nav { background: var(--navy-mid); }
+    .dba-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dba-nav-inner::-webkit-scrollbar { display: none; }
+    .dba-nav-link {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .dba-nav-link:hover { color: rgba(255,255,255,0.78); }
+    .dba-nav-link.current { color: #ffffff; border-bottom-color: var(--accent); }
+    .dba-nav-link .num {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
 
-/* STORY */
-.story-block{background:rgba(244,238,215,.04);border-left:3px solid rgba(201,151,63,.4);padding:.9rem 1rem;border-radius:0 2px 2px 0}
-.story-text{font-size:.98rem;color:rgba(244,238,215,.85);line-height:1.75}
+    /* ── Container ────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
 
-/* FLOW CHAIN */
-.flow-chain{display:flex;flex-direction:column;gap:.5rem}
-.flow-chain-label{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
-.flow-steps{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.flow-step{flex:1;min-width:130px;background:rgba(27,43,75,.7);border:1px solid rgba(77,182,172,.2);padding:.75rem .85rem;position:relative}
-.flow-step:first-child{border-radius:3px 0 0 3px}
-.flow-step:last-child{border-radius:0 3px 3px 0}
-.step-num{font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;opacity:.75}
-.step-label{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;line-height:1.2}
-.step-text{font-size:.85rem;color:rgba(244,238,215,.75);line-height:1.55}
-.flow-arrow{display:flex;align-items:center;padding:0 .35rem;color:rgba(77,182,172,.5);font-size:1.1rem;flex-shrink:0;align-self:center}
-@media(max-width:580px){.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+    /* ── Orientation ──────────────────── */
+    .orientation {
+      background: #ecf1f8;
+      border: 1px solid #ccd8ea;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 13.5px;
+      color: #2a3f5e;
+      line-height: 1.65;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #3a5880;
+      margin-bottom: 0.3rem;
+    }
 
-/* CONNECTION */
-.connection-block{background:rgba(201,151,63,.07);border:1px solid rgba(201,151,63,.2);border-radius:2px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start}
-.conn-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.conn-label{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-.conn-text{font-size:.9rem;color:rgba(244,238,215,.78);line-height:1.6}
+    /* ── Topic Grid ───────────────────── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      gap: 14px;
+      margin-bottom: 2.5rem;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 3px;
+      background: transparent;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.18s;
+    }
+    .topic-card:hover {
+      border-color: #c5bfb6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+    .topic-card:hover::before { background: #c5bfb6; }
+    .topic-card.active { border-color: var(--navy); background: #eef2f7; }
+    .topic-card.active::before { background: var(--navy); }
+    .topic-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.45rem;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .topic-description {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
 
-/* STARTER */
-.starter-block{background:rgba(201,151,63,.06);border-left:2px solid var(--gold);padding:.65rem .9rem}
-.starter-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.starter-text{font-size:.9rem;font-style:italic;color:rgba(244,238,215,.7);line-height:1.5}
+    /* ── Panels ───────────────────────── */
+    .panels { display: none; }
+    .panels.open { display: block; }
+    .panel {
+      display: none;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: slideIn 0.25s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .content-anchor {
+      background: #faf9f6;
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .content-anchor strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-/* RIGOR */
-.rigor{padding:.85rem 1rem;background:rgba(27,43,75,.6);border:1px solid rgba(126,179,224,.18);border-radius:2px}
-.rigor-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#7eb3e0;margin-bottom:.3rem}
-.rigor-q{font-size:.93rem;color:rgba(244,238,215,.85);line-height:1.65;font-style:italic}
+    /* ── NEW: Primary Source Section ──── */
+    .primary-source {
+      background: #f0f8f5;
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .ps-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f8f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .ps-toggle:hover { background: rgba(76,175,80,0.08); }
+    .ps-indicator {
+      font-size: 1.2rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ps-toggle.open .ps-indicator { transform: rotate(90deg); }
+    .ps-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .ps-toggle.open + .ps-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(76,175,80,0.15);
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .ps-quote {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+      border-left: 2px solid rgba(76,175,80,0.3);
+      padding-left: 0.8rem;
+    }
+    .ps-source {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .ps-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ps-q {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .ps-q strong { color: var(--green); }
 
-/* YOUR TURN */
-.your-take{padding:1.4rem 1.75rem;background:rgba(122,26,26,.08);border-top:1px solid rgba(122,26,26,.22)}
-.yt-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.65rem}
-.yt-lbl{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);padding:.22rem .55rem;border:1px solid rgba(239,154,154,.35);border-radius:1px}
-.yt-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--cream)}
-.yt-prompt{font-size:.93rem;color:rgba(244,238,215,.75);line-height:1.65;margin-bottom:.75rem;font-style:italic}
-.yt-box{width:100%;min-height:80px;background:rgba(0,0,0,.28);border:1px solid rgba(239,154,154,.22);border-radius:2px;color:var(--cream);font-family:'Crimson Text',serif;font-size:1rem;padding:.7rem;resize:vertical}
-.yt-box:focus{outline:none;border-color:rgba(239,154,154,.45)}
-.yt-box::placeholder{color:rgba(244,238,215,.28);font-style:italic}
-.copy-row{display:flex;align-items:center;gap:.75rem;margin-top:.6rem}
-.copy-btn{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;background:rgba(201,151,63,.12);border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;flex-shrink:0}
-.copy-btn:hover{background:rgba(201,151,63,.25)}
-.copy-confirm{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#81c784;opacity:0;transition:opacity .3s}
-.copy-confirm.show{opacity:1}
+    /* ── NEW: Misconception Section ──── */
+    .misconception {
+      background: #fef5f5;
+      border: 1px solid rgba(198,93,93,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .misconcept-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #fef5f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--rose);
+    }
+    .misconcept-toggle:hover { background: rgba(198,93,93,0.05); }
+    .misconcept-toggle.open { background: rgba(198,93,93,0.08); }
+    .misconcept-indicator {
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .misconcept-toggle.open .misconcept-indicator { transform: rotate(90deg); }
+    .misconcept-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f8;
+    }
+    .misconcept-toggle.open + .misconcept-content {
+      max-height: 600px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(198,93,93,0.15);
+    }
+    .myth-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; margin-top: 0; }
+    .myth-text { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .reality-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; margin-top: 0.8rem; }
 
-/* LIGHTBOX */
-.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
-.lightbox-overlay.active{display:flex}
-.lightbox-inner{position:relative;max-width:min(900px,95vw);max-height:90vh;display:flex;flex-direction:column;gap:.75rem}
-.lightbox-inner img{width:100%;height:auto;max-height:80vh;border:1px solid rgba(201,151,63,.3);border-radius:3px}
-.lightbox-caption{font-family:'Crimson Text',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.75);text-align:center;line-height:1.5}
-.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:1px solid rgba(244,238,215,.3);color:rgba(244,238,215,.7);font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;cursor:pointer;border-radius:2px}
-.lightbox-close:hover{color:#fff;border-color:rgba(244,238,215,.6)}
-footer{text-align:center;padding:1.75rem;font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,238,215,.18);border-top:1px solid rgba(201,151,63,.1)}
-</style></head><body><header><div class="eyebrow">Florida Virtual School · US History</div><h1>DBA 2: <span>The Industrial Age</span></h1><p class="header-sub">Get ready for your conversation about industrialization, immigration, and the fight for workers' rights</p><div class="badges"><span class="badge">Think About It</span><span class="badge">Stuck? We've got you</span><span class="badge">Go Deeper</span><span class="badge">Finish in Your Own Words</span></div></header><div class="intro"><strong>How to use this guide</strong><br>Pick any topic that interests you. There's no set order. Each one tells you the story, shows you how it connects, and ties it to the world you live in. Then it's your turn to talk through what you think.</div><main><div class="section-label">Choose a topic to explore</div><div class="topic-grid"><div class="topic-card" onclick="toggle('ind-causes')" id="card-ind-causes"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.01</div><div class="tc-title">Why America Industrialized So Fast</div><div class="tc-lenses"><span class="lens">Railroads</span><span class="lens">Technology</span><span class="lens">Resources</span></div></div><div class="topic-card" onclick="toggle('ind-effects')" id="card-ind-effects"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.01</div><div class="tc-title">Who Won and Who Lost in Industrial America</div><div class="tc-lenses"><span class="lens">Northeast</span><span class="lens">South</span><span class="lens">Workers</span></div></div><div class="topic-card" onclick="toggle('immigrants')" id="card-immigrants"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.04</div><div class="tc-title">The Immigrant Experience</div><div class="tc-lenses"><span class="lens">Arrival</span><span class="lens">Daily Life</span><span class="lens">Backlash</span></div></div><div class="topic-card" onclick="toggle('labor')" id="card-labor"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.06</div><div class="tc-title">Workers Fight Back</div><div class="tc-lenses"><span class="lens">Working Conditions</span><span class="lens">Strikes</span><span class="lens">Outcomes</span></div></div><div class="topic-card" onclick="toggle('political-machines')" id="card-political-machines"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.05</div><div class="tc-title">Political Machines: Corrupt, But...</div><div class="tc-lenses"><span class="lens">How They Worked</span><span class="lens">The Corruption</span><span class="lens">The Services</span></div></div><div class="topic-card" onclick="toggle('reform')" id="card-reform"><span class="tc-arrow">›</span><div class="tc-std">Standard 2.07</div><div class="tc-title">The Push for Reform</div><div class="tc-lenses"><span class="lens">Muckrakers</span><span class="lens">Reformers</span><span class="lens">What Changed</span></div></div></div><div class="topic-panel" id="panel-ind-causes"><div class="panel-top"><div><div class="pt-std">Standard 2.01</div><div class="pt-title">Why America Industrialized So Fast</div></div><button class="close-btn" onclick="toggle('ind-causes')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">In 1865, most Americans worked on farms. By 1900, giant factories filled cities and railroads crossed the continent. What made that transformation happen so fast?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/nclc/04000/04096v.jpg" alt="Breaker boys at a Pennsylvania coal mine, 1911. Lewis Hine photograph." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/nclc/04000/04096v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"Breaker boys" sorting coal, Pennsylvania, 1911 — children as young as 8, pennies a day. Lewis Hine / Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/det/4a10000/4a13000/4a13100/4a13168v.jpg" alt="Pittsburgh steel mills producing smoke, early 1900s." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/det/4a10000/4a13000/4a13100/4a13168v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Pittsburgh steel mills at full blast, c.1900 — the industrial heartland of America, and the air was unbreathable. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Three things came together at exactly the right time: an explosion of railroads that connected the whole country into one market, enormous natural resources waiting to be extracted, and millions of immigrants who had no leverage to demand more. Add a government that stayed out of the way, and you had the conditions for the fastest industrial growth in history.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Network</div><div class="step-text">Railroads grew from 35,000 miles to 200,000 miles between 1865 and 1900. Suddenly, factories could sell to the whole country, not just their town.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Entrepreneurs</div><div class="step-text">Rockefeller controlled 90% of American oil. Carnegie controlled most of the steel. They didn't just compete, they eliminated competition entirely.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Price</div><div class="step-text">All that growth came from somewhere: coal miners, steelworkers, factory children working 12-hour days. The wealth was real, and so was the human cost.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Next time you use Amazon or Google, think about Rockefeller. Modern tech monopolies run the same play: own the market so completely that competition can't get oxygen. The tools are different. The goal isn't.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Second Industrial Revolution happened so quickly because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Rockefeller and Carnegie called themselves "self-made men." Their workers might have described them differently. Whose version of the story is more accurate?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain the main forces that drove industrialization, and who paid the price for it.</div><textarea class="yt-box" id="ta-ind-causes" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('ind-causes')">Copy my response</button><span class="copy-confirm" id="cc-ind-causes">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-ind-effects"><div class="panel-top"><div><div class="pt-std">Standard 2.01</div><div class="pt-title">Who Won and Who Lost in Industrial America</div></div><button class="close-btn" onclick="toggle('ind-effects')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The Gilded Age made some Americans the richest people in the world. It made others miserable. Why did the same economy produce such different results for different people?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/28400/28412v.jpg" alt="Puck magazine cartoon, Labor vs. Monopoly, 1883." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/28400/28412v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">"Labor vs. Monopoly," Puck, 1883 — a worker on a starving horse faces a capitalist riding a locomotive. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c00000/3c07000/3c07100/3c07166v.jpg" alt="Detained immigrants at Ellis Island, early 1900s." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c00000/3c07000/3c07100/3c07166v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Detained immigrants at Ellis Island — the massive surplus of arriving workers gave industrial owners their most powerful weapon against labor: easy replacement. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Industrialization didn't touch every part of America the same way. The Northeast boomed, factories, banks, cities. The Midwest became the industrial heartland. The South stayed trapped in cotton and poverty. And across all regions, the people doing the actual work were getting the smallest share of what they produced.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Winners</div><div class="step-text">Factory owners, railroad barons, and investors made fortunes. The middle class grew. Consumer goods got cheaper. Life genuinely improved, for some.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Losers</div><div class="step-text">Farm prices collapsed. Workers had no job security, no safety protections, no minimum wage. Children worked in factories. Immigrants crowded into tenements.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Pattern</div><div class="step-text">The South barely industrialized at all. Sharecropping kept Black Southerners in poverty. The wealth gap between regions and between classes grew wider, not narrower.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The idea that "a rising tide lifts all boats", that economic growth benefits everyone, was already being tested in the 1890s. Look at income inequality data today and ask: did anything change?</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Industrialization created wealth for some Americans while for others it meant..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Some historians call this era the "Gilded Age", covered in gold on the outside, rotten underneath. Is that a fair description?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Compare who benefited from industrialization and who was left behind. What determined which group you ended up in?</div><textarea class="yt-box" id="ta-ind-effects" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('ind-effects')">Copy my response</button><span class="copy-confirm" id="cc-ind-effects">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-immigrants"><div class="panel-top"><div><div class="pt-std">Standard 2.04</div><div class="pt-title">The Immigrant Experience</div></div><button class="close-btn" onclick="toggle('immigrants')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">You're 17, you don't speak English, you have $12 in your pocket, and you just stepped off a ship. What happens next?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3a20000/3a27000/3a27300/3a27341v.jpg" alt="Immigrants at the Ellis Island registration desk, early 1900s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3a20000/3a27000/3a27300/3a27341v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Immigrants at Ellis Island's registration desk — most passed inspection within hours, then faced a city where they barely spoke the language. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ggbain/22200/22287v.jpg" alt="Arriving at Ellis Island, early 1900s. George Grantham Bain photograph." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ggbain/22200/22287v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Arriving at Ellis Island, early 1900s — millions crossed the Atlantic with almost nothing and still came. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Between 1880 and 1920, about 20 million immigrants arrived in America, mostly from Southern and Eastern Europe, fleeing poverty, persecution, or both. They found hard work and low wages, discrimination and crowded tenements, but also community, opportunity, and the chance to build something. Many Americans didn't want them here.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Arrival</div><div class="step-text">Ellis Island processed 12 million people in 62 years. Most passed inspection in a few hours. Then they were dropped into a city where they barely spoke the language and had to find work immediately.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Reality</div><div class="step-text">Immigrants got the worst jobs, mines, meatpacking, garment factories, and lived in overcrowded tenements with bad sanitation and no heat. But ethnic communities provided belonging and mutual support.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Backlash</div><div class="step-text">Nativist Americans saw immigrants as threatening their jobs, their culture, their "American" identity. The Chinese Exclusion Act (1882) and the Immigration Act (1924) were their answer.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The arguments against immigration in the 1880s and 1920s are almost word-for-word the same arguments made today, they're taking our jobs, they don't assimilate, they change our culture. The fears are consistently the same across history.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Immigrants came to America hoping for... but many found..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. called itself a "nation of immigrants" while passing laws to keep immigrants out. How do you make sense of that contradiction?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Describe the immigrant experience in industrial America, both what people hoped for and what they actually found. Then explain the political backlash.</div><textarea class="yt-box" id="ta-immigrants" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('immigrants')">Copy my response</button><span class="copy-confirm" id="cc-immigrants">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-labor"><div class="panel-top"><div><div class="pt-std">Standard 2.06</div><div class="pt-title">Workers Fight Back</div></div><button class="close-btn" onclick="toggle('labor')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">If you worked 14 hours a day, 7 days a week, with no sick pay, no vacation, and could be fired for no reason, what would you do?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3b40000/3b46000/3b46800/3b46874v.jpg" alt="Workers at a labor demonstration, early 1900s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3b40000/3b46000/3b46800/3b46874v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Workers organizing in the early 1900s — labor activism was genuinely dangerous. Many organizers were imprisoned or killed. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3c20000/3c28000/3c28500/3c28592v.jpg" alt="Thomas Nast, Tammany Hall corruption cartoon, 1871." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3c20000/3c28000/3c28500/3c28592v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Nast's Tammany cartoon, 1871 — political machines and industrial owners both understood that controlling workers meant controlling their political options. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Workers in industrial America had almost no power. Owners had everything: the courts, the politicians, and the army if needed. But workers had one thing, there were millions of them. When they organized and refused to work, they could shut down an industry. Owners fought back viciously. Slowly, painfully, workers started to win some things.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Conditions</div><div class="step-text">12-16 hour days, no overtime, no safety rules, no compensation for injuries. Children worked in coal mines. A job could be gone tomorrow with no explanation.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Fight</div><div class="step-text">The Pullman Strike (1894) shut down national rail service. The Homestead Strike (1892) turned into a battle. Government and courts sided with owners almost every time.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Wins</div><div class="step-text">Unions won the 8-hour workday in some industries, raised public awareness about dangerous conditions, and eventually built the political pressure that led to real labor law reform.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The 40-hour work week, minimum wage, child labor laws, workplace safety rules, none of that existed before workers organized and fought for it. Everything you take for granted at work was won by someone who went on strike.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Workers organized because... and the resistance they faced included..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The government used troops to break strikes and courts to jail labor leaders. What does that tell you about who American democracy was actually designed to protect in the 1890s?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Pick one major strike from this era and explain what happened, why it mattered, and what it revealed about power in industrial America.</div><textarea class="yt-box" id="ta-labor" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('labor')">Copy my response</button><span class="copy-confirm" id="cc-labor">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-political-machines"><div class="panel-top"><div><div class="pt-std">Standard 2.05</div><div class="pt-title">Political Machines: Corrupt, But...</div></div><button class="close-btn" onclick="toggle('political-machines')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Tammany Hall stole millions from New York City. It also found jobs and housing for hundreds of thousands of immigrants. Does the good excuse the bad?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ggbain/01500/01561v.jpg" alt="Immigrants at Ellis Island, early 1900s. George Grantham Bain photograph." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ggbain/01500/01561v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Immigrants arriving at Ellis Island — political machines immediately targeted newcomers with services and jobs in exchange for votes. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/nclc/04200/04232v.jpg" alt="Tenement alley, New York City, c.1910. Lewis Hine photograph." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/nclc/04200/04232v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Tenement alley, New York City, c.1910 — machine voters lived here. The machine delivered services that no one else was offering. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">Political machines controlled most big American cities in the late 1800s. They were corrupt, they rigged elections, stole from city contracts, and enriched their leaders. But they also did something government wasn't doing: they helped poor immigrants navigate a new country, found them jobs, and showed up when people needed help. That's why they kept winning elections.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The System</div><div class="step-text">Machines traded favors for votes. Need a job? Help on rent? Get someone out of jail? The machine could fix it, in exchange for your vote and your loyalty.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Corruption</div><div class="step-text">City contracts went to machine insiders. Boss Tweed stole an estimated $100 million from New York. Corruption was the price of the service.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Takedown</div><div class="step-text">Muckraker journalists and reform politicians exposed the machines. Thomas Nast's cartoons helped bring down Tweed. Slowly, civil service reform replaced patronage.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Think about why people vote for someone they know is imperfect or even corrupt. Sometimes people choose someone who delivers over someone who's principled but out of touch. Political machines understood that before any modern politician did.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Political machines survived even though they were corrupt because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Would you rather have an honest government that ignores you, or a corrupt government that actually helps you when you're struggling? What does your answer say about what government is for?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain how political machines worked, why people supported them, and how reformers eventually brought them down.</div><textarea class="yt-box" id="ta-political-machines" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('political-machines')">Copy my response</button><span class="copy-confirm" id="cc-political-machines">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-reform"><div class="panel-top"><div><div class="pt-std">Standard 2.07</div><div class="pt-title">The Push for Reform</div></div><button class="close-btn" onclick="toggle('reform')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">If you saw something genuinely terrible happening and had tell millions of people about it, what would you do?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/nclc/04700/04783v.jpg" alt="Child factory worker, c.1912. Lewis Hine photograph." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/nclc/04700/04783v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Child factory worker, c.1912 — Lewis Hine's photographs made middle-class Americans confront conditions that most had never seen. That was the whole strategy. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/cph/3a20000/3a21000/3a21800/3a21818v.jpg" alt="Immigrants at Ellis Island being processed, 1907-1921." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/cph/3a20000/3a21000/3a21800/3a21818v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Ellis Island processing, 1907–21 — reformers like Jane Addams worked directly in immigrant communities, not from a distance. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Progressive Era was America's first major attempt to use government to fix what industrial capitalism had broken. Muckraker journalists exposed conditions that shocked the public. Reformers like Jane Addams moved into poor communities to help from the inside. Presidents like Theodore Roosevelt used federal power to break up monopolies. It wasn't a revolution, but it was real change.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Exposure</div><div class="step-text">Upton Sinclair's The Jungle (1906) described meat-processing so grotesquely that Congress passed food safety laws within months. Ida Tarbell's investigation destroyed Standard Oil's reputation.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Reform</div><div class="step-text">Settlement houses served poor urban communities directly. The Pure Food and Drug Act, child labor laws in some states, and the breakup of monopolies all came from this era.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Limits</div><div class="step-text">Most reform stopped short of structural change. Women couldn't vote until 1920. Black Americans were largely excluded from Progressive reforms. The system was patched, not rebuilt.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Investigative journalism still works the same way today. When a reporter exposes a corporation dumping toxic waste or a politician taking bribes, the mechanism is the same as Ida Tarbell in 1904, sunlight as disinfectant.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"Progressive reformers were effective when they... but they fell short because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Progressive reforms helped a lot of people, but they mostly helped white, urban, working-class people. What does it mean that the biggest reform movement in American history mostly ignored Black Americans?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Who do you think was most effective in the Progressive Era, the muckrakers, the settlement house workers, or the politicians? Make your case.</div><textarea class="yt-box" id="ta-reform" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('reform')">Copy my response</button><span class="copy-confirm" id="cc-reform">Copied! Paste it into your FLVS submission.</span></div></div></div></main><footer>FLVS US History · DBA 2 · Module 2</footer><div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()"><div class="lightbox-inner" onclick="event.stopPropagation()"><button class="lightbox-close" onclick="closeLightbox()">✕ Close</button><div id="lightbox-content"></div><div class="lightbox-caption" id="lightbox-caption"></div></div></div><script>
-function toggle(id){
-  var p=document.getElementById('panel-'+id),c=document.getElementById('card-'+id),o=p.classList.contains('open');
-  p.classList.toggle('open',!o);c.classList.toggle('active',!o);
-  if(!o){setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
-}
-function copyResponse(id){
-  var box=document.getElementById('ta-'+id);
-  var txt=box.value.trim();
-  if(!txt){box.placeholder='Write your response above first, then copy it.';box.focus();return;}
-  navigator.clipboard.writeText(txt).then(function(){
-    var c=document.getElementById('cc-'+id);
-    c.classList.add('show');
-    setTimeout(function(){c.classList.remove('show');},2500);
-  }).catch(function(){box.select();document.execCommand('copy');});
-}
-function openLightbox(el){
-  var img=el.querySelector('img'),cap=el.querySelector('.img-cap');
-  if(!img)return;
-  document.getElementById('lightbox-content').innerHTML='<img src="'+img.src+'" alt="'+(img.alt||'')+'" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border:1px solid rgba(201,151,63,.3);border-radius:3px;display:block;">';
-  document.getElementById('lightbox-caption').textContent=cap?cap.textContent:(img.alt||'');
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.img-wrap').forEach(function(w){w.addEventListener('click',function(){openLightbox(w);});});
-});
-</script></body></html>
+    /* ── NEW: Historians Disagree ──────── */
+    .historians-block {
+      background: #f5f0f9;
+      border: 1px solid rgba(123,104,170,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .hist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f5f0f9;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+    .hist-toggle:hover { background: rgba(123,104,170,0.08); }
+    .hist-toggle.open { background: rgba(123,104,170,0.08); }
+    .hist-indicator {
+      font-size: 1.2rem;
+      color: var(--purple);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .hist-toggle.open .hist-indicator { transform: rotate(90deg); }
+    .hist-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8fc;
+    }
+    .hist-toggle.open + .hist-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(123,104,170,0.15);
+    }
+    .hist-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.9rem;
+    }
+    .hist-positions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hist-position {
+      background: #faf8fc;
+      border-left: 2px solid rgba(123,104,170,0.3);
+      padding: 0.8rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .hist-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+    .hist-text {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .hist-scholar {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Debate Section ────────── */
+    .debate-block {
+      background: #f0f6f8;
+      border: 1px solid rgba(77,184,172,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .debate-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f6f8;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .debate-toggle:hover { background: rgba(77,184,172,0.08); }
+    .debate-toggle.open { background: rgba(77,184,172,0.08); }
+    .debate-indicator {
+      font-size: 1.2rem;
+      color: var(--teal);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .debate-toggle.open .debate-indicator { transform: rotate(90deg); }
+    .debate-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .debate-toggle.open + .debate-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(77,184,172,0.15);
+    }
+    .debate-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .debate-prompt {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .debate-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .debate-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(77,184,172,0.4);
+      color: var(--teal);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .debate-btn:hover { background: rgba(77,184,172,0.08); border-color: var(--teal); }
+    .debate-btn.selected { background: var(--teal); color: #ffffff; border-color: var(--teal); }
+    .debate-note {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Choice Board ──────────── */
+    .choice-board {
+      background: #faf8f4;
+      border: 1px solid rgba(184,128,42,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    .choice-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .choice-subtitle {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .choice-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .choice-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .choice-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .choice-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── Prompts ──────────────────────── */
+    .prompt {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .bloom-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .bloom-understand { background: #c8e6c9; color: #1b5e20; }
+    .bloom-analyze { background: #bbdefb; color: #0d47a1; }
+    .bloom-evaluate { background: #ffe0b2; color: #e65100; }
+    .bloom-create { background: #f8bbd0; color: #880e4f; }
+    .prompt-text {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .connector {
+      background: #f5f5f5;
+      border-left: 2px solid var(--text-3);
+      padding: 0.75rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .connector strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+    }
+
+    /* ── Theme Toggle ─────────────────── */
+    .theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--navy); border: none; border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* ── Dark Mode ────────────────────── */
+    [data-theme="dark"] { --bg: #1a1a1a; --surface: #2d2d2d; --border: #444; --text: #e0e0e0; --text-2: #b0b0b0; --text-3: #808080; }
+    [data-theme="dark"] .page-header { background: #0d0d0d; }
+    [data-theme="dark"] .dba-nav { background: #1a1a1a; }
+    [data-theme="dark"] .orientation { background: #1e3a4f; border-color: #2a5080; color: #b0d4f1; }
+    [data-theme="dark"] .topic-card { border-color: #444; }
+    [data-theme="dark"] .misconception { background: #3a1f1f; border-color: rgba(198,93,93,0.3); }
+    [data-theme="dark"] .misconcept-toggle { background: #3a1f1f; }
+    [data-theme="dark"] .misconception-content { background: #2d1f1f; }
+    [data-theme="dark"] .primary-source { background: #1a3a2f; border-color: rgba(76,175,80,0.3); }
+    [data-theme="dark"] .ps-toggle { background: #1a3a2f; }
+    [data-theme="dark"] .ps-content { background: #15302a; }
+    [data-theme="dark"] .historians-block { background: #2a1f3a; border-color: rgba(123,104,170,0.3); }
+    [data-theme="dark"] .hist-toggle { background: #2a1f3a; }
+    [data-theme="dark"] .hist-content { background: #22192f; }
+    [data-theme="dark"] .debate-block { background: #1a2f35; border-color: rgba(77,184,172,0.3); }
+    [data-theme="dark"] .debate-toggle { background: #1a2f35; }
+    [data-theme="dark"] .debate-content { background: #15282d; }
+
+    @media (max-width: 640px) {
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .debate-buttons { flex-direction: column; }
+      .debate-btn { width: 100%; }
+    }
+</style>
+</head><body>
+
+<div class="page-header" data-dba-num="2">
+  <div class="header-inner">
+    <div class="dba-label">Module 2</div>
+    <h1 class="page-title">DBA 2: The Industrial Transformation</h1>
+  </div>
+</div>
+
+<div class="dba-nav">
+  <div class="dba-nav-inner">
+    <a class="dba-nav-link" href="#"><span class="num">2</span> The Industrial Transformation</a>
+    <a class="dba-nav-link" href="dba_02_industrial_enhanced.html"><span class="num">2</span> Industrial</a>
+    <a class="dba-nav-link" href="dba_03_imperialism_enhanced.html"><span class="num">3</span> Imperialism</a>
+    <a class="dba-nav-link" href="dba_04_depression_enhanced.html"><span class="num">4</span> Depression</a>
+    <a class="dba-nav-link" href="dba_05_wwii_enhanced.html"><span class="num">5</span> WWII</a>
+    <a class="dba-nav-link" href="dba_06_coldwar_enhanced.html"><span class="num">6</span> Cold War</a>
+    <a class="dba-nav-link" href="dba_07_civilrights_enhanced.html"><span class="num">7</span> Civil Rights</a>
+    <a class="dba-nav-link" href="dba_08_modern_enhanced.html"><span class="num">8</span> Modern</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="orientation">
+    <strong>How to use this guide</strong>
+    Before your DBA conversation, pick the topics that interest you most. Each one includes primary sources, common misconceptions, historian perspectives, and chances to take a side and defend your thinking. There's no "right" way through—only the way that helps you think best.
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card" onclick="selectTopic('1')" id="card-1">
+      <div class="topic-number">Topic 1</div>
+      <div class="topic-title">Second Industrial Revolution</div>
+      <div class="topic-description">The Second Industrial Revolution transformed the U.S. after the Civil War through new technologies, ...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('2')" id="card-2">
+      <div class="topic-number">Topic 2</div>
+      <div class="topic-title">Labor, Immigration &amp; Political Machines</div>
+      <div class="topic-description">Millions of immigrants flooded American cities to fill factory jobs, often working in dangerous cond...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('3')" id="card-3">
+      <div class="topic-number">Topic 3</div>
+      <div class="topic-title">Reform &amp; Social Change</div>
+      <div class="topic-description">The Progressive Era brought muckraking journalists, labor organizers, and government reformers who e...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels" id="panels-outer">
+
+    <div class="panel" id="panel-1">
+      <h2 class="panel-title">Second Industrial Revolution</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The Second Industrial Revolution transformed the U.S. after the Civil War through new technologies, railroads, and mass production. It created enormous wealth for some Americans while concentrating power in the hands of industrial giants like Carnegie, Rockefeller, and J.P. Morgan.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The iron horse has revolutionized the land, binding distant regions into one economic whole. The railroad is the arteries through which the lifeblood of American commerce flows.</div>
+          <div class="ps-source">Industrial-era businessman reflection, 1890s</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> Why does this writer compare railroads to biological systems? What does that tell us about how they thought of industrialization?</div>
+            <div class="ps-q"><strong>Question 2:</strong> What is NOT mentioned here? What costs or consequences are left out?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The Industrial Revolution happened by accident—inventors just kept inventing and businesses just kept growing.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Industrialization required government support: railroad subsidies, tariffs protecting American manufacturers, land grants, and tax breaks for industry. It was a deliberate policy choice by the federal government to favor industrial growth over agriculture. That choice created both wealth and inequality.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">The Industrial Revolution lifted millions out of poverty and created the modern American economy. Yes, there were costs, but the net outcome was transformative progress. The factories that exploited workers in 1880 created jobs that moved families into the middle class by 1920.</div>
+              <div class="hist-scholar">Economic historians often emphasize long-term gains and the rise of living standards over decades.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">The Industrial Revolution was built on exploitation: of workers earning poverty wages, of immigrant labor vulnerability, of environmental destruction, and of the transfer of wealth to a tiny industrial elite. The "progress" enriched a small class while the working majority remained trapped in industrial poverty.</div>
+              <div class="hist-scholar">Labor historians and social critics emphasize the human costs and the concentration of wealth in fewer hands.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-1"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name two causes of the Second Industrial Revolution from different categories (transportation, communication, natural resources, entrepreneurs, technology, labor, or government). Why did these factors work together?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick two causes from genuinely different categories — don't just give two technology examples. Then explain the connection: how did each one make the other more powerful?</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The Second Industrial Revolution affected the Northeast, Midwest, West, and South differently. Which region do you think changed most dramatically, and why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one region and commit to it. Your answer is stronger if you describe a specific industry or economic shift, not just general growth.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">How was the Second Industrial Revolution similar to and different from the First? Which difference matters most for understanding American history?</p>
+<div class="connector"><strong>How to approach this:</strong> Don't list every similarity and difference — identify the one difference with the biggest consequences and explain why it changed what came next.</div>
+    </div>
+
+    <div class="panel" id="panel-2">
+      <h2 class="panel-title">Labor, Immigration &amp; Political Machines</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        Millions of immigrants flooded American cities to fill factory jobs, often working in dangerous conditions for low wages. Political machines like Tammany Hall traded basic services for immigrant votes, while industrialists used that same vulnerability to keep wages low and unions out.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">I have worked in the mill since I was ten years old. I work thirteen hours a day, six days a week. My hands are scarred and burned. The pay is not enough to rent a decent room. In Italy, at least I had family land. Here I have nothing but factory dust and debt.</div>
+          <div class="ps-source">Italian immigrant mill worker testimony, early 1900s</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What does this worker compare—then and now, here and there? What is the loss they're describing?</div>
+            <div class="ps-q"><strong>Question 2:</strong> This person works 13 hours a day. When could they organize, learn English, or improve their situation?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">Immigrants came to America, worked hard, and quickly moved up the ladder through opportunity and determination.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Immigration brought extreme vulnerability: exploitation through wage theft and debt, deliberate suppression of wages to undercut native workers, housing segregation in slums, and political corruption that traded basic services for votes while perpetuating poverty. "Hard work" alone could not overcome structural obstacles. Social mobility took multiple generations, not individual effort.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">Despite terrible conditions, America offered something Europe did not: the possibility of upward mobility. Second and third-generation immigrants did move into the middle class. The system, while brutal, created pathways that closed societies did not offer.</div>
+              <div class="hist-scholar">Many immigration historians document measurable economic mobility across generational lines.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">The "opportunity" was fundamentally constrained. Employers deliberately perpetuated poverty to maintain a docile labor force. Success for some does not erase the systemic extraction of wealth from immigrant communities through exploitative wages and working conditions.</div>
+              <div class="hist-scholar">Labor and social historians emphasize institutional mechanisms that locked workers into poverty.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-2"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name one group of workers who organized for better conditions and one law or event that shows how the government or employers responded to labor unrest.</p>
+<div class="connector"><strong>How to approach this:</strong> Pick a specific union or strike, then name a specific response — the Pullman Strike and federal injunction, the Triangle Shirtwaist fire and subsequent legislation. The pairing shows cause and consequence.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">Immigrants faced difficult conditions and were viewed with suspicion, yet they were also essential to industrial growth. How did American citizens and the government hold both of those things to be true at the same time?</p>
+<div class="connector"><strong>How to approach this:</strong> Look for the tension: needed for labor, resented for culture. The strongest answer names a specific law, policy, or event that shows both attitudes existing simultaneously.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-create">create</span>
+<p class="prompt-text">You work 12-hour days in a factory for low wages. You can keep your head down, join a labor union (risking your job and safety), or try to leave for something else. What would you do? What does your choice reveal about the options workers actually had?</p>
+<div class="connector"><strong>How to approach this:</strong> Commit to a choice and defend it with the actual constraints workers faced — no savings, no English, family to feed. The most honest answers acknowledge why even a bad option might be the best available.</div>
+    </div>
+
+    <div class="panel" id="panel-3">
+      <h2 class="panel-title">Reform &amp; Social Change</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The Progressive Era brought muckraking journalists, labor organizers, and government reformers who exposed and fought the worst abuses of industrialization. Changes like the Sherman Antitrust Act, the Pure Food and Drug Act, and the 17th Amendment came from sustained public pressure.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">I went to work when I was thirteen years old. I worked in a cotton mill. There was a fire. One hundred forty-six girls burned to death because the exit doors were locked. The owners were never convicted. After that, everything changed.</div>
+          <div class="ps-source">Witness account of Triangle Shirtwaist Factory Fire, 1911</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> Why would factory owners lock exit doors? What does this tell us about labor conditions?</div>
+            <div class="ps-q"><strong>Question 2:</strong> The witness says "after that, everything changed." What actually changed, and what did not?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">Progressive reforms happened because people realized they were right and demanded change out of moral conscience.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Reforms happened because of disasters, muckraking journalism, and political pressure that threatened power. The Triangle fire killed 146 people. Upton Sinclair's The Jungle caused food safety panic. Without crises forcing attention, reform moved slowly or not at all. Moral arguments alone did not move governments.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">Progressive reforms genuinely improved conditions: child labor laws, workplace safety regulations, food safety, antitrust actions against monopolies. These reforms were real achievements that benefited millions and created a foundation for the modern regulatory state.</div>
+              <div class="hist-scholar">Historians studying specific reforms document measurable improvements in working conditions and consumer safety.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">Progressive reforms were insufficient and often served to stabilize capitalism rather than challenge it. They made conditions slightly better for some while leaving fundamental inequalities intact. Real power—economic and political—remained concentrated among the wealthy.</div>
+              <div class="hist-scholar">Critical historians argue reforms were modest concessions designed to prevent more radical change.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-3"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name one Progressive Era reform and explain what problem it was trying to solve.</p>
+<div class="connector"><strong>How to approach this:</strong> Be specific on both sides — the reform (Pure Food and Drug Act, 17th Amendment, child labor laws) and the exact problem it addressed. Vague answers like 'it made things better' don't hold up in a live conversation.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">What had to happen before the government was willing to act on labor and social problems? Why was change so slow even when conditions were visibly terrible?</p>
+<div class="connector"><strong>How to approach this:</strong> Think about what finally forced government action in specific cases — a disaster, a book, an election. Then explain the gap: why did terrible conditions exist for years before anything changed?</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">The Populist Party, labor unions, and Progressive reformers all pushed for change in different ways. Which approach produced the most lasting results, and why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one and make the case for it. If you say Progressives, name a specific reform. If you say unions, name a specific victory. Specific examples always outperform general claims in a live conversation.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+
+<footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+<script>
+    function togglePrimarySource(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleMisconception(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleHistorians(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleDebate(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panels-outer').classList.add('open');
+      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+    }
+
+    function selectDebate(btn, choice) {
+      var siblings = btn.parentElement.querySelectorAll('.debate-btn');
+      siblings.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      var panelId = btn.closest('.panel').id;
+      var noteDiv = document.getElementById('debate-note-' + panelId.replace('panel-', ''));
+      if (noteDiv) {
+        noteDiv.textContent = 'You Selected: "' + btn.textContent.trim() + '" Now tell why you think this is true.';
+      }
+    }
+</script>
+
+<script id="theme-script">
+  (function(){
+    var LS = 'dba-theme';
+    function effective(s) {
+      if (s === 'dark' || s === 'light') return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function apply(stored) {
+      var eff = effective(stored);
+      var html = document.documentElement;
+      if (stored === 'dark' || stored === 'light') {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.textContent = eff === 'dark' ? '\u2600' : '\u263D';
+        btn.title = eff === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+    apply(localStorage.getItem(LS));
+    document.addEventListener('DOMContentLoaded', function() {
+      apply(localStorage.getItem(LS));
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var eff = effective(localStorage.getItem(LS));
+        var next = eff === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(LS, next);
+        apply(next);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,145 +1,1089 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DBA 5 Visual Prep | US History</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{--navy:#1B2B4B;--navy-dark:#111d33;--cream:#F4EED7;--gold:#C9973F;--gold-light:#e8b85a;--teal:#4db6ac;--rose:#ef9a9a;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Crimson Text',Georgia,serif;background:var(--navy-dark);color:var(--cream);min-height:100vh}
-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
-.eyebrow{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--cream);line-height:1.1}
-header h1 span{color:var(--gold)}
-.header-sub{font-size:1.05rem;color:rgba(244,238,215,.6);font-style:italic;margin-top:.4rem}
-.badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}
-.badge{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2px;border:1px solid;border-color:var(--gold);color:var(--gold)}
-.intro{max-width:820px;margin:1.5rem auto;padding:1.1rem 1.75rem;background:rgba(244,238,215,.05);border-left:3px solid var(--gold);font-size:1rem;line-height:1.7;color:rgba(244,238,215,.78)}
-.intro strong{font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 4rem}
-.section-label{font-family:'Josefin Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:1px;background:rgba(201,151,63,.25)}
+<!DOCTYPE html>
 
-/* TOPIC CARDS */
-.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;margin-bottom:1.5rem}
-.topic-card{background:var(--navy);border:1px solid rgba(201,151,63,.2);border-top:3px solid var(--gold);border-radius:2px;padding:1.4rem;cursor:pointer;transition:all .22s ease;position:relative;user-select:none}
-.topic-card:hover{border-color:rgba(201,151,63,.5);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.topic-card.active{background:rgba(201,151,63,.1);border-top-color:var(--gold-light)}
-.tc-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.7rem}
-.tc-lenses{display:flex;flex-wrap:wrap;gap:.35rem}
-.lens{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;background:rgba(201,151,63,.1);color:rgba(244,238,215,.65);border:1px solid rgba(201,151,63,.2);border-radius:1px}
-.tc-arrow{position:absolute;top:1.3rem;right:1.3rem;color:var(--gold);font-size:1.1rem;transition:transform .22s ease}
-.topic-card.active .tc-arrow{transform:rotate(90deg)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DBA 1: Reconstruction Era | US History</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* PANEL */
-.topic-panel{display:none;background:#0d1627;border:1px solid rgba(201,151,63,.22);border-top:2px solid var(--gold);border-radius:2px;margin-bottom:1.25rem;animation:fadeIn .28s ease}
-.topic-panel.open{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.panel-top{padding:1.4rem 1.75rem;border-bottom:1px solid rgba(201,151,63,.13);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.pt-std{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:.2rem}
-.pt-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream)}
-.close-btn{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,215,.45);cursor:pointer;padding:.28rem .7rem;border:1px solid rgba(244,238,215,.15);border-radius:2px;background:none;transition:all .2s;flex-shrink:0}
-.close-btn:hover{color:var(--cream);border-color:rgba(244,238,215,.35)}
+    :root {
+      --bg:       #f7f5f0;
+      --surface:  #ffffff;
+      --border:   #e0dbd2;
+      --navy:     #1c2b3a;
+      --navy-mid: #253d56;
+      --accent:   #b8802a;
+      --text:     #1e1c18;
+      --text-2:   #5a5751;
+      --text-3:   #9b9792;
+      --green:    #4caf50;
+      --rose:     #c65d5d;
+      --purple:   #7b68aa;
+      --teal:     #4db8ac;
+    }
 
-/* HOOK */
-.hook{padding:.9rem 1.75rem;background:rgba(122,26,26,.13);border-bottom:1px solid rgba(122,26,26,.28);display:flex;align-items:flex-start;gap:.9rem}
-.hook-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.18rem .45rem;border:1px solid rgba(239,154,154,.35);border-radius:1px;white-space:nowrap;margin-top:.1rem;flex-shrink:0}
-.hook-q{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.9);line-height:1.55}
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* PANEL BODY */
-.panel-body{display:grid;grid-template-columns:300px 1fr}
-@media(max-width:760px){.panel-body{grid-template-columns:1fr}}
-.media-col{padding:1.4rem;border-right:1px solid rgba(201,151,63,.1);display:flex;flex-direction:column;gap:1rem}
-.media-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,151,63,.6);margin-bottom:.3rem}
-.cartoon-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#c97fd4;margin-bottom:.3rem}
-.img-cap{font-size:.76rem;font-style:italic;color:rgba(244,238,215,.4);margin-top:.3rem;line-height:1.4}
-.img-wrap{position:relative;cursor:zoom-in}
-.img-wrap::after{content:'expand';position:absolute;bottom:0;right:0;background:rgba(0,0,0,.65);color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .45rem;border-top-left-radius:2px;opacity:0;transition:opacity .2s}
-.img-wrap:hover::after{opacity:1}
+    /* ── Page Header ──────────────────── */
+    .page-header {
+      background: var(--navy);
+      padding: 2.75rem 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: attr(data-dba-num);
+      position: absolute;
+      right: 0.5rem;
+      top: -0.1em;
+      font-family: 'Playfair Display', serif;
+      font-size: 15rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .dba-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 0;
+    }
 
-/* CONTENT COL */
-.content-col{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem}
+    /* ── DBA Nav ──────────────────────── */
+    .dba-nav { background: var(--navy-mid); }
+    .dba-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dba-nav-inner::-webkit-scrollbar { display: none; }
+    .dba-nav-link {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.6rem 0.9rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .dba-nav-link:hover { color: rgba(255,255,255,0.78); }
+    .dba-nav-link.current { color: #ffffff; border-bottom-color: var(--accent); }
+    .dba-nav-link .num {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
 
-/* STORY */
-.story-block{background:rgba(244,238,215,.04);border-left:3px solid rgba(201,151,63,.4);padding:.9rem 1rem;border-radius:0 2px 2px 0}
-.story-text{font-size:.98rem;color:rgba(244,238,215,.85);line-height:1.75}
+    /* ── Container ────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3.5rem;
+    }
 
-/* FLOW CHAIN */
-.flow-chain{display:flex;flex-direction:column;gap:.5rem}
-.flow-chain-label{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
-.flow-steps{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.flow-step{flex:1;min-width:130px;background:rgba(27,43,75,.7);border:1px solid rgba(77,182,172,.2);padding:.75rem .85rem;position:relative}
-.flow-step:first-child{border-radius:3px 0 0 3px}
-.flow-step:last-child{border-radius:0 3px 3px 0}
-.step-num{font-family:'Josefin Sans',sans-serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;opacity:.75}
-.step-label{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;line-height:1.2}
-.step-text{font-size:.85rem;color:rgba(244,238,215,.75);line-height:1.55}
-.flow-arrow{display:flex;align-items:center;padding:0 .35rem;color:rgba(77,182,172,.5);font-size:1.1rem;flex-shrink:0;align-self:center}
-@media(max-width:580px){.flow-steps{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+    /* ── Orientation ──────────────────── */
+    .orientation {
+      background: #ecf1f8;
+      border: 1px solid #ccd8ea;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 13.5px;
+      color: #2a3f5e;
+      line-height: 1.65;
+    }
+    .orientation strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #3a5880;
+      margin-bottom: 0.3rem;
+    }
 
-/* CONNECTION */
-.connection-block{background:rgba(201,151,63,.07);border:1px solid rgba(201,151,63,.2);border-radius:2px;padding:.75rem 1rem;display:flex;gap:.75rem;align-items:flex-start}
-.conn-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.conn-label{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-.conn-text{font-size:.9rem;color:rgba(244,238,215,.78);line-height:1.6}
+    /* ── Topic Grid ───────────────────── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      gap: 14px;
+      margin-bottom: 2.5rem;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 3px;
+      background: transparent;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.18s;
+    }
+    .topic-card:hover {
+      border-color: #c5bfb6;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+    .topic-card:hover::before { background: #c5bfb6; }
+    .topic-card.active { border-color: var(--navy); background: #eef2f7; }
+    .topic-card.active::before { background: var(--navy); }
+    .topic-number {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.45rem;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .topic-description {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-bottom: 0.9rem;
+      line-height: 1.55;
+    }
+    .topic-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
 
-/* STARTER */
-.starter-block{background:rgba(201,151,63,.06);border-left:2px solid var(--gold);padding:.65rem .9rem}
-.starter-lbl{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.starter-text{font-size:.9rem;font-style:italic;color:rgba(244,238,215,.7);line-height:1.5}
+    /* ── Panels ───────────────────────── */
+    .panels { display: none; }
+    .panels.open { display: block; }
+    .panel {
+      display: none;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: slideIn 0.25s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .content-anchor {
+      background: #faf9f6;
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .content-anchor strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
-/* RIGOR */
-.rigor{padding:.85rem 1rem;background:rgba(27,43,75,.6);border:1px solid rgba(126,179,224,.18);border-radius:2px}
-.rigor-lbl{font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#7eb3e0;margin-bottom:.3rem}
-.rigor-q{font-size:.93rem;color:rgba(244,238,215,.85);line-height:1.65;font-style:italic}
+    /* ── NEW: Primary Source Section ──── */
+    .primary-source {
+      background: #f0f8f5;
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .ps-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f8f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .ps-toggle:hover { background: rgba(76,175,80,0.08); }
+    .ps-indicator {
+      font-size: 1.2rem;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ps-toggle.open .ps-indicator { transform: rotate(90deg); }
+    .ps-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .ps-toggle.open + .ps-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(76,175,80,0.15);
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .ps-quote {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+      border-left: 2px solid rgba(76,175,80,0.3);
+      padding-left: 0.8rem;
+    }
+    .ps-source {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .ps-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ps-q {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .ps-q strong { color: var(--green); }
 
-/* YOUR TURN */
-.your-take{padding:1.4rem 1.75rem;background:rgba(122,26,26,.08);border-top:1px solid rgba(122,26,26,.22)}
-.yt-header{display:flex;align-items:center;gap:.9rem;margin-bottom:.65rem}
-.yt-lbl{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);padding:.22rem .55rem;border:1px solid rgba(239,154,154,.35);border-radius:1px}
-.yt-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--cream)}
-.yt-prompt{font-size:.93rem;color:rgba(244,238,215,.75);line-height:1.65;margin-bottom:.75rem;font-style:italic}
-.yt-box{width:100%;min-height:80px;background:rgba(0,0,0,.28);border:1px solid rgba(239,154,154,.22);border-radius:2px;color:var(--cream);font-family:'Crimson Text',serif;font-size:1rem;padding:.7rem;resize:vertical}
-.yt-box:focus{outline:none;border-color:rgba(239,154,154,.45)}
-.yt-box::placeholder{color:rgba(244,238,215,.28);font-style:italic}
-.copy-row{display:flex;align-items:center;gap:.75rem;margin-top:.6rem}
-.copy-btn{font-family:'Josefin Sans',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;background:rgba(201,151,63,.12);border:1px solid var(--gold);color:var(--gold);border-radius:2px;cursor:pointer;transition:all .2s;flex-shrink:0}
-.copy-btn:hover{background:rgba(201,151,63,.25)}
-.copy-confirm{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#81c784;opacity:0;transition:opacity .3s}
-.copy-confirm.show{opacity:1}
+    /* ── NEW: Misconception Section ──── */
+    .misconception {
+      background: #fef5f5;
+      border: 1px solid rgba(198,93,93,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .misconcept-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #fef5f5;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--rose);
+    }
+    .misconcept-toggle:hover { background: rgba(198,93,93,0.05); }
+    .misconcept-toggle.open { background: rgba(198,93,93,0.08); }
+    .misconcept-indicator {
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .misconcept-toggle.open .misconcept-indicator { transform: rotate(90deg); }
+    .misconcept-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f8;
+    }
+    .misconcept-toggle.open + .misconcept-content {
+      max-height: 600px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(198,93,93,0.15);
+    }
+    .myth-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; margin-top: 0; }
+    .myth-text { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .reality-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; margin-top: 0.8rem; }
 
-/* LIGHTBOX */
-.lightbox-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
-.lightbox-overlay.active{display:flex}
-.lightbox-inner{position:relative;max-width:min(900px,95vw);max-height:90vh;display:flex;flex-direction:column;gap:.75rem}
-.lightbox-inner img{width:100%;height:auto;max-height:80vh;border:1px solid rgba(201,151,63,.3);border-radius:3px}
-.lightbox-caption{font-family:'Crimson Text',serif;font-size:1rem;font-style:italic;color:rgba(244,238,215,.75);text-align:center;line-height:1.5}
-.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:1px solid rgba(244,238,215,.3);color:rgba(244,238,215,.7);font-family:'Josefin Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;cursor:pointer;border-radius:2px}
-.lightbox-close:hover{color:#fff;border-color:rgba(244,238,215,.6)}
-footer{text-align:center;padding:1.75rem;font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,238,215,.18);border-top:1px solid rgba(201,151,63,.1)}
-</style></head><body><header><div class="eyebrow">Florida Virtual School · US History</div><h1>DBA 5: <span>World War II</span></h1><p class="header-sub">Get ready for your conversation about the deadliest war in history and the world it left behind</p><div class="badges"><span class="badge">Think About It</span><span class="badge">Stuck? We've got you</span><span class="badge">Go Deeper</span><span class="badge">Finish in Your Own Words</span></div></header><div class="intro"><strong>How to use this guide</strong><br>Pick any topic that interests you. There's no set order. Each one tells you the story, shows you how it connects, and ties it to the world you live in. Then it's your turn to talk through what you think.</div><main><div class="section-label">Choose a topic to explore</div><div class="topic-grid"><div class="topic-card" onclick="toggle('wwii-causes')" id="card-wwii-causes"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.01</div><div class="tc-title">How the World Ended Up at War Again</div><div class="tc-lenses"><span class="lens">Versailles to Hitler</span><span class="lens">Appeasement</span><span class="lens">U.S. Response</span></div></div><div class="topic-card" onclick="toggle('pearl-harbor')" id="card-pearl-harbor"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.02</div><div class="tc-title">Pearl Harbor and the Decision to Fight</div><div class="tc-lenses"><span class="lens">US-Japan Tensions</span><span class="lens">The Attack</span><span class="lens">The Response</span></div></div><div class="topic-card" onclick="toggle('dday')" id="card-dday"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.02</div><div class="tc-title">D-Day: The Turning Point in Europe</div><div class="tc-lenses"><span class="lens">The Planning</span><span class="lens">The Assault</span><span class="lens">The Aftermath</span></div></div><div class="topic-card" onclick="toggle('holocaust')" id="card-holocaust"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.04</div><div class="tc-title">The Holocaust: How Genocide Happens</div><div class="tc-lenses"><span class="lens">Who Was Targeted</span><span class="lens">The World's Response</span><span class="lens">The Reckoning</span></div></div><div class="topic-card" onclick="toggle('homefront')" id="card-homefront"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.05</div><div class="tc-title">The War at Home</div><div class="tc-lenses"><span class="lens">Economic Change</span><span class="lens">Social Change</span><span class="lens">Civil Liberties</span></div></div><div class="topic-card" onclick="toggle('wwii-end')" id="card-wwii-end"><span class="tc-arrow">›</span><div class="tc-std">Standard 5.06</div><div class="tc-title">How WWII Ended — and What It Left Behind</div><div class="tc-lenses"><span class="lens">The Atomic Bomb</span><span class="lens">War Crimes Trials</span><span class="lens">A New World</span></div></div></div><div class="topic-panel" id="panel-wwii-causes"><div class="panel-top"><div><div class="pt-std">Standard 5.01</div><div class="pt-title">How the World Ended Up at War Again</div></div><button class="close-btn" onclick="toggle('wwii-causes')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Hitler took power in 1933. By 1939, he'd annexed multiple countries without firing a shot. How does that happen?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09000/09069v.jpg" alt="Hitler at a Nuremberg rally, 1930s." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09000/09069v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Hitler at a Nuremberg rally, 1930s — the spectacle was designed to manufacture a feeling of unstoppable momentum. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ggbain/26000/26082v.jpg" alt="WWI trench barber, France, c.1915–1918." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ggbain/26000/26082v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">WWI trench, c.1916 — WWII grew directly from WWI's failures. Every concession to Hitler made the next demand bigger. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">WWII didn't come out of nowhere. It grew directly from the failures of WWI's peace. The Treaty of Versailles humiliated Germany and destroyed its economy. The Depression made people desperate. Hitler offered simple villains, national pride, and scapegoats. And Britain and France kept giving him what he wanted, hoping to avoid another war. Every concession made the next demand more dangerous.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Seeds</div><div class="step-text">Versailles left Germany humiliated, economically destroyed, and looking for someone to blame. Hitler offered them a story: Germany had been "stabbed in the back" by Jews and communists.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Appeasement</div><div class="step-text">Britain and France gave Hitler the Rhineland, Austria, and Czechoslovakia without a fight. Each concession convinced Hitler they wouldn't stop him. He was right until he invaded Poland.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Lesson</div><div class="step-text">Appeasement made WWII worse. Confronting aggression early, when it's costly, is usually better than waiting until the cost is catastrophic.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The term "appeasement" is now used as an insult in political arguments. But the people who appeased Hitler weren't stupid. They were traumatized by WWI and genuinely terrified of doing it again. Understanding why smart people made bad decisions is more useful than mocking them.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"WWII happened because the WWI peace settlement... which led to..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">Could WWII have been prevented? At what point do you think the window to stop Hitler actually closed?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Connect the dots: Versailles → Great Depression → Hitler's rise → Appeasement → WWII. Explain the chain of cause and effect.</div><textarea class="yt-box" id="ta-wwii-causes" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('wwii-causes')">Copy my response</button><span class="copy-confirm" id="cc-wwii-causes">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-pearl-harbor"><div class="panel-top"><div><div class="pt-std">Standard 5.02</div><div class="pt-title">Pearl Harbor and the Decision to Fight</div></div><button class="close-btn" onclick="toggle('pearl-harbor')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Japan and the U.S. weren't at war, but the U.S. had cut off Japan's oil supply. Was Pearl Harbor really a surprise?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09600/09639v.jpg" alt="USS Arizona burning at Pearl Harbor, December 7, 1941." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09600/09639v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">USS Arizona burning at Pearl Harbor, December 7, 1941 — 1,177 crew members died. The wreck still rests on the harbor floor. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/38700/38791v.jpg" alt="WWI Europe alliance illustration, 1914." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/38700/38791v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">The alliance that dragged the world into WWI — Japan calculated that destroying the Pacific Fleet would buy time before the U.S. could respond. It was the same logic, a different ocean. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The attack on Pearl Harbor shocked Americans, but U.S.-Japan tensions had been building for years. Japan needed oil for its Pacific expansion; the U.S. cut it off. Japan calculated that destroying the American Pacific Fleet would buy time to consolidate its empire before the U.S. could respond. It was a gamble, and it failed. The attack united American opinion in a way nothing else could have.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Buildup</div><div class="step-text">Japan invaded China in 1937. The U.S. protested, then imposed economic sanctions, then cut off oil. Japan faced a choice: retreat from China or find oil another way.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Attack</div><div class="step-text">December 7, 1941: 353 aircraft in two waves. 2,403 Americans killed, 19 ships damaged or sunk. The plan was to knock out the Pacific Fleet before the U.S. could respond to Japanese expansion.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Miscalculation</div><div class="step-text">Japan's Admiral Yamamoto reportedly said: "I fear we have awakened a sleeping giant." The attack united Americans behind the war effort in a way that debates over Europe never had.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The internment of 120,000 Japanese Americans after Pearl Harbor, most of them U.S. citizens, is one of the starkest examples in American history of how fear and racism override constitutional rights during crises. The Supreme Court upheld it. The government apologized and paid reparations in 1988.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The attack on Pearl Harbor changed American policy because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. interned 120,000 Japanese Americans after Pearl Harbor but not German Americans or Italian Americans in comparable numbers. What does that tell you about the role of race in wartime policy?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through the path from U.S.-Japan tensions to Pearl Harbor to the American response. What do you think was the most significant long-term consequence?</div><textarea class="yt-box" id="ta-pearl-harbor" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('pearl-harbor')">Copy my response</button><span class="copy-confirm" id="cc-pearl-harbor">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-dday"><div class="panel-top"><div><div class="pt-std">Standard 5.02</div><div class="pt-title">D-Day: The Turning Point in Europe</div></div><button class="close-btn" onclick="toggle('dday')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">160,000 men crossing the English Channel to storm fortified beaches, knowing thousands would die before noon. What does it take for people to do that?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/13300/13304v.jpg" alt="U.S. troops approaching Omaha Beach, D-Day, June 6, 1944." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/13300/13304v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">U.S. troops approaching Omaha Beach, June 6, 1944 — D-Day was the largest amphibious invasion in history. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09700/09785v.jpg" alt="American soldiers wearing gas masks in a WWI trench, 1918." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09700/09785v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">WWI trench warfare — D-Day planners had WWI's frontal assault disasters in mind. They built a massive deception operation specifically to avoid repeating them. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">D-Day was the largest amphibious invasion in history and the moment the liberation of Western Europe began. It was brilliantly planned, including a massive deception operation to fool Germany about where the attack would come, and brutally costly. Omaha Beach alone saw over 2,000 American casualties in a single morning. Within a year of D-Day, Germany surrendered.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Setup</div><div class="step-text">Operation Fortitude convinced Germany the real invasion would come at Calais, not Normandy. Meanwhile, the Allies assembled the largest naval force ever assembled: 5,000 ships.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Assault</div><div class="step-text">June 6, 1944. Five beaches. Utah, Omaha, Gold, Juno, Sword. At Omaha, the first waves were cut down almost immediately. Men kept coming anyway. By evening, the beachhead was held.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Road to Victory</div><div class="step-text">Paris was liberated August 25. Germany launched one last counteroffensive at the Battle of the Bulge and failed. Hitler committed suicide April 30. Germany surrendered May 8, 1945.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">D-Day is often called the greatest military operation in history. But it also required one of the most sophisticated deception campaigns ever, fake armies, double agents, inflatable tanks. Modern information warfare traces its direct lineage here.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"D-Day was significant not just militarily but also because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">D-Day was genuinely costly, thousands died in hours. Was there a less costly path to defeating Nazi Germany, or was this kind of direct assault inevitable?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through D-Day, the planning, the invasion, and what it meant for the war. Explain why it mattered beyond just being a military victory.</div><textarea class="yt-box" id="ta-dday" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('dday')">Copy my response</button><span class="copy-confirm" id="cc-dday">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-holocaust"><div class="panel-top"><div><div class="pt-std">Standard 5.04</div><div class="pt-title">The Holocaust: How Genocide Happens</div></div><button class="close-btn" onclick="toggle('holocaust')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">Six million Jews. Six million. How do you even begin to understand what that number means, and what it takes for a modern government to do that?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/12300/12384v.jpg" alt="Survivors at Buchenwald concentration camp, April 1945." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/12300/12384v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Survivors at Buchenwald, April 1945 — Eisenhower ordered the documentation to prevent future denial. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/15200/15233v.jpg" alt="Nazi defendants at the Nuremberg Trials, 1945." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/15200/15233v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Nuremberg Trials, 1945 — the trials established that "following orders" is not a defense and that crimes against humanity are prosecutable. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The Holocaust was not an accident or an explosion of uncontrolled violence. It was a deliberate, bureaucratically organized, industrially efficient campaign to systematically murder entire groups of people. It required the participation of thousands of ordinary people, soldiers, railroad workers, bureaucrats, who chose to obey. Understanding how it happened is the only way to prevent it from happening again.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">How It Worked</div><div class="step-text">Step by step: legal discrimination, registration, ghettoization, deportation, extermination. Each step was normalized before the next one began. Most people didn't see the endpoint until it was too late to resist.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">Who Else Knew</div><div class="step-text">The U.S. knew about the mass killings by 1942. Jewish refugees had been turned away from American shores in 1939. The decision not to bomb the railroad lines to Auschwitz is still debated.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Reckoning</div><div class="step-text">The Nuremberg Trials established that "I was following orders" is not a defense. Every person who participated made a choice. That principle still shapes international law.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">Genocide doesn't start with gas chambers. It starts with dehumanization, calling people vermin, blaming them for the country's problems, making "ordinary" people comfortable with their exclusion. That's why it's important to recognize those early steps. Historians who study genocide point to the same warning signs appearing before every modern instance.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The Holocaust is important to understand because it shows that..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The Nuremberg principle says "following orders" isn't a defense for war crimes. Does that principle apply consistently in the real world, or only to defeated enemies?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Explain how the Holocaust happened, not just the facts, but the process. What do you think is the most important lesson from it?</div><textarea class="yt-box" id="ta-holocaust" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('holocaust')">Copy my response</button><span class="copy-confirm" id="cc-holocaust">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-homefront"><div class="panel-top"><div><div class="pt-std">Standard 5.05</div><div class="pt-title">The War at Home</div></div><button class="close-btn" onclick="toggle('homefront')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">WWII ended the Great Depression, put women in factories, and sent Black Americans to fight for a democracy that segregated them. What does it mean when war solves one crisis while creating new contradictions?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/16700/16773v.jpg" alt="Women defense workers at a wartime factory, 1943." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/16700/16773v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Women defense workers, 1943 — "Rosie the Riveter" became the symbol of wartime contribution. After the war, they were told to go home. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/fsa/8b27000/8b27900/8b27933v.jpg" alt="Hooverville, Portland, Oregon, July 1936." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/fsa/8b27000/8b27900/8b27933v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Hooverville, Portland, 1936 — WWII ended the Depression by putting everyone to work. Unemployment fell from 17% to 1% in three years. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">The American home front during WWII was a study in contradictions: real national unity and racial exclusion, economic transformation and rationing, women's empowerment and its postwar reversal. The war mobilized the entire economy, lifted unemployment to near zero, and permanently changed who was considered capable of doing what jobs.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Economy</div><div class="step-text">Unemployment fell from 17% to 1%. The U.S. built 300,000 aircraft and 89,000 tanks. Six million women entered factory work. The Depression ended not by New Deal programs but by war production.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Contradictions</div><div class="step-text">1.2 million Black Americans served in a segregated military. The Double V campaign demanded victory abroad AND at home. Yet 120,000 Japanese Americans were imprisoned in internment camps.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The Legacy</div><div class="step-text">Women proved they could do industrial work. Black veterans came home expecting rights they'd earned abroad. Both groups were pushed back, but the seeds of the postwar civil rights movement were planted.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The wartime argument for women's industrial work was practical: "We need you." After the war, the same society said "go back to the kitchen." That contradiction, you're capable when we need you, invisible when we don't, echoes in workplace equality debates today.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The WWII home front showed that... but it also revealed..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. fought Nazi racism in Europe while maintaining a segregated military and interning Japanese Americans at home. How do you explain that, is it hypocrisy, or something more complicated?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Describe the home front experience for two different groups during WWII. What did the war promise them, and what did it actually deliver?</div><textarea class="yt-box" id="ta-homefront" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('homefront')">Copy my response</button><span class="copy-confirm" id="cc-homefront">Copied! Paste it into your FLVS submission.</span></div></div></div><div class="topic-panel" id="panel-wwii-end"><div class="panel-top"><div><div class="pt-std">Standard 5.06</div><div class="pt-title">How WWII Ended — and What It Left Behind</div></div><button class="close-btn" onclick="toggle('wwii-end')">✕ Close</button></div><div class="hook"><span class="hook-lbl">Think About It</span><div class="hook-q">The atomic bomb ended the war in days and started a new kind of fear that has never gone away. Was using it justified?</div></div><div class="panel-body"><div class="media-col"><div><div class="media-lbl">Historical Image</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/13600/13653v.jpg" alt="Atomic bomb mushroom cloud over Nagasaki, August 9, 1945." style="width:100%;height:190px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/13600/13653v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:190px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">The mushroom cloud over Nagasaki, August 9, 1945 — the second bomb, three days after Hiroshima. Japan surrendered six days later. Library of Congress.</div></div></div><div><div class="cartoon-lbl">◈ Primary Source</div><div class="img-wrap"><img src="https://cdn.loc.gov/service/pnp/ppmsca/09600/09698v.jpg" alt="U.S. Marines during the Chosin Reservoir campaign, Korea, December 1950." style="width:100%;height:175px;object-fit:cover;border:1px solid rgba(201,151,63,.2);border-radius:2px;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><a href="https://cdn.loc.gov/service/pnp/ppmsca/09600/09698v.jpg" target="_blank" rel="noopener" style="display:none;width:100%;height:175px;background:rgba(201,151,63,.07);border:1px dashed rgba(201,151,63,.3);border-radius:2px;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;font-family:sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,151,63,.7);text-align:center;padding:.5rem;text-decoration:none;"><span style="font-size:1.4rem;">🖼</span><span>Click to open image</span><span style="font-size:.52rem;opacity:.6;">opens in new tab</span></a><div class="img-cap">Marines in Korea, 1950 — within five years of WWII ending, America was in another war. The world WWII built wasn't as stable as anyone hoped. Library of Congress.</div></div></div></div><div class="content-col"><div class="story-block"><div class="story-text">WWII ended with two flashes over Japan that changed warfare forever. But the ending also created a new world order: the United Nations, the Nuremberg principles, U.S.-Soviet rivalry, and the beginning of the nuclear age. The war that was supposed to end all wars had produced weapons capable of ending civilization itself.</div></div><div class="flow-chain"><div class="flow-chain-label">How It Connects</div><div class="flow-steps"><div class="flow-step"><div class="step-num">Step 1</div><div class="step-label">The Decision</div><div class="step-text">U.S. planners estimated 500,000+ Allied casualties in a land invasion of Japan. Truman ordered the atomic bombs dropped on Hiroshima and Nagasaki. Japan surrendered six days after Nagasaki.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 2</div><div class="step-label">The Reckoning</div><div class="step-text">The Nuremberg Trials prosecuted Nazi leaders for "crimes against humanity", a new legal concept. 12 were sentenced to death. The principle: even heads of state are accountable to international law.</div></div><div class="flow-arrow">›</div><div class="flow-step"><div class="step-num">Step 3</div><div class="step-label">The New World</div><div class="step-text">The U.S. and Soviet Union emerged as the only two superpowers. The atomic bomb gave both sides the power to end civilization. The Cold War began almost immediately.</div></div></div></div><div class="connection-block"><div class="conn-icon">🔗</div><div><div class="conn-label">Real World Connection</div><div class="conn-text">The debate over the atomic bombs, was it justified, was it necessary, could Japan have been compelled to surrender another way, has never been resolved. It's not a historical question; it's a moral one. And the same question applies to civilian casualties in every war since.</div></div></div><div class="starter-block"><div class="starter-lbl">🤔 Need a starting point?</div><div class="starter-text">"The most significant consequence of how WWII ended was... because..."</div></div><div class="rigor"><div class="rigor-lbl">◈ Let's Go Deeper</div><div class="rigor-q">The U.S. used atomic weapons against civilians. The Nuremberg Trials said targeting civilians is a crime against humanity. How do you hold both of those things at once?</div></div></div></div><div class="your-take"><div class="yt-header"><span class="yt-lbl">Your Turn</span><span class="yt-title">Put it in your own words.</span></div><div class="yt-prompt">Walk through how WWII ended, in Europe and in the Pacific. Then think about what kind of world it left behind.</div><textarea class="yt-box" id="ta-wwii-end" placeholder="Talk it out here — no wrong answers, just your thinking..."></textarea><div class="copy-row"><button class="copy-btn" onclick="copyResponse('wwii-end')">Copy my response</button><span class="copy-confirm" id="cc-wwii-end">Copied! Paste it into your FLVS submission.</span></div></div></div></main><footer>FLVS US History · DBA 5 · Module 5</footer><div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()"><div class="lightbox-inner" onclick="event.stopPropagation()"><button class="lightbox-close" onclick="closeLightbox()">✕ Close</button><div id="lightbox-content"></div><div class="lightbox-caption" id="lightbox-caption"></div></div></div><script>
-function toggle(id){
-  var p=document.getElementById('panel-'+id),c=document.getElementById('card-'+id),o=p.classList.contains('open');
-  p.classList.toggle('open',!o);c.classList.toggle('active',!o);
-  if(!o){setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
-}
-function copyResponse(id){
-  var box=document.getElementById('ta-'+id);
-  var txt=box.value.trim();
-  if(!txt){box.placeholder='Write your response above first, then copy it.';box.focus();return;}
-  navigator.clipboard.writeText(txt).then(function(){
-    var c=document.getElementById('cc-'+id);
-    c.classList.add('show');
-    setTimeout(function(){c.classList.remove('show');},2500);
-  }).catch(function(){box.select();document.execCommand('copy');});
-}
-function openLightbox(el){
-  var img=el.querySelector('img'),cap=el.querySelector('.img-cap');
-  if(!img)return;
-  document.getElementById('lightbox-content').innerHTML='<img src="'+img.src+'" alt="'+(img.alt||'')+'" style="width:100%;height:auto;max-height:80vh;object-fit:contain;border:1px solid rgba(201,151,63,.3);border-radius:3px;display:block;">';
-  document.getElementById('lightbox-caption').textContent=cap?cap.textContent:(img.alt||'');
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.img-wrap').forEach(function(w){w.addEventListener('click',function(){openLightbox(w);});});
-});
-</script></body></html>
+    /* ── NEW: Historians Disagree ──────── */
+    .historians-block {
+      background: #f5f0f9;
+      border: 1px solid rgba(123,104,170,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .hist-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f5f0f9;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+    .hist-toggle:hover { background: rgba(123,104,170,0.08); }
+    .hist-toggle.open { background: rgba(123,104,170,0.08); }
+    .hist-indicator {
+      font-size: 1.2rem;
+      color: var(--purple);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .hist-toggle.open .hist-indicator { transform: rotate(90deg); }
+    .hist-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8fc;
+    }
+    .hist-toggle.open + .hist-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(123,104,170,0.15);
+    }
+    .hist-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.9rem;
+    }
+    .hist-positions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hist-position {
+      background: #faf8fc;
+      border-left: 2px solid rgba(123,104,170,0.3);
+      padding: 0.8rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .hist-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+    .hist-text {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .hist-scholar {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Debate Section ────────── */
+    .debate-block {
+      background: #f0f6f8;
+      border: 1px solid rgba(77,184,172,0.2);
+      border-radius: 8px;
+      padding: 0;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+    }
+    .debate-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      background: #f0f6f8;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .debate-toggle:hover { background: rgba(77,184,172,0.08); }
+    .debate-toggle.open { background: rgba(77,184,172,0.08); }
+    .debate-indicator {
+      font-size: 1.2rem;
+      color: var(--teal);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .debate-toggle.open .debate-indicator { transform: rotate(90deg); }
+    .debate-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf9f8;
+    }
+    .debate-toggle.open + .debate-content {
+      max-height: 800px;
+      padding: 1.2rem;
+      border-top: 1px solid rgba(77,184,172,0.15);
+    }
+    .debate-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .debate-prompt {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+    .debate-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .debate-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(77,184,172,0.4);
+      color: var(--teal);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .debate-btn:hover { background: rgba(77,184,172,0.08); border-color: var(--teal); }
+    .debate-btn.selected { background: var(--teal); color: #ffffff; border-color: var(--teal); }
+    .debate-note {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── NEW: Choice Board ──────────── */
+    .choice-board {
+      background: #faf8f4;
+      border: 1px solid rgba(184,128,42,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    .choice-header {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .choice-subtitle {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+    .choice-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .choice-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .choice-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .choice-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ── Prompts ──────────────────────── */
+    .prompt {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .bloom-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .bloom-understand { background: #c8e6c9; color: #1b5e20; }
+    .bloom-analyze { background: #bbdefb; color: #0d47a1; }
+    .bloom-evaluate { background: #ffe0b2; color: #e65100; }
+    .bloom-create { background: #f8bbd0; color: #880e4f; }
+    .prompt-text {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .connector {
+      background: #f5f5f5;
+      border-left: 2px solid var(--text-3);
+      padding: 0.75rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .connector strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-top: 3rem;
+    }
+
+    /* ── Theme Toggle ─────────────────── */
+    .theme-toggle { position: fixed; bottom: 20px; right: 20px; width: 40px; height: 40px; background: var(--navy); border: none; border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 99; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .theme-toggle:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* ── Dark Mode ────────────────────── */
+    [data-theme="dark"] { --bg: #1a1a1a; --surface: #2d2d2d; --border: #444; --text: #e0e0e0; --text-2: #b0b0b0; --text-3: #808080; }
+    [data-theme="dark"] .page-header { background: #0d0d0d; }
+    [data-theme="dark"] .dba-nav { background: #1a1a1a; }
+    [data-theme="dark"] .orientation { background: #1e3a4f; border-color: #2a5080; color: #b0d4f1; }
+    [data-theme="dark"] .topic-card { border-color: #444; }
+    [data-theme="dark"] .misconception { background: #3a1f1f; border-color: rgba(198,93,93,0.3); }
+    [data-theme="dark"] .misconcept-toggle { background: #3a1f1f; }
+    [data-theme="dark"] .misconception-content { background: #2d1f1f; }
+    [data-theme="dark"] .primary-source { background: #1a3a2f; border-color: rgba(76,175,80,0.3); }
+    [data-theme="dark"] .ps-toggle { background: #1a3a2f; }
+    [data-theme="dark"] .ps-content { background: #15302a; }
+    [data-theme="dark"] .historians-block { background: #2a1f3a; border-color: rgba(123,104,170,0.3); }
+    [data-theme="dark"] .hist-toggle { background: #2a1f3a; }
+    [data-theme="dark"] .hist-content { background: #22192f; }
+    [data-theme="dark"] .debate-block { background: #1a2f35; border-color: rgba(77,184,172,0.3); }
+    [data-theme="dark"] .debate-toggle { background: #1a2f35; }
+    [data-theme="dark"] .debate-content { background: #15282d; }
+
+    @media (max-width: 640px) {
+      .choice-grid { grid-template-columns: 1fr 1fr; }
+      .debate-buttons { flex-direction: column; }
+      .debate-btn { width: 100%; }
+    }
+</style>
+</head><body>
+
+<div class="page-header" data-dba-num="5">
+  <div class="header-inner">
+    <div class="dba-label">Module 5</div>
+    <h1 class="page-title">DBA 5: World War II &amp; Atomic Age</h1>
+  </div>
+</div>
+
+<div class="dba-nav">
+  <div class="dba-nav-inner">
+    <a class="dba-nav-link" href="#"><span class="num">5</span> World War II &amp; Atomic Age</a>
+    <a class="dba-nav-link" href="dba_02_industrial_enhanced.html"><span class="num">2</span> Industrial</a>
+    <a class="dba-nav-link" href="dba_03_imperialism_enhanced.html"><span class="num">3</span> Imperialism</a>
+    <a class="dba-nav-link" href="dba_04_depression_enhanced.html"><span class="num">4</span> Depression</a>
+    <a class="dba-nav-link" href="dba_05_wwii_enhanced.html"><span class="num">5</span> WWII</a>
+    <a class="dba-nav-link" href="dba_06_coldwar_enhanced.html"><span class="num">6</span> Cold War</a>
+    <a class="dba-nav-link" href="dba_07_civilrights_enhanced.html"><span class="num">7</span> Civil Rights</a>
+    <a class="dba-nav-link" href="dba_08_modern_enhanced.html"><span class="num">8</span> Modern</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="orientation">
+    <strong>How to use this guide</strong>
+    Before your DBA conversation, pick the topics that interest you most. Each one includes primary sources, common misconceptions, historian perspectives, and chances to take a side and defend your thinking. There's no "right" way through—only the way that helps you think best.
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card" onclick="selectTopic('1')" id="card-1">
+      <div class="topic-number">Topic 1</div>
+      <div class="topic-title">Causes of WWII &amp; U.S. Neutrality</div>
+      <div class="topic-description">WWII grew from the unresolved grievances of WWI, the rise of fascism in Germany and Italy, and the p...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('2')" id="card-2">
+      <div class="topic-number">Topic 2</div>
+      <div class="topic-title">The Home Front &amp; the Holocaust</div>
+      <div class="topic-description">On the home front, women entered the workforce, war bonds funded the fight, and propaganda shaped pu...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic('3')" id="card-3">
+      <div class="topic-number">Topic 3</div>
+      <div class="topic-title">Ending the War &amp; Its Consequences</div>
+      <div class="topic-description">The U.S. dropped atomic bombs on Hiroshima and Nagasaki in August 1945, ending the Pacific war but o...</div>
+      <div class="topic-tags">
+        <span class="tag">Explore</span>
+        <span class="tag">Analyze</span>
+        <span class="tag">Think</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panels" id="panels-outer">
+
+    <div class="panel" id="panel-1">
+      <h2 class="panel-title">Causes of WWII &amp; U.S. Neutrality</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        WWII grew from the unresolved grievances of WWI, the rise of fascism in Germany and Italy, and the policy of appeasement that allowed Hitler to expand without consequence. The U.S. passed Neutrality Acts to stay out, then quietly supported the Allies through Lend-Lease before Pearl Harbor forced open war in December 1941.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">Japan attacked Pearl Harbor on December 7, 1941. It was a day of infamy. American servicemen died in their sleep. Our fleet was destroyed. America's response will be swift and terrible.</div>
+          <div class="ps-source">News reports and President Roosevelt's address, December 7-8, 1941</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> Why does Roosevelt call it a day of infamy? What is the emotional power of that language?</div>
+            <div class="ps-q"><strong>Question 2:</strong> Before Pearl Harbor, Americans were divided about entering the war. After Pearl Harbor, support was near-unanimous. Why does a direct attack change everything?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The US had to enter World War II after Japan attacked Pearl Harbor.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Pearl Harbor was an attack on a military installation, not an invasion of US territory. Technically, the US could have declared war on Japan without immediately entering the European war against Germany. Germany then declared war on the US, making it a true two-front conflict. But the US entry was not inevitable from Pearl Harbor alone.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">Pearl Harbor was a direct attack on America requiring military response. Japan's invasion of China and Southeast Asia required American opposition. The US had no choice but to fight both Germany and Japan to prevent authoritarian regimes from dominating Europe and Asia.</div>
+              <div class="hist-scholar">Most mainstream historians see American entry as strategically necessary and morally justified.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">Pearl Harbor triggered American entry, but the causes were deeper: oil embargoes that provoked Japan, American support for China, competition for Pacific resources. Japan did not attack a neutral country minding its own business. The war had complex causes on both sides.</div>
+              <div class="hist-scholar">Historians examining Japanese perspective note that US actions contributed to Japanese aggression.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-1"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Explain how the Treaty of Versailles, the rise of fascism, and appeasement each contributed to the start of WWII. Which do you think mattered most?</p>
+<div class="connector"><strong>How to approach this:</strong> Cover all three in sequence — Versailles created the grievances, fascism channeled them, appeasement removed the obstacles. Then say which link in that chain you think was most decisive.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The U.S. passed multiple Neutrality Acts but also supplied the Allies through Lend-Lease. At what point did neutrality become fiction? What finally pushed the U.S. into open war?</p>
+<div class="connector"><strong>How to approach this:</strong> Track the turning points: Lend-Lease, Atlantic Charter, then Pearl Harbor. At what moment was there no realistic path back to genuine neutrality? Name it specifically.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">Was America's entry into WWII inevitable after Pearl Harbor, or could a different government have chosen to stay out? What would that have meant for the outcome?</p>
+<div class="connector"><strong>How to approach this:</strong> Take a position on inevitability. If you say inevitable, explain what structural forces made staying out impossible. If you say not inevitable, name a realistic alternative path and its likely consequences.</div>
+    </div>
+
+    <div class="panel" id="panel-2">
+      <h2 class="panel-title">The Home Front &amp; the Holocaust</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        On the home front, women entered the workforce, war bonds funded the fight, and propaganda shaped public opinion. At the same time, the U.S. government interned 120,000 Japanese Americans without trial, while knowledge of the Holocaust's scale grew slowly and the U.S. did not bomb the camps or open immigration.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">In a single flash, the city of Hiroshima was destroyed. Over 70,000 people died instantly. Thousands more burned slowly from radiation. The temperature at ground zero was 7,000 degrees. There was nothing left of them but shadows.</div>
+          <div class="ps-source">Hiroshima survivor testimony and scientific accounts</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> What does the account of "shadows" tell us about the nature of this weapon?</div>
+            <div class="ps-q"><strong>Question 2:</strong> Why drop a weapon that destroys an entire city instantly? What military necessity does that serve?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The atomic bomb was necessary to end the war and save American lives by preventing an invasion.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">Japan's military had already been defeated and was seeking negotiation. The US demand for unconditional surrender—which included keeping the Emperor—was the main obstacle to Japanese surrender. The war could have ended through negotiation without the bomb. Whether the bomb was necessary remains genuinely contested by historians.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">An invasion of Japan would have cost hundreds of thousands of American lives and possibly millions of Japanese lives. The atomic bomb was a weapon that ended the war instantly. It was horrific, but it saved more lives than it took by preventing prolonged combat.</div>
+              <div class="hist-scholar">Military and strategic historians often defend the bomb as the least costly way to end the war.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">Japan was already defeated and seeking to surrender. The US rejected negotiated peace. The bomb was used not out of military necessity but to intimidate the Soviet Union and demonstrate American power. It was a war crime disguised as military strategy.</div>
+              <div class="hist-scholar">Critical historians argue the bomb was politically motivated, not militarily necessary.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-2"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Describe one way the U.S. home front changed during WWII — for industry, for women, or for a specific group of Americans.</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one specific change and be concrete — women entering defense industry jobs, rationing and war bonds, Japanese American internment. Then say what that change reveals about the country at the time.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">The U.S. interned 120,000 Japanese Americans but not Italian or German Americans in significant numbers. What fears and assumptions explain that difference? Does the wartime context justify it?</p>
+<div class="connector"><strong>How to approach this:</strong> The difference is racial, not just national-origin — make that argument specifically. Then address the justification question directly: does wartime emergency change what a democracy is allowed to do?</div>
+<div class="prompt">
+<span class="bloom-badge bloom-create">create</span>
+<p class="prompt-text">You are a government official in 1942. Intelligence suggests some members of a particular ancestry group may be disloyal, but most are loyal citizens. You can monitor everyone, restrict movement near bases, intern the group, or protect all rights fully. What do you recommend? What are you risking with each choice?</p>
+<div class="connector"><strong>How to approach this:</strong> Name your recommendation and the specific risk you're accepting. The most thoughtful answers acknowledge that every option, including protecting all rights, carries a real cost someone will be held responsible for.</div>
+    </div>
+
+    <div class="panel" id="panel-3">
+      <h2 class="panel-title">Ending the War &amp; Its Consequences</h2>
+      <div class="content-anchor">
+        <strong>Quick context</strong>
+        The U.S. dropped atomic bombs on Hiroshima and Nagasaki in August 1945, ending the Pacific war but opening the nuclear age. WWII's consequences included the Nuremberg Trials, the founding of the United Nations, the Marshall Plan, and the beginning of the Cold War between the U.S. and the Soviet Union.
+      </div>
+
+      <div class="primary-source">
+        <button class="ps-toggle" onclick="togglePrimarySource(this)">
+          <span>Primary Source</span>
+          <span class="ps-indicator">+</span>
+        </button>
+        <div class="ps-content">
+          <div class="ps-label">Primary Source</div>
+          <div class="ps-quote">The Soviet threat is existential. Communism seeks to dominate the world. America must contain Soviet expansion by any means necessary. This is not a debate about politics—it is a question of civilization versus barbarism.</div>
+          <div class="ps-source">Cold War containment rhetoric, late 1940s-1950s</div>
+          <div class="ps-questions">
+            <div class="ps-q"><strong>Question 1:</strong> How does this framing describe the Soviet Union? What does "contain by any means necessary" mean?</div>
+            <div class="ps-q"><strong>Question 2:</strong> What perspectives or concerns does this framing leave out?</div>
+          </div>
+        </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="misconception">
+        <button class="misconcept-toggle" onclick="toggleMisconception(this)">
+          <span>Common Misconception</span>
+          <span class="misconcept-indicator">+</span>
+        </button>
+        <div class="misconcept-content">
+          <div class="myth-label">Myth:</div>
+          <div class="myth-text">The Cold War was inevitable after World War II because the US and Soviet Union had incompatible systems.</div>
+          <div class="reality-label">Reality:</div>
+          <div class="myth-text">The Cold War developed through specific decisions, misunderstandings, and mutual escalation. Cooperation between the US and Soviet Union was possible immediately after the war. The conflict became inevitable through actions both sides took: Soviet expansionism in Eastern Europe, American atomic weapons strategy, and mutual fear and mistrust.</div>
+        </div>
+      </div>
+
+      <div class="historians-block">
+        <button class="hist-toggle" onclick="toggleHistorians(this)">
+          <span>Historians Disagree</span>
+          <span class="hist-indicator">+</span>
+        </button>
+        <div class="hist-content">
+          <div class="hist-positions">
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 1</div>
+              <div class="hist-text">The Soviet Union pursued imperial expansion in Eastern Europe and sought global communist dominance. The US response through containment was justified and necessary. American strategy successfully limited Soviet expansion and eventually led to the Soviet collapse.</div>
+              <div class="hist-scholar">Traditional Cold War historians often blame Soviet aggression for starting the conflict.</div>
+            </div>
+            <div class="hist-position">
+              <div class="hist-label">Interpretation 2</div>
+              <div class="hist-text">Both superpowers pursued imperial interests and military buildups. The US developed atomic weapons and containment strategy. The Soviets responded by consolidating Eastern Europe and developing their own weapons. Neither side was simply innocent. The conflict was mutually constructed.</div>
+              <div class="hist-scholar">Revisionist and post-Cold War historians emphasize shared responsibility and mutual escalation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-block">
+        <button class="debate-toggle" onclick="toggleDebate(this)">
+          <span>Take a Side</span>
+          <span class="debate-indicator">+</span>
+        </button>
+        <div class="debate-content">
+          <div class="debate-header">A question framing a historical debate will appear here.</div>
+          <div class="debate-prompt">Pick a position and explain why you think it's true.</div>
+          <div class="debate-buttons">
+            <button class="debate-btn" onclick="selectDebate(this,'position-a')">Position A</button>
+            <button class="debate-btn" onclick="selectDebate(this,'position-b')">Position B</button>
+          </div>
+          <div class="debate-note" id="debate-note-3"></div>
+        </div>
+      </div>
+
+      <div class="prompt">
+<span class="bloom-badge bloom-understand">understand</span>
+<p class="prompt-text">Name the two atomic bomb targets and explain what happened in the days between the two bombings.</p>
+<div class="connector"><strong>How to approach this:</strong> Hiroshima (August 6) and Nagasaki (August 9). Between them, Japan's leadership debated surrender while the U.S. waited. Knowing that gap matters for the debate over whether the second bomb was necessary.</div>
+<div class="prompt">
+<span class="bloom-badge bloom-analyze">analyze</span>
+<p class="prompt-text">Historians still debate whether dropping the atomic bombs was necessary to end the Pacific war or was partly a message to the Soviet Union. What evidence supports each interpretation, and why can't we settle the question definitively?</p>
+<div class="connector"><strong>How to approach this:</strong> Present both cases with specific evidence — casualty estimates, Soviet timing, diplomatic cables. Then explain why the historical question stays open: what evidence would we need to close it, and why don't we have it?</div>
+<div class="prompt">
+<span class="bloom-badge bloom-evaluate">evaluate</span>
+<p class="prompt-text">WWII produced the Nuremberg Trials, the United Nations, and the rise of two superpowers. Which consequence do you think most shaped the world that followed, and why?</p>
+<div class="connector"><strong>How to approach this:</strong> Pick one and trace its effects forward. The superpower rivalry led to the Cold War; the UN created international law norms; Nuremberg established individual accountability. Which thread runs deepest into the present?</div>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+
+<footer>Copyright 2025. Florida Virtual School US History.</footer>
+
+<script>
+    function togglePrimarySource(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleMisconception(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleHistorians(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function toggleDebate(btn) {
+      btn.classList.toggle('open');
+    }
+
+    function selectTopic(id) {
+      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('card-' + id).classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+      document.getElementById('panels-outer').classList.add('open');
+      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+    }
+
+    function selectDebate(btn, choice) {
+      var siblings = btn.parentElement.querySelectorAll('.debate-btn');
+      siblings.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      var panelId = btn.closest('.panel').id;
+      var noteDiv = document.getElementById('debate-note-' + panelId.replace('panel-', ''));
+      if (noteDiv) {
+        noteDiv.textContent = 'You Selected: "' + btn.textContent.trim() + '" Now tell why you think this is true.';
+      }
+    }
+</script>
+
+<script id="theme-script">
+  (function(){
+    var LS = 'dba-theme';
+    function effective(s) {
+      if (s === 'dark' || s === 'light') return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function apply(stored) {
+      var eff = effective(stored);
+      var html = document.documentElement;
+      if (stored === 'dark' || stored === 'light') {
+        html.setAttribute('data-theme', stored);
+      } else {
+        html.removeAttribute('data-theme');
+      }
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.textContent = eff === 'dark' ? '\u2600' : '\u263D';
+        btn.title = eff === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      }
+    }
+    apply(localStorage.getItem(LS));
+    document.addEventListener('DOMContentLoaded', function() {
+      apply(localStorage.getItem(LS));
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var eff = effective(localStorage.getItem(LS));
+        var next = eff === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(LS, next);
+        apply(next);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
