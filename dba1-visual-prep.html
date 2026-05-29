@@ -1035,11 +1035,13 @@
     }
 
     function selectTopic(id) {
+      console.log('selectTopic called with id:', id);
       document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
       document.getElementById('card-' + id).classList.add('active');
       document.getElementById('panel-' + id).classList.add('active');
       document.getElementById('panels-outer').classList.add('open');
+      console.log('Panel ' + id + ' should now be active');
       (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
     }
 
