@@ -206,10 +206,8 @@
     }
 
     /* ── Panels ───────────────────────── */
-    .panels { display: none !important; }
-    .panels.open { display: block !important; }
     .panel {
-      display: none !important;
+      display: none;
       background: var(--surface);
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -217,7 +215,7 @@
       margin-bottom: 3rem;
       animation: slideIn 0.25s ease;
     }
-    .panel.active { display: block !important; }
+    .panel.active { display: block; }
     @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     .panel-title {
       font-family: 'Playfair Display', serif;
@@ -734,7 +732,7 @@
     </div>
   </div>
 
-  <div class="panels" id="panels-outer">
+  <div id="panels-outer">
 
     <div class="panel" id="panel-1">
       <h2 class="panel-title">Isolation, Intervention &amp; Empire</h2>
@@ -1029,14 +1027,13 @@
     }
 
     function selectTopic(id) {
-      console.log('selectTopic called with id:', id);
-      document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.topic-card').forEach(function(c) { c.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function(p) { p.style.display = 'none'; p.classList.remove('active'); });
       document.getElementById('card-' + id).classList.add('active');
-      document.getElementById('panel-' + id).classList.add('active');
-      document.getElementById('panels-outer').classList.add('open');
-      console.log('Panel ' + id + ' should now be active');
-      (function(){ var el = document.getElementById('panel-' + id); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); })();
+      var activePanel = document.getElementById('panel-' + id);
+      activePanel.style.display = 'block';
+      activePanel.classList.add('active');
+      window.scrollTo({ top: activePanel.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
     }
 
     function selectDebate(btn, choice) {
