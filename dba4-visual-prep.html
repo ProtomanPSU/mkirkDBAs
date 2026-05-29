@@ -206,10 +206,10 @@
     }
 
     /* ── Panels ───────────────────────── */
-    .panels { display: none; }
-    .panels.open { display: block; }
+    .panels { display: none !important; }
+    .panels.open { display: block !important; }
     .panel {
-      display: none;
+      display: none !important;
       background: var(--surface);
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -217,7 +217,7 @@
       margin-bottom: 3rem;
       animation: slideIn 0.25s ease;
     }
-    .panel.active { display: block; }
+    .panel.active { display: block !important; }
     @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     .panel-title {
       font-family: 'Playfair Display', serif;
