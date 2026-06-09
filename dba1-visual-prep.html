@@ -116,6 +116,24 @@
   html[data-theme="dark"] .bloom-evaluate { background: #b8453a; }
   html[data-theme="dark"] .panel-title { color: #f5f3ed; border-color: #3a3530; }
   html[data-theme="dark"] footer { border-color: #3a3530; }
+
+  .mc-question { background: var(--surface); border: 2px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem; margin-bottom: 0; }
+  .mc-question-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d4a852; margin-bottom: 0.5rem; display: block; }
+  .mc-question-text { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 1rem; font-weight: 500; }
+  .mc-option { margin: 0.75rem 0; padding: 0.75rem 1rem; border-radius: 5px; background: var(--bg); border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+  html[data-theme="dark"] .mc-option { background: #14120d; border-color: #3a3530; }
+  .mc-option:hover { background: #f0e8d8; border-color: var(--navy); }
+  html[data-theme="dark"] .mc-option:hover { background: #2a2520; border-color: #5a8fd4; }
+  .mc-option label { display: block; font-size: 14px; color: var(--text); font-weight: 500; cursor: pointer; }
+  .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
+  html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
+  .mc-reveal-btn:hover { background: var(--navy-mid); }
+  html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
+  .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
+  .mc-answer.show { display: block; animation: slideIn 0.25s ease; }
+  .mc-answer strong { color: var(--navy); font-weight: 700; }
+  html[data-theme="dark"] .mc-answer strong { color: #d4a852; }
 </style>
 </head>
 <body>
@@ -211,6 +229,25 @@
       <p class="prompt-text">Some say the Civil War was inevitable; others say political leaders could have prevented it. What is your view, and what evidence supports it?</p>
       <div class="connector"><strong>How to approach this:</strong> Take a clear position and name at least one specific decision point or event that supports it.</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">Which statement best explains the relationship between political, economic, and social causes of the Civil War?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> A. Political disagreements alone were sufficient to cause the Civil War</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> B. Economic and social differences created the conflict that led to political disagreements</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> C. The three causes were interconnected; conflict in one area reinforced conflict in the others</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> D. Social causes were the only real reason for the war; political and economic factors were minor</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q2')">Reveal Answer</button>
+          </div>
+
+    
   </div>
 
   <div class="panel" id="panel-freedpeople">
@@ -235,6 +272,29 @@
       <p class="prompt-text">You are advising Congress in 1865. Should Reconstruction be lenient (fast reunion) or strict (enforce real change)? What would you recommend, and what would you be willing to sacrifice for your choice?</p>
       <div class="connector"><strong>How to approach this:</strong> Commit to a recommendation and name what you would gain, what you would lose, and why the tradeoff is worth it.</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">How did the 14th Amendment specifically address a weakness in earlier Reconstruction efforts?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> A. It eliminated the need for the 13th Amendment by abolishing slavery entirely</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> B. It guaranteed citizenship and constitutional protections that couldn't be taken away by individual states</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> C. It gave voting rights to all formerly enslaved people immediately</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> D. It ended the conflict between Congress and the President over Reconstruction policy</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q1')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q1">
+        <strong>Correct Answer: B</strong><br><br>
+        <strong>Why this is correct:</strong> The 14th Amendment went beyond the 13th's abolition of slavery by actually defining citizenship and requiring states to provide equal protection. This prevented states from simply passing laws to strip freed people of rights.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> The 13th Amendment already abolished slavery; the 14th built on that by guaranteeing citizenship and equal protection.<br><br><strong>C:</strong> The 15th Amendment (not the 14th) addressed voting rights. The 14th focused on citizenship and constitutional protections.<br><br><strong>D:</strong> The 14th Amendment did not resolve the political conflict between Congress and the President; it actually increased tension by imposing strict requirements on Southern states.<br><br>      </div>
+          </div>
+
+    
   </div>
 
   <div class="panel" id="panel-plantation">
@@ -259,6 +319,29 @@
       <p class="prompt-text">Reconstruction collapsed due to Northern fatigue, Southern violence, and weak federal enforcement. Which factor was most responsible? What evidence supports your answer?</p>
       <div class="connector"><strong>How to approach this:</strong> Pick the one cause you can defend most specifically.</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">Which factor was most significant in the collapse of Reconstruction?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> A. The desire of Northern and Southern leaders to cooperate peacefully</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> B. Federal troops' willingness to stay in the South indefinitely to enforce rights</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> C. Southern resistance through violence and law combined with Northern loss of political will</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> D. The success of the Freedmen's Bureau in protecting Black Americans from discrimination</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q0')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q0">
+        <strong>Correct Answer: C</strong><br><br>
+        <strong>Why this is correct:</strong> The Civil War resulted from interconnected causes. Economic systems (slavery), social structures (Southern hierarchy), and political ideologies (states' rights vs. federal authority) reinforced each other.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> Political disagreements alone were not sufficient; slavery's economic importance to the South and its social implications made compromise impossible.<br><br><strong>B:</strong> While economic and social differences were important, political conflicts (over states' rights, territorial expansion, and federal power) were equally fundamental causes.<br><br><strong>D:</strong> Social causes like the Southern hierarchy based on slavery were important, but economic interests (slave labor) and political ideologies were equally significant drivers of conflict.<br><br>      </div>
+          </div>
+
+    
   </div>
 </div>
 
@@ -361,6 +444,11 @@ function toggleView(view) {
     toggleView('text');
   }
 })();
+
+function toggleMCAnswer(questionId) {
+  const answerBox = document.getElementById('answer-' + questionId);
+  answerBox.classList.toggle('show');
+}
 </script>
 </body>
 </html>

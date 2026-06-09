@@ -128,6 +128,24 @@
   html[data-theme="dark"] .text-only-menu h2 { color: #f5f3ed; }
   html[data-theme="dark"] .text-only-menu button { background: #5a8fd4; }
   html[data-theme="dark"] .text-only-menu button:hover { background: #4a7cb8; }
+
+  .mc-question { background: var(--surface); border: 2px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem; margin-bottom: 0; }
+  .mc-question-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d4a852; margin-bottom: 0.5rem; display: block; }
+  .mc-question-text { font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 1rem; font-weight: 500; }
+  .mc-option { margin: 0.75rem 0; padding: 0.75rem 1rem; border-radius: 5px; background: var(--bg); border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+  html[data-theme="dark"] .mc-option { background: #14120d; border-color: #3a3530; }
+  .mc-option:hover { background: #f0e8d8; border-color: var(--navy); }
+  html[data-theme="dark"] .mc-option:hover { background: #2a2520; border-color: #5a8fd4; }
+  .mc-option label { display: block; font-size: 14px; color: var(--text); font-weight: 500; cursor: pointer; }
+  .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
+  html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
+  .mc-reveal-btn:hover { background: var(--navy-mid); }
+  html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
+  .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
+  .mc-answer.show { display: block; animation: slideIn 0.25s ease; }
+  .mc-answer strong { color: var(--navy); font-weight: 700; }
+  html[data-theme="dark"] .mc-answer strong { color: #d4a852; }
 </style>
 </head>
 <body>
@@ -223,6 +241,25 @@
       <p class="prompt-text">Some argue factories exploited workers but built American wealth; others say workers' suffering was never worth the profit. What's your view?</p>
       <div class="connector"><strong>How to approach this:</strong> Take a position and explain what evidence supports it. Consider short-term vs. long-term consequences.</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">What was the most important consequence of rapid industrialization and urbanization?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> A. Rural areas became wealthier while cities declined</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> B. Massive social problems including poverty, overcrowding, and poor working conditions in cities</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> C. Farmers and agricultural workers automatically became wealthy</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q2" disabled> D. All Americans benefited equally from new factory jobs</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q2')">Reveal Answer</button>
+          </div>
+
+    
   </div>
 
   <div class="panel" id="panel-railroad">
@@ -247,6 +284,29 @@
       <p class="prompt-text">Railroads united the country but also enabled the removal of Native Americans and exploitation of natural resources. Were the benefits worth the cost?</p>
       <div class="connector"><strong>How to approach this:</strong> Weigh progress against human and environmental harm. Who decides what progress means?</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">How did the arrival of large numbers of immigrants affect American labor markets?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> A. Wages increased significantly because workers were scarce</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> B. Employers had more workers to choose from, which kept wages low and gave them more power</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> C. Immigrants refused to work in factories, forcing better conditions for native-born workers</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q1" disabled> D. Labor unions immediately welcomed immigrants as members</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q1')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q1">
+        <strong>Correct Answer: B</strong><br><br>
+        <strong>Why this is correct:</strong> The influx of immigrants increased the labor supply, allowing employers to keep wages low and working conditions poor. Desperate for work, immigrants often accepted jobs others refused. This dynamic gave employers significant advantage over workers.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> Wages actually fell during industrialization due to increased labor supply, not increased scarcity.<br><br><strong>C:</strong> Immigrants typically worked in the jobs no one else wanted, including dangerous factory positions; they did not refuse factory work.<br><br><strong>D:</strong> Many labor unions actually excluded or resisted immigrant membership, seeing them as competitors who would accept lower wages.<br><br>      </div>
+          </div>
+
+    
   </div>
 
   <div class="panel" id="panel-tenement">
@@ -271,6 +331,29 @@
       <p class="prompt-text">Some reformers blamed immigrants for city decay; others blamed landlords and city governments. Who was actually responsible?</p>
       <div class="connector"><strong>How to approach this:</strong> Consider who had power to change conditions and who chose not to. Distinguish blame from responsibility.</div>
     </div>
+<div class="mc-question">
+      <div class="mc-question-label">EOC Practice Question</div>
+      <p class="mc-question-text">Why was breaking up monopolies considered necessary for a healthy economy?</p>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> A. Monopolies prevented competition and allowed companies to charge high prices and treat workers poorly</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> B. Government wanted to help large companies become even bigger</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> C. Monopolies created unlimited jobs for all Americans</label>
+      </div>
+      <div class="mc-option">
+        <label><input type="radio" name="mc-q0" disabled> D. Breaking up monopolies was unpopular but done anyway</label>
+      </div>
+      <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q0')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q0">
+        <strong>Correct Answer: B</strong><br><br>
+        <strong>Why this is correct:</strong> While industrialization created wealth, it also created severe urban problems. Factory workers faced long hours, dangerous conditions, and low wages. Cities became overcrowded with tenements and poor sanitation. These conditions sparked labor movements and Progressive Era reforms.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> Rural areas actually declined economically as people moved to cities for factory work; agriculture became less profitable.<br><br><strong>C:</strong> Farmers faced low crop prices and often lost land during this period; they did not become wealthy.<br><br><strong>D:</strong> Factory work benefited factory owners and investors far more than workers; wages were low and conditions were dangerous for most industrial workers.<br><br>      </div>
+          </div>
+
+    
   </div>
 </div>
 
@@ -379,6 +462,11 @@ function toggleView(view) {
     toggleView('text');
   }
 })();
+
+function toggleMCAnswer(questionId) {
+  const answerBox = document.getElementById('answer-' + questionId);
+  answerBox.classList.toggle('show');
+}
 </script>
 </body>
 </html>
