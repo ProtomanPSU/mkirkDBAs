@@ -140,6 +140,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -229,17 +236,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">Name one technological innovation that changed American manufacturing between 1870 and 1900. How did this innovation increase production?</p>
-      <div class="connector"><strong>How to approach this:</strong> Think of the Bessemer Process, assembly line concepts, or electric power. Explain specifically how it made production faster or cheaper.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Think of the Bessemer Process, assembly line concepts, or electric power. Explain specifically how it made production faster or cheaper.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">Factory workers faced danger, long hours, low pay, and no safety standards. Why did workers accept these conditions? What alternatives did they have?</p>
-      <div class="connector"><strong>How to approach this:</strong> Consider immigrant status, lack of education, need for income, and limited job options. What power did workers actually have?</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Consider immigrant status, lack of education, need for income, and limited job options. What power did workers actually have?
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-evaluate">evaluate</span>
       <p class="prompt-text">Some argue factories exploited workers but built American wealth; others say workers' suffering was never worth the profit. What's your view?</p>
-      <div class="connector"><strong>How to approach this:</strong> Take a position and explain what evidence supports it. Consider short-term vs. long-term consequences.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Take a position and explain what evidence supports it. Consider short-term vs. long-term consequences.
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -272,17 +294,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">How did railroads change American commerce between 1870 and 1900? Name one specific way railroads affected business or trade.</p>
-      <div class="connector"><strong>How to approach this:</strong> Consider shipping goods, connecting markets, reaching new customers, or reducing shipping time. Give a concrete example.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Consider shipping goods, connecting markets, reaching new customers, or reducing shipping time. Give a concrete example.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">Railroad companies received government land grants and subsidies. Was this a fair use of public resources, or did companies unfairly profit?</p>
-      <div class="connector"><strong>How to approach this:</strong> Consider what the government got in return, who benefited, and who bore the costs (including Native Americans).</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Consider what the government got in return, who benefited, and who bore the costs (including Native Americans).
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-evaluate">evaluate</span>
       <p class="prompt-text">Railroads united the country but also enabled the removal of Native Americans and exploitation of natural resources. Were the benefits worth the cost?</p>
-      <div class="connector"><strong>How to approach this:</strong> Weigh progress against human and environmental harm. Who decides what progress means?</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Weigh progress against human and environmental harm. Who decides what progress means?
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -319,17 +356,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">Why did immigrants choose to live in crowded tenements despite terrible conditions?</p>
-      <div class="connector"><strong>How to approach this:</strong> Consider limited money, proximity to jobs, community with people from their country, and what alternatives they actually had.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Consider limited money, proximity to jobs, community with people from their country, and what alternatives they actually had.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">Tenement conditions—overcrowding, disease, no sanitation—were worst in cities with the most immigrants. Was this because of immigration, or because of how cities were built and managed?</p>
-      <div class="connector"><strong>How to approach this:</strong> Separate cause from correlation. Who controlled city planning and housing? What choices were made?</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Separate cause from correlation. Who controlled city planning and housing? What choices were made?
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-evaluate">evaluate</span>
       <p class="prompt-text">Some reformers blamed immigrants for city decay; others blamed landlords and city governments. Who was actually responsible?</p>
-      <div class="connector"><strong>How to approach this:</strong> Consider who had power to change conditions and who chose not to. Distinguish blame from responsibility.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Consider who had power to change conditions and who chose not to. Distinguish blame from responsibility.
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -466,6 +518,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

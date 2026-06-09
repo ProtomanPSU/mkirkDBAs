@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from American Imperialism & WWI.
 <div class="content-anchor"><strong>Quick context</strong>You are a newspaper editor in 1890s America. The nation is debating whether to expand overseas, control Hawaii and Cuba, or stay focused on domestic issues. Business leaders want markets; some politicians want glory; others want to help; and many Americans just want to stay out of foreign conflicts.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Explain the difference between isolation, intervention, and imperialism. Give one example of each from U.S. history before WWI.</p>
-<div class="connector"><strong>How to approach this:</strong> Start by defining each term clearly, then give a specific historical example for each from before 1914. Show that you can tell them apart.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Start by defining each term clearly, then give a specific historical example for each from before 1914. Show that you can tell them apart.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">American leaders said imperialism spread civilization and opened markets. People in Cuba, the Philippines, and Panama had their own views. Whose perspective does the evidence support more strongly?</p>
-<div class="connector"><strong>How to approach this:</strong> Look at what actually happened in Cuba, the Philippines, and Panama. Did conditions improve under U.S. control? Did local people agree with the American justifications?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Look at what actually happened in Cuba, the Philippines, and Panama. Did conditions improve under U.S. control? Did local people agree with the American justifications?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Does a powerful nation have the right to control weaker ones if it claims to be helping them? What is the strongest argument for each side?</p>
-<div class="connector"><strong>How to approach this:</strong> Take a clear position. Then name the strongest argument on the other side and explain why you still disagree with it.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Take a clear position. Then name the strongest argument on the other side and explain why you still disagree with it.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Which factor best explains why the United States pursued an imperial policy in the 1890s?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from American Imperialism & WWI.
 <div class="content-anchor"><strong>Quick context</strong>You are in Congress, 1917. Europe is bleeding from four years of brutal war. Americans have stayed out, but events are pushing the nation toward involvement. President Wilson asks you to vote on a declaration of war. What were the reasons, and was this the right choice?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name two events or factors that moved the U.S. from neutrality toward entering WWI.</p>
-<div class="connector"><strong>How to approach this:</strong> Name two different factors (one military event, one economic or political) that made Americans reconsider neutrality. Be specific: which events actually shifted opinion?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name two different factors (one military event, one economic or political) that made Americans reconsider neutrality. Be specific: which events actually shifted opinion?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The U.S. claimed neutrality but sold supplies to the Allies and objected to German submarine warfare. Germany sank ships to cut off those supplies. Who was actually neutral, and who had the stronger argument?</p>
-<div class="connector"><strong>How to approach this:</strong> Wilson said America wasn't truly neutral because it supported the Allies with supplies. Germany said that made American ships fair targets. Which side makes the stronger argument based on the facts?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Wilson said America wasn't truly neutral because it supported the Allies with supplies. Germany said that made American ships fair targets. Which side makes the stronger argument based on the facts?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You are a senator in 1916. The U.S. can stay neutral, quietly support the Allies, or enter the war openly. Each choice has real costs in lives, money, and alliances. Which do you choose and why?</p>
-<div class="connector"><strong>How to approach this:</strong> Pick the choice that seems wisest given the actual risks and benefits. Name what you gain with that choice, what you lose, and why the tradeoff is worth making.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Pick the choice that seems wisest given the actual risks and benefits. Name what you gain with that choice, what you lose, and why the tradeoff is worth making.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">What was the most significant long-term consequence of American victory in the Spanish-American War?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from American Imperialism & WWI.
 <div class="content-anchor"><strong>Quick context</strong>You are in the Versailles peace negotiations, 1919. The war is over; millions are dead; the world must rebuild. President Wilson wants a fair, lasting peace. European leaders want revenge and security. The United States can help build a new world order or stay out. What's the right call?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name two specific ways the Treaty of Versailles differed from Wilson's 14 Points.</p>
-<div class="connector"><strong>How to approach this:</strong> Compare Wilson's 14 Points to the actual Treaty. Name two ways the treaty was harsher or more punitive than what Wilson wanted. Be specific about what changed.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Compare Wilson's 14 Points to the actual Treaty. Name two ways the treaty was harsher or more punitive than what Wilson wanted. Be specific about what changed.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Wilson's 14 Points called for self-determination and a League of Nations. The Treaty of Versailles punished Germany harshly and ignored many of Wilson's principles. What happened between the vision and the result?</p>
-<div class="connector"><strong>How to approach this:</strong> Explain why the final treaty looked so different from Wilson's vision. Who had more power in the negotiations? What happened to idealism when it met reality?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain why the final treaty looked so different from Wilson's vision. Who had more power in the negotiations? What happened to idealism when it met reality?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">The Senate refused to join the League of Nations. Was that refusal wise, short-sighted, or somewhere in between? What does America's absence mean for how the League functioned?</p>
-<div class="connector"><strong>How to approach this:</strong> Was the Senate right to reject the League? Take a position and defend it with evidence. What would have happened if America had joined?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was the Senate right to reject the League? Take a position and defend it with evidence. What would have happened if America had joined?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How did American involvement in World War I change the nation's international role?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

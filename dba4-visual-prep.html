@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from The 1920s & Great Depressio
 <div class="content-anchor"><strong>Quick context</strong>You are in urban America, 1920s. The Jazz Age is booming. New technology, new music, new freedom for some. But not everyone. Farmers are struggling; workers in coal and textile mills face job losses; Black Americans face brutal racism. There's two economies in America right now.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Pick one cultural change from the 1920s: changes for women, Prohibition, or the Harlem Renaissance. In two sentences, explain what changed and why it mattered.</p>
-<div class="connector"><strong>How to approach this:</strong> Name three ways the 1920s were prosperous AND three groups left behind by that prosperity. Show that you can see both sides.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name three ways the 1920s were prosperous AND three groups left behind by that prosperity. Show that you can see both sides.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The 1920s economy grew through mass production and consumerism, but farmers and factory workers were often left out. What does that gap tell us about who actually benefited from prosperity?</p>
-<div class="connector"><strong>How to approach this:</strong> Why did prosperity reach some Americans and not others? Pick the group left behind that was hurt worst by the decade's changes and explain why.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why did prosperity reach some Americans and not others? Pick the group left behind that was hurt worst by the decade's changes and explain why.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Fundamentalists resisted the cultural changes of the 1920s while cities embraced them. Was that resistance reasonable, fearful, or both? What were they trying to protect?</p>
-<div class="connector"><strong>How to approach this:</strong> If the 1920s looked prosperous on the surface but weren't for many, what does that tell us about what was coming next? What warning signs existed?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          If the 1920s looked prosperous on the surface but weren't for many, what does that tell us about what was coming next? What warning signs existed?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Why did the prosperity of the 1920s not reach all Americans equally?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from The 1920s & Great Depressio
 <div class="content-anchor"><strong>Quick context</strong>You are an economist in October 1929. The stock market has just crashed. Banks are failing. People are losing savings and jobs. How did this happen? Your analysis might help people understand what went wrong and prevent it from happening again.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name two warning signs that the 1920s economy was unstable before the 1929 crash.</p>
-<div class="connector"><strong>How to approach this:</strong> Name three separate causes of the Depression (one in banking, one in spending, one in the real economy). Show that you understand it wasn't one simple failure.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name three separate causes of the Depression (one in banking, one in spending, one in the real economy). Show that you understand it wasn't one simple failure.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The stock market crash didn't happen randomly. It followed years of speculation, easy credit, and overproduction. Which cause do you think was most responsible for making the crash inevitable? Why?</p>
-<div class="connector"><strong>How to approach this:</strong> Once the market crashed, why did things get worse so quickly instead of stabilizing? What made the Depression worse after 1929?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Once the market crashed, why did things get worse so quickly instead of stabilizing? What made the Depression worse after 1929?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You inherit $5,000 in 1928. You can invest in stocks, put the money in a bank, or spend it on education or land. What do you do? Looking back from 1932, how do you feel about your choice?</p>
-<div class="connector"><strong>How to approach this:</strong> Name three separate causes of the Depression (one in banking, one in spending, one in the real economy). Show that you understand it wasn't one simple failure.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name three separate causes of the Depression (one in banking, one in spending, one in the real economy). Show that you understand it wasn't one simple failure.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Which economic factor made the Depression worse once it began?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from The 1920s & Great Depressio
 <div class="content-anchor"><strong>Quick context</strong>You are in 1933, at rock bottom. People are starving. Banks failed and took people's life savings. Unemployment is 25 percent. President Roosevelt proposes massive government intervention: create jobs, provide relief, regulate markets. Can government actually fix this? Should it try?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name two specific New Deal programs and the problem each one was designed to address.</p>
-<div class="connector"><strong>How to approach this:</strong> Name three different New Deal programs and what each one was supposed to do (create jobs, provide relief, reform markets).</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name three different New Deal programs and what each one was supposed to do (create jobs, provide relief, reform markets).
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Some opposed the New Deal because they believed it gave too much power to the federal government. Others said it didn't go far enough. What is the strongest version of each criticism?</p>
-<div class="connector"><strong>How to approach this:</strong> Did the New Deal work? It helped millions of people, but the Depression lasted until WWII. What did it do well? What were its limits?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Did the New Deal work? It helped millions of people, but the Depression lasted until WWII. What did it do well? What were its limits?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">The New Deal had long-term effects on workers' rights, government size, and presidential power. Which effect do you think shaped American life most durably, and why?</p>
-<div class="connector"><strong>How to approach this:</strong> Was the Depression inevitable given 1920s practices, or could smarter policies have prevented it? Pick your position and defend it.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was the Depression inevitable given 1920s practices, or could smarter policies have prevented it? Pick your position and defend it.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How did the New Deal represent a new approach to government's responsibility?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

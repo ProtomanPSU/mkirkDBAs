@@ -128,6 +128,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -217,17 +224,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">Name one political, one economic, and one social cause of the Civil War. Why did these three forces combine to make war likely?</p>
-      <div class="connector"><strong>How to approach this:</strong> Start with one concrete example for each category. Then explain why all three had to exist together for war to happen.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Start with one concrete example for each category. Then explain why all three had to exist together for war to happen.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">The Civil War had consequences for politics, the economy, and society. Which type of consequence do you think mattered most for what came after? Why?</p>
-      <div class="connector"><strong>How to approach this:</strong> Pick the category you think mattered most and build a case for it.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Pick the category you think mattered most and build a case for it.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-evaluate">evaluate</span>
       <p class="prompt-text">Some say the Civil War was inevitable; others say political leaders could have prevented it. What is your view, and what evidence supports it?</p>
-      <div class="connector"><strong>How to approach this:</strong> Take a clear position and name at least one specific decision point or event that supports it.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Take a clear position and name at least one specific decision point or event that supports it.
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -245,6 +267,10 @@
         <label><input type="radio" name="mc-q2" disabled> D. Social causes were the only real reason for the war; political and economic factors were minor</label>
       </div>
       <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q2')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q2">
+        <strong>Correct Answer: C</strong><br><br>
+        <strong>Why this is correct:</strong> The Civil War resulted from interconnected causes. Economic systems (slavery), social structures (Southern hierarchy), and political ideologies (states' rights vs. federal authority) reinforced each other.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> Political disagreements alone were not sufficient; slavery's economic importance to the South and its social implications made compromise impossible.<br><br><strong>B:</strong> While economic and social differences were important, political conflicts (over states' rights, territorial expansion, and federal power) were equally fundamental causes.<br><br><strong>D:</strong> Social causes like the Southern hierarchy based on slavery were important, but economic interests (slave labor) and political ideologies were equally significant drivers of conflict.<br><br>      </div>
           </div>
 
     
@@ -260,17 +286,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">Compare Lincoln's plan and the Wade-Davis Bill. What was the key disagreement between Congress and the president about how lenient Reconstruction should be?</p>
-      <div class="connector"><strong>How to approach this:</strong> Lincoln wanted a fast, lenient return to the Union; Congress wanted stricter conditions and real guarantees for Black Americans.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Lincoln wanted a fast, lenient return to the Union; Congress wanted stricter conditions and real guarantees for Black Americans.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">The 13th, 14th, and 15th Amendments guaranteed freedom, citizenship, and voting rights. Which one do you think made the biggest immediate difference for formerly enslaved people? Why?</p>
-      <div class="connector"><strong>How to approach this:</strong> Think about what it meant in practice. Which one put something specific in people's hands right away?</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Think about what it meant in practice. Which one put something specific in people's hands right away?
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-create">create</span>
       <p class="prompt-text">You are advising Congress in 1865. Should Reconstruction be lenient (fast reunion) or strict (enforce real change)? What would you recommend, and what would you be willing to sacrifice for your choice?</p>
-      <div class="connector"><strong>How to approach this:</strong> Commit to a recommendation and name what you would gain, what you would lose, and why the tradeoff is worth it.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Commit to a recommendation and name what you would gain, what you would lose, and why the tradeoff is worth it.
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -307,17 +348,32 @@
     <div class="prompt">
       <span class="bloom-badge bloom-understand">understand</span>
       <p class="prompt-text">Name two specific ways Black Americans were prevented from exercising their rights after Reconstruction ended - one legal and one through intimidation or violence.</p>
-      <div class="connector"><strong>How to approach this:</strong> One legal example (Black Codes, poll taxes, literacy tests) and one example of direct violence or intimidation (Klan activity).</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          One legal example (Black Codes, poll taxes, literacy tests) and one example of direct violence or intimidation (Klan activity).
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-analyze">analyze</span>
       <p class="prompt-text">After Reconstruction, Black Americans faced political, economic, and social restrictions. Which category of limitation was hardest to fight back against, and why?</p>
-      <div class="connector"><strong>How to approach this:</strong> The strongest answer explains why that category also blocked progress in the other two.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          The strongest answer explains why that category also blocked progress in the other two.
+        </div>
+      </div>
     </div>
     <div class="prompt">
       <span class="bloom-badge bloom-evaluate">evaluate</span>
       <p class="prompt-text">Reconstruction collapsed due to Northern fatigue, Southern violence, and weak federal enforcement. Which factor was most responsible? What evidence supports your answer?</p>
-      <div class="connector"><strong>How to approach this:</strong> Pick the one cause you can defend most specifically.</div>
+      <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Pick the one cause you can defend most specifically.
+        </div>
+      </div>
     </div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
@@ -448,6 +504,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

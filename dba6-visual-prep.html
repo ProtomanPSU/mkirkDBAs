@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from The Cold War. Read the cont
 <div class="content-anchor"><strong>Quick context</strong>You are a diplomat in 1946. WWII just ended, and America and the Soviet Union are supposed to cooperate on rebuilding. But tension is rising. They want different things, trust each other less each day, and are arming themselves. A new kind of war is beginning.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">What were the Truman Doctrine, the Marshall Plan, and NATO, and how did each one try to contain Soviet influence?</p>
-<div class="connector"><strong>How to approach this:</strong> Define capitalism and communism. Explain why each nation saw the other's system as a threat.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Define capitalism and communism. Explain why each nation saw the other's system as a threat.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Americans said the Soviets wanted to spread communism everywhere. Soviets said America was encircling them with military alliances. Which argument has more support from the evidence, or do both have merit?</p>
-<div class="connector"><strong>How to approach this:</strong> Why couldn't America and the Soviet Union compromise? What made their conflict so fundamental that it lasted 45 years?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why couldn't America and the Soviet Union compromise? What made their conflict so fundamental that it lasted 45 years?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Could the U.S. and USSR have found a way to coexist peacefully after WWII, or was conflict structurally unavoidable given their ideologies and rival interests?</p>
-<div class="connector"><strong>How to approach this:</strong> Was the Cold War inevitable after WWII, or could smarter diplomacy have prevented it? Take a position.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was the Cold War inevitable after WWII, or could smarter diplomacy have prevented it? Take a position.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">What made compromise between the U.S. and Soviet Union so difficult during the Cold War?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from The Cold War. Read the cont
 <div class="content-anchor"><strong>Quick context</strong>You work in the State Department during the Cold War. America's policy is to 'contain' communism: stop it from spreading anywhere, even in Korea, Vietnam. But these wars are costly. Is this policy wise?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Describe one key event from the Korean War or the Cuban Missile Crisis that shows how close the Cold War came to becoming a direct military conflict between the U.S. and USSR.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what 'containment' meant and why policymakers believed in it. What was the 'domino theory'?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what 'containment' meant and why policymakers believed in it. What was the 'domino theory'?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The U.S. had missiles in Turkey aimed at the USSR; the Soviets placed missiles in Cuba aimed at the U.S. Why did America treat these situations so differently? What does that reveal about perspective and threat perception?</p>
-<div class="connector"><strong>How to approach this:</strong> America fought in Korea and Vietnam but never directly fought the Soviet Union. Why? What prevented direct conflict?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          America fought in Korea and Vietnam but never directly fought the Soviet Union. Why? What prevented direct conflict?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You are advising the president during the Cuban Missile Crisis. Options include an air strike, a naval blockade, secret negotiations, or a public ultimatum. Each risks nuclear war in a different way. What do you recommend, and what are you willing to risk?</p>
-<div class="connector"><strong>How to approach this:</strong> Commit to a recommendation and explain what you gain, what you lose, and why the tradeoff is worth making.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Commit to a recommendation and explain what you gain, what you lose, and why the tradeoff is worth making.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Why did the United States fight in Korea and Vietnam if it did not want direct war with the Soviet Union?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from The Cold War. Read the cont
 <div class="content-anchor"><strong>Quick context</strong>You are an American in the 1950s. Fear of communism is everywhere. Suspected communists are hunted. Schools teach anti-communist lessons. People fear Soviet spies. Is this fear justified, or are people being manipulated?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one specific example of McCarthyism or Red Scare tactics and describe who was targeted and what happened to them.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what Mutually Assured Destruction (MAD) meant and why both sides accepted it.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what Mutually Assured Destruction (MAD) meant and why both sides accepted it.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">McCarthyism, Hollywood blacklists, and espionage fears all shaped American life in the 1950s. Which had the most damaging effect on American democracy and why?</p>
-<div class="connector"><strong>How to approach this:</strong> How did the arms race actually create a kind of peace? What made nuclear weapons different from conventional ones?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          How did the arms race actually create a kind of peace? What made nuclear weapons different from conventional ones?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">The Vietnam War eventually turned public opinion against the government. What role did the Pentagon Papers, Watergate, and the conduct of the war itself play in that shift? Which was most important?</p>
-<div class="connector"><strong>How to approach this:</strong> Was fighting proxy wars the right strategy? Would direct confrontation have been worse or better?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was fighting proxy wars the right strategy? Would direct confrontation have been worse or better?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How did the nuclear arms race paradoxically create a kind of peace during the Cold War?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

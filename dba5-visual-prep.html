@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from World War II & Atomic Age. 
 <div class="content-anchor"><strong>Quick context</strong>You are an American in 1941. Japan just attacked Pearl Harbor. Americans are shocked and angry. But questions come quickly: How did we get here? Should America have gotten involved sooner? What did isolationism cost us?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Explain how the Treaty of Versailles, the rise of fascism, and appeasement each contributed to the start of WWII. Which do you think mattered most?</p>
-<div class="connector"><strong>How to approach this:</strong> Explain how the Treaty of Versailles, the Great Depression, and the rise of Hitler and Japan created the conditions for WWII. Show the chain of cause and effect.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain how the Treaty of Versailles, the Great Depression, and the rise of Hitler and Japan created the conditions for WWII. Show the chain of cause and effect.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The U.S. passed multiple Neutrality Acts but also supplied the Allies through Lend-Lease. At what point did neutrality become fiction? What finally pushed the U.S. into open war?</p>
-<div class="connector"><strong>How to approach this:</strong> Before Pearl Harbor, America said it was neutral but sold supplies to Britain. Was that truly neutral? Why did Germany see this as hostile?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Before Pearl Harbor, America said it was neutral but sold supplies to Britain. Was that truly neutral? Why did Germany see this as hostile?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Was America's entry into WWII inevitable after Pearl Harbor, or could a different government have chosen to stay out? What would that have meant for the outcome?</p>
-<div class="connector"><strong>How to approach this:</strong> Could the U.S. have prevented the war or WWII by entering sooner? Or was neutrality the right choice until America was attacked? Defend your position.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Could the U.S. have prevented the war or WWII by entering sooner? Or was neutrality the right choice until America was attacked? Defend your position.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How did American isolationism before 1941 affect the war?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from World War II & Atomic Age. 
 <div class="content-anchor"><strong>Quick context</strong>You are an American in 1945. The war in Europe just ended. Japan fights on. Scientists have built an atomic bomb. President Truman must decide: invade Japan or use the bomb? These decisions will reshape the world.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Describe one way the U.S. home front changed during WWII — for industry, for women, or for a specific group of Americans.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what the atomic bomb was, why it was kept secret, and what it did when used on Hiroshima and Nagasaki.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what the atomic bomb was, why it was kept secret, and what it did when used on Hiroshima and Nagasaki.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The U.S. interned 120,000 Japanese Americans but not Italian or German Americans in significant numbers. What fears and assumptions explain that difference? Does the wartime context justify it?</p>
-<div class="connector"><strong>How to approach this:</strong> Truman said the bomb saved lives by ending the war quickly. Critics say it was unnecessary or immoral. What does the evidence support? What were the actual consequences?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Truman said the bomb saved lives by ending the war quickly. Critics say it was unnecessary or immoral. What does the evidence support? What were the actual consequences?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You are a government official in 1942. Intelligence suggests some members of a particular ancestry group may be disloyal, but most are loyal citizens. You can monitor everyone, restrict movement near bases, intern the group, or protect all rights fully. What do you recommend? What are you risking with each choice?</p>
-<div class="connector"><strong>How to approach this:</strong> Commit to a recommendation and explain what you gain, what you lose, and why the tradeoff is worth making.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Commit to a recommendation and explain what you gain, what you lose, and why the tradeoff is worth making.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">What was the most important consequence of the atomic bomb's use in Japan?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from World War II & Atomic Age. 
 <div class="content-anchor"><strong>Quick context</strong>You are a world leader in 1945. WWII is over. America is the strongest nation on earth. Soviet Russia is also strong and fought alongside America. But the two nations have very different systems and goals. What's next for America?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name the two atomic bomb targets and explain what happened in the days between the two bombings.</p>
-<div class="connector"><strong>How to approach this:</strong> Describe what America's military and economic power looked like after WWII compared to other nations.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Describe what America's military and economic power looked like after WWII compared to other nations.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Historians still debate whether dropping the atomic bombs was necessary to end the Pacific war or was partly a message to the Soviet Union. What evidence supports each interpretation, and why can't we settle the question definitively?</p>
-<div class="connector"><strong>How to approach this:</strong> Why did the alliance between America and the Soviet Union fall apart so quickly after the war ended? What fundamental differences existed?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why did the alliance between America and the Soviet Union fall apart so quickly after the war ended? What fundamental differences existed?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">WWII produced the Nuremberg Trials, the United Nations, and the rise of two superpowers. Which consequence do you think most shaped the world that followed, and why?</p>
-<div class="connector"><strong>How to approach this:</strong> Was dropping the atomic bomb the right decision? Consider both American lives and Japanese lives in your answer.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was dropping the atomic bomb the right decision? Consider both American lives and Japanese lives in your answer.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Which statement best describes America's new role after World War II?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from Civil Rights Movement. Read
 <div class="content-anchor"><strong>Quick context</strong>You are an activist in the 1960s. President Johnson is pushing major legislation on civil rights, poverty, education, and healthcare. But there's a backlash from conservatives and increasing resistance to government programs. Is this the right direction for America?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one Great Society program from each category: civil rights legislation, education or arts, and environmental or consumer protection. Why did Johnson push all three at once?</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what 'separate but equal' meant under Plessy v. Ferguson and why Brown v. Board overturned it.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what 'separate but equal' meant under Plessy v. Ferguson and why Brown v. Board overturned it.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">How does the Great Society compare to the New Deal? What problems was each trying to solve, and what did each assume government could and should do?</p>
-<div class="connector"><strong>How to approach this:</strong> Brown said integration was required, but the South resisted massively. Why was legal victory not enough? What else was needed?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Brown said integration was required, but the South resisted massively. Why was legal victory not enough? What else was needed?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Some Great Society programs created lasting institutions; others faced criticism for overreach or unintended consequences. Using a specific example, argue whether government expansion in this era did more good or harm.</p>
-<div class="connector"><strong>How to approach this:</strong> Was the court the right place to start the civil rights movement, or should activists have focused elsewhere first?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was the court the right place to start the civil rights movement, or should activists have focused elsewhere first?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Why was the Brown v. Board of Education decision considered a turning point?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from Civil Rights Movement. Read
 <div class="content-anchor"><strong>Quick context</strong>You are a young activist in the 1950s and 1960s. The Civil Rights Movement is building. You see peaceful sit-ins met with violence, freedom marches blocked, voting rights denied. How do you fight for change? What tactics work? What are you willing to sacrifice?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one specific Civil Rights protest or event and describe what it accomplished or revealed.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain nonviolent direct action. Name specific tactics: sit-ins, freedom rides, marches, boycotts.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain nonviolent direct action. Name specific tactics: sit-ins, freedom rides, marches, boycotts.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Pick two key figures or organizations from the Civil Rights Movement. How were their strategies different? Did those differences help or hurt the movement's overall goals?</p>
-<div class="connector"><strong>How to approach this:</strong> Why was nonviolence so powerful? How did peaceful protesters responding to violence change people's minds?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why was nonviolence so powerful? How did peaceful protesters responding to violence change people's minds?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You face legal segregation and can choose to: accept it quietly, protest nonviolently and risk arrest, push back with more confrontational tactics, or relocate. What would you choose? What are the costs and what does your choice depend on?</p>
-<div class="connector"><strong>How to approach this:</strong> Name two key civil rights leaders and explain their different approaches to fighting segregation.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Name two key civil rights leaders and explain their different approaches to fighting segregation.
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">What was the strategic value of nonviolent protests like sit-ins and freedom rides?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from Civil Rights Movement. Read
 <div class="content-anchor"><strong>Quick context</strong>You are observing America in the 1960s and 1970s. The civil rights movement opened doors for other groups: women, Hispanics, Native Americans, people with disabilities. The courts are being used to expand rights. What's the impact of all these movements on American society?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one social movement that emerged alongside or after the Civil Rights Movement and identify one specific goal it fought for.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what the Civil Rights Act and Voting Rights Act actually did. What did each law make illegal?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what the Civil Rights Act and Voting Rights Act actually did. What did each law make illegal?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The Chicano Movement, Native American Power Movement, and Women's Movement all organized separately from the Civil Rights Movement. What did they share in goals and strategy, and why did they choose to organize independently?</p>
-<div class="connector"><strong>How to approach this:</strong> These laws were victories, but racism continued after 1965. Why wasn't legal equality enough to create actual equality?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          These laws were victories, but racism continued after 1965. Why wasn't legal equality enough to create actual equality?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Supreme Court cases in this era expanded student rights, suspects' rights, and reproductive rights. Pick one and argue whether the Court's decision made America more just, or whether it overstepped its proper role.</p>
-<div class="connector"><strong>How to approach this:</strong> Could the civil rights movement have succeeded with violence instead? What would have been different?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Could the civil rights movement have succeeded with violence instead? What would have been different?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How did the Civil Rights Act of 1964 and Voting Rights Act of 1965 change American law?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>

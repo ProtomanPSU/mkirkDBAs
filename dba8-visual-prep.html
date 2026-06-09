@@ -97,6 +97,13 @@
   .mc-reveal-btn { background: var(--navy); color: #ffffff; border: none; border-radius: 5px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 13px; cursor: pointer; margin-top: 1rem; transition: background 0.2s; font-family: inherit; }
   html[data-theme="dark"] .mc-reveal-btn { background: #5a8fd4; }
   .mc-reveal-btn:hover { background: var(--navy-mid); }
+  .connector.collapsible { cursor: pointer; position: relative; }
+  .connector.collapsible::after { content: ' ▼'; font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .connector.collapsible.collapsed::after { transform: rotate(-90deg); }
+  .connector-content { max-height: 1000px; overflow: hidden; transition: max-height 0.3s ease; }
+  .connector.collapsed .connector-content { max-height: 0; padding: 0; }
+  .connector-content { padding: 1rem 1.25rem; font-size: 12.5px; color: var(--text-2); line-height: 1.7; }
+
   html[data-theme="dark"] .mc-reveal-btn:hover { background: #4a7cb8; }
   .mc-answer { display: none; background: var(--bg); border: 2px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 6px 6px 0; padding: 1.25rem; margin-top: 1rem; font-size: 13px; color: var(--text-2); line-height: 1.7; }
   html[data-theme="dark"] .mc-answer { background: #14120d; border-color: #3a3530; border-left-color: #5a8fd4; }
@@ -144,13 +151,28 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="content-anchor"><strong>Quick context</strong>You are an American in 1980. The 1970s were hard: inflation, unemployment, energy crisis. Ronald Reagan promises to fix it: lower taxes, cut government, rebuild military strength. Is he right? Will this work?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Describe the Yom Kippur War, the Iran Hostage Crisis, and the Soviet invasion of Afghanistan. How did each one pull the U.S. deeper into Middle Eastern affairs?</p>
-<div class="connector"><strong>How to approach this:</strong> Explain Reagan's three main economic policies: tax cuts, deregulation, and reducing social spending.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain Reagan's three main economic policies: tax cuts, deregulation, and reducing social spending.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">Reagan's economic policies (Reaganomics) promised growth through tax cuts and deregulation. Who benefited most from these policies, and who did not? What does that distribution reveal?</p>
-<div class="connector"><strong>How to approach this:</strong> Did Reaganomics work? The economy grew, but inequality increased. Who benefited most?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Did Reaganomics work? The economy grew, but inequality increased. Who benefited most?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">The Iran-Contra affair showed that the executive branch was conducting secret foreign policy that bypassed Congress. Does national security justify that kind of secrecy? What is the strongest argument on each side?</p>
-<div class="connector"><strong>How to approach this:</strong> Was the shift toward conservative economics the right answer to the 1970s crisis? Why or why not?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Was the shift toward conservative economics the right answer to the 1970s crisis? Why or why not?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">What was intended to result from Reaganomics policies?</p>
@@ -177,13 +199,28 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="content-anchor"><strong>Quick context</strong>You are a world observer in 1989. The Soviet Union is collapsing. The Berlin Wall just fell. Communism is ending in Eastern Europe. How did this happen? America won the Cold War without firing a shot. What does this mean?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one specific U.S. policy or action taken after September 11, 2001 and explain its stated purpose.</p>
-<div class="connector"><strong>How to approach this:</strong> Explain the factors that led to Soviet collapse: economic weakness, Gorbachev's reforms, failed wars.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain the factors that led to Soviet collapse: economic weakness, Gorbachev's reforms, failed wars.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">After 9/11, the U.S. passed the Patriot Act, created the Department of Homeland Security, and opened Guantanamo Bay. Which of these responses do you think most strained civil liberties, and why?</p>
-<div class="connector"><strong>How to approach this:</strong> Why didn't the USSR simply use military force to hold onto power? What had changed about the world?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why didn't the USSR simply use military force to hold onto power? What had changed about the world?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
 <p class="prompt-text">You are advising a president on nuclear proliferation. One country has secretly developed nuclear weapons. You can pursue diplomacy, economic sanctions, cyberattacks, or military action. Each has costs and risks. What do you recommend, and what principles guide your choice?</p>
-<div class="connector"><strong>How to approach this:</strong> Explain what these issues are and whether America has effectively addressed them. What should America's priorities be?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Explain what these issues are and whether America has effectively addressed them. What should America's priorities be?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">Which factor was most important in ending the Cold War?</p>
@@ -214,13 +251,28 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="content-anchor"><strong>Quick context</strong>You are an American in 1991 and beyond. The Cold War is over. America is the world's superpower. But new problems emerge: terrorism, globalization, regional conflicts, inequality. What kind of nation should America be?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one environmental or public health crisis from modern American history and describe how the government initially responded.</p>
-<div class="connector"><strong>How to approach this:</strong> Describe the major challenges America faced after the Cold War ended.</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Describe the major challenges America faced after the Cold War ended.
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
 <p class="prompt-text">The HIV/AIDS crisis, the opioid epidemic, and COVID-19 all exposed gaps between public health needs and government response. What patterns do you see across these three crises?</p>
-<div class="connector"><strong>How to approach this:</strong> Why did American power seem unlimited in 1991 but faced real limits by 2000? What happened?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Why did American power seem unlimited in 1991 but faced real limits by 2000? What happened?
+        </div>
+      </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
 <p class="prompt-text">Globalization, trade agreements, and immigration have all been described as both opportunities and threats to American workers. Using a specific example, argue which description is more accurate and why.</p>
-<div class="connector"><strong>How to approach this:</strong> Did America's policies cause Soviet collapse, or was it inevitable? Who deserves credit?</div></div>
+<div class="connector collapsible collapsed" onclick="toggleConnector(this)">
+        <strong>How to approach this:</strong>
+        <div class="connector-content">
+          Did America's policies cause Soviet collapse, or was it inevitable? Who deserves credit?
+        </div>
+      </div></div>
 <div class="mc-question">
       <div class="mc-question-label">EOC Practice Question</div>
       <p class="mc-question-text">How has America's role in the world changed since the Cold War ended?</p>
@@ -319,6 +371,10 @@ function toggleView(view) {
 function toggleMCAnswer(questionId) {
   const answerBox = document.getElementById('answer-' + questionId);
   answerBox.classList.toggle('show');
+}
+
+function toggleConnector(element) {
+  element.classList.toggle('collapsed');
 }
 </script>
 </body>
