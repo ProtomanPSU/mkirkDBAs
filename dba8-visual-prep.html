@@ -177,13 +177,13 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div id="panels"><div class="panel" id="panel-topic0">
 <button class="back-link" onclick="backToScene()">Back to Gallery</button>
 <h2 class="panel-title">U.S. & the Middle East / Reagan Era</h2>
-<div class="content-anchor"><strong>Quick context</strong>You are an American in 1980. The 1970s were hard: inflation, unemployment, energy crisis. Ronald Reagan promises to fix it: lower taxes, cut government, rebuild military strength. Is he right? Will this work?</div>
+<div class="content-anchor"><strong>Quick context</strong>You are an American in 1980. The 1970s were hard: inflation, unemployment, an energy crisis, and growing entanglement in the Middle East, from oil embargoes to the hostage crisis in Iran. Ronald Reagan promises to fix it: lower taxes, cut government, rebuild military strength. Is he right? Will this work?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Describe the Yom Kippur War, the Iran Hostage Crisis, and the Soviet invasion of Afghanistan. How did each one pull the U.S. deeper into Middle Eastern affairs?</p>
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Explain Reagan's three main economic policies: tax cuts, deregulation, and reducing social spending.
+          For each event, explain what happened and what American interest was at stake: oil, hostages, or Cold War strategy. Show how each one pulled the U.S. deeper into the region.
         </div>
       </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
@@ -191,7 +191,7 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Did Reaganomics work? The economy grew, but inequality increased. Who benefited most?
+          Look at what happened to different groups: investors, high earners, factory workers, the poor. Who gained the most and who was left out? What does that pattern reveal?
         </div>
       </div></div>
 <div class="prompt"><span class="bloom-badge bloom-evaluate">evaluate</span>
@@ -199,7 +199,7 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Was the shift toward conservative economics the right answer to the 1970s crisis? Why or why not?
+          State what the executive branch did and why it was hidden from Congress. Then weigh the case for secrecy in national security against the case for congressional oversight, and take a position.
         </div>
       </div></div>
 <div class="mc-question">
@@ -218,6 +218,11 @@ Click on any scene below to explore key moments from Modern America: Conservativ
         <label><input type="radio" name="mc-q2" disabled> D. Increased government control of business</label>
       </div>
       <button class="mc-reveal-btn" onclick="toggleMCAnswer('mc-q2')">Reveal Answer</button>
+      <div class="mc-answer" id="answer-mc-q2">
+        <strong>Correct Answer: B</strong><br><br>
+        <strong>Why this is correct:</strong> Reaganomics, based on supply-side economic theory, cut income tax rates, reduced regulation on business, and slowed the growth of domestic spending. Supporters believed lower taxes would encourage investment and work, with benefits "trickling down" through the economy, while tighter monetary policy would tame the high inflation of the 1970s. Inflation did fall sharply in the early 1980s and the economy grew after 1983, though federal deficits and the national debt rose substantially.<br><br>
+        <strong>Why the other answers are historically incorrect:</strong><br><strong>A:</strong> Reagan sought to slow domestic social spending, not expand it; his budgets shifted resources toward defense.<br><br><strong>C:</strong> The era weakened organized labor; Reagan's firing of striking air traffic controllers in 1981 signaled a tougher federal stance toward unions.<br><br><strong>D:</strong> Deregulation reduced government control of business in industries like airlines, trucking, and banking.
+      </div>
           </div>
 
     
@@ -225,13 +230,13 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="panel" id="panel-topic1">
 <button class="back-link" onclick="backToScene()">Back to Gallery</button>
 <h2 class="panel-title">Terrorism, Human Rights & Nuclear Threats</h2>
-<div class="content-anchor"><strong>Quick context</strong>You are a world observer in 1989. The Soviet Union is collapsing. The Berlin Wall just fell. Communism is ending in Eastern Europe. How did this happen? America won the Cold War without firing a shot. What does this mean?</div>
+<div class="content-anchor"><strong>Quick context</strong>You are an American in the years after September 11, 2001. Terrorism has reached U.S. soil. The government responds with new laws, new agencies, and wars abroad. Meanwhile, nuclear weapons spread to more nations. How does America stay safe without giving up what it stands for?</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
 <p class="prompt-text">Name one specific U.S. policy or action taken after September 11, 2001 and explain its stated purpose.</p>
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Explain the factors that led to Soviet collapse: economic weakness, Gorbachev's reforms, failed wars.
+          Pick one specific response: the Patriot Act, the Department of Homeland Security, or the war in Afghanistan. Explain what problem it was created to solve.
         </div>
       </div></div>
 <div class="prompt"><span class="bloom-badge bloom-analyze">analyze</span>
@@ -239,7 +244,7 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Why didn't the USSR simply use military force to hold onto power? What had changed about the world?
+          For each response, identify which liberty it affected: privacy, due process, or humane treatment. Compare them and defend which strain on civil liberties was most serious.
         </div>
       </div></div>
 <div class="prompt"><span class="bloom-badge bloom-create">create</span>
@@ -247,7 +252,7 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
-          Explain what these issues are and whether America has effectively addressed them. What should America's priorities be?
+          Commit to one recommendation. Explain what outcome you expect, what could go wrong, and what principle guides your choice: security, diplomacy, or precedent.
         </div>
       </div></div>
 <div class="mc-question">
@@ -342,7 +347,7 @@ Click on any scene below to explore key moments from Modern America: Conservativ
 function showTopic(topicId) {
   const gallery = document.getElementById('scene-gallery');
   const textOnlyMenu = document.getElementById('text-only-menu');
-  const panelId = topicId === 'topic2' ? 'panel-topic2-direct' : 'panel-' + topicId;
+  const panelId = 'panel-' + topicId;
   const panel = document.getElementById(panelId);
 
   if (!panel) return;
