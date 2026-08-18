@@ -355,7 +355,7 @@
       <button class="view-toggle active" id="font-normal" onclick="setFontSize('normal')" aria-label="Normal font size" title="Normal"><span style="display: inline-block;">A</span></button>
       <button class="view-toggle" id="font-large" onclick="setFontSize('large')" aria-label="Increase font size" title="Larger"><span style="display: inline-block; transform: translateY(-2px); font-size: 16px;">A</span></button>
     </div>
-    <div class="btn-group">
+    <div class="btn-group" id="wordedit-group" style="display: none;">
       <button class="view-toggle" id="wordedit-toggle" onclick="wordEdit.toggle()" aria-label="Toggle wording editor">Edit Wording</button>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">☽</button>
@@ -672,6 +672,12 @@ var wordEdit = (function () {
     '.pw-sub', '.pw-error', '.pw-field label', 'footer'
   ];
   var on = false, dirty = false, original = null, panelStyles = null;
+  // The editor is teacher-only: it stays completely hidden unless the page is
+  // opened with ?edit=1, so a student opening the file sees no editing UI.
+  var ENABLED = (function () {
+    try { return new URLSearchParams(location.search).get('edit') === '1'; }
+    catch (e) { return false; }
+  })();
 
   function nodes() {
     var out = [];
@@ -701,7 +707,7 @@ var wordEdit = (function () {
   }
 
   function start() {
-    if (on) return;
+    if (on || !ENABLED) return;
     on = true;
     snapshot();
     document.body.classList.add('wordedit-on');
@@ -790,6 +796,8 @@ var wordEdit = (function () {
     });
     var tgl = root.querySelector('#wordedit-toggle');
     if (tgl) { tgl.classList.remove('active'); tgl.textContent = 'Edit Wording'; }
+    var grp = root.querySelector('#wordedit-group');
+    if (grp) grp.setAttribute('style', 'display: none;');
 
     if (wasOn) { var keep = original; start(); original = keep; }
     return CARD_MARKER + '\n<!DOCTYPE html>\n' + root.outerHTML + '\n';
@@ -807,6 +815,11 @@ var wordEdit = (function () {
     document.body.classList.remove('wordedit-dirty');
   }
 
+  if (ENABLED) {
+    var grp = document.getElementById('wordedit-group');
+    if (grp) grp.style.display = '';
+  }
+
   document.addEventListener('click', swallow, true);
   document.addEventListener('input', function (e) {
     if (on && e.target.hasAttribute && e.target.hasAttribute('data-we')) markDirty();
@@ -821,7 +834,5 @@ var wordEdit = (function () {
   };
 })();
 </script>
-
-
 
 </body></html>
