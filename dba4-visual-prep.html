@@ -143,7 +143,7 @@
 </header>
 <div class="container">
 <div class="orientation"><strong>How to use this page</strong>
-Click on any scene below to explore key moments from The 1920s &amp; Great Depression. Read the context and answer the prompts to prepare for your DBA discussion.</div>
+Click on any scene below to explore key moments from The 1920s &amp; Great Depression. Read the context and answer the prompts for your DBA discussion.</div>
 
 <div class="text-only-menu" id="text-only-menu" style="display: none; margin-bottom: 2.5rem;"><div><h2>Choose a Topic</h2><div><button onclick="enterLocation('topic0')"><div>Culture, Prosperity &amp; Tensions</div><div>...</div></button><button onclick="enterLocation('topic1')"><div>Causes &amp; Crash</div><div>...</div></button><button onclick="enterLocation('topic2')"><div>New Deal &amp; Government Response</div><div>...</div></button></div></div></div>
 
@@ -158,7 +158,7 @@ Click on any scene below to explore key moments from The 1920s &amp; Great Depre
 <h2 class="panel-title">Culture, Prosperity &amp; Tensions</h2>
 <div class="content-anchor"><strong>Quick context</strong>You are in urban America during the 1920s. The Jazz Age is booming. New technology, new music, new freedom for some. But not everyone. Farmers are struggling; workers in coal and textile mills face job losses; Black Americans face brutal racism. There are two economies in America right now.</div>
 <div class="prompt"><span class="bloom-badge bloom-understand">understand</span>
-<p class="prompt-text">Pick one cultural change from the 1920s: changes for women, Prohibition, or the Harlem Renaissance. In two sentences, explain what changed and why it mattered.</p>
+<p class="prompt-text">Pick one cultural change from the 1920s: changes for women, Prohibition, or the Harlem Renaissance. Explain what changed and why it mattered.</p>
 <div class="connector collapsible collapsed" onclick="toggleConnector(this)">
         <strong>How to approach this:</strong>
         <div class="connector-content">
@@ -454,7 +454,7 @@ function toggleConnector(element) {
 </div>
 <script>
 var wordEdit = (function () {
-  var CARD_MARKER = '<!-- @dsCard group="US History DBAs" -->';
+  var CARD_MARKER = '<!-- @dsCard group=\"US History DBAs\" -->';
   var FILE_NAME   = 'dba4-visual-prep.html';
   var SELECTORS = [
     '.dba-label', '.page-title', '.orientation',
@@ -464,7 +464,7 @@ var wordEdit = (function () {
     '.mc-question-label', '.mc-question-text', '.mc-option label',
     '.mc-answer', '.cartoon-attribution'
   ];
-  var on = false, dirty = false, original = null;
+  var on = false, dirty = false, original = null, panelStyles = null;
 
   function nodes() {
     var out = [];
@@ -503,7 +503,17 @@ var wordEdit = (function () {
       el.setAttribute('contenteditable', 'true');
       el.setAttribute('spellcheck', 'true');
     });
-    document.getElementById('scene-gallery').style.display = 'grid';
+    // Some files (DBA 8) set inline `display:none !important` on panels, which a
+    // stylesheet rule cannot override — so force visibility inline and remember
+    // exactly what was there to put back on exit.
+    panelStyles = [];
+    document.querySelectorAll('.panel').forEach(function (p) {
+      panelStyles.push(p.getAttribute('style'));
+      p.style.setProperty('display', 'block', 'important');
+    });
+    var gal = document.getElementById('scene-gallery');
+    gal.classList.remove('gallery-hidden');
+    gal.style.setProperty('display', 'grid', 'important');
     var btn = document.getElementById('wordedit-toggle');
     if (btn) { btn.classList.add('active'); btn.textContent = 'Editing'; }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -518,7 +528,13 @@ var wordEdit = (function () {
       el.removeAttribute('contenteditable');
       el.removeAttribute('spellcheck');
     });
-    document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function (p, i) {
+      p.classList.remove('active');
+      var prior = panelStyles && panelStyles[i];
+      if (prior === null || prior === undefined) p.removeAttribute('style');
+      else p.setAttribute('style', prior);
+    });
+    panelStyles = null;
     var btn = document.getElementById('wordedit-toggle');
     if (btn) { btn.classList.remove('active'); btn.textContent = 'Edit Wording'; }
   }
@@ -547,7 +563,11 @@ var wordEdit = (function () {
     if (gal) { gal.removeAttribute('style'); gal.classList.remove('gallery-hidden'); }
     var menu = root.querySelector('#text-only-menu');
     if (menu) menu.setAttribute('style', 'display: none; margin-bottom: 2.5rem;');
-    root.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+    root.querySelectorAll('.panel').forEach(function (p) {
+      p.classList.remove('active');
+      p.style.removeProperty('display');
+      if (!p.getAttribute('style')) p.removeAttribute('style');
+    });
     root.querySelectorAll('.connector.collapsible').forEach(function (c) { c.classList.add('collapsed'); });
     root.querySelectorAll('.mc-answer').forEach(function (a) { a.classList.remove('show'); });
     root.querySelectorAll('[data-we]').forEach(function (el) {
@@ -590,6 +610,5 @@ var wordEdit = (function () {
   };
 })();
 </script>
-
 
 </body></html>

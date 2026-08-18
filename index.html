@@ -1,12 +1,12 @@
+<!-- @dsCard group="US History DBAs" -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>US History — DBA Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -341,12 +341,12 @@
     }
   </style>
 </head>
-<body>
+<body class="">
 
 <header class="page-header">
 <div class="header-inner">
   <div class="header-content">
-    <div class="dba-label">US History &middot; Discussion-Based Assessment</div>
+    <div class="dba-label">US History · Discussion-Based Assessment</div>
     <h1 class="page-title">Post-Civil War Through Modern America</h1>
   </div>
   <div class="controls">
@@ -355,7 +355,10 @@
       <button class="view-toggle active" id="font-normal" onclick="setFontSize('normal')" aria-label="Normal font size" title="Normal"><span style="display: inline-block;">A</span></button>
       <button class="view-toggle" id="font-large" onclick="setFontSize('large')" aria-label="Increase font size" title="Larger"><span style="display: inline-block; transform: translateY(-2px); font-size: 16px;">A</span></button>
     </div>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">&#9789;</button>
+    <div class="btn-group">
+      <button class="view-toggle" id="wordedit-toggle" onclick="wordEdit.toggle()" aria-label="Toggle wording editor">Edit Wording</button>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">☽</button>
   </div>
 </div>
 </header>
@@ -364,56 +367,55 @@
 
 <div class="orientation">
   <strong>How to use this page</strong>
-  Your DBA is a live conversation with your teacher about this module's content. Your teacher will give you the password for your module. Enter it to start the interactive DBA game and practice your answers out loud before your call.
-</div>
+  Your DBA is a live conversation with your teacher about this module's content. Your teacher will give you the password for your module.&nbsp;</div>
 
 <div class="dba-grid">
   <div class="dba-card" data-dba="1">
     <div class="dba-card-number">Module 1 · DBA 1</div>
     <div class="dba-card-title">Reconstruction Era</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="2">
     <div class="dba-card-number">Module 2 · DBA 2</div>
     <div class="dba-card-title">The Industrial Transformation</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="3">
     <div class="dba-card-number">Module 3 · DBA 3</div>
-    <div class="dba-card-title">American Imperialism & WWI</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-title">American Imperialism &amp; WWI</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="4">
     <div class="dba-card-number">Module 4 · DBA 4</div>
-    <div class="dba-card-title">The 1920s & Great Depression</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-title">The 1920s &amp; Great Depression</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="5">
     <div class="dba-card-number">Module 5 · DBA 5</div>
-    <div class="dba-card-title">World War II & Atomic Age</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-title">World War II &amp; Atomic Age</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="6">
     <div class="dba-card-number">Module 6 · DBA 6</div>
     <div class="dba-card-title">The Cold War</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="7">
     <div class="dba-card-number">Module 7 · DBA 7</div>
     <div class="dba-card-title">Civil Rights Movement</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 
   <div class="dba-card" data-dba="8">
     <div class="dba-card-number">Module 8 · DBA 8</div>
     <div class="dba-card-title">Modern America: Conservative Turn</div>
-    <div class="dba-card-cta"><span class="lock-icon">&#128274;</span> Start DBA</div>
+    <div class="dba-card-cta"><span class="lock-icon">🔒</span> Start DBA</div>
   </div>
 </div>
 
@@ -550,8 +552,13 @@ function setFontSize(size) {
 
   function openModal(dba) {
     currentDba = String(dba);
-    eyebrow.textContent = EYEBROWS[currentDba] || '';
-    titleEl.textContent = TITLES[currentDba]   || '';
+    // Read the labels off the card itself so edited wording carries into the
+    // prompt; fall back to the lookup tables if a card is missing them.
+    var card = document.querySelector('[data-dba="' + currentDba + '"]');
+    var cardEyebrow = card && card.querySelector('.dba-card-number');
+    var cardTitle   = card && card.querySelector('.dba-card-title');
+    eyebrow.textContent = (cardEyebrow ? cardEyebrow.textContent : EYEBROWS[currentDba]) || '';
+    titleEl.textContent = (cardTitle   ? cardTitle.textContent   : TITLES[currentDba])   || '';
     input.value = '';
     errorDiv.style.display = 'none';
     input.style.borderColor = '';
@@ -616,5 +623,205 @@ function setFontSize(size) {
 })();
 </script>
 
-</body>
-</html>
+<style id="wordedit-style">
+  .wordedit-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; display: none;
+    background: var(--navy); color: #fff; padding: 0.85rem 1.5rem; align-items: center; gap: 1rem;
+    flex-wrap: wrap; box-shadow: 0 -2px 18px rgba(0,0,0,0.28); font-family: 'DM Sans', sans-serif; }
+  body.wordedit-on .wordedit-bar { display: flex; }
+  body.wordedit-on { padding-bottom: 5.5rem; }
+  .wordedit-bar .we-status { font-size: 13px; font-weight: 600; letter-spacing: 0.01em; flex: 1; min-width: 200px; }
+  .wordedit-bar .we-status em { font-style: normal; color: var(--accent); }
+  .wordedit-bar button { font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+    border-radius: 6px; padding: 0.6rem 1.05rem; border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.12); color: #fff; transition: background 0.2s; }
+  .wordedit-bar button:hover { background: rgba(255,255,255,0.24); }
+  .wordedit-bar button.we-primary { background: var(--accent); border-color: var(--accent); color: #17130a; }
+  .wordedit-bar button.we-primary:hover { filter: brightness(1.08); }
+
+  body.wordedit-on [data-we] { outline: 1.5px dashed rgba(184,128,42,0.55); outline-offset: 3px;
+    border-radius: 3px; transition: outline-color 0.15s, background 0.15s; }
+  body.wordedit-on [data-we]:hover { outline-color: var(--accent); background: rgba(184,128,42,0.07); }
+  body.wordedit-on [data-we]:focus { outline: 2px solid var(--accent); outline-offset: 3px;
+    background: rgba(184,128,42,0.10); }
+  body.wordedit-on .panel { display: block !important; }
+  body.wordedit-on .scene-card, body.wordedit-on .text-only-menu button { cursor: text; }
+  body.wordedit-on .connector .connector-content { display: block !important; max-height: none !important; }
+  body.wordedit-on .mc-answer { display: block !important; }
+  body.wordedit-on .pw-overlay { position: static; visibility: visible; opacity: 1;
+    background: none; backdrop-filter: none; padding: 0 2rem 2rem; display: block; }
+  body.wordedit-on .pw-overlay .pw-modal { transform: none; margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10); }
+  body.wordedit-on .pw-overlay::before { content: 'Password prompt (shown for editing)';
+    display: block; max-width: 390px; margin: 0 auto 0.6rem; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+  .wordedit-dirty .we-status em::after { content: ' — unsaved changes'; }
+</style>
+<div class="wordedit-bar" role="region" aria-label="Wording editor">
+  <div class="we-status">Editing wording<em></em> · click any outlined text and type</div>
+  <button type="button" onclick="wordEdit.revert()">Undo all changes</button>
+  <button type="button" onclick="wordEdit.stop()">Done (keep on screen)</button>
+  <button type="button" class="we-primary" onclick="wordEdit.save()">Save updated HTML</button>
+</div>
+<script>
+var wordEdit = (function () {
+  var CARD_MARKER = '<!-- @dsCard group=\"US History DBAs\" -->';
+  var FILE_NAME   = 'index.html';
+  var SELECTORS = [
+    '.dba-label', '.page-title', '.orientation',
+    '.dba-card-number', '.dba-card-title', '.dba-card-cta',
+    '.pw-sub', '.pw-error', '.pw-field label', 'footer'
+  ];
+  var on = false, dirty = false, original = null, panelStyles = null;
+
+  function nodes() {
+    var out = [];
+    SELECTORS.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (el) { if (!el.closest('.wordedit-bar')) out.push(el); });
+    });
+    return out;
+  }
+
+  function snapshot() {
+    original = nodes().map(function (el) { return el.innerHTML; });
+  }
+
+  function markDirty() {
+    if (dirty) return;
+    dirty = true;
+    document.body.classList.add('wordedit-dirty');
+  }
+
+  // While editing, clicks must place a caret, not navigate between scenes or
+  // collapse panels. The header controls and the editor bar stay live.
+  function swallow(e) {
+    if (!on) return;
+    var t = e.target;
+    if (t.closest && (t.closest('.wordedit-bar') || t.closest('.controls'))) return;
+    e.stopPropagation();
+  }
+
+  function start() {
+    if (on) return;
+    on = true;
+    snapshot();
+    document.body.classList.add('wordedit-on');
+    nodes().forEach(function (el) {
+      el.setAttribute('data-we', '');
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('spellcheck', 'true');
+    });
+    // Some files (DBA 8) set inline `display:none !important` on panels, which a
+    // stylesheet rule cannot override — so force visibility inline and remember
+    // exactly what was there to put back on exit.
+    panelStyles = [];
+    document.querySelectorAll('.panel').forEach(function (p) {
+      panelStyles.push(p.getAttribute('style'));
+      p.style.setProperty('display', 'block', 'important');
+    });
+    var gal = document.getElementById('scene-gallery');
+    if (gal) {
+      gal.classList.remove('gallery-hidden');
+      gal.style.setProperty('display', 'grid', 'important');
+    }
+    var btn = document.getElementById('wordedit-toggle');
+    if (btn) { btn.classList.add('active'); btn.textContent = 'Editing'; }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function stop() {
+    if (!on) return;
+    on = false;
+    document.body.classList.remove('wordedit-on');
+    document.querySelectorAll('[data-we]').forEach(function (el) {
+      el.removeAttribute('data-we');
+      el.removeAttribute('contenteditable');
+      el.removeAttribute('spellcheck');
+    });
+    document.querySelectorAll('.panel').forEach(function (p, i) {
+      p.classList.remove('active');
+      var prior = panelStyles && panelStyles[i];
+      if (prior === null || prior === undefined) p.removeAttribute('style');
+      else p.setAttribute('style', prior);
+    });
+    panelStyles = null;
+    var btn = document.getElementById('wordedit-toggle');
+    if (btn) { btn.classList.remove('active'); btn.textContent = 'Edit Wording'; }
+  }
+
+  function revert() {
+    if (!original) return;
+    if (!window.confirm('Undo every wording change made since you turned on editing?')) return;
+    nodes().forEach(function (el, i) { if (original[i] !== undefined) el.innerHTML = original[i]; });
+    dirty = false;
+    document.body.classList.remove('wordedit-dirty');
+  }
+
+  // Serialize the page back to a standalone file: strip the editor's runtime
+  // state so the saved copy opens exactly like the original did.
+  function serialize() {
+    var wasOn = on;
+    stop();
+    var root = document.documentElement.cloneNode(true);
+
+    root.removeAttribute('data-theme');
+    root.removeAttribute('style');
+    var b = root.querySelector('body');
+    if (b) b.className = b.className.replace(/wordedit-\S+/g, '').trim();
+
+    var gal = root.querySelector('#scene-gallery');
+    if (gal) { gal.removeAttribute('style'); gal.classList.remove('gallery-hidden'); }
+    var menu = root.querySelector('#text-only-menu');
+    if (menu) menu.setAttribute('style', 'display: none; margin-bottom: 2.5rem;');
+    var ov = root.querySelector('#pw-overlay');
+    if (ov) ov.classList.remove('open');
+    root.querySelectorAll('.panel').forEach(function (p) {
+      p.classList.remove('active');
+      p.style.removeProperty('display');
+      if (!p.getAttribute('style')) p.removeAttribute('style');
+    });
+    root.querySelectorAll('.connector.collapsible').forEach(function (c) { c.classList.add('collapsed'); });
+    root.querySelectorAll('.mc-answer').forEach(function (a) { a.classList.remove('show'); });
+    root.querySelectorAll('[data-we]').forEach(function (el) {
+      el.removeAttribute('data-we'); el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck');
+    });
+    root.querySelectorAll('.view-toggle, .theme-toggle').forEach(function (el) {
+      if (el.id === 'toggle-gallery' || el.id === 'font-normal') el.classList.add('active');
+      else if (el.id === 'toggle-text' || el.id === 'font-small' || el.id === 'font-large') el.classList.remove('active');
+    });
+    var tgl = root.querySelector('#wordedit-toggle');
+    if (tgl) { tgl.classList.remove('active'); tgl.textContent = 'Edit Wording'; }
+
+    if (wasOn) { var keep = original; start(); original = keep; }
+    return CARD_MARKER + '\n<!DOCTYPE html>\n' + root.outerHTML + '\n';
+  }
+
+  function save() {
+    var html = serialize();
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = FILE_NAME;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+    dirty = false;
+    document.body.classList.remove('wordedit-dirty');
+  }
+
+  document.addEventListener('click', swallow, true);
+  document.addEventListener('input', function (e) {
+    if (on && e.target.hasAttribute && e.target.hasAttribute('data-we')) markDirty();
+  }, true);
+  window.addEventListener('beforeunload', function (e) {
+    if (dirty) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  return {
+    toggle: function () { on ? stop() : start(); },
+    start: start, stop: stop, revert: revert, save: save, serialize: serialize
+  };
+})();
+</script>
+
+
+
+</body></html>
