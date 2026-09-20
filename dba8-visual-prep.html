@@ -940,5 +940,73 @@ var NOTE_KEY = 'dba-tacos:dba8';
   });
 })();
 </script>
+<script>
+/* iOS tap shim for the sorting activities (added 2026-09-20).
+   ---------------------------------------------------------------------------
+   The sorting cards are plain divs whose tap handler is a pointerdown
+   listener. On iPhone that tap can fail to reach the handler: iOS Safari
+   treats a stationary touch on a non-interactive div as a candidate gesture,
+   and the pointerdown/pointerup pair the handler needs either never arrives or
+   arrives as a cancel. The card stays grey, no category bar appears, nothing
+   is logged. Desktop and device-emulation never reproduce it, because a mouse
+   has no gesture recognizer.
+
+   touchstart/touchmove/touchend DO always arrive and bubble to document from
+   any element. So: watch the touch, and if a genuine stationary tap on a card
+   leaves that card visibly unchanged, replay the pointer pair.
+
+   Confirmed on DBA 1, where the runtime binds the handler by delegation and
+   the tap was dead on iPhone. Carried to the other seven as insurance rather
+   than in response to a report: they bind pointerdown directly on each chip,
+   which iOS treats more reliably, but the failure is invisible from here and
+   a wasted phone test costs more than an inert guard.
+
+   Safe to leave in permanently: it only fires when the tap plainly did
+   nothing, it requires a stationary touch (8px, matching the drag threshold),
+   and its listeners are on document so a re-render cannot detach them. */
+(function () {
+  var sx = 0, sy = 0, moved = false, card = null;
+
+  function cardFrom(node) {
+    if (!node || !node.closest) return null;
+    var hit = node.closest('.chip') || node.closest('div[style*="grab"]');
+    return hit && hit.closest('[data-bucket]') ? hit : null;
+  }
+
+  document.addEventListener('touchstart', function (e) {
+    var t = e.touches && e.touches[0];
+    if (!t) { card = null; return; }
+    sx = t.clientX; sy = t.clientY; moved = false;
+    card = cardFrom(e.target);
+  }, true);
+
+  document.addEventListener('touchmove', function (e) {
+    var t = e.touches && e.touches[0];
+    if (!t) return;
+    if (Math.abs(t.clientX - sx) + Math.abs(t.clientY - sy) > 8) moved = true;
+  }, true);
+
+  document.addEventListener('touchend', function () {
+    var hit = card; card = null;
+    if (!hit || moved) return;
+    var before = hit.getAttribute('style');
+    var cls = hit.className;
+    setTimeout(function () {
+      if (!hit.isConnected) return;                      // re-rendered: handled
+      if (hit.getAttribute('style') !== before) return;   // restyled: handled
+      if (hit.className !== cls) return;                  // reclassed: handled
+      var r = hit.getBoundingClientRect();
+      var o = { bubbles: true, cancelable: true, composed: true,
+                clientX: r.left + r.width / 2, clientY: r.top + r.height / 2,
+                button: 0, buttons: 1, pointerId: 1,
+                pointerType: 'touch', isPrimary: true };
+      try {
+        hit.dispatchEvent(new PointerEvent('pointerdown', o));
+        window.dispatchEvent(new PointerEvent('pointerup', o));
+      } catch (err) { /* no PointerEvent constructor: nothing to replay */ }
+    }, 80);
+  }, true);
+})();
+</script>
 </body>
 </html>
