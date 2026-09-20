@@ -715,7 +715,13 @@ var NOTE_KEY = 'dba-tacos:dba6';
           el.style.transform = ''; el.style.opacity = ''; el.style.zIndex = '';
           el.style.position = ''; el.style.pointerEvents = ''; el.style.cursor = '';
           clearHi();
-          if (!moved) { if (ev.type === 'pointerup') tapCard(id); return; }
+          if (!moved) {
+            // iOS Safari's gesture recognizer often ends a stationary tap with
+            // pointercancel rather than pointerup. Treating cancel as abandon made a
+            // tap do nothing at all on iPhone. `moved` still rules out real drags.
+            if (ev.type === 'pointerup' || ev.type === 'pointercancel') tapCard(id);
+            return;
+          }
           var over = bucketAt(ev.clientX, ev.clientY);
           if (over) place(id, over.getAttribute('data-bucket'));
         }
