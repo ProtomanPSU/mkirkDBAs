@@ -261,17 +261,17 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
 @media (max-width: 720px) {
   .panel { animation:none !important; padding:1.1rem !important; }
   .dm-layout { display:block; }
-  .dm-menu { position:fixed; left:0; right:0; bottom:0; top:auto; z-index:70; flex-direction:row; gap:0;
-    border:none; border-top:2px solid var(--border); border-radius:0; background:var(--surface);
-    padding:0.25rem 0.25rem calc(0.25rem + env(safe-area-inset-bottom, 0px)); box-shadow:0 -4px 16px rgba(0,0,0,0.12); }
+  /* Phone: the menu is a bar that sticks to the top of the screen while a section
+     scrolls (moved from the bottom 2026-10-01: Safari's toolbar shares the bottom
+     edge and students missed it there; the sorting picker keeps the bottom). */
+  .dm-menu { position:sticky; top:env(safe-area-inset-top, 0px); z-index:70; flex-direction:row; gap:0;
+    margin:0 -1.1rem 1rem; border:none; border-top:2px solid var(--border); border-bottom:2px solid var(--accent);
+    border-radius:0; background:var(--surface); padding:0.3rem 0.3rem; box-shadow:0 6px 14px rgba(0,0,0,0.12); }
   .dm-item { flex:1 1 0; min-width:0; flex-direction:column; justify-content:center; gap:0.15rem;
-    padding:0.4rem 0.1rem; min-height:52px; font-size:0.66rem; text-align:center; border-radius:6px; }
-  .dm-ico { width:20px; height:20px; }
+    padding:0.4rem 0.1rem; min-height:54px; font-size:0.72rem; text-align:center; border-radius:6px; color:var(--text); }
+  .dm-ico { width:22px; height:22px; }
   .dm-long { display:none; }
   .dm-short { display:block; white-space:nowrap; }
-  body:has(.panel:not([hidden]) .dm-menu) { padding-bottom:5.5rem; }
-  /* The sorting activity's column picker uses the same spot; it wins while open. */
-  body:has(.picker:not([hidden])) .dm-menu { display:none; }
   .dm-chip { font-size:0.7rem; padding:0.4rem 0.58rem; min-height:38px; white-space:nowrap; }
   .dm-scenes { gap:0.25rem; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin-bottom:1rem; }
   .dm-glabel { display:none; }
