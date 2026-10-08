@@ -208,6 +208,414 @@
   footer { text-align:center; padding:2rem 0 0; border-top:2px solid var(--border); font-size:0.69rem; color:var(--text-3); letter-spacing:0.04em; }
   [hidden] { display:none !important; }
 </style>
+<style id="cti-style">
+/* Connect the ideas board, 2026-10-08. Kept in its own block (not dm-style) so
+   `build.py --restyle` in dba-menu-build can swap the menu without touching this. */
+html:not([data-sec="ideas"]) [data-sec="ideas"] { display:none !important; }
+html[data-sec="ideas"] .dm-item[data-dm-go="ideas"] { background:var(--navy); color:#fff; }
+html[data-sec="ideas"] .dm-step[data-when="ideas"] { display:flex; }
+
+.cti-tools { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem; }
+.cti-tools button { background:none; border:1.5px solid var(--border); color:var(--text-2); border-radius:6px;
+  padding:0.65rem 1.1rem; min-height:44px; font-size:0.78rem; font-weight:600; cursor:pointer; }
+.cti-tools button:hover { border-color:var(--accent); color:var(--text); }
+.cti-tools button:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+
+.cti-board { display:block; width:100%; background:var(--surface); border:1.5px solid var(--border);
+  border-radius:8px; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; touch-action:manipulation; }
+/* Only the ideas themselves block scrolling. On a phone the board is taller than half
+   the screen, so a blanket touch-action:none would trap the page there. */
+.cti-node { cursor:grab; touch-action:none; outline:none; }
+.cti-node:active { cursor:grabbing; }
+.cti-node:active .cti-hex { stroke:var(--accent); stroke-width:3; }
+.cti-node .cti-hex { fill:var(--bg); stroke:var(--navy); stroke-width:1.5; }
+.cti-node:focus-visible .cti-hex { stroke:var(--accent); stroke-width:3.5; stroke-dasharray:6 3; }
+.cti-node text { fill:var(--text); font-size:0.75rem; font-weight:600; text-anchor:middle;
+  dominant-baseline:central; pointer-events:none; }
+
+.cti-status { font-size:0.75rem; font-weight:600; color:var(--text-3); letter-spacing:0.02em; min-height:1.4em; margin-top:0.6rem; }
+.cti-save { font-size:0.69rem; color:var(--text-3); line-height:1.5; margin-top:0.35rem; }
+
+@media (max-width: 720px) {
+  /* Give the board the section's side padding back so three columns of ideas fit on a phone. */
+  .cti-mount { margin:0 -1.2rem; }
+  .cti-tools, .cti-status, .cti-save { margin-left:1.2rem; margin-right:1.2rem; }
+  /* Scene 3 has seven menu items once this one is added; shrink their labels so
+     "Cartoon" still fits on a 375px-wide phone. */
+  .dm-menu:has(> .dm-item:nth-of-type(7)) { padding-left:0; padding-right:0; }
+  .dm-menu:has(> .dm-item:nth-of-type(7)) .dm-item { padding-left:0; padding-right:0; }
+  .dm-menu:has(> .dm-item:nth-of-type(7)) .dm-short { font-size:0.64rem; letter-spacing:-0.02em; }
+}
+</style>
+<script id="cti-script">
+/* Connect the ideas board, 2026-10-08. Spec: DBA_CONNECT_IDEAS_SPEC.md.
+   Lives outside the page runtime (like the section menu): it watches for each scene's
+   empty .cti-mount and builds the board there, so a scene switch or re-render never
+   loses work. The student's layout is kept in memory and in localStorage.
+   Drag only (2026-10-08, Mike): no lines are drawn. Students place related ideas near each
+   other and explain the connection out loud. Suggested connections live in the teacher key. */
+(function () {
+  'use strict';
+
+  // ---- Data: one board per scene, written by build.py from content.py.
+  // Starting spots are dealt at random on first view (see layout). ----
+  var DBA_KEY = 'dba6';
+  var BOARDS = {
+      p1: { panel: 1, ideas: [
+      { id: "contain", lines: ["Containment"] },
+      { id: "doct", lines: ["Truman", "Doctrine"] },
+      { id: "mplan", lines: ["Marshall", "Plan"] },
+      { id: "block", lines: ["Berlin", "blockade"] },
+      { id: "lift", lines: ["Berlin", "Airlift"] },
+      { id: "nato", lines: ["NATO"] },
+      { id: "korea", lines: ["Korean War"] },
+      { id: "proxy", lines: ["Proxy wars"] }
+    ] },
+      p2: { panel: 2, ideas: [
+      { id: "truce", lines: ["Korean", "armistice"] },
+      { id: "u2", lines: ["U-2 missile", "photos"] },
+      { id: "quar", lines: ["Naval", "quarantine"] },
+      { id: "turkey", lines: ["Missiles in", "Turkey"] },
+      { id: "tonkin", lines: ["Gulf of", "Tonkin", "Resolution"] },
+      { id: "tet", lines: ["Tet", "Offensive"] },
+      { id: "domino", lines: ["One falls,", "others", "follow"] },
+      { id: "hbomb", lines: ["Hydrogen", "bombs"] }
+    ] },
+      p3: { panel: 3, ideas: [
+      { id: "fuchs", lines: ["Klaus Fuchs"] },
+      { id: "venona", lines: ["Venona", "decryptions"] },
+      { id: "rosen", lines: ["Rosenberg", "spy ring"] },
+      { id: "list", lines: ["McCarthy\u2019s", "list of 205"] },
+      { id: "loyal", lines: ["Loyalty", "boards"] },
+      { id: "fake", lines: ["Doctored", "photo, faked", "letter"] },
+      { id: "hear", lines: ["Army-", "McCarthy", "hearings"] },
+      { id: "censure", lines: ["Senate", "censures", "McCarthy"] }
+    ] }
+    };
+
+  var MSG = {
+    start: 'Drag the ideas into place.',
+    moved: 'Moved. Be ready to explain why it goes there.',
+    reset: 'Layout reset. The ideas have new starting spots.'
+  };
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var SQ3 = Math.sqrt(3);
+
+  // ---- Storage: every read and write survives blocked storage. ----
+  function key(b, part) { return DBA_KEY + ':panel' + BOARDS[b].panel + ':connect:' + part; }
+  function load(k) {
+    try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; }
+  }
+  function save(k, v) {
+    try {
+      if (v === null) localStorage.removeItem(k);
+      else localStorage.setItem(k, JSON.stringify(v));
+    } catch (e) { /* private window or blocked storage: memory only */ }
+  }
+
+  // Board state outlives the DOM: the runtime may unmount a scene at any time.
+  var STATE = {};
+  function state(b) {
+    if (STATE[b]) return STATE[b];
+    var pos = load(key(b, 'pos'));
+    STATE[b] = { pos: pos && typeof pos === 'object' ? pos : null };
+    return STATE[b];
+  }
+
+  function idea(b, id) {
+    var list = BOARDS[b].ideas;
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function label(b, id) { return idea(b, id).lines.join(' ').replace(/- /g, '-'); }   // "Army- McCarthy" -> "Army-McCarthy"
+
+  function el(tag, attrs, ns) {
+    var n = ns ? document.createElementNS(NS, tag) : document.createElement(tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  }
+  function hexPoints(r) {
+    var pts = [];
+    for (var k = 0; k < 6; k++) {
+      var a = Math.PI / 3 * k;
+      pts.push((r * Math.cos(a)).toFixed(2) + ',' + (r * Math.sin(a)).toFixed(2));
+    }
+    return pts.join(' ');
+  }
+
+  // Boards are tracked in memory, not by an attribute: the runtime can copy a mount
+  // (children and attributes, but no listeners), and a copy has to be rebuilt.
+  var UI = typeof WeakMap === 'function' ? new WeakMap() : null;
+  var LIVE = [];
+
+  // ---- Build one board inside its mount ----
+  function build(mount) {
+    var b = mount.getAttribute('data-board');
+    if (!BOARDS[b] || !UI) return;
+    while (mount.firstChild) mount.removeChild(mount.firstChild);
+    var st = state(b);
+
+    var tools = el('div', { 'class': 'cti-tools' });
+    var resetBtn = el('button', { type: 'button' });
+    resetBtn.textContent = 'Reset layout';
+    tools.appendChild(resetBtn);
+
+    var svg = el('svg', { 'class': 'cti-board', role: 'group',
+      'aria-label': 'Idea board. Drag ideas to move them, or use the arrow keys.' }, true);
+    var nodeLayer = el('g', {}, true);
+    svg.appendChild(nodeLayer);
+
+    var status = el('p', { 'class': 'cti-status', 'aria-live': 'polite' });
+    status.textContent = MSG.start;
+    var note = el('p', { 'class': 'cti-save' });
+    note.textContent = 'Your board saves on this device only. It is not sent anywhere and your teacher cannot see it.';
+
+    mount.appendChild(tools);
+    mount.appendChild(svg);
+    mount.appendChild(status);
+    mount.appendChild(note);
+
+    var ui = { b: b, st: st, svg: svg, nodes: {}, status: status, W: 0, H: 0, r: 0, cur: {} };
+    UI.set(mount, ui);
+    LIVE = LIVE.filter(function (u) { return u.svg.isConnected; });
+    LIVE.push(ui);
+
+    BOARDS[b].ideas.forEach(function (i) {
+      var g = el('g', { 'class': 'cti-node', 'data-id': i.id, tabindex: '0', role: 'button',
+        'aria-label': label(b, i.id) + '. Arrow keys move it.' }, true);
+      g.appendChild(el('polygon', { 'class': 'cti-hex' }, true));
+      var t = el('text', {}, true);
+      i.lines.forEach(function (ln) {
+        var ts = el('tspan', { x: '0' }, true);
+        ts.textContent = ln;
+        t.appendChild(ts);
+      });
+      g.appendChild(t);
+      wireNode(ui, g, i.id);
+      nodeLayer.appendChild(g);
+      ui.nodes[i.id] = g;
+    });
+
+    resetBtn.addEventListener('click', function () {
+      st.pos = null; save(key(b, 'pos'), null);
+      layout(ui, true);
+      say(ui, MSG.reset);
+    });
+
+    // Laying out changes the board's height, so do it on the next frame; running it inside
+    // the observer callback makes the browser report a ResizeObserver loop, and this page
+    // shows every reported error in a red bar.
+    if (window.ResizeObserver) new ResizeObserver(function () {
+      if (ui.raf) return;
+      ui.raf = requestAnimationFrame(function () { ui.raf = 0; layout(ui); });
+    }).observe(svg);
+    layout(ui);
+  }
+
+  function say(ui, msg) { ui.status.textContent = msg; }
+
+  // ---- Layout. The board is drawn in real pixels (viewBox = rendered size), so the
+  // labels stay at 0.75rem (12px at normal size) and follow the page's A/A/A font buttons. Wide boards use
+  // the 4 x 3 starting grid; narrow ones (phones) stack the ideas as a honeycomb. ----
+  function layout(ui, force) {
+    var W = Math.round(ui.svg.getBoundingClientRect().width);
+    if (!W) return;                       // section hidden: lay out when it shows
+    var fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    if (!force && W === ui.W && fs === ui.fs) return;
+    ui.fs = fs;
+
+    // Radius: every label line must fit inside the hexagon at its height (a flat-topped
+    // hexagon narrows toward the top and bottom), and never smaller than the prototype's.
+    var lineH = fs * 0.75 * 1.2;
+    var r = fs * 2.9;
+    for (var id in ui.nodes) {
+      var spans = ui.nodes[id].querySelectorAll('tspan');
+      for (var s = 0; s < spans.length; s++) {
+        var len = 0;
+        try { len = spans[s].getComputedTextLength(); } catch (e) {}
+        var dy = Math.abs(s - (spans.length - 1) / 2) * lineH;
+        r = Math.max(r, len / 2 + dy / SQ3 + fs * 0.35);
+      }
+    }
+    var hexH = SQ3 * r, gap = fs * 0.6, pad = 6;
+    var ideas = BOARDS[ui.b].ideas;
+    var slots = [], H;
+    // Starting spots: more open spots than ideas (12 for 8), and the ideas are dealt into
+    // them at random, so related ideas do not start side by side and the board has room.
+    var nSlots = ideas.length + Math.ceil(ideas.length / 2);
+
+    // Positions are saved per layout ("wide", or a honeycomb with N columns), so a phone
+    // arrangement and a laptop arrangement never squash into each other.
+    var wide = W * 160 / 680 >= 2 * r + gap && W >= 300, mode = 'wide';
+    if (wide) {
+      // The spec's 4 x 3 grid on a 680 x 380 board, tall enough that rows never touch.
+      H = Math.round(Math.max(W * 380 / 680, (hexH + gap) * 380 / 115));
+      var gr = Math.ceil(nSlots / 4);
+      for (var gi = 0; gi < gr * 4; gi++) {
+        slots.push({ x: [100, 260, 420, 580][gi % 4] * W / 680,
+                     y: (85 + Math.floor(gi / 4) * 230 / Math.max(1, gr - 1)) * H / 380,
+                     jx: Math.max(0, W * 160 / 680 - 2 * r - gap) / 2,   // jitter only into free space
+                     jy: Math.max(0, H * 115 / 380 - hexH - gap) / 2 });
+      }
+    } else {
+      // Honeycomb: neighbouring columns interlock, so a tighter gap still never touches.
+      gap = fs * 0.35; pad = 4;
+      // Rows get more room than columns: a phone is short on width, not on height.
+      var colStep = 1.5 * r + gap, rowStep = hexH + fs, cols = 4;
+      while (cols > 2 && 2 * r + (cols - 1) * colStep + 2 * pad > W) cols--;
+      // Then spread the columns over all the width there is, up to a full line of text apart.
+      gap = Math.max(gap, Math.min(fs * 1.2, (W - 2 * pad - 2 * r) / (cols - 1) - 1.5 * r));
+      colStep = 1.5 * r + gap;
+      mode = 'comb' + cols;
+      var rows = Math.ceil(nSlots / cols);
+      var x0 = (W - (2 * r + (cols - 1) * colStep)) / 2 + r;
+      H = Math.round(2 * pad + hexH + (rows - 1) * rowStep + rowStep / 2);
+      for (var si = 0; si < rows * cols; si++) {
+        var c = si % cols, row = Math.floor(si / cols);
+        slots.push({ x: x0 + c * colStep, y: pad + hexH / 2 + row * rowStep + (c % 2 ? rowStep / 2 : 0),
+                     jx: 0, jy: fs / 4 });   // no sideways jitter: diagonal neighbours keep their gap
+      }
+    }
+
+    ui.W = W; ui.H = H; ui.r = r; ui.mode = mode;
+    var savedSet = ui.st.pos && ui.st.pos[mode];
+    var fresh = !savedSet || ideas.some(function (i) { return !savedSet[i.id]; });
+    if (fresh) {
+      for (var q = slots.length - 1; q > 0; q--) {           // shuffle the spots
+        var z = Math.floor(Math.random() * (q + 1)), tmp = slots[q]; slots[q] = slots[z]; slots[z] = tmp;
+      }
+    }
+    ui.svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    ui.svg.setAttribute('height', H);
+    var pts = hexPoints(r);
+    ideas.forEach(function (i, n) {
+      var g = ui.nodes[i.id];
+      g.querySelector('.cti-hex').setAttribute('points', pts);
+      var sp = g.querySelectorAll('tspan');
+      for (var k = 0; k < sp.length; k++) sp[k].setAttribute('y', ((k - (sp.length - 1) / 2) * lineH).toFixed(1));
+      var p;
+      if (fresh) {
+        var sl = slots[n];
+        p = { x: sl.x + (Math.random() * 2 - 1) * sl.jx, y: sl.y + (Math.random() * 2 - 1) * sl.jy };
+      } else {
+        p = { x: savedSet[i.id].fx * W, y: savedSet[i.id].fy * H };
+      }
+      ui.cur[i.id] = clamp(ui, p.x, p.y);
+      place(ui, i.id);
+    });
+    if (fresh) savePos(ui);    // keep this deal, so a refresh does not reshuffle the board
+  }
+
+  function clamp(ui, x, y) {
+    var hw = ui.r + 2, hh = SQ3 * ui.r / 2 + 2;
+    return { x: Math.min(ui.W - hw, Math.max(hw, x)), y: Math.min(ui.H - hh, Math.max(hh, y)) };
+  }
+  function place(ui, id) {
+    var p = ui.cur[id];
+    ui.nodes[id].setAttribute('transform', 'translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')');
+  }
+  function savePos(ui) {
+    var pos = {};
+    for (var id in ui.cur) pos[id] = { fx: +(ui.cur[id].x / ui.W).toFixed(4), fy: +(ui.cur[id].y / ui.H).toFixed(4) };
+    ui.st.pos = ui.st.pos || {};
+    ui.st.pos[ui.mode] = pos;
+    save(key(ui.b, 'pos'), ui.st.pos);
+  }
+
+  // ---- Input. Mouse and pen use pointer events; touch uses touch events, because
+  // iOS does not reliably deliver pointer events here (see the iOS tap shim note). ----
+  function wireNode(ui, g, id) {
+    var drag = null;
+
+    function begin(x, y) {
+      var p = ui.cur[id];
+      drag = { sx: x, sy: y, ox: p.x, oy: p.y, moved: false };
+    }
+    function move(x, y) {
+      if (!drag) return;
+      var dx = x - drag.sx, dy = y - drag.sy;
+      if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 4) return;
+      if (!drag.moved) g.parentNode.appendChild(g);   // the idea being dragged sits on top
+      drag.moved = true;
+      ui.cur[id] = clamp(ui, drag.ox + dx, drag.oy + dy);
+      place(ui, id);
+    }
+    function end() {
+      var d = drag; drag = null;
+      if (d && d.moved) { savePos(ui); say(ui, MSG.moved); }
+    }
+
+    g.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch' || (e.button && e.button !== 0)) return;
+      e.preventDefault();
+      begin(e.clientX, e.clientY);
+      var onMove = function (ev) { move(ev.clientX, ev.clientY); };
+      var onUp = function () {
+        window.removeEventListener('pointermove', onMove, true);
+        window.removeEventListener('pointerup', onUp, true);
+        window.removeEventListener('pointercancel', onUp, true);
+        end();
+      };
+      window.addEventListener('pointermove', onMove, true);
+      window.addEventListener('pointerup', onUp, true);
+      window.addEventListener('pointercancel', onUp, true);
+    });
+
+    g.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) return;
+      e.preventDefault();                // keeps the page still while an idea is dragged
+      var t = e.touches[0];
+      begin(t.clientX, t.clientY);
+      var onMove = function (ev) {
+        var tt = ev.touches[0];
+        if (tt) move(tt.clientX, tt.clientY);
+        if (ev.cancelable) ev.preventDefault();
+      };
+      var onEnd = function () {
+        window.removeEventListener('touchmove', onMove, { capture: true, passive: false });
+        window.removeEventListener('touchend', onEnd, true);
+        window.removeEventListener('touchcancel', onEnd, true);
+        end();
+      };
+      window.addEventListener('touchmove', onMove, { capture: true, passive: false });
+      window.addEventListener('touchend', onEnd, true);
+      window.addEventListener('touchcancel', onEnd, true);
+    }, { passive: false });
+
+    g.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 40 : 12;
+      var dx = { ArrowLeft: -step, ArrowRight: step }[e.key] || 0;
+      var dy = { ArrowUp: -step, ArrowDown: step }[e.key] || 0;
+      if (!dx && !dy) return;
+      e.preventDefault();
+      if (g.nextSibling) { g.parentNode.appendChild(g); g.focus(); }   // on top, keep focus
+      var p = ui.cur[id];
+      ui.cur[id] = clamp(ui, p.x + dx, p.y + dy);
+      place(ui, id);
+      savePos(ui);
+      say(ui, MSG.moved);
+    });
+  }
+
+  // ---- Find mounts as the runtime renders scenes; re-lay out when the font changes. ----
+  function scan() {
+    if (!UI) return;
+    var ms = document.querySelectorAll('.cti-mount[data-board]');
+    for (var i = 0; i < ms.length; i++) if (!UI.has(ms[i])) build(ms[i]);
+  }
+  function relayoutAll(force) {
+    LIVE.forEach(function (u) { if (u.svg.isConnected) layout(u, force); });
+  }
+  new MutationObserver(function (recs) {
+    scan();
+    for (var i = 0; i < recs.length; i++) {
+      if (recs[i].type === 'attributes' && recs[i].target === document.documentElement) { relayoutAll(); break; }
+    }
+  }).observe(document, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'data-sec'] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { relayoutAll(true); });
+})();
+</script>
 <style id="dm-style">
 /* Section menu (Option A), 2026-09-29. One section of a scene shows at a time;
    the menu picks which. Laptop: sticky list on the left. Phone: bar along the bottom. */
@@ -388,6 +796,7 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       <button type="button" class="dm-item" data-dm-go="disc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"/></svg><span class="dm-long">Discussion questions</span><span class="dm-short">Discuss</span></button>
       <button type="button" class="dm-item" data-dm-go="myth"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8v.6M12 17h.01"/></svg><span class="dm-long">Myth or fact?</span><span class="dm-short">Myth</span></button>
       <button type="button" class="dm-item" data-dm-go="eoc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M12 7h8M12 14h8M4 19h16"/></svg><span class="dm-long">EOC question</span><span class="dm-short">EOC</span></button>
+      <button type="button" class="dm-item" data-dm-go="ideas"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.4 6.4l7.2 1.2M16.4 10l-4.8 5.9M6.8 8.4l2.4 7.2"/></svg><span class="dm-long">Connect the ideas</span><span class="dm-short">Ideas</span></button>
       <button type="button" class="dm-item" data-dm-go="cart"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg><span class="dm-long">Political cartoon</span><span class="dm-short">Cartoon</span></button>
     </nav>
     <div class="dm-body">
@@ -423,6 +832,13 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
         <strong>Why the other answers are historically incorrect:</strong><br>
         <strong>A:</strong> The U.S. did not invade the Soviet Union. Containment was a strategy to limit expansion without direct military conflict.<br><br><strong>C:</strong> These policies did not aim to bring the Soviets into a unified government; they aimed to contain Soviet power.<br><br><strong>D:</strong> The Marshall Plan was designed to aid Western Europe and prevent Soviet expansion there, not to help the Soviet Union.<br><br>
       </div>
+    </div>
+
+    <div data-sec="ideas" class="block">
+      <div class="eyebrow">Connect the ideas</div>
+      <h3>How did the U.S. try to stop Soviet expansion without fighting the Soviets?</h3>
+      <p class="how">Drag the ideas into any arrangement that makes sense to you. Put ideas that connect next to each other, and be ready to explain out loud why they belong together.</p>
+      <div class="cti-mount" data-board="p1"></div>
     </div>
 
     <div data-sec="cart" class="surface-block">
@@ -509,10 +925,14 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       </div>
       <div class="dm-step" data-when="eoc">
         <button type="button" class="dm-prev" data-dm-go="myth">&larr; Myth or fact?</button>
+        <button type="button" class="dm-next" data-dm-go="ideas">Next: Connect the ideas &rarr;</button>
+      </div>
+      <div class="dm-step" data-when="ideas">
+        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
         <button type="button" class="dm-next" data-dm-go="cart">Next: Political cartoon &rarr;</button>
       </div>
       <div class="dm-step" data-when="cart">
-        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
+        <button type="button" class="dm-prev" data-dm-go="ideas">&larr; Connect the ideas</button>
         <button type="button" class="dm-next" data-go="crises" data-dm-go="act">Next scene: Crises, Korea &amp; Vietnam &rarr;</button>
       </div>
     </div>
@@ -535,6 +955,7 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       <button type="button" class="dm-item" data-dm-go="disc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"/></svg><span class="dm-long">Discussion questions</span><span class="dm-short">Discuss</span></button>
       <button type="button" class="dm-item" data-dm-go="myth"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8v.6M12 17h.01"/></svg><span class="dm-long">Myth or fact?</span><span class="dm-short">Myth</span></button>
       <button type="button" class="dm-item" data-dm-go="eoc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M12 7h8M12 14h8M4 19h16"/></svg><span class="dm-long">EOC question</span><span class="dm-short">EOC</span></button>
+      <button type="button" class="dm-item" data-dm-go="ideas"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.4 6.4l7.2 1.2M16.4 10l-4.8 5.9M6.8 8.4l2.4 7.2"/></svg><span class="dm-long">Connect the ideas</span><span class="dm-short">Ideas</span></button>
       <button type="button" class="dm-item" data-dm-go="cart"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg><span class="dm-long">Political cartoon</span><span class="dm-short">Cartoon</span></button>
     </nav>
     <div class="dm-body">
@@ -585,6 +1006,13 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
         <strong>Why the other answers are historically incorrect:</strong><br>
         <strong>A:</strong> Economic interests played a role, but the primary motivation was anti-communism and the containment strategy.<br><br><strong>C:</strong> These wars were directly related to Cold War competition; they were proxy conflicts between the superpowers.<br><br><strong>D:</strong> The Soviet Union did not order America to fight; these were U.S. policy decisions based on containing communism.<br><br>
       </div>
+    </div>
+
+    <div data-sec="ideas" class="block">
+      <div class="eyebrow">Connect the ideas</div>
+      <h3>How close did containment bring the world to nuclear war?</h3>
+      <p class="how">Drag the ideas into any arrangement that makes sense to you. Put ideas that connect next to each other, and be ready to explain out loud why they belong together.</p>
+      <div class="cti-mount" data-board="p2"></div>
     </div>
 
     <div data-sec="cart" class="surface-block">
@@ -671,10 +1099,14 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       </div>
       <div class="dm-step" data-when="eoc">
         <button type="button" class="dm-prev" data-dm-go="myth">&larr; Myth or fact?</button>
+        <button type="button" class="dm-next" data-dm-go="ideas">Next: Connect the ideas &rarr;</button>
+      </div>
+      <div class="dm-step" data-when="ideas">
+        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
         <button type="button" class="dm-next" data-dm-go="cart">Next: Political cartoon &rarr;</button>
       </div>
       <div class="dm-step" data-when="cart">
-        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
+        <button type="button" class="dm-prev" data-dm-go="ideas">&larr; Connect the ideas</button>
         <button type="button" class="dm-next" data-go="redscare" data-dm-go="act">Next scene: The Red Scare &amp; Life at Home &rarr;</button>
       </div>
     </div>
@@ -698,6 +1130,7 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       <button type="button" class="dm-item" data-dm-go="disc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"/></svg><span class="dm-long">Discussion questions</span><span class="dm-short">Discuss</span></button>
       <button type="button" class="dm-item" data-dm-go="myth"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8v.6M12 17h.01"/></svg><span class="dm-long">Myth or fact?</span><span class="dm-short">Myth</span></button>
       <button type="button" class="dm-item" data-dm-go="eoc"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M12 7h8M12 14h8M4 19h16"/></svg><span class="dm-long">EOC question</span><span class="dm-short">EOC</span></button>
+      <button type="button" class="dm-item" data-dm-go="ideas"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.4 6.4l7.2 1.2M16.4 10l-4.8 5.9M6.8 8.4l2.4 7.2"/></svg><span class="dm-long">Connect the ideas</span><span class="dm-short">Ideas</span></button>
       <button type="button" class="dm-item" data-dm-go="cart"><svg class="dm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg><span class="dm-long">Political cartoon</span><span class="dm-short">Cartoon</span></button>
     </nav>
     <div class="dm-body">
@@ -745,6 +1178,13 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
         <strong>Why the other answers are historically incorrect:</strong><br>
         <strong>B:</strong> The Soviet Union did not withdraw from Eastern Europe during McCarthyism; this refers to Cold War diplomacy, not the domestic Red Scare.<br><br><strong>C:</strong> Schools continued teaching civics and history; some added anti-communist content, but education was not eliminated.<br><br><strong>D:</strong> There was no such law requiring mandatory reporting to the FBI. Citizens were encouraged to inform, but it was not a legal requirement.<br><br>
       </div>
+    </div>
+
+    <div data-sec="ideas" class="block">
+      <div class="eyebrow">Connect the ideas</div>
+      <h3>When was the fear real, and when did it go too far?</h3>
+      <p class="how">Drag the ideas into any arrangement that makes sense to you. Put ideas that connect next to each other, and be ready to explain out loud why they belong together.</p>
+      <div class="cti-mount" data-board="p3"></div>
     </div>
 
     <div data-sec="cart" class="surface-block">
@@ -835,10 +1275,14 @@ html[data-sec="eoc"] .dm-step[data-when="eoc"], html[data-sec="cart"] .dm-step[d
       </div>
       <div class="dm-step" data-when="eoc">
         <button type="button" class="dm-prev" data-dm-go="myth">&larr; Myth or fact?</button>
+        <button type="button" class="dm-next" data-dm-go="ideas">Next: Connect the ideas &rarr;</button>
+      </div>
+      <div class="dm-step" data-when="ideas">
+        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
         <button type="button" class="dm-next" data-dm-go="cart">Next: Political cartoon &rarr;</button>
       </div>
       <div class="dm-step" data-when="cart">
-        <button type="button" class="dm-prev" data-dm-go="eoc">&larr; EOC question</button>
+        <button type="button" class="dm-prev" data-dm-go="ideas">&larr; Connect the ideas</button>
         <button type="button" class="back dm-next" data-dm-go="act">Back to all three topics &rarr;</button>
       </div>
     </div>
