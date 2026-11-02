@@ -113,9 +113,37 @@ tr.you td:first-child::before { content: "You \2192  "; color: var(--sky-deep); 
 .week .due { font-weight: 700; }
 .week .range { color: var(--muted); font-size: .9rem; width: 100%; }
 .week ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.week li { display: grid; grid-template-columns: 3.4em 1fr; gap: 10px; align-items: baseline; }
+.week li label {
+  display: grid; grid-template-columns: 26px 3.4em 1fr; gap: 10px; align-items: baseline;
+  cursor: pointer; padding: 4px 0;
+}
+.week li input { width: 22px; height: 22px; margin: 0; align-self: center; accent-color: var(--sky-deep); }
 .week li .code { font-family: var(--display); font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
 .week li .name { min-width: 0; }
+.week li.done .name, .week li.done .code { text-decoration: line-through; color: var(--muted); }
+.week.complete { border-color: var(--sky); }
+.week .badge { font-family: var(--display); font-size: .8rem; font-weight: 600; color: var(--sky-deep); text-transform: uppercase; letter-spacing: .06em; }
+.week .gcal { font-size: .88rem; color: var(--sky-deep); justify-self: start; }
+
+.keep {
+  background: var(--paper); border: 2px solid var(--frost); border-radius: 14px;
+  padding: 18px 20px; display: grid; gap: 12px;
+}
+.keep h2 { margin: 0; font-size: 1rem; color: var(--sky-deep); font-weight: 600; }
+.keep p { margin: 0; }
+.progress { font-weight: 700; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  font: inherit; font-weight: 700; font-size: 1rem; padding: 12px 18px; border-radius: 10px; cursor: pointer;
+  border: 2px solid var(--sky-deep); background: var(--sky-deep); color: var(--paper);
+}
+.btn.ghost { background: transparent; color: var(--sky-deep); }
+.btn:focus-visible, .gcal:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.copybox { width: 100%; min-height: 12em; font: .9rem/1.45 var(--body); padding: 10px; border-radius: 10px;
+  border: 2px solid var(--line); background: var(--paper); color: var(--ink); }
+.keep details { color: var(--muted); font-size: .92rem; }
+.keep summary { cursor: pointer; color: var(--sky-deep); font-weight: 700; }
+.keep details ul { margin: 8px 0 0; padding-left: 1.2em; display: grid; gap: 4px; }
 .tag {
   display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   border: 1.5px solid currentColor; border-radius: 999px; padding: 0 8px; margin-left: 6px; vertical-align: 2px;
@@ -176,9 +204,29 @@ tr.you td:first-child::before { content: "You \2192  "; color: var(--sky-deep); 
 
   <p class="start" id="start"></p>
 
+  <section class="keep" id="keep" aria-label="Keep your plan">
+    <h2>Keep your plan</h2>
+    <p class="progress" id="progress" aria-live="polite"></p>
+    <p>Tick off each assignment as you finish it. Your ticks stay on this phone or computer.</p>
+    <div class="buttons">
+      <button type="button" class="btn" id="copy">Copy my plan</button>
+      <button type="button" class="btn ghost" id="ics">Add to my calendar</button>
+    </div>
+    <textarea class="copybox" id="copybox" readonly hidden aria-label="Your plan as text"></textarea>
+    <details>
+      <summary>How to add it to your calendar</summary>
+      <ul>
+        <li><b>iPhone or iPad:</b> tap Add to my calendar, allow the download, then tap Add All.</li>
+        <li><b>Android:</b> tap Add to my calendar, then open the downloaded file in your calendar app.</li>
+        <li><b>Chromebook or Google Calendar:</b> use the "Add to Google Calendar" link under each week.</li>
+      </ul>
+      <p>Each week goes on your calendar on its due date, with a reminder the morning before.</p>
+    </details>
+  </section>
+
   <section class="weeks" id="weeks" aria-label="Your weekly plan"></section>
 
-  <p class="note">DBAs are a call with your teacher, so book those early in their week. Need a different plan? Talk to your teacher.</p>
+  <p class="note">DBAs are a call with your teacher, so book those early in their week. Fell behind? Pick the assignment you're on now and you'll get a new plan. Need help? Talk to your teacher.</p>
 
   <div class="cheer" aria-hidden="true">
     <svg viewBox="0 0 150 190" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -231,8 +279,7 @@ const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&
 // Spread the work over whole weeks from the start day to Dec 16 (the last
 // week stretches to Dec 16). Pace is at least 2 a week, and the weeks fill
 // front to back, so any spare week lands at the end as a cushion.
-function buildPlan(left, today) {
-  const start = today < PLAN_START ? PLAN_START : today;
+function buildPlan(left, start) {
   const span = daysBetween(start, DEADLINE);
   if (span < 0) return null;
   const weeks = Math.max(1, Math.ceil(span / 7));
@@ -272,26 +319,44 @@ function fillPicker() {
   }
 }
 
+// Saved on this device only: the pick, the day the plan started, and the
+// ticked-off codes. The start day is kept so the weeks don't shift each
+// time the page is opened; a new pick starts a new plan from today.
+const todayDate = () => { const t = new Date(); t.setHours(0, 0, 0, 0); return t; };
+const isoDay = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const fromIso = s => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ""); return m ? new Date(+m[1], m[2] - 1, +m[3]) : null; };
+let planStart = null;
+let done = new Set();
+let plan = null;
+
+function freshStart() { const t = todayDate(); return t < PLAN_START ? PLAN_START : t; }
+function save() {
+  try {
+    localStorage.setItem("s1plan", JSON.stringify({ code: $("current").value, honors: $("honors").checked, start: isoDay(planStart) }));
+    localStorage.setItem("s1done", JSON.stringify([...done]));
+  } catch (e) {}
+}
+
 function render() {
   const honors = $("honors").checked;
   const code = $("current").value;
-  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const today = todayDate();
   const left = LESSONS.filter(l => l.code >= code && (honors || l.kind !== "hon"));
-  const plan = buildPlan(left, today);
+  plan = buildPlan(left, planStart);
 
   if (!plan) {
     $("summary").innerHTML = `<div class="alert">The Dec. 16 date has passed. Talk to your teacher about a new plan.</div>`;
-    $("pace").hidden = true; $("start").textContent = ""; $("weeks").innerHTML = "";
+    $("pace").hidden = true; $("keep").hidden = true; $("start").textContent = ""; $("weeks").innerHTML = "";
     return;
   }
-  $("pace").hidden = false;
+  $("pace").hidden = false; $("keep").hidden = false;
 
   const n = left.length;
   const asap = n <= 6;
   const lastBusy = plan.rows.filter(r => r.items.length).pop();
   $("summary").innerHTML = `
     <div class="count">${n} assignment${n === 1 ? "" : "s"} left</div>
-    <p>${asap ? "Complete them as soon as you can!" : `That's <b>${plan.perWeek} assignments per week</b> for the next ${plan.weeks} weeks.`}
+    <p>${asap ? "Complete them as soon as you can!" : `That's <b>${plan.perWeek} assignments per week</b> for ${plan.weeks} weeks.`}
        ${lastBusy ? `On this plan you finish by <b>${fmt(lastBusy.due)}</b>.` : ""}</p>`;
 
   const tiers = [];
@@ -304,29 +369,114 @@ function render() {
     return `<tr class="${you ? "you" : ""}"><td>${lo}–${hi}</td><td>${text}</td></tr>`;
   }).join("");
 
-  const isToday = plan.start.getTime() === today.getTime();
-  $("start").textContent = `This plan starts ${isToday ? "today" : fmt(plan.start)} (${fmtShort(plan.start)})`;
+  const s = plan.start.getTime(), t = today.getTime();
+  $("start").textContent = s === t ? `This plan starts today (${fmtShort(plan.start)})`
+    : `This plan ${s > t ? "starts" : "started"} ${fmt(plan.start)} (${fmtShort(plan.start)})`;
 
   $("weeks").innerHTML = plan.rows.map((r, i) => {
     const head = `<header><h2>Week ${i + 1}</h2><span class="due">Done by ${fmt(r.due)}</span>
-      <span class="range">${fmt(r.from)} – ${fmt(r.due)}</span></header>`;
+      <span class="range">${fmt(r.from)} – ${fmt(r.due)}<span class="badge" hidden> · All done</span></span></header>`;
     if (!r.items.length) {
       return `<article class="week free">${head}<p>Nothing new due. Use this week to catch up, fix any resubmits, or start reviewing for the EOC.</p></article>`;
     }
-    const items = r.items.map(l => `<li><span class="code">${l.code}</span><span class="name">${esc(l.name)}${l.kind ? `<span class="tag ${l.kind}">${TAGS[l.kind]}</span>` : ""}</span></li>`).join("");
-    return `<article class="week">${head}<ul>${items}</ul></article>`;
+    const items = r.items.map(l => `<li data-code="${l.code}"><label><input type="checkbox" id="done-${l.code}" data-code="${l.code}"${done.has(l.code) ? " checked" : ""}>` +
+      `<span class="code">${l.code}</span><span class="name">${esc(l.name)}${l.kind ? `<span class="tag ${l.kind}">${TAGS[l.kind]}</span>` : ""}</span></label></li>`).join("");
+    return `<article class="week" data-week="${i}">${head}<ul>${items}</ul>
+      <a class="gcal" href="${googleLink(r, i)}" target="_blank" rel="noopener">Add to Google Calendar</a></article>`;
   }).join("");
 
-  try { localStorage.setItem("s1plan", JSON.stringify({ code, honors })); } catch (e) {}
+  $("copybox").hidden = true;
+  markDone();
+  save();
 }
+
+// Tick state shows in place, without redrawing, so focus stays on the box.
+function markDone() {
+  let count = 0, total = 0;
+  document.querySelectorAll(".week[data-week]").forEach(w => {
+    const boxes = [...w.querySelectorAll("input[data-code]")];
+    boxes.forEach(b => b.closest("li").classList.toggle("done", b.checked));
+    const all = boxes.every(b => b.checked);
+    w.classList.toggle("complete", all);
+    w.querySelector(".badge").hidden = !all;
+    total += boxes.length; count += boxes.filter(b => b.checked).length;
+  });
+  $("progress").textContent = `${count} of ${total} done` + (total && count === total ? ". You did it!" : "");
+}
+
+function weekTitle(r, i) { return `US History: Week ${i + 1} due (${r.items.length} assignment${r.items.length === 1 ? "" : "s"})`; }
+function weekLines(r) { return r.items.map(l => `${l.code} ${l.name}${l.kind ? ` (${TAGS[l.kind]})` : ""}`); }
+
+function planText() {
+  const lines = [`My US History Segment 1 plan (finish by ${fmt(DEADLINE)})`, ""];
+  plan.rows.forEach((r, i) => {
+    lines.push(`Week ${i + 1}: done by ${fmt(r.due)}`);
+    if (!r.items.length) lines.push("  Catch-up / EOC review week");
+    r.items.forEach(l => lines.push(`${done.has(l.code) ? "☑" : "☐"} ${l.code} ${l.name}${l.kind ? ` (${TAGS[l.kind]})` : ""}`));
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+
+const ymd = d => isoDay(d).replace(/-/g, "");
+function googleLink(r, i) {
+  const q = new URLSearchParams({ action: "TEMPLATE", text: weekTitle(r, i),
+    dates: `${ymd(r.due)}/${ymd(addDays(r.due, 1))}`, details: "Finish by today:\n" + weekLines(r).join("\n") });
+  return "https://calendar.google.com/calendar/render?" + q.toString();
+}
+
+// One all-day event per week on its due date, with a 9 AM reminder the day before.
+function icsText() {
+  const escIcs = s => s.replace(/\\/g, "\\\\").replace(/;/g, "\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
+  const fold = line => { const out = []; while (line.length > 74) { out.push(line.slice(0, 74)); line = " " + line.slice(74); } out.push(line); return out.join("\r\n"); };
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//US History//Segment 1 Plan//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"];
+  plan.rows.forEach((r, i) => {
+    if (!r.items.length) return;
+    lines.push("BEGIN:VEVENT", `UID:s1-${ymd(plan.start)}-w${i + 1}@protomanpsu.github.io`, `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${ymd(r.due)}`, `DTEND;VALUE=DATE:${ymd(addDays(r.due, 1))}`,
+      `SUMMARY:${escIcs(weekTitle(r, i))}`, `DESCRIPTION:${escIcs("Finish by today:\n" + weekLines(r).join("\n"))}`,
+      "BEGIN:VALARM", "ACTION:DISPLAY", `DESCRIPTION:${escIcs(weekTitle(r, i))}`, "TRIGGER:-PT15H", "END:VALARM", "END:VEVENT");
+  });
+  lines.push("END:VCALENDAR");
+  return lines.map(fold).join("\r\n") + "\r\n";
+}
+
+$("copy").addEventListener("click", () => {
+  const text = planText();
+  const showBox = () => { const b = $("copybox"); b.value = text; b.hidden = false; b.focus(); b.select(); $("copy").textContent = "Select the text below and copy it"; };
+  const copied = () => { $("copy").textContent = "Copied! Paste it in Notes or a text"; setTimeout(() => { $("copy").textContent = "Copy my plan"; }, 3000); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(copied, showBox);
+  else showBox();
+});
+
+$("ics").addEventListener("click", () => {
+  const url = URL.createObjectURL(new Blob([icsText()], { type: "text/calendar;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = "us-history-segment1-plan.ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+});
+
+$("weeks").addEventListener("change", e => {
+  const code = e.target.dataset && e.target.dataset.code;
+  if (!code) return;
+  if (e.target.checked) done.add(code); else done.delete(code);
+  markDone(); save();
+});
 
 let saved = null;
 try { saved = JSON.parse(localStorage.getItem("s1plan") || "null"); } catch (e) {}
+try { done = new Set(JSON.parse(localStorage.getItem("s1done") || "[]")); } catch (e) {}
 if (saved) $("honors").checked = !!saved.honors;
 fillPicker();
-if (saved && [...$("current").options].some(o => o.value === saved.code)) $("current").value = saved.code;
-$("current").addEventListener("change", render);
-$("honors").addEventListener("change", () => { fillPicker(); render(); });
+if (saved && [...$("current").options].some(o => o.value === saved.code)) {
+  $("current").value = saved.code;
+  planStart = fromIso(saved.start);
+}
+if (!planStart) planStart = freshStart();
+$("current").addEventListener("change", () => { planStart = freshStart(); render(); });
+$("honors").addEventListener("change", () => { fillPicker(); planStart = freshStart(); render(); });
 render();
 </script>
 </body>
