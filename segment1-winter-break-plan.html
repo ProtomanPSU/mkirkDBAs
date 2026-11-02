@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Segment 1 Winter Break Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: one frosty poster column, like the flyer: big caps headline, picker, pace table, then week-by-week cards */
+:root {
+  --bg: #eef5fb;
+  --paper: #ffffff;
+  --ink: #1d3247;
+  --muted: #5a7189;
+  --sky: #5f9fd3;        /* headline blue from the flyer */
+  --sky-deep: #2f6fa6;
+  --frost: #c9def0;      /* snowflakes, borders */
+  --line: #3a4d61;
+  --hi: #e4f0fa;         /* highlighted table row */
+  --tag-dba: #7a4fb5;
+  --tag-exam: #b5541e;
+  --tag-hon: #2f7d5b;
+  --display: "Lexend", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1b28; --paper: #16263a; --ink: #e3eef8; --muted: #9db3c9;
+    --sky: #8cc3ee; --sky-deep: #a9d3f3; --frost: #2a4058; --line: #5b7590; --hi: #1f3650;
+    --tag-dba: #c2a3ee; --tag-exam: #f0a173; --tag-hon: #7fd1aa;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1b28; --paper: #16263a; --ink: #e3eef8; --muted: #9db3c9;
+  --sky: #8cc3ee; --sky-deep: #a9d3f3; --frost: #2a4058; --line: #5b7590; --hi: #1f3650;
+  --tag-dba: #c2a3ee; --tag-exam: #f0a173; --tag-hon: #7fd1aa;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.5;
+  overflow-x: hidden;
+}
+.page {
+  position: relative; max-width: 720px; margin: 0 auto;
+  padding-block: 32px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px;
+}
+.flakes { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.flakes svg { position: absolute; color: var(--frost); }
+.page > * { position: relative; z-index: 1; }
+
+h1, h2, .eyebrow, th, .start {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: .08em;
+}
+h1 {
+  margin: 0; color: var(--sky); font-weight: 600; text-align: center;
+  font-size: clamp(1.7rem, 6vw, 2.6rem); line-height: 1.2; text-wrap: balance;
+}
+.lede {
+  margin: 0; text-align: center; color: var(--sky-deep);
+  font-family: var(--display); text-transform: uppercase; letter-spacing: .06em;
+  font-size: clamp(.95rem, 3.2vw, 1.15rem); text-wrap: balance;
+}
+.lede b { font-weight: 700; }
+
+.picker {
+  background: var(--paper); border: 2px solid var(--frost); border-radius: 14px;
+  padding: 20px; display: grid; gap: 14px;
+}
+.picker label.big { font-weight: 700; font-size: 1.05rem; }
+select {
+  width: 100%; font: inherit; font-size: 1rem; padding: 12px; border-radius: 10px;
+  border: 2px solid var(--line); background: var(--paper); color: var(--ink);
+}
+select:focus-visible, input:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.check { display: flex; gap: 10px; align-items: center; font-size: 1rem; }
+.check input { width: 22px; height: 22px; accent-color: var(--sky-deep); }
+
+.summary { text-align: center; display: grid; gap: 6px; }
+.summary .count { font-family: var(--display); font-size: clamp(1.3rem, 5vw, 1.8rem); color: var(--sky-deep); font-weight: 600; }
+.summary p { margin: 0; color: var(--muted); }
+
+.table-wrap { overflow-x: auto; display: flex; justify-content: center; }
+table { border-collapse: collapse; background: var(--paper); font-variant-numeric: tabular-nums; }
+th, td { border: 1.5px solid var(--line); padding: 12px 18px; text-align: center; }
+th { font-size: .8rem; letter-spacing: .04em; font-weight: 600; }
+tr.you td { background: var(--hi); font-weight: 700; }
+tr.you td:first-child::before { content: "You \2192  "; color: var(--sky-deep); }
+
+.start { text-align: center; color: var(--sky); font-weight: 600; font-size: 1.15rem; margin: 0; }
+
+.weeks { display: grid; gap: 14px; }
+.week {
+  background: var(--paper); border: 1.5px solid var(--frost); border-radius: 12px;
+  padding: 16px 18px; display: grid; gap: 10px;
+}
+.week header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.week h2 { margin: 0; font-size: 1rem; color: var(--sky-deep); font-weight: 600; }
+.week .due { font-weight: 700; }
+.week .range { color: var(--muted); font-size: .9rem; width: 100%; }
+.week ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.week li { display: grid; grid-template-columns: 3.4em 1fr; gap: 10px; align-items: baseline; }
+.week li .code { font-family: var(--display); font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.week li .name { min-width: 0; }
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  border: 1.5px solid currentColor; border-radius: 999px; padding: 0 8px; margin-left: 6px; vertical-align: 2px;
+}
+.tag.dba { color: var(--tag-dba); }
+.tag.exam { color: var(--tag-exam); }
+.tag.hon { color: var(--tag-hon); }
+.week.free { border-style: dashed; }
+.week.free p { margin: 0; color: var(--muted); }
+.note { color: var(--muted); font-size: .9rem; text-align: center; margin: 0; }
+.alert { background: var(--hi); border-radius: 12px; padding: 16px; text-align: center; font-weight: 700; }
+
+.cheer { display: flex; justify-content: center; color: var(--ink); }
+.cheer svg { width: 150px; height: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .cheer svg .arms { transform-origin: 75px 88px; animation: wave 2.4s ease-in-out infinite; }
+  @keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+}
+</style>
+</head>
+<body>
+
+<div class="flakes" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="flake" viewBox="-50 -50 100 100">
+        <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
+          <g id="arm"><path d="M0 0V-46M0 -22L-11 -33M0 -22L11 -33M0 -34L-7 -42M0 -34L7 -42"/></g>
+          <use href="#arm" transform="rotate(60)"/><use href="#arm" transform="rotate(120)"/>
+          <use href="#arm" transform="rotate(180)"/><use href="#arm" transform="rotate(240)"/><use href="#arm" transform="rotate(300)"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+  <svg style="left:-60px;top:-40px;width:260px;height:260px"><use href="#flake"/></svg>
+  <svg style="right:-70px;top:60px;width:300px;height:300px"><use href="#flake"/></svg>
+  <svg style="left:-40px;top:55%;width:220px;height:220px"><use href="#flake"/></svg>
+  <svg style="right:-30px;bottom:-50px;width:240px;height:240px"><use href="#flake"/></svg>
+  <svg style="left:40%;top:30%;width:120px;height:120px;opacity:.6"><use href="#flake"/></svg>
+</div>
+
+<main class="page">
+  <h1>Can you finish this segment by winter break?</h1>
+  <p class="lede">It may sound far now, but let's get a plan set! To take your EOC on time in the spring, finish Segment 1 before <b>Dec. 16th</b>.</p>
+
+  <section class="picker" aria-label="Your spot in the course">
+    <label class="big" for="current">Which assignment are you working on right now?</label>
+    <select id="current"></select>
+    <label class="check" for="honors"><input type="checkbox" id="honors"> I'm in the Honors course (include the Honors assignments)</label>
+  </section>
+
+  <section class="summary" id="summary" aria-live="polite"></section>
+
+  <div class="table-wrap"><table id="pace" aria-label="Pace by assignments left">
+    <thead><tr><th scope="col">Number of<br>assignments left</th><th scope="col">Number of assignments<br>to complete per week</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+
+  <p class="start" id="start"></p>
+
+  <section class="weeks" id="weeks" aria-label="Your weekly plan"></section>
+
+  <p class="note">DBAs are a call with your teacher, so book those early in their week. Need a different plan? Talk to your teacher.</p>
+
+  <div class="cheer" aria-hidden="true">
+    <svg viewBox="0 0 150 190" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <g class="arms">
+        <rect x="18" y="8" width="114" height="30" rx="2" fill="var(--paper)"/>
+        <text x="75" y="29" text-anchor="middle" fill="currentColor" stroke="none" font-family="Lexend, sans-serif" font-size="14" font-weight="600" letter-spacing="1">YOU CAN DO IT</text>
+        <path d="M30 38 L52 88 M120 38 L98 88"/>
+      </g>
+      <circle cx="75" cy="66" r="18" fill="var(--paper)"/>
+      <circle cx="69" cy="62" r="1.6" fill="currentColor"/><circle cx="81" cy="62" r="1.6" fill="currentColor"/>
+      <path d="M68 71 Q75 77 82 71"/>
+      <path d="M75 84 V140 M52 88 L75 98 L98 88 M75 140 L58 184 M75 140 L92 184"/>
+    </svg>
+  </div>
+</main>
+
+<script>
+// Segment 1 lessons, from the FLVS USH v25 answer key lesson lists (Modules 01-04).
+const LESSONS = [
+  ["01.01", "A Great Divide"], ["01.02", "Civil War"], ["01.03", "Rebuilding the Government"], ["01.04", "A New South"],
+  ["01.05", "Face of Freedom"], ["01.06", "Westward Expansion"], ["01.07", "Civil War and Reconstruction Honors", "hon"],
+  ["01.08", "Reconstruction and Civil War Discussion-Based Assessment", "dba"], ["01.09", "Reconstruction and Civil War Exam", "exam"],
+  ["02.01", "Industrialization Changes America"], ["02.02", "Innovation Nation"], ["02.03", "Populism"], ["02.04", "Coming to America"],
+  ["02.05", "Gilded Age Politics and Progressivism"], ["02.06", "Labor Movements"], ["02.07", "Social Change"],
+  ["02.08", "Industrial Revolution Honors", "hon"], ["02.09", "Industrial Revolution Discussion-Based Assessment", "dba"],
+  ["02.10", "Industrial Revolution Exam", "exam"],
+  ["03.01", "Isolationism, Intervention, and Imperialism"], ["03.02", "U.S. Territorial Expansion"], ["03.03", "The Great War"],
+  ["03.04", "Preparing for War"], ["03.05", "A New Kind of War"], ["03.06", "War at Home"], ["03.07", "Peace, Demobilization, and Next Steps"],
+  ["03.08", "Enter the World Stage Honors", "hon"], ["03.09", "Enter the World Stage Discussion-Based Assessment", "dba"],
+  ["03.10", "Enter the World Stage Exam", "exam"],
+  ["04.01", "Isolationism"], ["04.02", "The Roaring Twenties"], ["04.03", "Cultural Changes of the 1920s"], ["04.04", "Coming to America"],
+  ["04.05", "The Great Depression"], ["04.06", "The New Deal"], ["04.07", "Between the Wars Honors", "hon"],
+  ["04.08", "Between the Wars Discussion-Based Assessment", "dba"], ["04.10", "Segment One Exam", "exam"],
+].map(([code, name, kind]) => ({ code, name, kind }));
+
+const MODULES = { "01": "Module 1: Civil War and Reconstruction", "02": "Module 2: Industrial Revolution",
+                  "03": "Module 3: Enter the World Stage", "04": "Module 4: Between the Wars" };
+const PLAN_START = new Date(2026, 10, 4);   // Wed, Nov 4
+const DEADLINE = new Date(2026, 11, 16);    // Wed, Dec 16
+const TAGS = { dba: "DBA", exam: "Exam", hon: "Honors" };
+
+const $ = id => document.getElementById(id);
+const DAY = 86400000;
+const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const daysBetween = (a, b) => Math.round((b - a) / DAY);
+const fmt = d => d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+const fmtShort = d => `${d.getMonth() + 1}/${d.getDate()}`;
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// Spread the work over whole weeks from the start day to Dec 16 (the last
+// week stretches to Dec 16). Pace is at least 2 a week, and the weeks fill
+// front to back, so any spare week lands at the end as a cushion.
+function buildPlan(left, today) {
+  const start = today < PLAN_START ? PLAN_START : today;
+  const span = daysBetween(start, DEADLINE);
+  if (span < 0) return null;
+  const weeks = Math.max(1, Math.ceil(span / 7));
+  const perWeek = Math.max(2, Math.ceil(left.length / weeks));
+  const rows = [];
+  for (let w = 0; w < weeks; w++) {
+    const from = addDays(start, 7 * w);
+    const due = w === weeks - 1 ? DEADLINE : addDays(start, 7 * w + 6);
+    rows.push({ from, due, items: left.slice(w * perWeek, (w + 1) * perWeek) });
+  }
+  return { start, weeks, perWeek, rows };
+}
+
+function paceFor(n, weeks) { return Math.max(2, Math.ceil(n / weeks)); }
+
+function fillPicker() {
+  const sel = $("current");
+  const honors = $("honors").checked;
+  const keep = sel.value;
+  sel.innerHTML = "";
+  for (const [mod, label] of Object.entries(MODULES)) {
+    const group = document.createElement("optgroup");
+    group.label = label;
+    for (const l of LESSONS) {
+      if (!l.code.startsWith(mod) || (l.kind === "hon" && !honors)) continue;
+      const o = document.createElement("option");
+      o.value = l.code; o.textContent = `${l.code} ${l.name}`;
+      group.appendChild(o);
+    }
+    sel.appendChild(group);
+  }
+  if (keep && [...sel.options].some(o => o.value === keep)) sel.value = keep;
+  else if (keep) {
+    // An Honors lesson was picked and Honors got switched off: move to the next lesson.
+    const next = LESSONS.find(l => l.code > keep && l.kind !== "hon");
+    if (next) sel.value = next.code;
+  }
+}
+
+function render() {
+  const honors = $("honors").checked;
+  const code = $("current").value;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const left = LESSONS.filter(l => l.code >= code && (honors || l.kind !== "hon"));
+  const plan = buildPlan(left, today);
+
+  if (!plan) {
+    $("summary").innerHTML = `<div class="alert">The Dec. 16 date has passed. Talk to your teacher about a new plan.</div>`;
+    $("pace").hidden = true; $("start").textContent = ""; $("weeks").innerHTML = "";
+    return;
+  }
+  $("pace").hidden = false;
+
+  const n = left.length;
+  const asap = n <= 6;
+  const lastBusy = plan.rows.filter(r => r.items.length).pop();
+  $("summary").innerHTML = `
+    <div class="count">${n} assignment${n === 1 ? "" : "s"} left</div>
+    <p>${asap ? "Complete them as soon as you can!" : `That's <b>${plan.perWeek} assignments per week</b> for the next ${plan.weeks} weeks.`}
+       ${lastBusy ? `On this plan you finish by <b>${fmt(lastBusy.due)}</b>.` : ""}</p>`;
+
+  const tiers = [];
+  const max = LESSONS.filter(l => honors || l.kind !== "hon").length;
+  for (let lo = 1; lo <= max; lo += 6) tiers.push([lo, Math.min(lo + 5, max)]);
+  $("pace").tBodies[0].innerHTML = tiers.map(([lo, hi]) => {
+    const you = n >= lo && n <= hi;
+    const a = paceFor(lo, plan.weeks), b = paceFor(hi, plan.weeks);
+    const text = lo === 1 ? "Complete as soon as you can!" : `${a === b ? a : `${a}–${b}`} assignments per week`;
+    return `<tr class="${you ? "you" : ""}"><td>${lo}–${hi}</td><td>${text}</td></tr>`;
+  }).join("");
+
+  const isToday = plan.start.getTime() === today.getTime();
+  $("start").textContent = `This plan starts ${isToday ? "today" : fmt(plan.start)} (${fmtShort(plan.start)})`;
+
+  $("weeks").innerHTML = plan.rows.map((r, i) => {
+    const head = `<header><h2>Week ${i + 1}</h2><span class="due">Done by ${fmt(r.due)}</span>
+      <span class="range">${fmt(r.from)} – ${fmt(r.due)}</span></header>`;
+    if (!r.items.length) {
+      return `<article class="week free">${head}<p>Nothing new due. Use this week to catch up, fix any resubmits, or start reviewing for the EOC.</p></article>`;
+    }
+    const items = r.items.map(l => `<li><span class="code">${l.code}</span><span class="name">${esc(l.name)}${l.kind ? `<span class="tag ${l.kind}">${TAGS[l.kind]}</span>` : ""}</span></li>`).join("");
+    return `<article class="week">${head}<ul>${items}</ul></article>`;
+  }).join("");
+
+  try { localStorage.setItem("s1plan", JSON.stringify({ code, honors })); } catch (e) {}
+}
+
+let saved = null;
+try { saved = JSON.parse(localStorage.getItem("s1plan") || "null"); } catch (e) {}
+if (saved) $("honors").checked = !!saved.honors;
+fillPicker();
+if (saved && [...$("current").options].some(o => o.value === saved.code)) $("current").value = saved.code;
+$("current").addEventListener("change", render);
+$("honors").addEventListener("change", () => { fillPicker(); render(); });
+render();
+</script>
+</body>
+</html>
